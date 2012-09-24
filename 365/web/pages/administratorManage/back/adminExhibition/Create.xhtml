@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAdminExhibitionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAdminExhibitionLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{adminExhibitionController.selected.id}" title="#{bundle.CreateAdminExhibitionTitle_id}" required="true" requiredMessage="#{bundle.CreateAdminExhibitionRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateAdminExhibitionLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{adminExhibitionController.selected.name}" title="#{bundle.CreateAdminExhibitionTitle_name}" />
+                    <h:outputLabel value="#{bundle.CreateAdminExhibitionLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{adminExhibitionController.selected.description}" title="#{bundle.CreateAdminExhibitionTitle_description}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{adminExhibitionController.create}" value="#{bundle.CreateAdminExhibitionSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{adminExhibitionController.prepareList}" value="#{bundle.CreateAdminExhibitionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAdminExhibitionIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

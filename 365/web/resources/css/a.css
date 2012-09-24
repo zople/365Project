@@ -1,0 +1,16 @@
+/* 
+    Document   : a
+    Created on : Aug 19, 2012, 12:34:04 PM
+    Author     : wangwy
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+.red{
+    color:aqua;
+}
+

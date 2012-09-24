@@ -1,0 +1,38 @@
+/* 
+    Document   : left
+    Created on : 2012-9-5, 16:36:35
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+.left_menu1{
+    width: 190x;
+    height:140px;
+    border: 1px solid #b2d5d6;
+    margin-bottom: 4px;
+}
+.left_menu2{
+    width: 190x;
+    height:200px;
+    border: 1px solid #b2d5d6;
+    margin-bottom: 4px;
+}
+.left_menu3{
+    width: 190x;
+    height:200px;
+    border: 1px solid #b2d5d6;
+}
+.left_menu4{
+    width: 190x;
+    height:200px;
+    border: 1px solid #b2d5d6;
+}
+.left_menu5{
+    width: 190x;
+    height:700px;
+    border: 1px solid #b2d5d6;
+}

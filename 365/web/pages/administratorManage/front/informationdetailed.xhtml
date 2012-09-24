@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+        <div>
+            <ui:composition template="/pages/administratorManage/template/index.xhtml">
+                <ui:define name="content">
+                    <div class="body">
+                        <div>
+                            <h:outputText value="当前位置：行业资讯--行业动态"/> 
+                        </div>
+                        <div>
+                            <div class="inforLeft">
+                                <div class="inforLeft1">
+                                    <div class="inforLeft1Top">易得动态</div>
+                                    <div>
+                                        <h:dataTable value="#{enNewsController.newsList}" var="news">
+                                            <h:column>
+                                                <h:outputText value="#{news.name}"/>
+                                            </h:column>
+                                        </h:dataTable>
+                                    </div>
+                                </div>
+                                <div class="inforLeft1">
+                                    <div class="inforLeft1Top">分类搜索</div>
+                                    <div></div>
+                                </div>
+                                <div class="inforLeft1">
+                                    <div class="inforLeft1Top">热点资讯</div>
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="infoRitht">
+                                <div class="infoRithtTop">
+                                    <div><h:outputText value="#{adminMessageController.topMessage.name}"/></div>
+                                    <div>TODO 来自：365易得网     2012-9-30</div>
+                                    <br/>
+                                </div>
+                                <div class="infoRithtBottom">
+                                    <h:outputText value="#{adminMessageController.topMessage.description}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear: both;"></div>
+                </ui:define>
+            </ui:composition>
+        </div>
+    </body>
+</html>

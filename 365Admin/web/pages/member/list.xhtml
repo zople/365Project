@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListRoleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:form>
+                <div class="user">
+                    <div class="user_list_top">
+                        <div class="user_list_delete">
+                            <h:commandButton value="批量删除" />
+                        </div>
+                        <div class="user_list_title">会员列表</div>
+                    </div>
+                    <div class="user_list">
+                        <h:dataTable value="#{userController.users}" var="user" border="1">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:selectManyCheckbox layout="pageDirection">
+                                        <f:selectItem itemLabel="" itemValue="false"/>
+                                    </h:selectManyCheckbox>
+                                </f:facet>
+                                <h:selectManyCheckbox layout="pageDirection">
+                                    <f:selectItem itemLabel="" itemValue="false"/>
+                                </h:selectManyCheckbox>
+
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="会员ID"/>
+                                </f:facet>
+                                <h:outputText value="#{user.id}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="登录名"/>
+                                </f:facet>
+                                <h:outputText value="#{user.loginName}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="密码"/>
+                                </f:facet>
+                                <h:outputText value="#{user.password}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="创建时间"/>
+                                </f:facet>
+                                <h:outputText value="#{user.createTime}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="最后登录时间"/>
+                                </f:facet>
+                                <h:outputText value="#{user.lastLoginTime}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="用户类型"/>
+                                </f:facet>
+                                <h:outputText value="#{user.userType}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="&nbsp;操作"/>
+                                </f:facet>
+                                <h:column >
+                                    <h:commandLink action="#{userController.view()}" value="查看" >
+                                        <f:param value="#{user.id}" name="id"/>
+                                    </h:commandLink>/
+                                    <h:commandLink action="#{userController.delete()}" value="删除" >
+                                        <f:param value="#{user.id}" name="id"/>
+                                    </h:commandLink>
+                                </h:column>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+                    <div class="user_list_page">
+                        <h:link>首页</h:link>
+                        <h:link>上一页</h:link>
+                        <h:link>下一页</h:link>
+                        <h:link>末页</h:link>
+                        共 页
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

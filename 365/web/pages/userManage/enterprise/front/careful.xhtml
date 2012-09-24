@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition template="/pages/userManage/enterprise/template/front.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <ui:define name="content">
+            <div class="enFrontContent1">
+                <div class="entTop">
+                    <h:outputLabel value="企业介绍" style="float: left;"/>
+                    <h:link  outcome="/pages/userManage/enterprise/front/companyLink.xhtml" value="详细介绍" style="float: right"/>
+                </div>
+                <div style="padding: 10px;" >
+                    <div style="float: left; width: 50%;">
+                           <p:graphicImage value="#{imageController.image}" style="width: 340px;height: 300px;">
+                                <f:param name="id" value="2"/>
+                           </p:graphicImage>
+                    </div>
+                    <div style="float: left; width: 50%; font-size: 14px;">
+                        <h:outputText  value="#{enterpriseController.listById.description}"/>
+                    </div>
+                    <div style="clear: left;"></div>
+                </div>
+            </div>
+            <div class="enFrontContent2">
+                <div class="entTop">产品展示</div>
+                <div></div>
+            </div>
+    </ui:define>
+</ui:composition>
+

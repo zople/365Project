@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEnFavoriteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="left">
+              <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                        <p:submenu label="我的收藏夹" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                            <p:menuitem value="产品收藏" url="#" />
+                            <p:menuitem value="求购收藏" url="#" />
+                            <p:menuitem value="招商收藏" url="#" />
+                            <p:menuitem value="加工收藏" url="#" />
+                        </p:submenu>
+               </p:menu>
+               <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                        <p:submenu label="我的被收藏" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                           
+                        </p:submenu>
+                </p:menu>
+        </ui:define>
+        <ui:define name="content">
+            欢迎你！
+        </ui:define>
+    </ui:composition>
+
+</html>

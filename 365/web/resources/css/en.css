@@ -1,0 +1,80 @@
+/* 
+    Document   : en
+    Created on : 2012-9-9, 12:44:00
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+.en1LeftTop{
+    height: 20px;
+    width: 210px;
+}
+.en1LeftBottom{
+    height: 200px;
+}
+.en1Left{
+    height: 220px;
+    width: 210px;
+}
+.enContent{
+    height: 220px;
+    width: 540px;
+}
+.enContentmain{
+    height: 220px;
+    width: 540px;
+    border: 1px solid #78cde7;
+    margin-left: 5px;
+}
+.enRightmain{
+    height: 220px;
+    width:220px;
+    border: 1px solid #78cde7;
+    margin-left: 5px;
+}
+.enContentWidth{
+    width: 990px;
+    height: 1130px;
+}
+.enLeft{
+    float: left;
+}
+.en2Right{
+    float: right;
+}
+.en2left{
+    width: 760px;
+    height: 210px;
+    border: 1px solid #78cde7;
+}
+.en2leftTop{
+    height: 20px;
+    border: 1px solid #78cde7;
+}
+.en1LeftBottom{
+    height: 190px;
+    border: 1px solid #78cde7;
+}
+.en4left{
+    width: 760px;
+    height: 890px;
+    border: 1px solid #78cde7;
+}
+.enRight2{
+    width: 220px;
+    height: 365px;
+    border: 1px solid #78cde7;
+    margin-bottom: 4px;
+}
+.enRight2Top{
+    height: 20px;
+    border: 1px solid #78cde7;
+}
+.enRight2Bottom{
+    height: 280px;
+
+}

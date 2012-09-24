@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEnInquiryTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="left">
+            <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                <p:submenu label="展会推荐" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                    <p:menuitem value="上传展会信息" url="#" />
+                    <p:menuitem value="我参加的展会" url="#" />
+                </p:submenu>
+            </p:menu>
+            <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                <p:submenu label="活动与广告" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                    
+                </p:submenu>
+            </p:menu>
+            <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                <p:submenu label="搜索榜单" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                </p:submenu>
+            </p:menu>
+            <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                <p:submenu label="帮助" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                </p:submenu>
+            </p:menu>
+        </ui:define>
+        <ui:define name="content">
+            <h2>女士们、先生们，大家上午好，欢迎大家出席今天的新闻发布会。民政工作和我们息息相关，它对于保障和改善民生，促进经济社会发展发挥了重要作用，今天我们很高兴请来了民政部李立国部长出席发布会，请他向大家介绍党的十六大以来我国基本民生保障工作进展情况，并回答大家关心的问题。出席发布会的还有民政部姜力副部长，窦玉沛副部长。下面先请李立国部长作介绍。</h2>
+        </ui:define>
+    </ui:composition>
+
+</html>

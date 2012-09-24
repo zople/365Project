@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAdminImageTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAdminImageLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{adminImageController.selected.id}" title="#{bundle.CreateAdminImageTitle_id}" required="true" requiredMessage="#{bundle.CreateAdminImageRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateAdminImageLabel_className}" for="className" />
+                    <h:inputText id="className" value="#{adminImageController.selected.className}" title="#{bundle.CreateAdminImageTitle_className}" />
+                    <h:outputLabel value="#{bundle.CreateAdminImageLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{adminImageController.selected.name}" title="#{bundle.CreateAdminImageTitle_name}" />
+                    <h:outputLabel value="#{bundle.CreateAdminImageLabel_url}" for="url" />
+                    <h:inputText id="url" value="#{adminImageController.selected.url}" title="#{bundle.CreateAdminImageTitle_url}" />
+                    <h:outputLabel value="#{bundle.CreateAdminImageLabel_image}" for="image" />
+                    <h:inputTextarea rows="4" cols="30" id="image" value="#{adminImageController.selected.image}" title="#{bundle.CreateAdminImageTitle_image}" />
+                    <h:outputLabel value="#{bundle.CreateAdminImageLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{adminImageController.selected.description}" title="#{bundle.CreateAdminImageTitle_description}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{adminImageController.create}" value="#{bundle.CreateAdminImageSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{adminImageController.prepareList}" value="#{bundle.CreateAdminImageShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAdminImageIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

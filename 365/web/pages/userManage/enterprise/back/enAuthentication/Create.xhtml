@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEnAuthenticationTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEnAuthenticationLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{enAuthenticationController.selected.id}" title="#{bundle.CreateEnAuthenticationTitle_id}" required="true" requiredMessage="#{bundle.CreateEnAuthenticationRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateEnAuthenticationLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{enAuthenticationController.selected.name}" title="#{bundle.CreateEnAuthenticationTitle_name}" />
+                    <h:outputLabel value="#{bundle.CreateEnAuthenticationLabel_aptitudeCertifications}" for="aptitudeCertifications" />
+                    <h:inputText id="aptitudeCertifications" value="#{enAuthenticationController.selected.aptitudeCertifications}" title="#{bundle.CreateEnAuthenticationTitle_aptitudeCertifications}" />
+                    <h:outputLabel value="#{bundle.CreateEnAuthenticationLabel_integrityCertifications}" for="integrityCertifications" />
+                    <h:inputText id="integrityCertifications" value="#{enAuthenticationController.selected.integrityCertifications}" title="#{bundle.CreateEnAuthenticationTitle_integrityCertifications}" />
+                    <h:outputLabel value="#{bundle.CreateEnAuthenticationLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{enAuthenticationController.selected.description}" title="#{bundle.CreateEnAuthenticationTitle_description}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{enAuthenticationController.create}" value="#{bundle.CreateEnAuthenticationSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{enAuthenticationController.prepareList}" value="#{bundle.CreateEnAuthenticationShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEnAuthenticationIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

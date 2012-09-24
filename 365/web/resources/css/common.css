@@ -1,0 +1,37 @@
+/* 
+    Document   : common
+    Created on : Sep 13, 2012, 12:55:39 PM
+    Author     : 王文彦
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+.error{
+    color: red;
+}
+.blue{
+    background-color:  #78cde7;
+    height: 50px;
+}
+.headBtn{
+    height: 25px;
+    display:  block;
+    margin-top: 20px;
+    font-size: 20px;
+    background-color:white;
+    padding-top: 2px;
+    width: 200px;
+    margin-left: 50px;
+    border-color:blue;
+    border:1px;
+}
+#t{
+background:blue; /*Firefox 背景变蓝色*/
+background-color:red\0; /* ie 8/9*/     /*IE8 背景变红色*/
+background-color:yellow\9\0; /* ie 9*/    /*IE9 背景变黄色*/
+*background:black; /*IE7 背景变黑色*/
+_background:orange; /*IE6 背景变橘色*/
+}

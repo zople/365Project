@@ -1,0 +1,99 @@
+/* 
+    Document   : index
+    Created on : 2012-9-10, 11:27:24
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+.resumeDetail_body {
+    margin: 0 auto;
+    width: 990px;
+    height: 1250px;
+}
+.resumeDetail_top {
+    width: 990px;
+    height: 75px;
+}
+.resumeDetail_bottom {
+    width: 990px;
+    height: 1200px;
+}
+.resumeDetail_bottom_left {
+    float: left;
+    width: 200px;
+    height: 770px;
+    border: 1px solid #78cde7;
+}
+.resumeDetail_bottom_right {
+    float: right;
+    width: 775px;
+    height: 770px;
+}
+.resumeDetail_bottom_right1 {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 775px;
+    border: 1px solid #78cde7;
+    background-color: #cccccc;
+    font-size: 15px;
+}
+.resumeDetail_bottom_right2 {
+    width: 775px;
+    height: 1140px;
+    border: 1px solid #78cde7;
+}
+.resume_name {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    float: left;
+    text-align: center;
+}
+.base_message {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-top: 50px;
+    width: 770px;
+    border: 1px solid #78cde7;
+    font-weight: bold;
+    background-color: #ccccff;
+}
+.contact {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-top: 100px;
+    width: 770px;
+    border: 1px solid #78cde7;
+    font-weight: bold;
+    background-color: #ccccff;
+}
+.education_background {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-top: 150px;
+    width: 770px;
+    border: 1px solid #78cde7;
+    font-weight: bold;
+    background-color: #ccccff;
+}
+.work_background {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-top: 180px;
+    width: 770px;
+    border: 1px solid #78cde7;
+    font-weight: bold;
+    background-color: #ccccff;
+}
+.introduction {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-top: 210px;
+    width: 770px;
+    border: 1px solid #78cde7;
+    font-weight: bold;
+    background-color: #ccccff;
+}
+.button1 {
+    margin-top: 210px;
+    margin-left: 150px;
+}

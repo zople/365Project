@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/pages/userManage/enterprise/template/supplytemple.xhtml">
+       
+        <ui:define name="content">
+               <div class="supplyTOP">  发布加工工   我的加工 招工询盘  </div>
+             
+            <div class="supplyTOP1">   友情提醒你目前是一般会员，只能发布10条询盘信息  </div>
+             <div class="supplyTOP222">  
+              
+				 
+  <div class="supplyTOP221"> 
+      
+ 
+ <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">			  
+ <table width="100%" border="1" cellspacing="1" cellpadding="1">
+  <tr>
+    <td>填写加工信息：</td>
+    </tr>
+  <tr>
+    <td>加工类型：
+      <label>
+      <input type="radio" name="radiobutton" value="radiobutton" />
+提供加工
+<input type="radio" name="radiobutton" value="radiobutton" />
+加工需求 </label></td>
+  </tr>
+  <tr>
+    <td>加工方式：
+      <label>
+      <input type="checkbox" name="checkbox" value="checkbox" />
+      来料加工
+      <input type="checkbox" name="checkbox2" value="checkbox" />
+      来件装配
+      <input type="checkbox" name="checkbox3" value="checkbox" />
+      来图来样加工
+      <input type="checkbox" name="checkbox4" value="checkbox" />
+      任何方式      </label></td>
+  </tr>
+  <tr>
+    <td>加工标题：
+      <label>
+      <input type="text" name="textfield" />
+      </label></td>
+  </tr>
+  <tr>
+    <td>加工关键词：
+      <input type="text" name="textfield2" /></td>
+  </tr>
+  <tr>
+    <td>截止日期
+      <input type="text" name="textfield3" /></td>
+  </tr>
+  <tr>
+    <td><label>加工设备名称
+      <input type="text" name="textfield4" />
+    </label></td>
+  </tr>
+  <tr>
+    <td><p>所属类型：
+      <input type="text" name="textfield5" />
+    </p></td>
+  </tr>
+  <tr>
+    <td><p>加工能力：
+      <input type="text" name="textfield6" />
+    /天</p></td>
+  </tr>
+  <tr>
+    <td><p>加工图片：
+      <label>
+      <input type="file" name="file" />
+      </label>
+      <label>
+      <input type="submit" name="Submit2" value="上传" />
+      </label>
+    </p></td>
+  </tr>
+  <tr>
+    <td><p>详细描述：
+      <label>
+      <textarea name="textarea" cols="40" rows="10"></textarea>
+      </label>
+    </p></td>
+  </tr>
+  <tr>
+    <td>联系人信息
+      ：      
+       </td>
+    </tr>
+  <tr>
+    <td><p>企业名称：
+      <input type="text" name="textfield43" />
+    </p></td>
+  </tr>
+  <tr>
+    <td><p>联系人姓名：
+      <input type="text" name="textfield44" />
+    </p></td>
+  </tr>
+  <tr>
+    <td><p>联系人手机：
+      <input type="text" name="textfield45" />
+    </p></td>
+  </tr>
+  <tr>
+    <td><p>联系人电话：
+      <input type="text" name="textfield46" />
+    </p></td>
+  </tr>
+  <tr>
+    <td>联系人邮箱：
+      <input type="text" name="textfield47" /></td>
+  </tr>
+  <tr>
+    <td>
+      <p>地址：
+        <input type="text" name="textfield48" />
+      </p>      </td>
+    </tr>
+  <tr>
+    <td><label>
+      <input type="submit" name="Submit" value="立即发布" />
+      <input type="submit" name="Submit3" value="存草稿" />
+      <input type="submit" name="Submit4" value="取消" />
+    </label></td>
+    </tr>
+</table>
+</form>
+				  
+				  
+			   </div>
+				 
+             </div>
+        </ui:define>
+    </ui:composition>
+
+</html>

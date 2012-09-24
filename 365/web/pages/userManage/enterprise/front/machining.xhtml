@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>加工管理</title>
+    </head>
+    <body>
+        <div>
+            
+            <ui:composition template="/pages/userManage/enterprise/template/front.xhtml">
+                <ui:define name="content">
+                    <div class="enFrontContent1">
+                        <div class="entTop"><!--<h:graphicImage name="37.png" library="images"/>-->
+                        加工信息
+                        </div>
+                        <div> 
+                            
+                     <h:form styleClass="jsfcrud_list_form">         
+                      <table style="font-size: 17px; border-style: none">
+                          <ui:repeat value="#{machiningController.infoListBySql}" var="recruitment" varStatus="status" >
+                
+                          <tr style="font-size: 17px; border-style: none">
+                
+                      
+                <td style="font-size: 17px; border-style: none"><strong>加工标题:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.title} <br/>
+                </td>
+                        <td style="font-size: 17px; border-style: none"><strong>
+                                
+                            <h:commandLink action="#{machiningController.findById}" value="#{recruitment.title}">
+                             <f:param name="id" value="#{recruitment.id}"></f:param>
+                         </h:commandLink>     
+                                
+                                
+                            </strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">  
+                </td>
+                       </tr>          
+                              
+                              
+                              
+                    <tr style="font-size: 17px; border-style: none">
+                
+                      
+                <td style="font-size: 17px; border-style: none"><strong>加工类型:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.kind} <br/>
+                </td>
+                        <td style="font-size: 17px; border-style: none"><strong>加工设备:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.device}<br/>
+                </td>
+                       </tr>    
+                              
+                 <tr style="font-size: 17px; border-style: none">
+                  
+                <td style="font-size: 17px; border-style: none"><strong>加工能力:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.ability} <br/>
+                </td>
+                        <td style="font-size: 17px; border-style: none"><strong>详细说明:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.description}<br/>
+                </td>
+                       </tr>      
+                              
+                               
+                
+            </ui:repeat>
+        </table>
+ 
+                            
+                            
+                     </h:form>          
+                             
+                        </div>
+                    </div>
+                   
+                </ui:define>
+            </ui:composition>
+        </div>
+    </body>
+</html>

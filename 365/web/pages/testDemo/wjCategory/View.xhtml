@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/testDemo/index.xhtml">
+        <ui:define name="top">
+            <h:outputText value="#{bundle.ViewWjCategoryTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewWjCategoryLabel_categoryId}"/>
+                    <h:outputText value="#{wjCategoryController.selected.categoryId}" title="#{bundle.ViewWjCategoryTitle_categoryId}"/>
+                    <h:outputText value="#{bundle.ViewWjCategoryLabel_fatherId}"/>
+                    <h:outputText value="#{wjCategoryController.selected.fatherId}" title="#{bundle.ViewWjCategoryTitle_fatherId}"/>
+                    <h:outputText value="#{bundle.ViewWjCategoryLabel_sortOrder}"/>
+                    <h:outputText value="#{wjCategoryController.selected.sortOrder}" title="#{bundle.ViewWjCategoryTitle_sortOrder}"/>
+                    <h:outputText value="#{bundle.ViewWjCategoryLabel_categoryName}"/>
+                    <h:outputText value="#{wjCategoryController.selected.categoryName}" title="#{bundle.ViewWjCategoryTitle_categoryName}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{wjCategoryController.destroyAndView}" value="#{bundle.ViewWjCategoryDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewWjCategoryEditLink}"/>
+                <br />
+                <h:commandLink action="#{wjCategoryController.prepareCreate}" value="#{bundle.ViewWjCategoryCreateLink}" />
+                <br />
+                <h:commandLink action="#{wjCategoryController.prepareList}" value="#{bundle.ViewWjCategoryShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewWjCategoryIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

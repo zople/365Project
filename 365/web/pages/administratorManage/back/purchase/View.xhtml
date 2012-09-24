@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/index.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPurchaseTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPurchaseLabel_id}"/>
+                    <h:outputText value="#{purchaseController.selected.id}" title="#{bundle.ViewPurchaseTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewPurchaseLabel_createTime}"/>
+                    <h:outputText value="#{purchaseController.selected.createTime}" title="#{bundle.ViewPurchaseTitle_createTime}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewPurchaseLabel_describe}"/>
+                    <h:outputText value="#{purchaseController.selected.describe}" title="#{bundle.ViewPurchaseTitle_describe}"/>
+                    <h:outputText value="#{bundle.ViewPurchaseLabel_name}"/>
+                    <h:outputText value="#{purchaseController.selected.name}" title="#{bundle.ViewPurchaseTitle_name}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{purchaseController.destroyAndView}" value="#{bundle.ViewPurchaseDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPurchaseEditLink}"/>
+                <br />
+                <h:commandLink action="#{purchaseController.prepareCreate}" value="#{bundle.ViewPurchaseCreateLink}" />
+                <br />
+                <h:commandLink action="#{purchaseController.prepareList}" value="#{bundle.ViewPurchaseShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPurchaseIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,52 @@
+/* 
+    Document   : index
+    Created on : 2012-9-10, 11:27:24
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+.resume_body {
+    margin: 0 auto;
+    width: 990px;
+    height:840px;
+}
+.resume_top {
+    width: 990px;
+    height: 75px;
+}
+.resume_bottom {
+    width: 990px;
+    height: 770px;
+}
+.resume_bottom_left {
+    float: left;
+    width: 200px;
+    height: 770px;
+    border: 1px solid #78cde7;
+}
+.resume_bottom_right {
+    float: right;
+    width: 775px;
+    height: 770px;
+}
+.resume_bottom_right1 {
+    padding-top: 7px;
+    padding-left: 10px;
+    width: 765px;
+    height: 30px;
+    border: 1px solid #78cde7;
+    font-size: 15px;
+    background-color: #cccccc;
+}
+.resume_bottom_right2 {
+    width: 775px;
+    height: 730px;
+    border: 1px solid #78cde7;
+}
+.resume_bottom_right3 {
+    margin-top: 700px;
+    width: 775px;
+    height: 30px;
+    text-align: center;
+    font-size: 15px;
+}

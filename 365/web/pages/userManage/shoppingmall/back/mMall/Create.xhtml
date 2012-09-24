@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/userManage/shoppingmall/template/shoppingmall.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMMallTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMMallLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{mMallController.selected.id}" title="#{bundle.CreateMMallTitle_id}" required="true" requiredMessage="#{bundle.CreateMMallRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateMMallLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{mMallController.selected.name}" title="#{bundle.CreateMMallTitle_name}" />
+                    <h:outputLabel value="#{bundle.CreateMMallLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{mMallController.selected.email}" title="#{bundle.CreateMMallTitle_email}" />
+                    <h:outputLabel value="#{bundle.CreateMMallLabel_phone}" for="phone" />
+                    <h:inputText id="phone" value="#{mMallController.selected.phone}" title="#{bundle.CreateMMallTitle_phone}" />
+                    <h:outputLabel value="#{bundle.CreateMMallLabel_logo}" for="logo" />
+                    <h:inputTextarea rows="4" cols="30" id="logo" value="#{mMallController.selected.logo}" title="#{bundle.CreateMMallTitle_logo}" />
+                    <h:outputLabel value="#{bundle.CreateMMallLabel_describes}" for="describes" />
+                    <h:inputText id="describes" value="#{mMallController.selected.describes}" title="#{bundle.CreateMMallTitle_describes}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{mMallController.create}" value="#{bundle.CreateMMallSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{mMallController.prepareList}" value="#{bundle.CreateMMallShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMMallIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

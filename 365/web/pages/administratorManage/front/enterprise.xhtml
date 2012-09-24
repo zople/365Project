@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+        <div>
+            <ui:composition template="/pages/administratorManage/template/index.xhtml">
+            <ui:define name="content">
+               <table class="table">
+                    <tr>
+                        <td class="en1Left"><ui:include src="/pages/administratorManage/commons/enLeft.xhtml"/></td>
+                        <td class="enContent"><ui:include src="/pages/administratorManage/commons/enContent.xhtml"/></td>
+                        <td class="enRight"><ui:include src="/pages/administratorManage/commons/enRight.xhtml"/></td>
+                    </tr>
+                </table>
+                <div class="enContentWidth">
+                    <div class="enLeft">
+                        <div class="en2left">
+                            <div class="en2leftTop">推荐供应商</div>
+                            <div class="en2leftBottom"></div>
+                        </div>
+                        <div class="en3left">企业行业分类</div>
+                        <div class="en4left"></div>
+                    </div>
+                    <div class="en2Right">
+                         <div class="enRight1">
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="enRight2">
+                            <div class="enRight2Top">企业排行TOP10（周排行）</div>
+                            <div class="enRight2Bottom"></div>
+                        </div>
+                        <div class="enRight2">
+                            <div class="enRight2Top">最新加盟供应商</div>
+                            <div class="enRight2Bottom"></div>
+                        </div>
+                        <div class="enRight2">
+                            <div class="enRight2Top">荣誉商家</div>
+                            <div class="enRight2Bottom"></div>
+                        </div>
+                    </div>
+                </div>
+          </ui:define>
+        </ui:composition>
+        </div>
+    </body>
+</html>

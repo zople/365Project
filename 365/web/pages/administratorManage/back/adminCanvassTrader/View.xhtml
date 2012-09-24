@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAdminCanvassTraderTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAdminCanvassTraderLabel_id}"/>
+                    <h:outputText value="#{adminCanvassTraderController.selected.id}" title="#{bundle.ViewAdminCanvassTraderTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewAdminCanvassTraderLabel_traderName}"/>
+                    <h:outputText value="#{adminCanvassTraderController.selected.traderName}" title="#{bundle.ViewAdminCanvassTraderTitle_traderName}"/>
+                    <h:outputText value="#{bundle.ViewAdminCanvassTraderLabel_factoryName}"/>
+                    <h:outputText value="#{adminCanvassTraderController.selected.factoryName}" title="#{bundle.ViewAdminCanvassTraderTitle_factoryName}"/>
+                    <h:outputText value="#{bundle.ViewAdminCanvassTraderLabel_description}"/>
+                    <h:outputText value="#{adminCanvassTraderController.selected.description}" title="#{bundle.ViewAdminCanvassTraderTitle_description}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{adminCanvassTraderController.destroyAndView}" value="#{bundle.ViewAdminCanvassTraderDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAdminCanvassTraderEditLink}"/>
+                <br />
+                <h:commandLink action="#{adminCanvassTraderController.prepareCreate}" value="#{bundle.ViewAdminCanvassTraderCreateLink}" />
+                <br />
+                <h:commandLink action="#{adminCanvassTraderController.prepareList}" value="#{bundle.ViewAdminCanvassTraderShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAdminCanvassTraderIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

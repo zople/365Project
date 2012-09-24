@@ -1,0 +1,38 @@
+365Project项目环境初始化脚本使用说明
+author 徐俊
+
+环境初始化脚本共有3个文件
+post-install.sh
+setup.sh
+build.sh
+
+操作系统安装完成后，脚本执行顺序如下
+post-install.sh -> setup.sh -> build.sh
+
+首先运行
+sh post-install.sh
+脚本执行完后，系统会重启，再次重启后执行
+sh setup.sh
+
+每日build任务的脚本为
+build.sh
+
+脚本运行依赖以下3个文件：
+apache-ant-1.8.4-bin
+jboss-as-7.1.1.Final.tar.gz
+jdk-6u35-linux-x64.bin
+
+安装完成后，以下服务安装完成并以服务的方式启动完，
+jdk1.6.0_35
+jboss7.1.1
+ant1.8.4
+git
+postgresql
+
+安装过程中在jdk安装阶段需要人工回车干预，其它过程不再需要人工干预，整个过程依赖网络带宽，
+一般情况下，5分钟内可完成。
+
+在CentOS上运行的setup.sh脚本避免在Windows下打开，有些工具可能会修改UNIX的回车为Windows
+下的回车，使setup.sh脚本无法执行。
+
+此脚本仅运行在安装完CentOS系统后。

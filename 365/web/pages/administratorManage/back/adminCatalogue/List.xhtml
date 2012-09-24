@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAdminCatalogueTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAdminCatalogueEmpty}" rendered="#{adminCatalogueController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{adminCatalogueController.items.rowCount > 0}">
+                    <h:outputText value="#{adminCatalogueController.pagination.pageFirstItem + 1}..#{adminCatalogueController.pagination.pageLastItem + 1}/#{adminCatalogueController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{adminCatalogueController.previous}" value="#{bundle.Previous} #{adminCatalogueController.pagination.pageSize}" rendered="#{adminCatalogueController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{adminCatalogueController.next}" value="#{bundle.Next} #{adminCatalogueController.pagination.pageSize}" rendered="#{adminCatalogueController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{adminCatalogueController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminCatalogueTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminCatalogueTitle_className}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.className}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminCatalogueTitle_parentId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.parentId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminCatalogueTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminCatalogueTitle_level}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.level}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{adminCatalogueController.prepareView}" value="#{bundle.ListAdminCatalogueViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{adminCatalogueController.prepareEdit}" value="#{bundle.ListAdminCatalogueEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{adminCatalogueController.destroy}" value="#{bundle.ListAdminCatalogueDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{adminCatalogueController.prepareCreate}" value="#{bundle.ListAdminCatalogueCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAdminCatalogueIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

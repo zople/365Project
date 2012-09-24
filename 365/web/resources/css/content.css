@@ -1,0 +1,17 @@
+/* 
+    Document   : content
+    Created on : 2012-9-5, 17:11:46
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+.content{
+    border: 1px solid #b2d5d6;
+    width: 100%;
+    height:530px;
+}
+

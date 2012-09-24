@@ -1,0 +1,71 @@
+/* 
+    Document   : importTrade
+    Created on : 2012-9-9, 13:54:09
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+.import1{
+    width: 990px;
+}
+.import2{
+    width: 990px;
+    height: 830px;
+}
+.importleft{
+    float: left;
+    height: 445px;
+    width: 220px;
+    border: 1px solid #78cde7;
+}
+.importleftTop{
+    height: 20px;
+    border: 1px solid #78cde7;
+}
+.importleftBottom{
+    height: 425px;
+}
+.importContent{
+    float: left;
+}
+.importContentTop{
+   
+}
+.importContentBottom{
+    height: 240px;
+    width:  540px;
+    border: 1px solid #78cde7;
+}
+.importRight{
+    float: left;
+    width: 220px;
+    height: 435px;
+    border: 1px solid #78cde7;
+}
+.importRight1{
+    height: 30px;
+    border: 1px solid #78cde7;
+    margin-bottom: 5px;
+}
+.importRight2{
+    height: 145px;
+    border: 1px solid #78cde7;
+    margin-bottom: 5px;
+}
+.importRight3{
+    height: 240px;
+}
+.import2Top{
+    
+}
+.import2Bottom{
+    height: 230px;
+    border: 1px solid #78cde7;
+    margin-bottom: 2px;
+}
+
+

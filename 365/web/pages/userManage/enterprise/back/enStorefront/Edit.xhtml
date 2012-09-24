@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEnStorefrontTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEnStorefrontLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{enStorefrontController.selected.id}" title="#{bundle.EditEnStorefrontTitle_id}" required="true" requiredMessage="#{bundle.EditEnStorefrontRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditEnStorefrontLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{enStorefrontController.selected.name}" title="#{bundle.EditEnStorefrontTitle_name}" />
+                    <h:outputLabel value="#{bundle.EditEnStorefrontLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{enStorefrontController.selected.description}" title="#{bundle.EditEnStorefrontTitle_description}" />
+                    <h:outputLabel value="#{bundle.EditEnStorefrontLabel_phone}" for="phone" />
+                    <h:inputTextarea rows="4" cols="30" id="phone" value="#{enStorefrontController.selected.phone}" title="#{bundle.EditEnStorefrontTitle_phone}" />
+                    <h:outputLabel value="#{bundle.EditEnStorefrontLabel_ad}" for="ad" />
+                    <h:inputText id="ad" value="#{enStorefrontController.selected.ad}" title="#{bundle.EditEnStorefrontTitle_ad}" />
+                    <h:outputLabel value="#{bundle.EditEnStorefrontLabel_logo}" for="logo" />
+                    <h:inputTextarea rows="4" cols="30" id="logo" value="#{enStorefrontController.selected.logo}" title="#{bundle.EditEnStorefrontTitle_logo}" />
+                    <h:outputLabel value="#{bundle.EditEnStorefrontLabel_style}" for="style" />
+                    <h:inputText id="style" value="#{enStorefrontController.selected.style}" title="#{bundle.EditEnStorefrontTitle_style}" />
+                </h:panelGrid>
+                <h:commandLink action="#{enStorefrontController.update}" value="#{bundle.EditEnStorefrontSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditEnStorefrontViewLink}"/>
+                <br />
+                <h:commandLink action="#{enStorefrontController.prepareList}" value="#{bundle.EditEnStorefrontShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditEnStorefrontIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

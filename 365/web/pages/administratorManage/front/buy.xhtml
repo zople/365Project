@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+        <div>
+            <ui:composition template="/pages/administratorManage/template/index.xhtml">
+                <ui:define name="content">
+                    <table class="table">
+                    <tr>
+                        <td class="product1Left"><ui:include src="/pages/administratorManage/commons/buy1Left.xhtml"/></td>
+                        <td class="product1Content"><ui:include src="/pages/administratorManage/commons/buy1Content.xhtml"/></td>
+                        <td class="product2Right"><ui:include src="/pages/administratorManage/commons/buyRight.xhtml"/></td>
+                    </tr>
+                          <a href="buyDetail.xhtml">求购明细</a>||
+                          
+                          <a href="quotedPrice.xhtml">我要报价</a>
+                </table>
+                
+               <table class="table">
+                        <tr>
+                            <td><ui:include src="/pages/administratorManage/commons/buyL1.xhtml" /></td>
+                            
+                            <td><ui:include src="/pages/administratorManage/commons/buyR1.xhtml"/></td>
+                        </tr>
+              </table>
+                    
+               <table class="table">
+                        <tr>
+                            <td><ui:include src="/pages/administratorManage/commons/buyL1.xhtml" /></td>
+                            <td><ui:include src="/pages/administratorManage/commons/buyR1.xhtml"/></td>
+                        </tr>
+              </table>      
+                </ui:define>
+            </ui:composition>
+        </div>
+    </body>
+</html>

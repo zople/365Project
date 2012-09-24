@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/testDemo/index.xhtml">
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateWjGoodsLabel_goodsId}" for="goodsId" />
+                    <h:inputText id="goodsId" value="#{wjGoodsController.selected.goodsId}" title="#{bundle.CreateWjGoodsTitle_goodsId}" required="true" requiredMessage="#{bundle.CreateWjGoodsRequiredMessage_goodsId}"/>
+                    <h:outputLabel value="#{bundle.CreateWjGoodsLabel_goodsName}" for="goodsName" />
+                    <h:inputText id="goodsName" value="#{wjGoodsController.selected.goodsName}" title="#{bundle.CreateWjGoodsTitle_goodsName}" required="true" requiredMessage="#{bundle.CreateWjGoodsRequiredMessage_goodsName}"/>
+                    <h:outputLabel value="#{bundle.CreateWjGoodsLabel_goodsDescription}" for="goodsDescription" />
+                    <h:inputText id="goodsDescription" value="#{wjGoodsController.selected.goodsDescription}" title="#{bundle.CreateWjGoodsTitle_goodsDescription}" />
+                    <h:outputLabel value="#{bundle.CreateWjGoodsLabel_goodsCreateTime}" for="goodsCreateTime" />
+                    <h:inputText id="goodsCreateTime" value="#{wjGoodsController.selected.goodsCreateTime}" title="#{bundle.CreateWjGoodsTitle_goodsCreateTime}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateWjGoodsLabel_goodsEndTime}" for="goodsEndTime" />
+                    <h:inputText id="goodsEndTime" value="#{wjGoodsController.selected.goodsEndTime}" title="#{bundle.CreateWjGoodsTitle_goodsEndTime}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateWjGoodsLabel_state}" for="state" />
+                    <h:inputText id="state" value="#{wjGoodsController.selected.state}" title="#{bundle.CreateWjGoodsTitle_state}" />
+                    <h:outputLabel value="#{bundle.CreateWjGoodsLabel_categoryId}" for="categoryId" />
+                    <h:inputText id="categoryId" value="#{wjGoodsController.categoryId}" title="#{bundle.CreateWjGoodsTitle_categoryId}" required="true" requiredMessage="#{bundle.CreateWjGoodsRequiredMessage_categoryId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{wjGoodsController.create}" value="#{bundle.CreateWjGoodsSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{wjGoodsController.prepareList}" value="#{bundle.CreateWjGoodsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateWjGoodsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

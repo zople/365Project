@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAdminStyleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAdminStyleLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{adminStyleController.selected.id}" title="#{bundle.EditAdminStyleTitle_id}" required="true" requiredMessage="#{bundle.EditAdminStyleRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditAdminStyleLabel_enterpriseStyle}" for="enterpriseStyle" />
+                    <h:inputText id="enterpriseStyle" value="#{adminStyleController.selected.enterpriseStyle}" title="#{bundle.EditAdminStyleTitle_enterpriseStyle}" />
+                    <h:outputLabel value="#{bundle.EditAdminStyleLabel_mallStyle}" for="mallStyle" />
+                    <h:inputText id="mallStyle" value="#{adminStyleController.selected.mallStyle}" title="#{bundle.EditAdminStyleTitle_mallStyle}" />
+                    <h:outputLabel value="#{bundle.EditAdminStyleLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{adminStyleController.selected.description}" title="#{bundle.EditAdminStyleTitle_description}" />
+                </h:panelGrid>
+                <h:commandLink action="#{adminStyleController.update}" value="#{bundle.EditAdminStyleSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAdminStyleViewLink}"/>
+                <br />
+                <h:commandLink action="#{adminStyleController.prepareList}" value="#{bundle.EditAdminStyleShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAdminStyleIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

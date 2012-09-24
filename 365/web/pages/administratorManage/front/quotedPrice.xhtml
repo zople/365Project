@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>我要报价</title>
+    </head>
+    <body>
+        <div>
+            <ui:composition template="/pages/administratorManage/template/index.xhtml">
+                <ui:define name="content">
+                <div class="body">
+                     <DIV ><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">当前路径：首页&gt;求购&gt;我要报价</span></p></DIV>
+                        <div class="exhibition4">
+                            <div class="buyDeailLeft">
+                                
+                                <div class="buyDeailLeft2">
+                                    <div class="buyDeailLeft1TOP">采购单基本要求        有效期还有12天    已收到11条报价</div>
+                                    <div>
+                                     <h:panelGrid columns="2">
+                                     <h:outputText value="求购产品"/>
+                                     <h:outputText value="#{buyController.bugInfo.title}"></h:outputText>   
+                                     <h:outputText value="采购内容"/>
+                                     <h:outputText value="#{buyController.bugInfo.content}"></h:outputText> 
+                                     <h:outputText value="发布日期"/>
+                                     <h:outputText value="#{buyController.bugInfo.createTime}"></h:outputText> 
+                                     </h:panelGrid>   
+                                    </div>
+                                </div>
+                                 <div class="buyDeailLeft2">
+                                    <div class="buyDeailLeft1TOP">我要报价</div>
+                                    <div>
+                        <h:form>
+                       <h:panelGrid columns="2">
+                       <h:outputLabel value="产品名称" for="name" />
+                       <h:inputText id="name" value="#{quoteController.selected.name}" title="产品名称" required="true" requiredMessage="产品名称不能为空"/>
+                       
+                       <h:outputLabel value="产品优势" for="good" />
+                       <h:inputText id="good" value="#{quoteController.selected.good}" title="产品优势" required="true" requiredMessage="产品优势不能为空" />
+                       
+                       <h:outputLabel value="产品价格" for="price" />
+                       <h:inputText id="price" value="#{quoteController.selected.price}" title="产品价格" required="true" requiredMessage="产品价格" />
+                       
+                       
+                        <h:outputLabel value="详细说明"/>
+                       <h:inputTextarea id="description" value="#{quoteController.selected.description}"  />
+                       
+                       
+                       <h:outputLabel value="公司名称"/>
+                       <h:inputText id="enName" value="#{quoteController.selected.enName}"  />
+                       
+                        <h:outputLabel value="所在地区"/>
+                        <h:inputText id="address" value="#{quoteController.selected.address}"  />
+                        
+                         <h:outputLabel value="联系人"/>
+                         <h:inputText id="phoneName" value="#{quoteController.selected.phoneName}"  />
+                         
+                           <h:outputLabel value="联系人电话"/>
+                           <h:inputText id="telphone" value="#{quoteController.selected.telphone}"  />
+                         
+                           <h:outputLabel value="联系人手机"/>
+                           <h:inputText id="phone" value="#{quoteController.selected.phone}"  />
+                       
+                       
+                      </h:panelGrid>
+
+                        <h:commandLink action="#{quoteController.create}" value="确认保存" >
+                        </h:commandLink>
+                            </h:form>    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="buyDeailRight">
+                                <div class="buyDeailRight1">
+                                    <div class="buyDeailRight1Top">登录注册信息</div>
+                                    <div></div>
+                                </div>
+                                <div class="buyDeailRight1">
+                                    <div class="buyDeailRight1Top">大批量采购</div>
+                                    <div></div>
+                                </div>
+                                <div class="buyDeailRight1">
+                                    <div class="buyDeailRight1Top">采购排行榜   更多信息......</div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div  class="exhibition5">
+                            
+                        </div>
+                    </div>
+                </ui:define>
+            </ui:composition>
+        </div>
+    </body>
+</html>

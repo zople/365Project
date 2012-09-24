@@ -1,0 +1,42 @@
+/* 
+    Document   : index
+    Created on : 2012-9-10, 11:27:24
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+.recruitment_bottom_left1 {
+    margin-top: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    width: 200px;
+    border: 1px solid #78cde7;
+    text-align: center;
+    background-color: pink;
+    font-size: 17px;
+    font-weight:bold; 
+}
+.recruitment_bottom_left2 {
+    width: 200px;
+    height: 360px;
+    border: 1px solid #78cde7;
+}
+.recruitment_bottom_left21 {
+    margin-top: 5px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    width: 200px;
+    border: 1px solid #78cde7;
+    background-color: #90b4bd;
+    font-size: 17px;
+    font-weight:bold; 
+}
+.recruitment_bottom_left22 {
+    margin-top: 5px;
+    margin-left: 20px;
+}
+.recruitment_bottom_left3 {
+    width: 200px;
+    height: 365px;
+    border: 1px solid #78cde7;
+}

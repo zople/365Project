@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+                <h:outputStylesheet library="css" name="common.css"/>
+            </f:facet>
+        </h:head>
+    </f:view>
+
+    <h:body style=" text-align: center">
+        <h:form>
+            <table style="border:1px">
+                <tr>
+                    <td rowspan="2">
+                        <h>易得五金机电网</h>
+                    </td><td rowspan="2">
+                        注册
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td rowspan="2">帮助</td>
+                </tr>
+
+            </table>
+            <table>
+                <tr>
+                    <td> 
+                        <h:outputLabel value="会员身份:"/>
+                    </td>
+                    <td>            
+                        <h:selectOneRadio id="options" value="#{registerController.user.userType}" converter="com.zople.dal.domain.UserType">  
+                            <f:selectItems value="#{registerController.userTypeValues}"/>
+                        </h:selectOneRadio>
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td> <h:outputLabel value="电子邮箱:"/></td>
+                    <td> <h:inputText id="email" value="#{registerController.user.email}"/></td>
+                    <td> <h:message for="email"/></td>
+                </tr>
+                <tr>
+                    <td> <h:outputLabel value="登录名："/></td>
+                    <td>
+                        <h:inputText id="loginName" value="#{registerController.user.loginName}" validator="#{registerController.validateLoginName}">
+                            <f:validateLength minimum="7" maximum="17"/>
+                            <f:ajax event="keyup" render="loginNameError"/>
+                            
+                        </h:inputText>
+                    </td>
+                    <td><h:message for="loginName" id="loginNameError"/></td>
+                </tr>
+                <tr>
+                    <td> <h:outputLabel value="密码："/></td>
+                    <td> <h:inputSecret id="password" value="#{registerController.user.password}"/></td>
+                    <td><h:message for="password"/></td>
+                </tr>
+                <tr>
+                    <td>   <h:outputLabel value="确认密码"/></td>
+                    <td> <h:inputSecret id="surePassword"/></td>
+                    <td>  <h:message for="surePassword"/></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <h:commandButton value="立刻注册" action="#{registerController.register}"/>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>   
+</html>

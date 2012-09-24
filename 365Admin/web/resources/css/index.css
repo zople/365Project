@@ -1,0 +1,22 @@
+/* 
+    Document   : index
+    Created on : 2012-9-17, 13:23:30
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+.body{
+    width: 990px;
+    background-color: rgb(255, 255, 255);
+}
+.header{
+    width: 1150px;
+    height: 60px;
+    border: 1px solid  buttonshadow;
+    margin-bottom: 2px;
+}

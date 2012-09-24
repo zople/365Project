@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAdminSpreadTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAdminSpreadLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{adminSpreadController.selected.id}" title="#{bundle.EditAdminSpreadTitle_id}" required="true" requiredMessage="#{bundle.EditAdminSpreadRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditAdminSpreadLabel_brandName}" for="brandName" />
+                    <h:inputText id="brandName" value="#{adminSpreadController.selected.brandName}" title="#{bundle.EditAdminSpreadTitle_brandName}" />
+                    <h:outputLabel value="#{bundle.EditAdminSpreadLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{adminSpreadController.selected.description}" title="#{bundle.EditAdminSpreadTitle_description}" />
+                </h:panelGrid>
+                <h:commandLink action="#{adminSpreadController.update}" value="#{bundle.EditAdminSpreadSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAdminSpreadViewLink}"/>
+                <br />
+                <h:commandLink action="#{adminSpreadController.prepareList}" value="#{bundle.EditAdminSpreadShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAdminSpreadIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

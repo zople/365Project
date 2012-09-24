@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/testDemo/index.xhtml">
+        <ui:define name="top">
+            <h:outputText value="#{bundle.ViewWjCategoryTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="测试ID"/>
+                    <h:outputText value="#{testController.selected.testId}" title="测试ID"/>
+                    <h:outputText value="测试名称"/>
+                    <h:outputText value="#{testController.selected.testName}" title="测试名称"/>
+                    <h:outputText value="测试密码"/>
+                    <h:outputText value="#{testController.selected.testPwd}" title="测试密码"/>
+                </h:panelGrid>
+                <br />
+                <br />
+                <br />
+                 
+                <br />
+                <h:commandLink action="#{testController.prepareCreate}" value="添加信息" />
+                <br />
+                <h:commandLink action="#{testController.prepareList}" value="列表显示"/>
+                <br />
+                <br />
+               <!-- <h:link outcome="/index" value="返回首页"/>-->
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

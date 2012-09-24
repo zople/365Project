@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEnUserTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEnUserLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{enUserController.selected.id}" title="#{bundle.CreateEnUserTitle_id}" required="true" requiredMessage="#{bundle.CreateEnUserRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateEnUserLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{enUserController.selected.name}" title="#{bundle.CreateEnUserTitle_name}" />
+                    <h:outputLabel value="#{bundle.CreateEnUserLabel_pwd}" for="pwd" />
+                    <h:inputText id="pwd" value="#{enUserController.selected.pwd}" title="#{bundle.CreateEnUserTitle_pwd}" />
+                    <h:outputLabel value="#{bundle.CreateEnUserLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{enUserController.selected.email}" title="#{bundle.CreateEnUserTitle_email}" />
+                    <h:outputLabel value="#{bundle.CreateEnUserLabel_integral}" for="integral" />
+                    <h:inputText id="integral" value="#{enUserController.selected.integral}" title="#{bundle.CreateEnUserTitle_integral}" />
+                    <h:outputLabel value="#{bundle.CreateEnUserLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{enUserController.selected.description}" title="#{bundle.CreateEnUserTitle_description}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{enUserController.create}" value="#{bundle.CreateEnUserSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{enUserController.prepareList}" value="#{bundle.CreateEnUserShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEnUserIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

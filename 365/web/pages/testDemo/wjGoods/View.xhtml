@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/testDemo/index.xhtml">
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewWjGoodsLabel_goodsId}"/>
+                    <h:outputText value="#{wjGoodsController.selected.goodsId}" title="#{bundle.ViewWjGoodsTitle_goodsId}"/>
+                    <h:outputText value="#{bundle.ViewWjGoodsLabel_goodsName}"/>
+                    <h:outputText value="#{wjGoodsController.selected.goodsName}" title="#{bundle.ViewWjGoodsTitle_goodsName}"/>
+                    <h:outputText value="#{bundle.ViewWjGoodsLabel_goodsDescription}"/>
+                    <h:outputText value="#{wjGoodsController.selected.goodsDescription}" title="#{bundle.ViewWjGoodsTitle_goodsDescription}"/>
+                    <h:outputText value="#{bundle.ViewWjGoodsLabel_goodsCreateTime}"/>
+                    <h:outputText value="#{wjGoodsController.selected.goodsCreateTime}" title="#{bundle.ViewWjGoodsTitle_goodsCreateTime}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewWjGoodsLabel_goodsEndTime}"/>
+                    <h:outputText value="#{wjGoodsController.selected.goodsEndTime}" title="#{bundle.ViewWjGoodsTitle_goodsEndTime}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewWjGoodsLabel_state}"/>
+                    <h:outputText value="#{wjGoodsController.selected.state}" title="#{bundle.ViewWjGoodsTitle_state}"/>
+                    <h:outputText value="#{bundle.ViewWjGoodsLabel_categoryId}"/>
+                    <h:outputText value="#{wjGoodsController.selected.categoryId}" title="#{bundle.ViewWjGoodsTitle_categoryId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{wjGoodsController.destroyAndView}" value="#{bundle.ViewWjGoodsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewWjGoodsEditLink}"/>
+                <br />
+                <h:commandLink action="#{wjGoodsController.prepareCreate}" value="#{bundle.ViewWjGoodsCreateLink}" />
+                <br />
+                <h:commandLink action="#{wjGoodsController.prepareList}" value="#{bundle.ViewWjGoodsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewWjGoodsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

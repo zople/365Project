@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAdminBlogrollTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAdminBlogrollLabel_id}"/>
+                    <h:outputText value="#{adminBlogrollController.selected.id}" title="#{bundle.ViewAdminBlogrollTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewAdminBlogrollLabel_name}"/>
+                    <h:outputText value="#{adminBlogrollController.selected.name}" title="#{bundle.ViewAdminBlogrollTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewAdminBlogrollLabel_content}"/>
+                    <h:outputText value="#{adminBlogrollController.selected.content}" title="#{bundle.ViewAdminBlogrollTitle_content}"/>
+                    <h:outputText value="#{bundle.ViewAdminBlogrollLabel_description}"/>
+                    <h:outputText value="#{adminBlogrollController.selected.description}" title="#{bundle.ViewAdminBlogrollTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewAdminBlogrollLabel_createTime}"/>
+                    <h:outputText value="#{adminBlogrollController.selected.createTime}" title="#{bundle.ViewAdminBlogrollTitle_createTime}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{adminBlogrollController.destroyAndView}" value="#{bundle.ViewAdminBlogrollDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAdminBlogrollEditLink}"/>
+                <br />
+                <h:commandLink action="#{adminBlogrollController.prepareCreate}" value="#{bundle.ViewAdminBlogrollCreateLink}" />
+                <br />
+                <h:commandLink action="#{adminBlogrollController.prepareList}" value="#{bundle.ViewAdminBlogrollShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAdminBlogrollIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

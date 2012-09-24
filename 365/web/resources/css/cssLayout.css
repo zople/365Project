@@ -1,0 +1,47 @@
+body{
+    font-family: Verdana,Arial;
+}
+#left {
+    float: left;
+}
+#content{
+    float: left;
+}
+#bottom {
+    height: 80px;
+    clear: both;
+    padding:10px;
+    width: 100%;
+}
+#right {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+.center_content {
+    padding: 5px;
+}
+.left_content {
+    height:540px;
+    color: black;
+    width: 650px;
+}
+.right_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+}
+#top a:link:hover, #top a:visited:hover  {
+  color: black;
+  font-weight : bold;
+  text-decoration : underline;
+}
+.th{
+    font-size: 12px;
+    background-color: transparent;
+    background-image:url('/365/resources/images/blue_menu_bg.gif');
+}
+.thColor{
+    color:  white;
+}

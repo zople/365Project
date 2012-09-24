@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEnEnterpriseTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEnEnterpriseLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{enEnterpriseController.selected.id}" title="#{bundle.EditEnEnterpriseTitle_id}" required="true" requiredMessage="#{bundle.EditEnEnterpriseRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditEnEnterpriseLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{enEnterpriseController.selected.name}" title="#{bundle.EditEnEnterpriseTitle_name}" />
+                    <h:outputLabel value="#{bundle.EditEnEnterpriseLabel_mainSort}" for="mainSort" />
+                    <h:inputText id="mainSort" value="#{enEnterpriseController.selected.mainSort}" title="#{bundle.EditEnEnterpriseTitle_mainSort}" />
+                    <h:outputLabel value="#{bundle.EditEnEnterpriseLabel_mainProduct}" for="mainProduct" />
+                    <h:inputText id="mainProduct" value="#{enEnterpriseController.selected.mainProduct}" title="#{bundle.EditEnEnterpriseTitle_mainProduct}" />
+                    <h:outputLabel value="#{bundle.EditEnEnterpriseLabel_businessPattern}" for="businessPattern" />
+                    <h:inputText id="businessPattern" value="#{enEnterpriseController.selected.businessPattern}" title="#{bundle.EditEnEnterpriseTitle_businessPattern}" />
+                    <h:outputLabel value="#{bundle.EditEnEnterpriseLabel_logo}" for="logo" />
+                    <h:inputTextarea rows="4" cols="30" id="logo" value="#{enEnterpriseController.selected.logo}" title="#{bundle.EditEnEnterpriseTitle_logo}" />
+                </h:panelGrid>
+                <h:commandLink action="#{enEnterpriseController.update}" value="#{bundle.EditEnEnterpriseSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditEnEnterpriseViewLink}"/>
+                <br />
+                <h:commandLink action="#{enEnterpriseController.prepareList}" value="#{bundle.EditEnEnterpriseShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditEnEnterpriseIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

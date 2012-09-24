@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAdminOrderTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAdminOrderEmpty}" rendered="#{adminOrderController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{adminOrderController.items.rowCount > 0}">
+                    <h:outputText value="#{adminOrderController.pagination.pageFirstItem + 1}..#{adminOrderController.pagination.pageLastItem + 1}/#{adminOrderController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{adminOrderController.previous}" value="#{bundle.Previous} #{adminOrderController.pagination.pageSize}" rendered="#{adminOrderController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{adminOrderController.next}" value="#{bundle.Next} #{adminOrderController.pagination.pageSize}" rendered="#{adminOrderController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{adminOrderController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminOrderTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminOrderTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminOrderTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{adminOrderController.prepareView}" value="#{bundle.ListAdminOrderViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{adminOrderController.prepareEdit}" value="#{bundle.ListAdminOrderEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{adminOrderController.destroy}" value="#{bundle.ListAdminOrderDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{adminOrderController.prepareCreate}" value="#{bundle.ListAdminOrderCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAdminOrderIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

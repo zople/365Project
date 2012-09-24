@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>测试信息添加</title>
+    </h:head>
+    
+     <ui:composition template="/pages/testDemo/index.xhtml">
+       
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                   
+                    <h:outputLabel value="测试名称" for="testName" />
+                    <h:inputText id="testName" value="#{testController.selected.testName}" title="测试名称" required="true" requiredMessage="测试名称不能为空"/>
+                    <h:outputLabel value="测试密码" for="testPwd" />
+                    <h:inputSecret id="testPwd" value="#{testController.selected.testPwd}" title="测试密码" required="true" requiredMessage="测试密码不能为空" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{testController.create}" value="确认保存" >
+                </h:commandLink>
+                <br />
+                <br />
+                <h:commandLink action="#{testController.prepareList}" value="返回列表" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="返回首页"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/index.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPurchaseTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPurchaseLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{purchaseController.selected.id}" title="#{bundle.EditPurchaseTitle_id}" required="true" requiredMessage="#{bundle.EditPurchaseRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditPurchaseLabel_createTime}" for="createTime" />
+                    <h:inputText id="createTime" value="#{purchaseController.selected.createTime}" title="#{bundle.EditPurchaseTitle_createTime}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPurchaseLabel_describe}" for="describe" />
+                    <h:inputText id="describe" value="#{purchaseController.selected.describe}" title="#{bundle.EditPurchaseTitle_describe}" />
+                    <h:outputLabel value="#{bundle.EditPurchaseLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{purchaseController.selected.name}" title="#{bundle.EditPurchaseTitle_name}" />
+                </h:panelGrid>
+                <h:commandLink action="#{purchaseController.update}" value="#{bundle.EditPurchaseSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPurchaseViewLink}"/>
+                <br />
+                <h:commandLink action="#{purchaseController.prepareList}" value="#{bundle.EditPurchaseShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPurchaseIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

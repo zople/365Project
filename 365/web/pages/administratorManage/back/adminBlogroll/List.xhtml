@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAdminBlogrollTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAdminBlogrollEmpty}" rendered="#{adminBlogrollController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{adminBlogrollController.items.rowCount > 0}">
+                    <h:outputText value="#{adminBlogrollController.pagination.pageFirstItem + 1}..#{adminBlogrollController.pagination.pageLastItem + 1}/#{adminBlogrollController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{adminBlogrollController.previous}" value="#{bundle.Previous} #{adminBlogrollController.pagination.pageSize}" rendered="#{adminBlogrollController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{adminBlogrollController.next}" value="#{bundle.Next} #{adminBlogrollController.pagination.pageSize}" rendered="#{adminBlogrollController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{adminBlogrollController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminBlogrollTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminBlogrollTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminBlogrollTitle_content}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.content}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminBlogrollTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminBlogrollTitle_createTime}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.createTime}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{adminBlogrollController.prepareView}" value="#{bundle.ListAdminBlogrollViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{adminBlogrollController.prepareEdit}" value="#{bundle.ListAdminBlogrollEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{adminBlogrollController.destroy}" value="#{bundle.ListAdminBlogrollDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{adminBlogrollController.prepareCreate}" value="#{bundle.ListAdminBlogrollCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAdminBlogrollIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

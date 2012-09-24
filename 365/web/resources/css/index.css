@@ -1,0 +1,112 @@
+/* 
+    Document   : index
+    Created on : 2012-9-10, 11:27:24
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+.index1Left{
+    width: 200px;
+    height: 267px;
+    border: 1px solid #78cde7;
+    float: left;
+}
+.index1LeftTop{
+     height: 20px;
+     color:  white;
+     padding: 2px;
+     background-image:url('/365/resources/images/title.png');
+}
+
+.indeex3LeftBottom{
+    padding: 5px;
+}
+.index1Content{
+    width: 545px;
+    height: 267px;
+    border: 1px solid #78cde7;
+    float: left;
+    margin: 4px;
+}
+.index2Top{
+     clear: left;
+     width: 750px;
+     height: 20px;
+     color:  white;
+     padding: 2px;
+     background-image:url('/365/resources/images/title.png');
+}
+.index2Bottom{
+    height: 185px;
+    width: 750px;
+    border: 1px solid #78cde7;
+}
+.index3{
+    width: 760px;
+    height: 460px;
+}
+.index3Left{
+    width: 375px;
+    height: 225px;
+    border: 1px solid #78cde7;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-right: 3px;
+    float: left;
+}
+.index3LeftTop{
+    height: 20px;
+    border: 1px solid #78cde7;
+}
+.index9Right{
+    float: left;
+    width: 230px;
+    height: 880px;
+}
+.login{
+    width: 240px;
+    height: 270px;
+    border: 1px solid #78cde7;
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.index4Left{
+    float: left;
+    width: 330px;
+    height: 260px;
+    border: 1px solid #78cde7;
+    margin-right:1px;
+}
+.index4{
+    clear: left;
+    width: 100%;
+    height: 260px;
+}
+.index4LeftTop{
+    height: 20px;
+    border: 1px solid #78cde7;
+}
+.index6{
+    clear: both;
+    width: 100%;
+    height: 740px;
+    border: 1px solid #78cde7;
+    margin-bottom:4px;
+}
+.index8{
+    margin-top: 4px;
+    width: 100%;
+    height: 160px;
+    border: 1px solid #78cde7;
+}
+.indexLeft{
+    float: left;
+}
+.indexRight{
+    float: right;
+}

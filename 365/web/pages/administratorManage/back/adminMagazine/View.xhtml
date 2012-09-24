@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAdminMagazineTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAdminMagazineLabel_id}"/>
+                    <h:outputText value="#{adminMagazineController.selected.id}" title="#{bundle.ViewAdminMagazineTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewAdminMagazineLabel_name}"/>
+                    <h:outputText value="#{adminMagazineController.selected.name}" title="#{bundle.ViewAdminMagazineTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewAdminMagazineLabel_description}"/>
+                    <h:outputText value="#{adminMagazineController.selected.description}" title="#{bundle.ViewAdminMagazineTitle_description}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{adminMagazineController.destroyAndView}" value="#{bundle.ViewAdminMagazineDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAdminMagazineEditLink}"/>
+                <br />
+                <h:commandLink action="#{adminMagazineController.prepareCreate}" value="#{bundle.ViewAdminMagazineCreateLink}" />
+                <br />
+                <h:commandLink action="#{adminMagazineController.prepareList}" value="#{bundle.ViewAdminMagazineShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAdminMagazineIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

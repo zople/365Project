@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/pages/userManage/enterprise/template/supplytemple.xhtml">
+       
+        <ui:define name="content">
+            <div class="supplyTOP">  发布招商   <font color="red"> 我的招商</font> 我的询盘 </div>
+             
+            <div class="supplyTOP1">  友情提醒你目前是一般会员，只能发布置20条产品信息  </div>
+             
+                  <div class="search_style"> 我的招商查询 
+                 <form>
+                   <table width="100%" border="1" cellspacing="1" cellpadding="1">
+                     <tr>
+                       <td width="19%" nowrap="nowrap"> 招商标题：
+                         
+                         <input type="text" name="textfield" />                        </td>
+                       <td colspan="2" nowrap="nowrap"> 截止时间： 
+                       
+                         <input type="text" name="textfield2" />
+                        
+                         <select name="select">
+                           <option value="00">00</option>
+                           <option value="01">01</option>
+                           <option value="02">02</option>
+                         </select>
+                                         
+                         时
+                     
+                         <select name="select2">
+                           <option value="10">10</option>
+                           <option value="20">20</option>
+                           <option value="30">30</option>
+                         </select>
+                         
+                         分-- 
+                       
+                         <input type="text" name="textfield22" />
+                         
+                         <select name="select3">
+                           <option value="00">00</option>
+                           <option value="01">01</option>
+                           <option value="02">02</option>
+                         </select>
+                        
+时
+<label>
+<select name="select3">
+  <option value="10">10</option>
+  <option value="20">20</option>
+  <option value="30">30</option>
+</select>
+</label>
+分</td>
+                     </tr>
+                     <tr>
+                       <td><p>产品品类：
+                         <input type="text" name="textfield3" />
+                       </p></td>
+                       <td colspan="2">招商区域
+                         <label>
+                         <select name="select4">
+                           <option value="---全部---">---全部---</option>
+                           <option value="北京">北京</option>
+                           <option value="上海">上海</option>
+                         </select>
+                       </label>
+                       状态 
+                       <select name="select5">
+                         <option value="---全部---">---全部---</option>
+                         <option value="北京">上架</option>
+                         <option value="上海">下架</option>
+                         </select></td>
+                     </tr>
+                     <tr>
+                       <td colspan="3"><label>
+                         
+                       <div align="right">
+                         <input type="submit" name="Submit" value="搜索" />
+                       </div>
+                       </label></td>
+                     </tr>
+                   </table>
+                 </form>
+                 
+                 
+                 
+          </div>
+               
+                 <div class="supplyTOP21">
+                     
+                    
+                          
+                           <input type="submit" name="Submit2" value="全部招商" />
+						     <input type="submit" name="Submit2" value="发布中的招商" />
+							   <input type="submit" name="Submit2" value="草稿箱" />
+							     <input type="submit" name="Submit2" value="审核未通过的招商" />
+                         
+                        
+                 </div>
+                 
+           <div class="list_style">
+                     
+                   
+               <table width="100%" border="1" cellspacing="1" cellpadding="1" class="supplyTOP21">
+                         <tr>
+                            
+                             <input type="submit" name="Submit22" value="批量删除" />
+                           
+                           <input type="submit" name="Submit23" value="导出模板" />
+                         
+                         </tr>
+                         <tr>
+                           <th scope="row"><div align="center">
+                             <input type="checkbox" name="checkbox2" value="checkbox" />
+                           全选</div></th>
+                           <td><div align="center">操作</div></td>
+                           <td><p align="center">状态</p></td>
+                           <td><p align="center">招商标题</p></td>
+                           <td><p align="center">产品品类</p></td>
+                           <td><p align="center">招商级别</p></td>
+                           <td><p align="center">招商区域</p></td>
+                           <td><p align="center">截止日期</p></td>
+                           <td><p align="center">发布日期</p></td>
+                         </tr>
+                         <tr>
+                           <th scope="row">&nbsp; 
+                             
+                               </th>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                         </tr>
+                         <tr>
+                           <th scope="row">&nbsp; </th>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                           <td>&nbsp;</td>
+                         </tr>
+                       </table>
+           </div>
+                 
+                    
+ 
+        </ui:define>
+    </ui:composition>
+
+</html>

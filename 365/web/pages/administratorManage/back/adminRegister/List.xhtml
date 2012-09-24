@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAdminRegisterTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAdminRegisterEmpty}" rendered="#{adminRegisterController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{adminRegisterController.items.rowCount > 0}">
+                    <h:outputText value="#{adminRegisterController.pagination.pageFirstItem + 1}..#{adminRegisterController.pagination.pageLastItem + 1}/#{adminRegisterController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{adminRegisterController.previous}" value="#{bundle.Previous} #{adminRegisterController.pagination.pageSize}" rendered="#{adminRegisterController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{adminRegisterController.next}" value="#{bundle.Next} #{adminRegisterController.pagination.pageSize}" rendered="#{adminRegisterController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{adminRegisterController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminRegisterTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminRegisterTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminRegisterTitle_email}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.email}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminRegisterTitle_area}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.area}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminRegisterTitle_ip}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ip}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminRegisterTitle_phone}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.phone}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminRegisterTitle_onlineTime}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.onlineTime}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminRegisterTitle_createTime}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.createTime}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminRegisterTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{adminRegisterController.prepareView}" value="#{bundle.ListAdminRegisterViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{adminRegisterController.prepareEdit}" value="#{bundle.ListAdminRegisterEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{adminRegisterController.destroy}" value="#{bundle.ListAdminRegisterDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{adminRegisterController.prepareCreate}" value="#{bundle.ListAdminRegisterCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAdminRegisterIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

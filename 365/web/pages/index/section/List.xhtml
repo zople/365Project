@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/testDemo/index.xhtml">
+        <ui:define name="top">
+            <h:outputText value="#{bundle.ListWjCategoryTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListWjCategoryEmpty}" rendered="#{testController.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{testController.items.rowCount > 0}">
+                <h:outputText value="#{testController.pagination.pageFirstItem + 1}..#{testController.pagination.pageLastItem + 1}/#{testController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{testController.previous}" value="#{bundle.Previous} #{testController.pagination.pageSize}" rendered="#{testController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{testController.next}" value="#{bundle.Next} #{testController.pagination.pageSize}" rendered="#{testController.pagination.hasNextPage}"/>&nbsp;
+                <h:dataTable value="#{testController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="测试ID"/>
+                        </f:facet>
+                        <h:outputText value="#{item.testId}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="测试名称"/>
+                        </f:facet>
+                        <h:outputText value="#{item.testName}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="测试密码显示"/>
+                        </f:facet>
+                        <h:outputText value="#{item.testPwd}"/>
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{testController.prepareView}" value="显示信息"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{testController.prepareEdit}" value="编辑信息"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{testController.destroy}" value="删除信息"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+            <br />
+            <h:commandLink action="#{testController.prepareCreate}" value="添加信息">
+                <f:param name="testId" value="0"></f:param>
+            </h:commandLink>
+            <br />
+            <br />
+            <h:link outcome="/index" value="返回首页"/>
+        </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

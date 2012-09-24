@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/testDemo/index.xhtml">
+        <ui:define name="top">
+            <h:outputText value="#{bundle.EditWjCategoryTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditWjCategoryLabel_categoryId}" for="categoryId" />
+                    <h:inputText id="categoryId" value="#{wjCategoryController.selected.categoryId}" title="#{bundle.EditWjCategoryTitle_categoryId}" required="true" requiredMessage="#{bundle.EditWjCategoryRequiredMessage_categoryId}"/>
+                    <h:outputLabel value="#{bundle.EditWjCategoryLabel_fatherId}" for="fatherId" />
+                    <h:inputText id="fatherId" value="#{wjCategoryController.selected.fatherId}" title="#{bundle.EditWjCategoryTitle_fatherId}" required="true" requiredMessage="#{bundle.EditWjCategoryRequiredMessage_fatherId}"/>
+                    <h:outputLabel value="#{bundle.EditWjCategoryLabel_sortOrder}" for="sortOrder" />
+                    <h:inputText id="sortOrder" value="#{wjCategoryController.selected.sortOrder}" title="#{bundle.EditWjCategoryTitle_sortOrder}" />
+                    <h:outputLabel value="#{bundle.EditWjCategoryLabel_categoryName}" for="categoryName" />
+                    <h:inputText id="categoryName" value="#{wjCategoryController.selected.categoryName}" title="#{bundle.EditWjCategoryTitle_categoryName}" />
+                </h:panelGrid>
+                <h:commandLink action="#{wjCategoryController.update}" value="#{bundle.EditWjCategorySaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditWjCategoryViewLink}"/>
+                <br />
+                <h:commandLink action="#{wjCategoryController.prepareList}" value="#{bundle.EditWjCategoryShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditWjCategoryIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

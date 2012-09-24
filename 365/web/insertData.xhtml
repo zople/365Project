@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <head>
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+       <h:form>
+           <h:commandLink action="#{insertDataController.getAllData}" value="新增数据"/><br/><br/><br/><br/><br/><br/><br/>
+           <table style="border: 1px solid #78cde7; margin: 0 auto; margin-top: 200px;">
+            <tr>
+                <td><h:commandLink action="#{moneyController.addData}" value="插入金融动态数据"/></td>
+                <td><h:commandLink action="#{insertDataController.getInsertSupplyData}" value="插入供应信息"/></td>
+                <td><h:commandLink action="#{insertDataController.getInsertBuyData}" value="插入求购信息"/></td>
+                <td><h:commandLink action="#{insertDataController.getInsertAdminCanvassTraderData}" value="插入招商信息"/></td>
+                <td><h:commandLink action="#{insertDataController.insertProcessDate}" value="插入加工信息"/></td>
+                <td><h:commandLink action="#{insertDataController.getInsertAdminIndustryNewsData}" value="插入行业咨询信息"/></td>
+                <td><h:commandLink action="#{insertDataController.getAdminHelpIndustryNewsData}" value="插入帮助信息"/></td>
+                <td><h:commandLink action="#{insertDataController.getAdminMagazineData}" value="插入杂志订阅信息"/></td>
+                <td><h:commandLink action="#{insertDataController.getInsertAdminImageData}" value="插入图片管理信息"/></td>
+            </tr>
+            <tr>
+                <td><h:commandLink action="#{insertDataController.getInsertCategoriesData}" value="插入分类信息"/></td>
+                <td><h:commandLink action="#{insertDataController.getIntertFriendlyLinkData}" value="插入友情链接信息"/></td>
+                <td><h:commandLink action="#{insertDataController.getInsertAdminOrderItemData}" value="插入订单表信息"/></td>
+                <td><h:commandLink action="#{insertDataController.getInsertAdminProducetOrderItemData}" value="插入产品信息"/></td>
+                <td><h:commandLink action="#{insertDataController.insertAdminSpreadData}" value="插入用户推广信息"/></td>
+                <td><h:commandLink action="#{insertDataController.insertAdminStyleData}" value="插入网站模板信息"/></td>
+                <td><h:commandLink action="#{insertDataController.insertMessage}" value="插入信息发布的信息"/></td>
+                <td><h:commandLink action="#{insertDataController.insertAdminRegisterData}" value="插入用户注册信息"/></td>
+            </tr>
+             <tr>
+                <td><h:commandLink action="#{insertDataController.insertMouData}" value="新增部分企业信息(10张表)"/></td>
+                <td><h:commandLink action="#{insertDataController.insertEnterpriseData}" value="新增企业信息"/></td>
+                <td><h:commandLink action="#{insertDataController.getInsertAdminExhibition}" value="插入会展信息"/></td>
+                <td><h:commandLink action="#{insertDataController.insertQuortData}" value="插入报价信息"/></td>
+                <td><h:commandLink action="#{insertDataController.insertExhibitionData}" value="插入展会信息"/></td>
+                <td><h:commandLink action="#{insertDataController.insertPrvilionData}" value="插入展馆信息"/></td>
+            </tr>
+            <tr>
+                <td><h:commandLink action="#{insertDataController.getInsertAdminMessageData}" value="插入商贸城基本信息管理表信息"/></td>
+                <td><h:commandLink action="#{insertDataController.insertMMerchant}" value="插入入住商户信息"/></td>
+                <td><h:commandLink action="#{insertDataController.insertMMall}" value="插入商贸城用户基本信息"/></td>
+                <td><h:commandLink action="#{insertDataController.insertMymall}" value="插入我的商贸城信息"/></td>
+                <td><h:commandLink action="#{insertDataController.insertEnRecruitmentData}" value="插入人才招聘信息"/></td>
+            </tr>
+            <tr>
+                <td><h:commandLink action="#{insertDataController.insetPersonData}" value="插入个人信息"/></td>
+                <td><h:commandLink action="#{insertDataController.insertCompanyDate}" value="插入公司，岗位信息"/></td>
+                <td><h:commandLink action="#{insertDataController.insetUserData}" value="插入用户信息"/></td>
+                <td><h:commandLink action="#{insertDataController.insetImages}" value="插入图片"/></td>
+            </tr>
+        </table>
+       </h:form>
+    </body>
+</html>

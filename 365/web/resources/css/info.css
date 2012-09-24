@@ -1,0 +1,42 @@
+/* 
+    Document   : info
+    Created on : 2012-9-11, 17:46:59
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+.inforLeft{
+    float: left;
+    width: 245px;
+    height: 660px;
+}
+.inforLeft1{
+     width: 240px;
+     height: 220px;
+     border: 1px solid #78cde7;
+     margin-bottom: 5px;
+}
+.infoRitht{
+    float: right;
+    width: 740px;
+    height: 1200px;
+}
+.inforLeft1Top{
+    height: 20px;
+    border: 1px solid #78cde7;
+}
+.infoRitht1{
+    float: left;
+    width: 350px;
+    height: 200px;
+    border: 1px solid #78cde7;
+    margin: 2px;
+}
+.infoRitht1Top{
+    height: 20px;
+    border: 1px solid #78cde7; 
+}

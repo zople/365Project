@@ -1,0 +1,182 @@
+/* 
+    Document   : index
+    Created on : 2012-9-10, 11:27:24
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.buybody {
+    margin: 0 auto;
+    width: 990px;
+    height:950px;
+}
+.top {
+    width: 990px;
+    height: 150px;
+}
+.top1{
+    padding-top: 5px;
+    width: 990px;
+    height: 20px;
+    border: 1px solid #78cde7;
+}
+.top2{
+    width: 990px;
+    height: 130px;
+    border: 1px solid #78cde7;
+}
+.categary{
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 990px;
+    height: 20px;
+}
+.address{
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 990px;
+    height: 20px;
+}
+.level{
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 990px;
+    height: 20px;
+}
+.bottom {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 990px;
+    height: 630px;
+}
+.bottom_left {
+    float: left;
+    width: 750px;
+    height: 630px;
+}
+.bottom_left1 {
+    width: 750px;
+    height: 30px;
+     border: 1px solid #78cde7;
+}
+.bottom_left11 {
+    padding-top : 5px;
+    padding-left: 5px;
+    float: left;
+    width: 200px;
+    height: 25px;
+    background-color:blue;
+    color: white;
+    font-size: 20px;
+}
+.bottom_left12 {
+    padding-top : 15px;
+    float: right;
+    width: 150px;
+    height: 25px;
+}
+.bottom_left2 {
+    width: 750px;
+    height: 600px;
+     border: 1px solid #78cde7;
+}
+.bottom_right {
+    margin-left: 10px;
+    float: right;
+    width: 225px;
+    height: 630px;
+}
+.bottom_right_top {
+    width: 225px;
+    height: 230px;
+}
+.bottom_right_top1 {
+    width: 225px;
+    height: 30px;
+    border: 1px solid #78cde7;
+}
+.bottom_right_top11 {
+    padding-top : 8px;
+    background-color:blue;
+    width: 100px;
+    height: 25px;
+    color: white;
+    font-size: 15px;
+}
+.bottom_right_top2 {
+    width: 225px;
+    height: 100px;
+    border: 1px solid #78cde7;
+}
+.bottom_right_top21 {
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+    width: 70px;
+    height: 80px;
+    border: 1px solid #78cde7;
+}
+.bottom_right_top22 {
+    margin-top: 15px;
+    margin-right: 60px;
+    float: right;
+    width: 70px;
+    height: 80px;
+}
+.bottom_right_top3 {
+    width: 225px;
+    height: 100px;
+     border: 1px solid #78cde7;
+}
+.bottom_right_top31 {
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+    width: 70px;
+    height: 80px;
+    border: 1px solid #78cde7;
+}
+.bottom_right_top32 {
+    margin-top: 15px;
+    margin-right: 60px;
+    float: right;
+    width: 70px;
+    height: 80px;
+}
+.bottom_right_bottom {
+    margin-top: 10px;
+    width: 225px;
+    height:390px;
+}
+.bottom_right_bottom1 {
+    padding-top: 10px;
+    width: 225px;
+    height:30px;
+     border: 1px solid #78cde7;
+}
+.bottom_right_bottom11 {
+    float: left;
+    padding-top: 10px;
+    width: 100px;
+    height:20px;
+     border: 1px solid #78cde7;
+     background-color: blue;
+    color: white;
+    font-size: 15px;
+}
+.bottom_right_bottom12 {
+    float: right;
+    padding-top: 10px;
+    width: 120px;
+    height:20px;
+     border: 1px solid #78cde7;
+     font-size: 12px;
+}
+
+.bottom_right_bottom2 {
+    width: 225px;
+    height:350px;
+    border: 1px solid #78cde7;
+    
+}

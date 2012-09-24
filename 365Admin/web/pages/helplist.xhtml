@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="/template.xhtml">
+            <ui:define name="top"><ui:include src="/pages/common/header.xhtml"/></ui:define>
+            <ui:define name="left"><ui:include src="/pages/common/left.xhtml"/></ui:define>
+            <ui:define name="content">
+                <h:dataTable value="#{adminHelpController.adminHelps}" var="item">
+                    <h:column>
+                        <h:outputLink value="">
+                            <h:outputText value="#{item.content}"/>
+                        </h:outputLink>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{item.create_time}"/>
+                    </h:column>
+                </h:dataTable>
+            </ui:define>
+            <ui:define name="bottom"><ui:include src="/pages/common/footer.xhtml"/></ui:define>
+        </ui:composition>
+    </h:body>
+
+
+</html>
+

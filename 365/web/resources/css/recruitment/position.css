@@ -1,0 +1,120 @@
+/* 
+    Document   : index
+    Created on : 2012-9-10, 11:27:24
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+.position_body {
+    margin: 0 auto;
+    width: 990px;
+    height: 1250px;
+}
+.position_top {
+    width: 990px;
+    height: 75px;
+}
+.position_bottom {
+    width: 990px;
+    height: 1200px;
+}
+.position_bottom_left {
+    float: left;
+    width: 200px;
+    height: 770px;
+    border: 1px solid #78cde7;
+}
+.position_bottom_right {
+    float: right;
+    width: 775px;
+    height: 770px;
+}
+.position_bottom_right1 {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 775px;
+    border: 1px solid #78cde7;
+    background-color: #cccccc;
+    font-size: 15px;
+}
+.position_bottom_right2 {
+    width: 775px;
+    height: 1140px;
+    border: 1px solid #78cde7;
+}
+.company_name {
+    margin-left: 250px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    float: left;
+    text-align: center;
+}
+.position_name {
+    margin-left: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    float: left;
+    text-align: center;
+}
+.more_position {
+    margin-top: 15px;
+    margin-right: 20px;
+    float: right;
+    text-align: center;
+    font-size: 15px;
+}
+.position_message {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-top: 50px;
+    width: 770px;
+    border: 1px solid #78cde7;
+    font-weight: bold;
+    background-color: #ccccff;
+}
+.position_detail {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-top: 100px;
+    width: 770px;
+    border: 1px solid #78cde7;
+    font-weight: bold;
+    background-color: #ccccff;
+}
+.position_need {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-top: 150px;
+    width: 770px;
+    border: 1px solid #78cde7;
+    font-weight: bold;
+    background-color: #ccccff;
+}
+.company_detail {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-top: 50px;
+    width: 770px;
+    border: 1px solid #78cde7;
+    font-weight: bold;
+    background-color: #ccccff;
+}
+.company_message {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-top: 210px;
+    width: 770px;
+    border: 1px solid #78cde7;
+    font-weight: bold;
+    background-color: #ccccff;
+}
+.button1 {
+    float: left;
+    margin-top: 110px;
+    margin-left: 130px;
+}
+.button2 {
+    float: left;
+    margin-top: 210px;
+    margin-right: 130px;
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAdminHelpTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAdminHelpLabel_id}"/>
+                    <h:outputText value="#{adminHelpController.selected.id}" title="#{bundle.ViewAdminHelpTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewAdminHelpLabel_className}"/>
+                    <h:outputText value="#{adminHelpController.selected.className}" title="#{bundle.ViewAdminHelpTitle_className}"/>
+                    <h:outputText value="#{bundle.ViewAdminHelpLabel_name}"/>
+                    <h:outputText value="#{adminHelpController.selected.name}" title="#{bundle.ViewAdminHelpTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewAdminHelpLabel_content}"/>
+                    <h:outputText value="#{adminHelpController.selected.content}" title="#{bundle.ViewAdminHelpTitle_content}"/>
+                    <h:outputText value="#{bundle.ViewAdminHelpLabel_description}"/>
+                    <h:outputText value="#{adminHelpController.selected.description}" title="#{bundle.ViewAdminHelpTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewAdminHelpLabel_createTime}"/>
+                    <h:outputText value="#{adminHelpController.selected.createTime}" title="#{bundle.ViewAdminHelpTitle_createTime}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{adminHelpController.destroyAndView}" value="#{bundle.ViewAdminHelpDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAdminHelpEditLink}"/>
+                <br />
+                <h:commandLink action="#{adminHelpController.prepareCreate}" value="#{bundle.ViewAdminHelpCreateLink}" />
+                <br />
+                <h:commandLink action="#{adminHelpController.prepareList}" value="#{bundle.ViewAdminHelpShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAdminHelpIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

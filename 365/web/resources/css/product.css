@@ -1,0 +1,86 @@
+/* 
+    Document   : product
+    Created on : 2012-9-7, 15:29:49
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+.product1Left{
+    width: 230px;
+}
+.product1Content{
+    width: 530px;
+    height: 440px;
+}
+.product2Right{
+    width: 230px;
+    height: 235px;
+}
+.leftTop{
+    height: 40px;
+}
+.leftBottom{
+    height: 400px;
+}
+.leftContentTop{
+    width:520px;
+    height: 270px;
+}
+.leftContentBottom{
+    height: 170px;
+}
+.ProductRight1{
+   
+}
+.ProductRight2{
+   height: 150px;
+}
+.ProductRight3{
+   height: 40px;
+}
+.buyRight3{
+    height: 250px;
+}
+.ProductRight4{
+    height: 200px;
+}
+.product2LeftBottom{
+    height: 200px;
+    width: 760px;
+}
+.product3Top{
+    height: 380px;
+}
+.product3Content{
+    height: 380px;
+}
+.product3bottom{
+    height: 100px;
+}
+#tablePro3 td{
+    border: 1px solid #78cde7;
+}
+.buyL1{
+    height: 380px;
+    width: 760px;
+}
+.buyL1Top{
+    height: 20px;
+}
+.buyL1Bottom{
+    height: 360px;
+}
+.buyR1{
+    height: 380px;
+    width:  225px;
+}
+.buyR1Top{
+    height: 20px;
+}
+.buyR1Bottom{
+    height: 360px;
+}

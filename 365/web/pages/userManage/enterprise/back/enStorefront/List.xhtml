@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEnStorefrontTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListEnStorefrontEmpty}" rendered="#{enStorefrontController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{enStorefrontController.items.rowCount > 0}">
+                    <h:outputText value="#{enStorefrontController.pagination.pageFirstItem + 1}..#{enStorefrontController.pagination.pageLastItem + 1}/#{enStorefrontController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{enStorefrontController.previous}" value="#{bundle.Previous} #{enStorefrontController.pagination.pageSize}" rendered="#{enStorefrontController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{enStorefrontController.next}" value="#{bundle.Next} #{enStorefrontController.pagination.pageSize}" rendered="#{enStorefrontController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{enStorefrontController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnStorefrontTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnStorefrontTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnStorefrontTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnStorefrontTitle_phone}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.phone}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnStorefrontTitle_ad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnStorefrontTitle_logo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.logo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnStorefrontTitle_style}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.style}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{enStorefrontController.prepareView}" value="#{bundle.ListEnStorefrontViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{enStorefrontController.prepareEdit}" value="#{bundle.ListEnStorefrontEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{enStorefrontController.destroy}" value="#{bundle.ListEnStorefrontDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{enStorefrontController.prepareCreate}" value="#{bundle.ListEnStorefrontCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListEnStorefrontIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

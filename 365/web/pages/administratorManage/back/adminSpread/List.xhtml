@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAdminSpreadTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAdminSpreadEmpty}" rendered="#{adminSpreadController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{adminSpreadController.items.rowCount > 0}">
+                    <h:outputText value="#{adminSpreadController.pagination.pageFirstItem + 1}..#{adminSpreadController.pagination.pageLastItem + 1}/#{adminSpreadController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{adminSpreadController.previous}" value="#{bundle.Previous} #{adminSpreadController.pagination.pageSize}" rendered="#{adminSpreadController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{adminSpreadController.next}" value="#{bundle.Next} #{adminSpreadController.pagination.pageSize}" rendered="#{adminSpreadController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{adminSpreadController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminSpreadTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminSpreadTitle_brandName}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.brandName}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminSpreadTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{adminSpreadController.prepareView}" value="#{bundle.ListAdminSpreadViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{adminSpreadController.prepareEdit}" value="#{bundle.ListAdminSpreadEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{adminSpreadController.destroy}" value="#{bundle.ListAdminSpreadDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{adminSpreadController.prepareCreate}" value="#{bundle.ListAdminSpreadCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAdminSpreadIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

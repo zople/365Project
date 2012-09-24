@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>求购管理</title>
+    </head>
+    <body>
+        <div>
+            
+            <ui:composition template="/pages/userManage/enterprise/template/front.xhtml">
+                <ui:define name="content">
+                    <div class="enFrontContent1">
+                        <div class="entTop"><!--<h:graphicImage name="37.png" library="images"/>-->
+                        求购信息
+                        </div>
+                        <div> 
+                            
+                     <h:form styleClass="jsfcrud_list_form">         
+                      <table style="font-size: 17px; border-style: none">
+                          <ui:repeat value="#{buyController.infoListBySql}" var="recruitment" varStatus="status" >
+                
+                          <tr style="font-size: 17px; border-style: none">
+                
+                      
+                <td style="font-size: 17px; border-style: none"><strong>采购标题:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.title} <br/>
+                </td>
+                        <td style="font-size: 17px; border-style: none"><strong>
+                                
+                            <h:commandLink action="#{buyController.findById}" value="#{recruitment.title}">
+                             <f:param name="id" value="#{recruitment.id}"></f:param>
+                         </h:commandLink>     
+                                
+                                
+                            </strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">  
+                </td>
+                       </tr>          
+                              
+                              
+                              
+                    <tr style="font-size: 17px; border-style: none">
+                
+                      
+
+                    【产品名称】：#{recruitment.name}
+
+                    【采购类型】： 
+
+                    【采购数量】：    #{recruitment.count}        台/个
+
+                    【截止日期】：      #{recruitment.createTime}     
+
+                    【详细说明】#{recruitment.content}
+                
+                       </tr>      
+                              
+                               
+                
+            </ui:repeat>
+        </table>
+ 
+                            
+                            
+                     </h:form>          
+                             
+                        </div>
+                    </div>
+                   
+                </ui:define>
+            </ui:composition>
+        </div>
+    </body>
+</html>

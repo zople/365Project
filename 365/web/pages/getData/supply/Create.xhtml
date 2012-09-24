@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateSupplyTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateSupplyLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{supplyController.selected.id}" title="#{bundle.CreateSupplyTitle_id}" required="true" requiredMessage="#{bundle.CreateSupplyRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateSupplyLabel_title}" for="title" />
+                    <h:inputText id="title" value="#{supplyController.selected.title}" title="#{bundle.CreateSupplyTitle_title}" />
+                    <h:outputLabel value="#{bundle.CreateSupplyLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{supplyController.selected.description}" title="#{bundle.CreateSupplyTitle_description}" />
+                    <h:outputLabel value="#{bundle.CreateSupplyLabel_userId}" for="userId" />
+                    <h:inputText id="userId" value="#{supplyController.selected.userId}" title="#{bundle.CreateSupplyTitle_userId}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{supplyController.create}" value="#{bundle.CreateSupplySaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{supplyController.prepareList}" value="#{bundle.CreateSupplyShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateSupplyIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

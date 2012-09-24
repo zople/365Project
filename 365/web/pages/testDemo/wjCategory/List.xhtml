@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/testDemo/index.xhtml">
+        <ui:define name="top">
+            <h:outputText value="#{bundle.ListWjCategoryTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListWjCategoryEmpty}" rendered="#{wjCategoryController.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{wjCategoryController.items.rowCount > 0}">
+                <h:outputText value="#{wjCategoryController.pagination.pageFirstItem + 1}..#{wjCategoryController.pagination.pageLastItem + 1}/#{wjCategoryController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{wjCategoryController.previous}" value="#{bundle.Previous} #{wjCategoryController.pagination.pageSize}" rendered="#{wjCategoryController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{wjCategoryController.next}" value="#{bundle.Next} #{wjCategoryController.pagination.pageSize}" rendered="#{wjCategoryController.pagination.hasNextPage}"/>&nbsp;
+                <h:dataTable value="#{wjCategoryController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListWjCategoryTitle_categoryId}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.categoryId}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListWjCategoryTitle_fatherId}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.fatherId}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListWjCategoryTitle_sortOrder}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.sortOrder}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListWjCategoryTitle_categoryName}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.categoryName}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{wjCategoryController.prepareView}" value="#{bundle.ListWjCategoryViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{wjCategoryController.prepareEdit}" value="#{bundle.ListWjCategoryEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{wjCategoryController.destroy}" value="#{bundle.ListWjCategoryDestroyLink}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+            <br />
+            <h:commandLink action="#{wjCategoryController.prepareCreate}" value="#{bundle.ListWjCategoryCreateLink}">
+                <f:param name="fatherId" value="0"></f:param>
+            </h:commandLink>
+            <br />
+            <br />
+            <h:link outcome="/index" value="#{bundle.ListWjCategoryIndexLink}"/>
+        </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

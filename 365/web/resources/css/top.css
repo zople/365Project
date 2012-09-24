@@ -1,0 +1,105 @@
+/* 
+    Document   : top
+    Created on : 2012-8-16, 14:53:45
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+body{
+   color: #333;
+   font-family: "微软雅黑";
+   font-size: 12px;
+}
+
+.Nav{
+    width: 990px;
+    height: 39px;
+    margin-top: 3px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    background-image:url("/images/2011w12.jpg");
+    background-attachment: scroll;
+    background-repeat: repeat-x;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-origin: padding-box;
+    background-size: auto;
+    background-clip: border-box;
+    background-color: transparent;
+}
+.NavL{
+    width: 4px;
+    height: 39px;
+    float: left;
+    background-image: url("2011bg.gif");
+    background-attachment: scroll;
+    background-repeat: repeat;
+    background-position-x: -71px;
+    background-position-y: -101px;
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+    background-color: transparent;
+}
+.Navc{
+    height: 39px;
+    padding-left: 10px;
+    float: left;
+    display: inline;
+}
+.Navc a{
+    width: 95px;
+    height: 39px;
+    text-align: center;
+    line-height: 39px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    float: left;
+    display: block;
+    background-image: url("/images/2011w13.jpg");
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position-x: 0px;
+    background-position-y: -141px;
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+    background-color: transparent;
+}
+.Navc a.N1{
+    color: #333;
+    background-image: url("2011bg.gif");
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position-x: 0px;
+    background-position-y: -141px;
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+    background-color: transparent;
+}
+.indextop{
+    height: 20px;
+    width: 100%;
+    background-color: red;
+    margin: 0 auto;
+}
+.tempen{
+    height: 270px;
+    weight:100%;
+}
+
+.shoppingmall{
+    height: 100px;
+    border: 1px solid #6cb5df;
+}
+table th{
+    vertical-align: bottom;
+    font-weight:  bolder;
+}

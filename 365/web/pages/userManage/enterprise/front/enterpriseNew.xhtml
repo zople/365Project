@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>企业新闻</title>
+    </head>
+    <body>
+        <div>
+            <ui:composition template="/pages/userManage/enterprise/template/front.xhtml">
+                <ui:define name="content">
+                    <div class="enFrontContent1">
+                        <div class="entTop"><!--<h:graphicImage name="37.png" library="images"/>-->
+                        公司新闻
+                        </div>
+                        <div> 
+                        
+                          
+           <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="true" value="" rendered="#{enNewsController.items.rowCount == 0}"/>
+           <h:panelGroup rendered="#{enNewsController.items.rowCount > 0}">
+                <h:outputText value="#{enNewsController.pagination.pageFirstItem + 1}..#{enNewsController.pagination.pageLastItem + 1}/#{enNewsController.pagination.itemsCount}"/>
+                <h:commandLink action="#{enNewsController.previous}" value="#{bundle.Previous} #{enNewsController.pagination.pageSize}" rendered="#{enNewsController.pagination.hasPreviousPage}"/>
+                <h:commandLink action="#{enNewsController.next}" value="#{bundle.Next} #{enNewsController.pagination.pageSize}" rendered="#{enNewsController.pagination.hasNextPage}"/>
+            
+                <h:dataTable value="#{enNewsController.items}" var="item" border="0" cellpadding="0" cellspacing="2" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="咨询标题"/>
+                        </f:facet>
+                        <h:commandLink action="#{enNewsController.findById}" value="#{item.name}">
+                             <f:param name="id" value="#{item.id}"></f:param>
+                         </h:commandLink>
+                        
+                      
+                        
+                        
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="发布时间"/>
+                        </f:facet>
+                        <h:outputText value="#{item.addtime}"/>
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                          
+                        </f:facet>
+                      
+                    </h:column>
+                </h:dataTable>
+          
+             </h:panelGroup>
+            
+        </h:form>
+               
+                        </div>
+                    </div>
+                   
+                </ui:define>
+            </ui:composition>
+        </div>
+    </body>
+</html>

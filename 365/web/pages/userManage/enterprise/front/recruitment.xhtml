@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>人才招聘</title>
+    </head>
+    <body>
+        <div>
+            
+            <ui:composition template="/pages/userManage/enterprise/template/front.xhtml">
+                <ui:define name="content">
+                    <div class="enFrontContent1">
+                        <div class="entTop"><!--<h:graphicImage name="37.png" library="images"/>-->
+                        人才招聘
+                        </div>
+                        <div> 
+                            
+                     <h:form styleClass="jsfcrud_list_form">         
+                      <table style="font-size: 17px; border-style: none">
+                          <ui:repeat value="#{enRecruitmentController.infoListBySql}" var="recruitment" varStatus="status" >
+                
+                          <tr style="font-size: 17px; border-style: none">
+                
+                      
+                <td style="font-size: 17px; border-style: none"><strong>岗位名称:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.name} <br/>
+                </td>
+                        <td style="font-size: 17px; border-style: none"><strong>
+                                
+                            <h:commandLink action="#{enRecruitmentController.findById}" value="详细信息">
+                             <f:param name="id" value="#{recruitment.id}"></f:param>
+                         </h:commandLink>     
+                                
+                                
+                            </strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">  
+                </td>
+                       </tr>          
+                              
+                              
+                              
+                    <tr style="font-size: 17px; border-style: none">
+                
+                      
+                <td style="font-size: 17px; border-style: none"><strong>招聘人数:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.count} <br/>
+                </td>
+                        <td style="font-size: 17px; border-style: none"><strong>性别要求:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.sex}<br/>
+                </td>
+                       </tr>    
+                              
+                 <tr style="font-size: 17px; border-style: none">
+                  
+                <td style="font-size: 17px; border-style: none"><strong>专业要求:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.require} <br/>
+                </td>
+                        <td style="font-size: 17px; border-style: none"><strong>学历要求:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.education}<br/>
+                </td>
+                       </tr>      
+                              
+                              
+                              
+                  <tr style="font-size: 17px; border-style: none">
+                  
+                <td style="font-size: 17px; border-style: none"><strong>工作经验:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.experience} <br/>
+                </td>
+                        <td style="font-size: 17px; border-style: none"><strong>工作性质:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.quale}<br/>
+                </td>
+                       </tr>     
+                              
+                              
+                  <tr style="font-size: 17px; border-style: none">
+                  
+                <td style="font-size: 17px; border-style: none"><strong>电脑要求:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.itRequire} <br/>
+                </td>
+                        <td style="font-size: 17px; border-style: none"><strong>外语要求:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.foreignLang}<br/>
+                </td>
+                       </tr>     
+                              
+                              
+                   <tr style="font-size: 17px; border-style: none">
+                  
+                <td style="font-size: 17px; border-style: none"><strong>参考月薪:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.pay} <br/>
+                </td>
+                        <td style="font-size: 17px; border-style: none"><strong>工作地点:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.address}<br/>
+                </td>
+                       </tr>     
+                              
+                 <tr style="font-size: 17px; border-style: none">
+                  
+                <td style="font-size: 17px; border-style: none"><strong>发布日期:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.createTime} <br/>
+                </td>
+                        <td style="font-size: 17px; border-style: none"><strong>截止日期:</strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.endTime}<br/>
+                </td>
+                       </tr>    
+                
+            </ui:repeat>
+        </table>
+ 
+                            
+                            
+                     </h:form>          
+                             
+                        </div>
+                    </div>
+                   
+                </ui:define>
+            </ui:composition>
+        </div>
+    </body>
+</html>

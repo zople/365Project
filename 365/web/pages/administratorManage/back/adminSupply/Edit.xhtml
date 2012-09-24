@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAdminSupplyTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAdminSupplyLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{adminSupplyController.selected.id}" title="#{bundle.EditAdminSupplyTitle_id}" required="true" requiredMessage="#{bundle.EditAdminSupplyRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditAdminSupplyLabel_userId}" for="userId" />
+                    <h:inputText id="userId" value="#{adminSupplyController.selected.userId}" title="#{bundle.EditAdminSupplyTitle_userId}" />
+                    <h:outputLabel value="#{bundle.EditAdminSupplyLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{adminSupplyController.selected.name}" title="#{bundle.EditAdminSupplyTitle_name}" />
+                    <h:outputLabel value="#{bundle.EditAdminSupplyLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{adminSupplyController.selected.description}" title="#{bundle.EditAdminSupplyTitle_description}" />
+                </h:panelGrid>
+                <h:commandLink action="#{adminSupplyController.update}" value="#{bundle.EditAdminSupplySaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAdminSupplyViewLink}"/>
+                <br />
+                <h:commandLink action="#{adminSupplyController.prepareList}" value="#{bundle.EditAdminSupplyShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAdminSupplyIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEnExhibitionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="left">
+            <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                <p:submenu label="我的商友" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                    <p:menuitem value="商友动态" url="#" />
+                    <p:menuitem value="商友列表" url="#" />
+                </p:submenu>
+            </p:menu>
+        </ui:define>
+        <ui:define name="content">
+            <div>
+                <div class="enExhibitionleft1">
+                    <div class="enExhibitionleft1Top">商友动态</div>
+                    <div class="enExhibitionleft1Top">创建新分组</div>
+                </div>
+                <div class="enExhibitionleft2">
+                    <div class="enExhibitionleft2Top">最近来访</div>
+                    <div class="enExhibitionleft2Top">商友列表</div>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+
+</html>

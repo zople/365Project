@@ -1,0 +1,311 @@
+/* 
+    Document   : exti
+    Created on : 2012-9-11, 17:01:42
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+.body{
+    width: 990px;
+}
+.exhibition1Left{
+    width: 400px;
+    height: 240px;
+    border: 1px solid  #78cde7;
+    float: left;
+}
+.exhibition1LeftTop{
+    height: 20px;
+    border: 1px solid  #78cde7;
+}
+.exhibition1Right{
+    width: 570px;
+    height: 240px;
+    border: 1px solid  #78cde7;
+    float: right;
+}
+.exhibition2{
+    clear: both;
+}
+.exhibition4Left{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    float: left;
+    width: 220px;
+    height: 925px;
+}
+.exhibition4Right{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    float: right;
+    width: 750px;;
+    height: 1050px;
+}
+.exhibition5{
+    clear: both;
+}
+.exhibition4Right1{
+    width: 745px;
+    height: 310px;
+    border: 1px solid  #78cde7;
+    margin-bottom: 5px;
+}
+.exhibition4Right1Top{
+    width: 745px;
+    height: 20px;
+    border: 1px solid  #78cde7;
+}
+.exhibition4Left1{
+    height: 645px;
+    border: 1px solid  #78cde7;
+    margin-bottom: 5px;
+}
+.exhibition4Left1TOP{
+    height: 20px;
+    border: 1px solid  #78cde7;
+}
+.exhibition4Left2{
+     height: 280px;
+     border: 1px solid  #78cde7;
+}
+
+
+
+/**采购明细**/
+.buyDeail{
+    width: 745px;
+    height: 310px;
+    border: 1px solid  #78cde7;
+    margin-bottom: 5px;
+}
+
+.buyDeailLeft{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    float: left;
+    width: 720px;
+    height: 925px;
+}
+.buyDeailLeft1{
+    height: 64px;
+    border: 1px solid  #78cde7;
+    margin-bottom: 5px;
+}
+.buyDeailLeft1TOP{
+    height: 20px;
+    border: 1px solid  #78cde7;
+}
+
+ 
+.buyDeailLeft1TOP1{
+    height: 20px;
+    width: 720px;
+    border: 1px solid  #78cde7;
+}
+.buyDeailLeft2{
+     height: 180px;
+     border: 1px solid  #78cde7;
+}
+
+.buyDeailLeft2TOP{
+    height: 20px;
+    border: 1px solid  #78cde7;
+}
+.buyDeailRight{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    float: right;
+    width: 250px;;
+    height: 1050px;
+}
+
+.buyDeailRight1{
+    width: 250px;
+    height: 310px;
+    border: 1px solid  #78cde7;
+    margin-bottom: 5px;
+}
+.buyDeailRight1Top{
+    width:  250px;
+    height: 20px;
+    border: 1px solid  #78cde7;
+}
+
+.talents2 .talents2Left{
+    width: 175px;
+    height: 720px;
+    float: left;
+    border: 1px solid  #78cde7;
+}
+.talents2Right{
+    float: right;
+}
+.talents21{
+    width: 785px;
+    height: 400px;
+    border: 1px solid  #78cde7;
+    margin-bottom: 4px;
+}
+.talents2RightTop{
+    height: 20px;
+    border: 1px solid  #78cde7;
+}
+.talents2Left1{
+    width: 173px;
+    height: 330px;
+    border: 1px solid  #78cde7;
+    margin-bottom: 5px;
+}
+.enBack1Left{
+    float: left;
+    width: 400px;
+    height: 20px;
+    border: 1px solid  #78cde7;
+}
+.style{
+    color:  #333333; 
+    padding-right: 5px;
+}
+.enBack1Right{
+    float: right;
+    height: 20px;
+}
+.enBack3Logo{
+    float: left;
+    width: 200px;
+    height: 110px;
+    border: 1px solid  #78cde7;
+    color:  #6cb5df;
+    font-size: 28px;
+}
+.enBack3Name{
+    float: left;
+    width: 460px;
+    height: 110px;
+    border: 1px solid  #78cde7;
+    font-size: 28px;
+    color:  #6cb5df;
+}
+.enBack3Info{
+    float: left;
+    height: 110px;
+    width: 12%;
+    border: 1px solid  #78cde7;
+}
+.frontHeader{
+    padding-right: 5%;
+    font-size: 15px;
+}
+.entTop{
+    height: 30px;
+    border: 1px solid  #78cde7;
+    color: white;
+    font-weight:  bolder;
+    text-align:  center;
+    background-image:url('/365/resources/images/Agreenx_menu_bg.gif')
+}
+
+.enFrontContent1{
+    width: 730px;
+    height: 445px;
+    border: 1px solid  #78cde7;
+    margin-bottom: 5px;
+}
+.enFrontContent2{
+    height: 752px;
+    width: 730px;
+    border: 1px solid  #78cde7;
+    margin: 2px;
+}
+.enFrontContent1{
+    width: 655px;
+    height: 445px;
+    border: 1px solid  #78cde7;
+    margin-bottom: 5px;
+}
+.navc{
+    width: 990px;
+    height: 39px;
+    float: left;
+    display:block;
+    border: 1px solid  #78cde7;
+    background-color:  #fdb151;
+}
+ 
+.talents2 .talents2Left{
+    width: 175px;
+    height: 720px;
+    float: left;
+    border: 1px solid  #78cde7;
+}
+.talents2Right{
+    float: right;
+}
+.talents21{
+    width: 785px;
+    height: 400px;
+    border: 1px solid  #78cde7;
+    margin-bottom: 4px;
+}
+.talents2RightTop{
+    height: 20px;
+    border: 1px solid  #78cde7;
+}
+.talents2Left1{
+    width: 173px;
+    height: 330px;
+    border: 1px solid  #78cde7;
+    margin-bottom: 5px;
+}
+.enBack2Search{
+    float: right;
+    height: 50px;
+    margin: 5px;
+    padding: 5px;
+}
+.enBack3Logo{
+    float: left;
+    margin-right: 5px;
+}
+.enBack3image{
+    float: left;
+}
+.Left1{
+    width: 248px;
+    height: 295px;
+    border: 1px solid  #78cde7;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.Left2{
+    height: 335px;
+    width: 248px;
+    border: 1px solid  #78cde7;
+    margin-bottom: 5px;
+}
+
+.Left3{
+    height: 560px;
+    width: 248px;
+    border: 1px solid  #78cde7;
+}
+.enFrontContent1{
+    width: 730px;
+    height: 445px;
+    border: 1px solid  #78cde7;
+    margin: 2px;
+}
+.navc{
+    width: 910px;
+    height: 39px;
+    float: left;
+    display:  block;
+    margin: 5px;
+    border: 1px solid  #78cde7;
+    background-color:  #fdb151;
+}
+ 

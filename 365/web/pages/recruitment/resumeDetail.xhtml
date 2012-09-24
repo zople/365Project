@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+    </head>
+    <body>
+        <ui:composition template="/pages/administratorManage/template/index.xhtml">
+            <ui:define name="content">
+                <div class="resumeDetail_body">
+                    <div class="resumeDetail_top"><h:graphicImage name="21.png" library="images"/></div>
+                    <div class="resumeDetail_bottom">
+                        <div class="resumeDetail_bottom_left"><ui:include src="/pages/recruitment/template/left.xhtml"/></div>
+                        <div class="resumeDetail_bottom_right">
+                            <div class="resumeDetail_bottom_right1">简历信息:</div>
+                            <div class="resumeDetail_bottom_right2">
+                                <div class="resume_name">
+                                    <h:outputText value="#{persionController.persion.persionName}"/>个人简历
+                                    <br/>
+                                    【姓名】
+                                </div>
+                                <div class="base_message">基本信息：</div>
+                                <ul>
+                                    <li>姓名： <h:outputText value="#{persionController.persion.persionName}"/></li>
+                                    <li>性别：<h:outputText value="#{persionController.persion.persionGender}"/></li>
+                                    <li>年龄：<h:outputText value="#{persionController.persion.persionAge}"/></li>
+                                    <li>籍贯：<h:outputText value="#{persionController.persion.nativePlace}"/></li>
+                                    <li>学历：<h:outputText value="#{persionController.persion.persionEducation}"/></li>
+                                    <li>现有职称：<h:outputText value="#{persionController.persion.persionTitle}"/></li>
+                                    <li>政治面貌：<h:outputText value="#{persionController.persion.politicalAffiliation}"/></li>
+                                    <li>婚姻状况：<h:outputText value="#{persionController.persion.maritalStatus}"/></li>
+                                    <li>求职意向：<h:outputText value="#{persionController.persion.jobIntention}"/></li>
+                                    <li>期望工作地点：<h:outputText value="#{persionController.persion.expectAddress}"/></li>
+                                    <li>期望月薪：<h:outputText value="#{persionController.persion.expectSalary}"/></li>
+                                </ul>
+                                <div class="contact">联系方式： </div>
+                                <h:outputText value="#{persionController.persion.contactTelephone}"/>
+                                <div class="education_background">教育背景：</div>
+                                 <h:outputText value="#{persionController.persion.persionEducation}"/>
+                                <div class="work_background">工作背景：</div>
+                                 <h:outputText value="#{persionController.persion.workedIntroduction}"/>
+                                <div class="introduction">自我介绍： </div>
+                                <h:outputText value="#{persionController.persion.educationIntroduction}"/>
+                                <div class="button1">
+                                    <h:commandButton value="收藏该简历"></h:commandButton>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

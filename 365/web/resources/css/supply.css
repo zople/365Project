@@ -1,0 +1,120 @@
+/* 
+    Document   : exti
+    Created on : 2012-9-11, 17:01:42
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+ 
+
+root { 
+    display: block;
+}
+.body{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.index_style{
+    height: 100%;
+    width: 1000px;
+    border: 1px solid  #78cde7;
+}
+
+.index_style_top{
+    height: 100px;
+    width: 100%;
+    border: 1px solid  #78cde7;
+}
+
+
+.index_style_Right{
+    float: right;
+    width: 49%;
+    height: 80px;
+    border: 1px solid  #78cde7;
+}
+.index_style_left{
+    float: left;
+    width: 49%;
+    height: 80px;
+      border: 1px solid  #78cde7;
+}
+
+
+
+.supplyTOP{
+    height: 20px;
+    width: 1000px;
+    border: 1px solid  #78cde7;
+}
+
+.supplyTOP1{
+    height: 20px;
+    width: 80%;
+    border: 1px solid  chocolate;
+}
+
+
+.supplyTOP2{
+    height: 100%;
+    width: 1000px;
+    border: 1px solid  #78cde7;
+}
+
+
+.supplyTOP21{
+    height: 30px;
+    width: 1000px;
+    border: 1px solid  #78cde7;
+}
+
+.search_style{
+    height: 100px;
+    width: 1000px;
+    border: 1px solid  #78cde7;
+}
+
+
+.list_style{
+    height: 100px;
+    width: 1000px;
+    border: 1px solid  #78cde7;
+}
+
+
+.supplyTOP22{
+    height: 200px;
+    width: 1000px;
+    border: 1px solid  #78cde7;
+}
+
+.supplyTOP221{
+    height: 100%;
+    width: 1000px;
+    border: 1px solid  #78cde7;
+}
+
+.supplyTOP222{
+    height: 700px;
+    width: 1000px;
+    border: 1px solid  #78cde7;
+}
+
+
+.selectclass{
+    width: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

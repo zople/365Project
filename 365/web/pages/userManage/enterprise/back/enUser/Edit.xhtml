@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEnUserTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEnUserLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{enUserController.selected.id}" title="#{bundle.EditEnUserTitle_id}" required="true" requiredMessage="#{bundle.EditEnUserRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditEnUserLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{enUserController.selected.name}" title="#{bundle.EditEnUserTitle_name}" />
+                    <h:outputLabel value="#{bundle.EditEnUserLabel_pwd}" for="pwd" />
+                    <h:inputText id="pwd" value="#{enUserController.selected.pwd}" title="#{bundle.EditEnUserTitle_pwd}" />
+                    <h:outputLabel value="#{bundle.EditEnUserLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{enUserController.selected.email}" title="#{bundle.EditEnUserTitle_email}" />
+                    <h:outputLabel value="#{bundle.EditEnUserLabel_integral}" for="integral" />
+                    <h:inputText id="integral" value="#{enUserController.selected.integral}" title="#{bundle.EditEnUserTitle_integral}" />
+                    <h:outputLabel value="#{bundle.EditEnUserLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{enUserController.selected.description}" title="#{bundle.EditEnUserTitle_description}" />
+                </h:panelGrid>
+                <h:commandLink action="#{enUserController.update}" value="#{bundle.EditEnUserSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditEnUserViewLink}"/>
+                <br />
+                <h:commandLink action="#{enUserController.prepareList}" value="#{bundle.EditEnUserShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditEnUserIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

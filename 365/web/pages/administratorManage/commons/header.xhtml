@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head/>
+    <h:body>
+      <div style="background-color: #f6f6f6;">
+              <h:link outcome="/pages/userManage/enterprise/back/main"    value="设为首页" style=" color: #010135; padding-right: 2px;"/>
+              <h:link outcome="/pages/userManage/shoppingmall/back/main"  value="加入收藏" style=" color: #010135; padding-right: 2px; "/>
+              <h:link outcome="/pages/login/login"><h:graphicImage name="2011w4.jpg" library="images"/></h:link>
+              <h:link outcome="/pages/login/login"><h:graphicImage name="2011w3.jpg" library="images"/></h:link>
+              <h:link outcome="/pages/userManage/enterprise/back/main"      value="易得天下" style=" color: #010135; padding-right: 2px;"/>
+              <h:link outcome="/pages/userManage/shoppingmall/back/main"    value="订单中心" style=" color: #010135; padding-right: 2px;"/>
+              <h:link outcome="/pages/userManage/individual/back/main"      value="收藏夹"   style=" color: #010135; padding-right: 2px;"/>
+              <h:link outcome="/pages/userManage/shoppingmall/back/main"    value="客服中心" style=" color: #010135; padding-right: 2px;"/>
+              <h:link outcome="/pages/userManage/individual/back/main"      value="网站导航" style=" color: #010135; padding-right: 2px;"/>
+              <h:link outcome="/pages/userManage/shoppingmall/back/main"  value="市场后台" style=" color: #fdb151; margin-right: 2px;"/>
+              <h:link outcome="/pages/userManage/individual/back/main"    value="个人后台" style=" color: #007dcd; padding-right: 2px;"/>
+              <h:link outcome="/pages/userManage/enterprise/back/main"    value="企业后台" style=" color: #fdb151; padding-right: 2px; "/>
+              <h:link outcome="/pages/userManage/enterprise/front/careful"    value="企业前台" style=" color: #fdb151; padding-right: 2px;"/>
+              <h:outputLink rel="" value="http://localhost:8080/365Admin"  style="color: red;">易得后台管理系统</h:outputLink>
+      </div>
+        <table>
+           <tr><td colspan="12"><ui:include src="logo.xhtml"/></td></tr>
+           <tr><td><table class="table1"><tr   style="background-image:url('/365/resources/images/blue_menu_bg.gif')">
+                            <th class="th"><a href="/365"  style="color: white;">#{template.administratorHeader1}</a></th>
+                            <th class="th"><h:link outcome="/pages/administratorManage/front/product.xhtml" value="#{template.administratorHeader2}"  style="color: white;"/></th>
+                            <th class="th"><h:link outcome="/pages/administratorManage/front/buy.xhtml" value="#{template.administratorHeader3}"  style="color: white;"/></th>
+                            <th class="th"><h:link outcome="/pages/administratorManage/front/enterprise.xhtml" value="#{template.administratorHeader4}"  style="color: white;"/></th>
+                            <th class="th"><h:link outcome="/pages/administratorManage/front/importTrade.xhtml" value="#{template.administratorHeader5}"  style="color: white;"/></th>
+                            <th class="th"><h:link outcome="/pages/administratorManage/front/finance.xhtml" value="#{template.administratorHeader6}"  style="color: white;"/></th>
+                            <th class="th"><h:link outcome="/pages/administratorManage/front/market.xhtml" value="#{template.administratorHeader7}"  style="color: white;"/></th>
+                            <th class="th"><h:link outcome="/pages/administratorManage/front/brandMall.xhtml" value="#{template.administratorHeader8}"  style="color: white;"/></th>
+                            <th class="th"><h:link outcome="/pages/administratorManage/front/information.xhtml" value="#{template.administratorHeader9}"  style="color: white;"/></th>
+                            <th class="th"><h:link outcome="/pages/administratorManage/front/exhibition.xhtml" value="#{template.administratorHeader10}"  style="color: white;"/></th>
+                            <th class="th"><h:link outcome="/pages/recruitment/recruitment.xhtml" value="#{template.administratorHeader11}"  style="color: white;"/></th>
+            </tr></table></td></tr>
+     </table>
+     <div class="headerCount">
+            <h:outputFormat value="{0,date,yyyy.MM.dd}">
+                时间：<f:param value="#{insertDataController.showDate}"/>
+            </h:outputFormat>
+      </div>
+   </h:body>
+  </html>

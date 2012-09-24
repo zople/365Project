@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEnStorefrontTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEnStorefrontLabel_id}"/>
+                    <h:outputText value="#{enStorefrontController.selected.id}" title="#{bundle.ViewEnStorefrontTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewEnStorefrontLabel_name}"/>
+                    <h:outputText value="#{enStorefrontController.selected.name}" title="#{bundle.ViewEnStorefrontTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewEnStorefrontLabel_description}"/>
+                    <h:outputText value="#{enStorefrontController.selected.description}" title="#{bundle.ViewEnStorefrontTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewEnStorefrontLabel_phone}"/>
+                    <h:outputText value="#{enStorefrontController.selected.phone}" title="#{bundle.ViewEnStorefrontTitle_phone}"/>
+                    <h:outputText value="#{bundle.ViewEnStorefrontLabel_ad}"/>
+                    <h:outputText value="#{enStorefrontController.selected.ad}" title="#{bundle.ViewEnStorefrontTitle_ad}"/>
+                    <h:outputText value="#{bundle.ViewEnStorefrontLabel_logo}"/>
+                    <h:outputText value="#{enStorefrontController.selected.logo}" title="#{bundle.ViewEnStorefrontTitle_logo}"/>
+                    <h:outputText value="#{bundle.ViewEnStorefrontLabel_style}"/>
+                    <h:outputText value="#{enStorefrontController.selected.style}" title="#{bundle.ViewEnStorefrontTitle_style}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{enStorefrontController.destroyAndView}" value="#{bundle.ViewEnStorefrontDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewEnStorefrontEditLink}"/>
+                <br />
+                <h:commandLink action="#{enStorefrontController.prepareCreate}" value="#{bundle.ViewEnStorefrontCreateLink}" />
+                <br />
+                <h:commandLink action="#{enStorefrontController.prepareList}" value="#{bundle.ViewEnStorefrontShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewEnStorefrontIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

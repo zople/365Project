@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+ 
+        <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="产品品类管理"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListWjCategoryEmpty}" rendered="#{categoryController1.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{categoryController1.items.rowCount > 0}">
+                <h:outputText value="#{categoryController1.pagination.pageFirstItem + 1}..#{categoryController1.pagination.pageLastItem + 1}/#{categoryController1.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{categoryController1.previous}" value="#{bundle.Previous} #{categoryController1.pagination.pageSize}" rendered="#{categoryController1.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{categoryController1.next}" value="#{bundle.Next} #{categoryController1.pagination.pageSize}" rendered="#{categoryController1.pagination.hasNextPage}"/>&nbsp;
+                <h:dataTable value="#{categoryController1.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="品类ID"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="品类父ID"/>
+                        </f:facet>
+                        <h:outputText value="#{item.pid}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="品类名称"/>
+                        </f:facet>
+                        <h:outputText value="#{item.name}"/>
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        
+                        
+                         <h:commandLink action="#{categoryController1.findById}" value="显示信息">
+                             <f:param name="id" value="#{item.id}"></f:param>
+                         </h:commandLink>
+                        
+                      
+                        <h:commandLink action="#{categoryController1.prepareEdit}" value="编辑信息">
+                             <f:param name="id" value="#{item.id}"></f:param>
+                         </h:commandLink>
+                        
+                        
+                        
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{categoryController1.destroy}" value="删除信息"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+            <br />
+            <h:commandLink action="#{categoryController1.prepareCreate}" value="添加信息">
+               
+            </h:commandLink>
+            <br />
+            <br />
+             
+        </h:form>
+            
+  </ui:define>
+    </ui:composition>
+ 
+</html>

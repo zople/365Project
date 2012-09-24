@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAdminCanvassTraderTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAdminCanvassTraderLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{adminCanvassTraderController.selected.id}" title="#{bundle.CreateAdminCanvassTraderTitle_id}" required="true" requiredMessage="#{bundle.CreateAdminCanvassTraderRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateAdminCanvassTraderLabel_traderName}" for="traderName" />
+                    <h:inputText id="traderName" value="#{adminCanvassTraderController.selected.traderName}" title="#{bundle.CreateAdminCanvassTraderTitle_traderName}" />
+                    <h:outputLabel value="#{bundle.CreateAdminCanvassTraderLabel_factoryName}" for="factoryName" />
+                    <h:inputText id="factoryName" value="#{adminCanvassTraderController.selected.factoryName}" title="#{bundle.CreateAdminCanvassTraderTitle_factoryName}" />
+                    <h:outputLabel value="#{bundle.CreateAdminCanvassTraderLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{adminCanvassTraderController.selected.description}" title="#{bundle.CreateAdminCanvassTraderTitle_description}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{adminCanvassTraderController.create}" value="#{bundle.CreateAdminCanvassTraderSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{adminCanvassTraderController.prepareList}" value="#{bundle.CreateAdminCanvassTraderShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAdminCanvassTraderIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

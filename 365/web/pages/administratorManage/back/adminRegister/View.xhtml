@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAdminRegisterTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAdminRegisterLabel_id}"/>
+                    <h:outputText value="#{adminRegisterController.selected.id}" title="#{bundle.ViewAdminRegisterTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewAdminRegisterLabel_name}"/>
+                    <h:outputText value="#{adminRegisterController.selected.name}" title="#{bundle.ViewAdminRegisterTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewAdminRegisterLabel_email}"/>
+                    <h:outputText value="#{adminRegisterController.selected.email}" title="#{bundle.ViewAdminRegisterTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewAdminRegisterLabel_area}"/>
+                    <h:outputText value="#{adminRegisterController.selected.area}" title="#{bundle.ViewAdminRegisterTitle_area}"/>
+                    <h:outputText value="#{bundle.ViewAdminRegisterLabel_ip}"/>
+                    <h:outputText value="#{adminRegisterController.selected.ip}" title="#{bundle.ViewAdminRegisterTitle_ip}"/>
+                    <h:outputText value="#{bundle.ViewAdminRegisterLabel_phone}"/>
+                    <h:outputText value="#{adminRegisterController.selected.phone}" title="#{bundle.ViewAdminRegisterTitle_phone}"/>
+                    <h:outputText value="#{bundle.ViewAdminRegisterLabel_onlineTime}"/>
+                    <h:outputText value="#{adminRegisterController.selected.onlineTime}" title="#{bundle.ViewAdminRegisterTitle_onlineTime}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAdminRegisterLabel_createTime}"/>
+                    <h:outputText value="#{adminRegisterController.selected.createTime}" title="#{bundle.ViewAdminRegisterTitle_createTime}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAdminRegisterLabel_description}"/>
+                    <h:outputText value="#{adminRegisterController.selected.description}" title="#{bundle.ViewAdminRegisterTitle_description}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{adminRegisterController.destroyAndView}" value="#{bundle.ViewAdminRegisterDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAdminRegisterEditLink}"/>
+                <br />
+                <h:commandLink action="#{adminRegisterController.prepareCreate}" value="#{bundle.ViewAdminRegisterCreateLink}" />
+                <br />
+                <h:commandLink action="#{adminRegisterController.prepareList}" value="#{bundle.ViewAdminRegisterShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAdminRegisterIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

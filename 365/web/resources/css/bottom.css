@@ -1,0 +1,75 @@
+/* 
+    Document   : bottom
+    Created on : 2012-8-16, 16:00:42
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+body{
+    font-family: Verdana,Arial;
+}
+image{
+   border: none;
+}
+.bot5 a{
+    color: #666666;
+    font-weight: lighter;
+}
+#web_wj ul li a{
+    color: #333333;
+}
+.footbar{
+    width: 980px;
+    text-align: center;
+    color: #666;
+    padding-top: 8px;
+    clear: both;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    border-top-color: #007dcd;
+    border-top-width: 2px;
+    border-top-style: solid;
+}
+.footbar p {
+    padding-top: 2px;
+    padding-right: 0px;
+    padding-bottom: 2px;
+    padding-left: 0px;
+    clear: both;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 2px;
+    margin-left: 0px;
+}
+#web_wj{
+    width: 700px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-right: aut0;
+    list-style-type: none;
+}
+
+#web_wj ul li{
+    text-align: center;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin: 0px;
+    list-style-type: none;
+}  
+#web_wj ul li.link_imgs{
+    height: 48px;
+    clear: both;
+    margin-top: 10px;
+}
+hr{
+    padding: 0px;
+    margin: 0px;
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAdminCatalogueTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAdminCatalogueLabel_id}"/>
+                    <h:outputText value="#{adminCatalogueController.selected.id}" title="#{bundle.ViewAdminCatalogueTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewAdminCatalogueLabel_className}"/>
+                    <h:outputText value="#{adminCatalogueController.selected.className}" title="#{bundle.ViewAdminCatalogueTitle_className}"/>
+                    <h:outputText value="#{bundle.ViewAdminCatalogueLabel_parentId}"/>
+                    <h:outputText value="#{adminCatalogueController.selected.parentId}" title="#{bundle.ViewAdminCatalogueTitle_parentId}"/>
+                    <h:outputText value="#{bundle.ViewAdminCatalogueLabel_description}"/>
+                    <h:outputText value="#{adminCatalogueController.selected.description}" title="#{bundle.ViewAdminCatalogueTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewAdminCatalogueLabel_level}"/>
+                    <h:outputText value="#{adminCatalogueController.selected.level}" title="#{bundle.ViewAdminCatalogueTitle_level}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{adminCatalogueController.destroyAndView}" value="#{bundle.ViewAdminCatalogueDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAdminCatalogueEditLink}"/>
+                <br />
+                <h:commandLink action="#{adminCatalogueController.prepareCreate}" value="#{bundle.ViewAdminCatalogueCreateLink}" />
+                <br />
+                <h:commandLink action="#{adminCatalogueController.prepareList}" value="#{bundle.ViewAdminCatalogueShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAdminCatalogueIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

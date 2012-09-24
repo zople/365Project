@@ -1,0 +1,77 @@
+/* 
+    Document   : market
+    Created on : 2012-9-9, 14:53:07
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+.marketbody{
+    width: 990px;
+}
+.marketLeft{
+    float: left;
+}
+.marketRight{
+    float: right;
+}
+.marketLeft1{
+    width: 265px;
+    height: 260px;
+    border: 1px solid #78cde7;
+}
+.marketLeft1Top{
+    height: 20px;
+    border: 1px solid #78cde7;
+}
+
+.marketLeft1Right{
+    width: 460px;
+    height:250px;
+    border: 1px solid #78cde7;
+    position: relative;
+    margin-left: 270px;
+    margin-top: -20px;
+}
+.marketLeft3{
+   margin-top: 4px;
+   width: 750px;
+   height: 287px;
+   border: 1px solid #78cde7;
+}
+.marketLeft3Top{
+    height: 20px;
+    border: 1px solid #78cde7;
+}
+.marketLeft4{
+    margin-top: 4px;
+    width: 750px;
+    height:687px;
+    border: 1px solid #78cde7;
+}
+
+.marketRight1{
+    width: 230px;
+    height: 27px;
+    border: 1px solid #78cde7;
+    margin-bottom: 4px;
+}
+.marketRight2{
+    width: 230px;
+    height: 158px;
+    border: 1px solid #78cde7;
+     margin-bottom: 4px;
+}
+.marketRight3{
+    width: 230px;
+    height: 360px;
+    margin-bottom: 4px;
+    border: 1px solid #78cde7;
+}
+.marketRight3Top{
+    height:  20px;
+    border: 1px solid #78cde7;
+}

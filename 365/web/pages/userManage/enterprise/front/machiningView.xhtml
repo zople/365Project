@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>加工管理</title>
+    </head>
+    <body>
+        <div>
+            <ui:composition template="/pages/userManage/enterprise/template/front.xhtml">
+                <ui:define name="content">
+                    <div class="enFrontContent1">
+                        <div class="entTop"><!--<h:graphicImage name="37.png" library="images"/>-->
+                        加工信息
+                        </div>
+                        <div> 
+                        
+             
+                      <table style="font-size: 17px; border-style: none">
+                          
+                
+                          <tr style="font-size: 17px; border-style: none">
+                
+                      
+                <td style="font-size: 17px; border-style: none"><strong>招商标题:</strong><br/>
+                </td>
+                              <td style="font-size: 17px; border-style: none">#{machiningController.selected.title} <br/>
+                </td>
+                        <td style="font-size: 17px; border-style: none"><strong> </strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none"> <br/>
+                      
+                    
+                      
+                      【加工类型】：#{machiningController.selected.kind}<br/>
+
+                      【加工设备】：#{machiningController.selected.device}<br/>
+
+                      【加工能力】：#{machiningController.selected.ability}           <br/>
+
+                      【详细说明】：#{machiningController.selected.description}<br/>
+                      
+                      
+                </td>
+                       </tr>          
+                              
+                        <tr style="font-size: 17px; border-style: none">
+                
+                      
+                <td style="font-size: 17px; border-style: none"><font color="red"><strong>详细说明</strong></font><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none"> <br/>
+                </td>
+                        <td style="font-size: 17px; border-style: none"><strong> </strong><br/>
+                </td>
+                  <td style="font-size: 17px; border-style: none"> <br/>公司联系方式
+                </td>
+                       </tr>                
+                              
+                     
+                          
+             
+        </table>
+                            
+                            
+                            <table>
+                                
+                                     <tr style="font-size: 17px; border-style: none">         
+                                         <div><font color="red"><strong>详细描述</strong></font> </div>
+                                         <div>#{machiningController.selected.description}</div>   
+             
+           
+                 </tr>
+                                
+                            </table>        
+                            
+ 
+                            
+                            
+                             
+                             
+                        </div>
+                    </div>
+        
+                </ui:define>
+            </ui:composition>
+        </div>
+    </body>
+</html>

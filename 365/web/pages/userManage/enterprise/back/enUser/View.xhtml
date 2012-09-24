@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEnUserTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEnUserLabel_id}"/>
+                    <h:outputText value="#{enUserController.selected.id}" title="#{bundle.ViewEnUserTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewEnUserLabel_name}"/>
+                    <h:outputText value="#{enUserController.selected.name}" title="#{bundle.ViewEnUserTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewEnUserLabel_pwd}"/>
+                    <h:outputText value="#{enUserController.selected.pwd}" title="#{bundle.ViewEnUserTitle_pwd}"/>
+                    <h:outputText value="#{bundle.ViewEnUserLabel_email}"/>
+                    <h:outputText value="#{enUserController.selected.email}" title="#{bundle.ViewEnUserTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewEnUserLabel_integral}"/>
+                    <h:outputText value="#{enUserController.selected.integral}" title="#{bundle.ViewEnUserTitle_integral}"/>
+                    <h:outputText value="#{bundle.ViewEnUserLabel_description}"/>
+                    <h:outputText value="#{enUserController.selected.description}" title="#{bundle.ViewEnUserTitle_description}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{enUserController.destroyAndView}" value="#{bundle.ViewEnUserDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewEnUserEditLink}"/>
+                <br />
+                <h:commandLink action="#{enUserController.prepareCreate}" value="#{bundle.ViewEnUserCreateLink}" />
+                <br />
+                <h:commandLink action="#{enUserController.prepareList}" value="#{bundle.ViewEnUserShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewEnUserIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

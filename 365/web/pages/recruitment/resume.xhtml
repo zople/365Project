@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+    </head>
+    <body>
+                <ui:composition template="/pages/administratorManage/template/index.xhtml">
+            <ui:define name="content">
+                <div class="resume_body">
+                    <div class="resume_top"><h:graphicImage name="21.png" library="images"/></div>
+                    <div class="resume_bottom">
+                        <div class="resume_bottom_left"><ui:include src="/pages/recruitment/template/left.xhtml"/></div>
+                        <div class="resume_bottom_right">
+                            <div class="resume_bottom_right1">
+                                全部求职信息:
+                            </div>
+                            <div class="resume_bottom_right2">
+                                                                <div class="moreRecruitment_bottom_right_content">
+ <h:dataTable value="#{persionController.persions}" var="persion" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 0px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="姓名"/>
+                            </f:facet>
+                            <h:link outcome="/pages/recruitment/resumeDetail.xhtml" value="#{persion.persionName}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="性别"/>
+                            </f:facet>
+                            <h:outputText value="#{persion.persionGender}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="学历"/>
+                            </f:facet>
+                            <h:outputText value="#{persion.persionEducation}"/>
+                        </h:column>
+                              <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="期望月薪"/>
+                            </f:facet>
+                                  <h:outputText value="#{persion.expectSalary}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="求职意向"/>
+                            </f:facet>
+                            <h:outputText value="#{persion.jobIntention}"/>
+                        </h:column>
+                             <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="发布时间"/>
+                            </f:facet>
+                            <h:outputText value="#{persion.jobDate}"/>
+                        </h:column>
+</h:dataTable>
+                                </div>
+                                <div class="resume_bottom_right3">
+                                    <h:link>首页</h:link>
+                                    <h:link>上一页</h:link>
+                                    <h:link>下一页</h:link>
+                                    <h:link>末页</h:link>
+                                        共 页
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

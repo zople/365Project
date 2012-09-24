@@ -1,0 +1,95 @@
+/* 
+    Document   : index
+    Created on : 2012-9-10, 11:27:24
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+.recruitment_body {
+    width: 990px;
+    height:840px;
+}
+.recruitment_top {
+    width: 990px;
+    height: 75px;
+}
+.recruitment_bottom {
+    width: 990px;
+    height: 770px;
+}
+.recruitment_bottom_left {
+    float: left;
+    width: 200px;
+    height: 770px;
+    border: 1px solid #78cde7;
+}
+.recruitment_bottom_right {
+    float: right;
+    width: 775px;
+    height: 770px;
+}
+.recruitment_bottom_right1 {
+    width: 775px;
+    height: 380px;
+}
+.recruitment_bottom_right11 {
+    width: 775px;
+    height: 30px;
+    border: 1px solid #78cde7;
+    background-color: #cccccc;
+}
+.recruitment_bottom_right11_left {
+    padding-left: 10px;
+    padding-top: 7px;
+    float: left;
+    height: 30px;
+    font-size: 15px;
+}
+.recruitment_bottom_right11_right {
+    padding-top: 7px;
+    padding-right: 10px;
+    float: right;
+    height: 30px;
+    font-size: 15px;
+}
+.recruitment_bottom_right12 {
+    width: 775px;
+    height: 350px;
+    border: 1px solid #78cde7;
+}
+.recruitment_bottom_right2 {
+    margin-top: 10px;
+    width: 775px;
+    height: 380px;
+    border: 1px solid #78cde7;
+}
+.recruitment_bottom_right21 {
+    width: 775px;
+    height: 30px;
+    border: 1px solid #78cde7;
+    background-color: #cccccc;
+}
+.recruitment_bottom_right22 {
+    width: 775px;
+    height: 350px;
+    border: 1px solid #78cde7;
+}
+.recruitment_bottom_right21_left {
+    padding-left: 10px;
+    padding-top: 7px;
+    float: left;
+    height: 30px;
+    font-size: 15px;
+}
+.recruitment_bottom_right21_right {
+    padding-top: 7px;
+    padding-right: 10px;
+    float: right;
+    height: 30px;
+    font-size: 15px;
+}
+.recruitment_bottom_right22 {
+    width: 775px;
+    height: 350px;
+    border: 1px solid #78cde7;
+}

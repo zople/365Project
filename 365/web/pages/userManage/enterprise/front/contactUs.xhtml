@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>联系我们</title>
+    </head>
+    <body>
+        <div>
+            <ui:composition template="/pages/userManage/enterprise/template/front.xhtml">
+                <ui:define name="content">
+                    <div class="enFrontContent1">
+                        <div class="entTop"><!--<h:graphicImage name="37.png" library="images"/>-->
+                        联系我们
+                        </div>
+                        <div> 
+                     <table style="font-size: 17px; border-style: none">
+                      
+                         <font color="red"  ><h:outputText value="#{enEnterpriseController.selected.name}" title="公司名称"/></font>
+                         <br></br>
+                          <br></br>
+公司地址： <h:outputText value="#{enEnterpriseController.selected.address}" />
+<br></br>
+联系人：<h:outputText value="#{enEnterpriseController.selected.name}" />
+<br></br>
+电话：<h:outputText value="#{enEnterpriseController.selected.telphone}" />
+<br></br>
+传真：<h:outputText value="#{enEnterpriseController.selected.faxes}" />
+<br></br>
+手机：<h:outputText value="#{enEnterpriseController.selected.phone}" />
+<br></br>
+公司网址：<h:outputText value="#{enEnterpriseController.selected.url}" />
+<br></br>
+主营产品：<h:outputText value="#{enEnterpriseController.selected.mainProduct}" />
+                         
+                         
+                         
+                         
+                  
+                   </table>     
+                             
+                        </div>
+                    </div>
+                   
+                </ui:define>
+            </ui:composition>
+        </div>
+    </body>
+</html>

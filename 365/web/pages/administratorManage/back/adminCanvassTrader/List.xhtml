@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAdminCanvassTraderTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAdminCanvassTraderEmpty}" rendered="#{adminCanvassTraderController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{adminCanvassTraderController.items.rowCount > 0}">
+                    <h:outputText value="#{adminCanvassTraderController.pagination.pageFirstItem + 1}..#{adminCanvassTraderController.pagination.pageLastItem + 1}/#{adminCanvassTraderController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{adminCanvassTraderController.previous}" value="#{bundle.Previous} #{adminCanvassTraderController.pagination.pageSize}" rendered="#{adminCanvassTraderController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{adminCanvassTraderController.next}" value="#{bundle.Next} #{adminCanvassTraderController.pagination.pageSize}" rendered="#{adminCanvassTraderController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{adminCanvassTraderController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminCanvassTraderTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminCanvassTraderTitle_traderName}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.traderName}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminCanvassTraderTitle_factoryName}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.factoryName}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminCanvassTraderTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{adminCanvassTraderController.prepareView}" value="#{bundle.ListAdminCanvassTraderViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{adminCanvassTraderController.prepareEdit}" value="#{bundle.ListAdminCanvassTraderEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{adminCanvassTraderController.destroy}" value="#{bundle.ListAdminCanvassTraderDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{adminCanvassTraderController.prepareCreate}" value="#{bundle.ListAdminCanvassTraderCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAdminCanvassTraderIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

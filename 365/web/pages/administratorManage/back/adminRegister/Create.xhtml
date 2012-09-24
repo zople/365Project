@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAdminRegisterTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAdminRegisterLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{adminRegisterController.selected.id}" title="#{bundle.CreateAdminRegisterTitle_id}" required="true" requiredMessage="#{bundle.CreateAdminRegisterRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateAdminRegisterLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{adminRegisterController.selected.name}" title="#{bundle.CreateAdminRegisterTitle_name}" />
+                    <h:outputLabel value="#{bundle.CreateAdminRegisterLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{adminRegisterController.selected.email}" title="#{bundle.CreateAdminRegisterTitle_email}" />
+                    <h:outputLabel value="#{bundle.CreateAdminRegisterLabel_area}" for="area" />
+                    <h:inputText id="area" value="#{adminRegisterController.selected.area}" title="#{bundle.CreateAdminRegisterTitle_area}" />
+                    <h:outputLabel value="#{bundle.CreateAdminRegisterLabel_ip}" for="ip" />
+                    <h:inputText id="ip" value="#{adminRegisterController.selected.ip}" title="#{bundle.CreateAdminRegisterTitle_ip}" />
+                    <h:outputLabel value="#{bundle.CreateAdminRegisterLabel_phone}" for="phone" />
+                    <h:inputText id="phone" value="#{adminRegisterController.selected.phone}" title="#{bundle.CreateAdminRegisterTitle_phone}" />
+                    <h:outputLabel value="#{bundle.CreateAdminRegisterLabel_onlineTime}" for="onlineTime" />
+                    <h:inputText id="onlineTime" value="#{adminRegisterController.selected.onlineTime}" title="#{bundle.CreateAdminRegisterTitle_onlineTime}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAdminRegisterLabel_createTime}" for="createTime" />
+                    <h:inputText id="createTime" value="#{adminRegisterController.selected.createTime}" title="#{bundle.CreateAdminRegisterTitle_createTime}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAdminRegisterLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{adminRegisterController.selected.description}" title="#{bundle.CreateAdminRegisterTitle_description}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{adminRegisterController.create}" value="#{bundle.CreateAdminRegisterSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{adminRegisterController.prepareList}" value="#{bundle.CreateAdminRegisterShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAdminRegisterIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

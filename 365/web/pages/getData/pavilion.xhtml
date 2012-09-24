@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+             <h:form>
+                 <h:panelGroup>
+                     <h:dataTable value="#{imageController.pavilion}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row" rules="all" >
+                        <h:column>
+                            <h:outputText value="#{item.title}"/>
+                        </h:column>
+                        <p:graphicImage value="#{imageController.Pavilion}">
+                                  <f:param name="id" value="#{item.id}"></f:param>
+                        </p:graphicImage>
+                    </h:dataTable>
+                 </h:panelGroup>
+           </h:form>
+    </body>
+</html>

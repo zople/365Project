@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+        <div>
+            <ui:composition template="/pages/administratorManage/template/index.xhtml">
+                <ui:define name="content">
+                    <div class="body">
+
+                        <div class="exhibition3">
+                            <h:graphicImage name="24.png" library="images"/>
+                        </div>
+
+                        <div class="exhibition4">
+
+                            <div class="exhibition4Left">
+                                <div class="exhibition4Left1">
+                                    <ui:include src="exhibitionleft.xhtml"/>
+                                </div>
+                                <!--
+                                <div class="exhibition4Left2">
+                                    <div class="exhibition4Left1TOP">展会资讯</div>
+                                    <div>
+                                        >门窗幕墙行业风云榜评选 9-13
+                                    </div>
+                                </div>
+                                -->
+                            </div>
+
+                            <div class="exhibition4Right">
+                                <div class="exhibition4Right1">
+                                    <div class="exhibition4Right1Top">推荐展馆</div>
+                                    <div class="exhibition4Right1Bottom">
+                                        <h:dataTable value="#{pavilionController.pavilionList}" var="item">
+                                            <h:column>
+                                                <h:graphicImage name="31.png" library="images"/><br/>
+                                                <h:outputText value="#{item.way}"/>
+                                            </h:column>
+                                            <h:column>
+                                                <h:graphicImage name="31.png" library="images"/><br/>
+                                                <h:outputText value="#{item.way}"/>
+                                            </h:column>
+                                            <h:column>
+                                                <h:graphicImage name="31.png" library="images"/><br/>
+                                                <h:outputText value="#{item.way}"/>
+                                            </h:column>
+                                        </h:dataTable>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div  class="exhibition5"></div>
+
+                    </div>
+                </ui:define>
+            </ui:composition>
+        </div>
+    </body>
+</html>

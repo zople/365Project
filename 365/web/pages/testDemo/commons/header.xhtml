@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head/>
+    <f:view>
+       <h:form>
+            <h:commandLink action="#{wjCategoryController.newList}">分类树
+                <f:param name="fatherId"   value="1"/>
+            </h:commandLink>
+            <h:commandLink action="#{wjGoodsController.newList}">产品列表
+                <f:param name="categoryId" value="2"/>
+            </h:commandLink>
+        </h:form>  
+    </f:view>
+    </html>

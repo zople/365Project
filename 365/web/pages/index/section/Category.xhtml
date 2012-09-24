@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <h:body>
+        <table style="font-size: 17px; border-style: none">
+            <ui:repeat value="#{categoryController.categories}" var="category" varStatus="status" >
+                <h:panelGroup rendered="#{status.index mod 3 eq 0}">  
+                    <tr style="font-size: 17px; border-style: none"></tr>  
+                </h:panelGroup>
+                <td style="font-size: 17px; border-style: none"><strong>#{category.name}:</strong><br/>
+                    <table style="font-size: 17px; border-style: none">
+                        <ui:repeat value="#{category.categories}" var="sonCategory" varStatus="sonStatus" >
+                            <h:panelGroup rendered="#{sonStatus.index mod 3 eq 0}">  
+                                <tr style="font-size: 17px; border-style: none"></tr>  
+                            </h:panelGroup>
+                            <td style="font-size: 17px; border-style: none">#{sonCategory.name}
+                            </td>
+                        </ui:repeat>
+                    </table>
+                </td>
+            </ui:repeat>
+        </table>
+    </h:body>
+</html>

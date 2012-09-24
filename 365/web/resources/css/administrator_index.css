@@ -1,0 +1,115 @@
+/* 
+    Document   : administrator_index
+    Created on : Aug 24, 2012, 1:49:21 PM
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+.table{
+    width: 1000px;
+    height: 90px;
+}
+.table1{
+    width:100%;
+    height: 30px;
+    font-size: 14px;
+}
+.headerCount{
+    height: 30px;
+    border:1px solid #78cde7;
+    background-color: #c9edf9;
+}
+.logo{
+    width: 350px;
+    font-size: 30px;
+    font-weight:  bolder;
+    vertical-align:  middle;
+    padding-left: 20px;
+    color:  #0788e0;
+}
+.search{
+    width: 640px;
+}
+.newcenter{
+    height: 335px;
+}
+.newcenter_bottom{
+    height: 315px;
+}
+.newcenter_td_2{
+    width: 600px;
+}
+.mainbox1{
+    height: 770px;
+}
+.mainboxL{
+    width: 720px;
+    height: 770px;
+}
+.mainboxR{
+    width: 270px;
+    height: 770px;
+}
+.adLinghuo{
+    height: 70px;
+}
+.mainboxNew{
+    height: 380px;
+}
+.mainboxNew_1{
+    width: 360px;
+    height: 380px;
+}
+.adLinghuo_2{
+    height: 70px;
+}
+.mainbox2{
+    height: 770px;
+}
+.mainbox2L{
+    width: 720px;
+    height: 770px;
+}
+.mainbox2R{
+    width: 270px;
+    height: 770px;
+}
+.adLinghuo_3{
+   height: 70px;
+}
+.contentbottom_1 .contentbottom_2 .contentbottom_3{
+    width: 218px;
+}
+.contentbottom_4 .contentbottom_5{
+    width: 148px;
+}
+.bottomlogo{
+    height: 94px;
+}
+.bottomlogoL{
+    width: 120px;
+}
+.bottomlogoR{
+    width: 870px;
+}
+.friendlink{
+    clear: both;
+    margin-top: 3px;
+    margin-right: auto;
+    margin-bottom: 3px;
+    margin-left: auto;
+    border-top-color: #cccccc;
+    border-top-width: 1px;
+    border-top-style: dotted;
+}
+.friendlinkL{
+    width: 120px;
+    text-align: center;
+}
+.friendlinkR{
+    
+}

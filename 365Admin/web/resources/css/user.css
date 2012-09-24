@@ -1,0 +1,38 @@
+/* 
+    Document   : index
+    Created on : 2012-9-17, 13:23:30
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.user {
+    width: 990px;
+}
+.user_list_top {
+    text-align: center;
+    border: 1px solid #b2d5d6;
+    height: 30px;
+}
+.user_list_title {
+    margin-left: 300px;
+    font-size: 23px;
+    width: 150px;
+    height: 30px;
+    background-color: #ccffcc;
+}
+.user_list_delete {
+    float: left;
+}
+.user_list {
+    width: 990px;
+}
+.user_list_page {
+    border: 1px solid #b2d5d6;
+}
+
+.user_check {
+    font-size: 23px;
+    color: red;
+    margin-top: 300px;
+}

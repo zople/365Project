@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAdminHelpTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAdminHelpEmpty}" rendered="#{adminHelpController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{adminHelpController.items.rowCount > 0}">
+                    <h:outputText value="#{adminHelpController.pagination.pageFirstItem + 1}..#{adminHelpController.pagination.pageLastItem + 1}/#{adminHelpController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{adminHelpController.previous}" value="#{bundle.Previous} #{adminHelpController.pagination.pageSize}" rendered="#{adminHelpController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{adminHelpController.next}" value="#{bundle.Next} #{adminHelpController.pagination.pageSize}" rendered="#{adminHelpController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{adminHelpController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminHelpTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminHelpTitle_className}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.className}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminHelpTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminHelpTitle_content}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.content}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminHelpTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdminHelpTitle_createTime}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.createTime}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{adminHelpController.prepareView}" value="#{bundle.ListAdminHelpViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{adminHelpController.prepareEdit}" value="#{bundle.ListAdminHelpEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{adminHelpController.destroy}" value="#{bundle.ListAdminHelpDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{adminHelpController.prepareCreate}" value="#{bundle.ListAdminHelpCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAdminHelpIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

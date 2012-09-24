@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/pages/userManage/enterprise/template/supplytemple.xhtml">
+       
+        <ui:define name="content">
+            <div class="supplyTOP">   <font color="red">发布供应产品</font>  我的供应     </div>
+             
+            <div class="supplyTOP1">  友情提醒你目前是一般会员，只能发布置20条供应产品信息  </div>
+             <div class="supplyTOP2">  
+                 <div class="supplyTOP21"> 第一步选择产品品类 --》第二步填写供应信息--》第三步发布产品信息 </div>
+				 
+				  <div class="supplyTOP21">  快速搜索：
+				   
+				        <input type="text" name="textfield" />
+			         
+			          <input type="submit" name="Submit2" value="搜索" />
+			          
+			      </div>
+				  
+				   <div class="supplyTOP21"> 经常使用的品类：
+				   
+				       
+				        
+				            <select name="select5">
+				              <option>产品品类</option>
+				              <option>五金工具</option>
+			                </select>
+			          
+			         
+			          
+			          
+			      </div>
+				 
+  <div class="supplyTOP22"> 
+      
+ 
+ <form id="form1" name="form1" method="post" action="">			  
+ <table width="100%" border="1" cellspacing="1" cellpadding="1">
+  
+  <tr>
+    <td>选择产品品类：
+      <label></label></td>
+    </tr>
+  <tr>
+    <td>
+      <label>
+      <select name="select2" size="8" multiple="multiple" class="selectclass" >
+        <option value="21" >原材料</option>
+        <option value="21" selected="selected">五金工具</option>
+        <option value="32">机械设备</option>
+      </select>
+    
+      <select name="select" size="8" multiple="multiple" class="selectclass" >
+        <option value="21" selected="selected">钳子</option>
+        <option value="21">钳子1</option>
+        <option value="32">钳子2</option>
+      </select>
+      </label>      <select name="select3" size="8" multiple="multiple" class="selectclass" >
+        <option value="21"  > </option>
+        <option value="21"> </option>
+        <option value="32"> </option>
+      </select>     
+      <select name="select4" size="8" multiple="multiple" class="selectclass" >
+        <option value="21"> </option>
+        <option value="21"> </option>
+        <option value="32"> </option>
+        </select></td>
+    </tr>
+  <tr>
+    <td><label>
+      <input type="submit" name="Submit" value="下一步:填写产品信息" />
+    </label></td>
+    </tr>
+</table>
+</form>
+				  
+				  
+			   </div>
+				 
+             </div>
+        </ui:define>
+    </ui:composition>
+
+</html>

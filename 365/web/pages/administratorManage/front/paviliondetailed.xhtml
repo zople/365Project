@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+        <div>
+            <ui:composition template="/pages/administratorManage/template/index.xhtml">
+                <ui:define name="content">
+                    <div class="body">
+
+                        <div class="exhibition3">
+                            <h:graphicImage name="24.png" library="images"/>
+                        </div>
+
+                        <div class="exhibition4">
+
+                            <div class="exhibition4Left">
+                                <div class="exhibition4Left1">
+                                    <ui:include src="exhibitionleft.xhtml"/>
+                                </div>
+                                <!--
+                                <div class="exhibition4Left2">
+                                    <div class="exhibition4Left1TOP">展会资讯</div>
+                                    <div>
+                                        >门窗幕墙行业风云榜评选 9-13
+                                    </div>
+                                </div>
+                                -->
+                            </div>
+
+                            <div class="exhibition4Right">
+                                <div class="exhibition4Right1">
+                                    <div class="exhibition4Right1Top">
+                                        <h:outputText value="#{pavilionController.item.description}"/>
+                                    </div>
+                                    <div class="exhibition4Right1Bottom">
+                                        <h:graphicImage name="31.png" library="images"/><br/>
+                                        <h:outputText value="展馆详细描述："/><h:outputText value="#{pavilionController.item.description}"/><br/>
+                                        <h:outputText value="展馆联系方式："/><h:outputText value="#{pavilionController.item.way}"/><br/>
+                                        <h:outputText value="网址："/><h:outputText value="#{pavilionController.item.url}"/><br/>
+                                        <h:outputText value="联系人："/><h:outputText value="#{pavilionController.item.linkman}"/><br/>
+                                        <h:outputText value="电话："/><h:outputText value="#{pavilionController.item.telphone}"/><br/>
+                                        <h:outputText value="传真："/><h:outputText value="#{pavilionController.item.fax}"/><br/>
+                                        <h:outputText value="地址："/><h:outputText value="#{pavilionController.item.address}"/><br/>
+                                    </div>
+                                </div>
+                                <div class="exhibition4Right1">
+                                    <div class="exhibition4Right1Top">其他推荐展馆</div>
+                                    <div class="exhibition4Right1Bottom">
+                                        <h:graphicImage name="24.png" library="images"/>
+                                        <h:outputText value="#{pavilionController.item.description}"/><br/>
+                                        <h:graphicImage name="24.png" library="images"/>
+                                        <h:outputText value="#{pavilionController.item.description}"/><br/>
+                                        <h:graphicImage name="24.png" library="images"/>
+                                        <h:outputText value="#{pavilionController.item.description}"/><br/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div  class="exhibition5"></div>
+
+                    </div>
+                </ui:define>
+            </ui:composition>
+        </div>
+    </body>
+</html>

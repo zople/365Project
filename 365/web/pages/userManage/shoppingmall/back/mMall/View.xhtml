@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/userManage/shoppingmall/template/shoppingmall.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMMallTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMMallLabel_id}"/>
+                    <h:outputText value="#{mMallController.selected.id}" title="#{bundle.ViewMMallTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewMMallLabel_name}"/>
+                    <h:outputText value="#{mMallController.selected.name}" title="#{bundle.ViewMMallTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewMMallLabel_email}"/>
+                    <h:outputText value="#{mMallController.selected.email}" title="#{bundle.ViewMMallTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewMMallLabel_phone}"/>
+                    <h:outputText value="#{mMallController.selected.phone}" title="#{bundle.ViewMMallTitle_phone}"/>
+                    <h:outputText value="#{bundle.ViewMMallLabel_logo}"/>
+                    <h:outputText value="#{mMallController.selected.logo}" title="#{bundle.ViewMMallTitle_logo}"/>
+                    <h:outputText value="#{bundle.ViewMMallLabel_describes}"/>
+                    <h:outputText value="#{mMallController.selected.describes}" title="#{bundle.ViewMMallTitle_describes}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{mMallController.destroyAndView}" value="#{bundle.ViewMMallDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewMMallEditLink}"/>
+                <br />
+                <h:commandLink action="#{mMallController.prepareCreate}" value="#{bundle.ViewMMallCreateLink}" />
+                <br />
+                <h:commandLink action="#{mMallController.prepareList}" value="#{bundle.ViewMMallShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewMMallIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

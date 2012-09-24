@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+        <div>
+            <ui:composition template="/pages/administratorManage/template/index.xhtml">
+                <ui:define name="content">
+                    <div class="body">
+
+                        <div class="exhibition3">
+                            <h:graphicImage name="24.png" library="images"/>
+                        </div>
+
+                        <div class="exhibition4">
+                            <div class="exhibition4Left">
+                                <div class="exhibition4Left1">
+                                    <ui:include src="exhibitionleft.xhtml"/>  
+                                </div>
+                                <!--
+                                <div class="exhibition4Left2">
+                                    <div class="exhibition4Left1TOP">展会资讯</div>
+                                    <div>
+                                         >门窗幕墙行业风云榜评选 9-13
+                                    </div>
+                                </div>
+                                -->
+                            </div>
+                            <div class="exhibition4Right">
+                                <div class="exhibition4Right1">
+                                    <div class="exhibition4Right1Top"><h:outputText value="#{enExhibitionController.item.title}"/></div>
+                                    <div class="exhibition4Right1Bottom">
+                                        基本信息<br/><hr/>
+                                        展会主题：<h:outputText value="#{enExhibitionController.item.title}"/> <br/>
+                                        展会时间：<h:outputText value="#{enExhibitionController.item.start_time}"/><br/>
+                                        申请时间：<h:outputText value="#{enExhibitionController.item.start_time}"/><br/>
+                                        展会地址：<h:outputText value="#{enExhibitionController.item.content}"/><br/>
+                                        参展电话：<h:outputText value="#{enExhibitionController.item.phone}"/><br/>
+                                        主办单位：<h:outputText value="#{enExhibitionController.item.content}"/><br/>
+                                        参展网站：<h:outputText value="#{enExhibitionController.item.url}"/><br/>
+                                        承办单位：<h:outputText value="#{enExhibitionController.item.content}"/><br/>
+                                        MSN/QQ:<h:outputText value="#{enExhibitionController.item.qq}"/>/
+                                        <h:outputText value="#{enExhibitionController.item.msn}"/><br/><br/>
+                                        
+                                        详细信息<br/><hr/>
+                                        主办单位：<h:outputText value="#{enExhibitionController.item.organizer}"/><br/>
+                                        承办单位：<h:outputText value="#{enExhibitionController.item.content}"/><br/>
+                                        批准单位：<h:outputText value="#{enExhibitionController.item.content}"/><br/>
+                                        咨询电话：<h:outputText value="#{enExhibitionController.item.phone}"/><br/>
+                                        开始时间：<h:outputText value="#{enExhibitionController.item.start_time}"/><br/>
+                                        撤展时间：<h:outputText value="#{enExhibitionController.item.start_time}"/><br/>
+                                        展会地址：<h:outputText value="#{enExhibitionController.item.content}"/><br/>
+                                        路线：<h:outputText value="#{enExhibitionController.item.content}"/><br/>
+                                        展会简介：<h:outputText value="#{enExhibitionController.item.content}"/><br/><br/><br/>
+                                        展会内容：<h:outputText value="#{enExhibitionController.item.content}"/><br/><br/><br/>
+                                        展会亮点：<h:outputText value="#{enExhibitionController.item.content}"/><br/><br/><br/>
+                                        参展费用：<h:outputText value="#{enExhibitionController.item.content}"/><br/><br/><br/>
+                                        参展方式：<h:outputText value="#{enExhibitionController.item.content}"/><br/><br/><br/>
+                                        联系方式：<h:outputText value="#{enExhibitionController.item.phone}"/><br/><br/><br/>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div  class="exhibition5">
+
+                        </div>
+                    </div>
+                </ui:define>
+            </ui:composition>
+        </div>
+    </body>
+</html>

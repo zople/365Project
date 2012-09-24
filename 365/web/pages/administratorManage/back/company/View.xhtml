@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/pages/administratorManage/template/index.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCompanyTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCompanyLabel_id}"/>
+                    <h:outputText value="#{companyController.selected.id}" title="#{bundle.ViewCompanyTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewCompanyLabel_description}"/>
+                    <h:outputText value="#{companyController.selected.description}" title="#{bundle.ViewCompanyTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewCompanyLabel_image}"/>
+                    <h:outputText value="#{companyController.selected.image}" title="#{bundle.ViewCompanyTitle_image}"/>
+                    <h:outputText value="#{bundle.ViewCompanyLabel_name}"/>
+                    <h:outputText value="#{companyController.selected.name}" title="#{bundle.ViewCompanyTitle_name}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{companyController.destroyAndView}" value="#{bundle.ViewCompanyDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCompanyEditLink}"/>
+                <br />
+                <h:commandLink action="#{companyController.prepareCreate}" value="#{bundle.ViewCompanyCreateLink}" />
+                <br />
+                <h:commandLink action="#{companyController.prepareList}" value="#{bundle.ViewCompanyShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCompanyIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
