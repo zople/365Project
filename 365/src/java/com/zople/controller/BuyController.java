@@ -65,9 +65,19 @@ public class BuyController {
       public String findById() {
          String tempID=JsfUtil.getRequestParameter("id");
          Long tid=Long.parseLong(tempID);
-        current =facade.find(tid);
+        current =facade.find(tid);  
         return "buyView";
     }
+      
+      
+        public String fontById() {
+         String tempID=JsfUtil.getRequestParameter("id");
+         Long tid=Long.parseLong(tempID);
+        current =facade.find(tid);  
+        return "/pages/getData/buyView.xhtml";
+    }
+      
+      
         public Buy getSelected() {
         if (current == null) {
             current = new Buy();

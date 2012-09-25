@@ -39,13 +39,13 @@ public class GetDateManagedBean implements Serializable {
         return items;
     }
     public List<Supply> getSupplyDataMax(){
-        return  supplyFacade.GetSupplyDataByMaxSize(1, 12);
+        return  supplyFacade.GetSupplyDataByMaxSize(0, 10);
     }
     //求购信息
     @EJB
     BuyFacade buyFacade;
     public List<Buy> getBuyDataMax(){
-        return buyFacade.getBuyDataMaxSize(1, 12);
+        return buyFacade.getBuyDataMaxSize(0, 10);
     }
    
    

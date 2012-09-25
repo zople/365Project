@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+ 
+        <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="产品规格管理"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListWjCategoryEmpty}" rendered="#{specController.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{specController.items.rowCount > 0}">
+                <h:outputText value="#{specController.pagination.pageFirstItem + 1}..#{specController.pagination.pageLastItem + 1}/#{specController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{specController.previous}" value="#{bundle.Previous} #{specController.pagination.pageSize}" rendered="#{specController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{specController.next}" value="#{bundle.Next} #{specController.pagination.pageSize}" rendered="#{specController.pagination.hasNextPage}"/>&nbsp;
+                <h:dataTable value="#{specController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="规格ID"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="所属品类"/>
+                        </f:facet>
+                        <h:outputText value="#{item.category.name}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="规格名称"/>
+                        </f:facet>
+                        <h:outputText value="#{item.name}"/>
+                    </h:column>
+                    
+                    
+                      <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="添加时间"/>
+                        </f:facet>
+                        <h:outputText value="#{item.createTime}"/>
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="操作"/>
+                        </f:facet>
+                        
+                        
+                         <h:commandLink action="#{specController.findById}" value="显示信息">
+                             <f:param name="id" value="#{item.id}"></f:param>
+                         </h:commandLink>
+                        
+                      
+                        <h:commandLink action="#{specController.prepareEdit}" value="编辑信息">
+                             <f:param name="id" value="#{item.id}"></f:param>
+                         </h:commandLink>
+                        
+                        
+                        
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{specController.destroy}" value="删除信息"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+            <br />
+            <h:commandLink action="#{specController.prepareCreate}" value="添加信息">
+               
+            </h:commandLink>
+            <br />
+            <br />
+             
+        </h:form>
+            
+  </ui:define>
+    </ui:composition>
+ 
+</html>

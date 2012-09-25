@@ -43,6 +43,16 @@ public class SupplyController implements Serializable {
         return current;
     }
 
+    
+   public String fontById() {
+         String tempID=JsfUtil.getRequestParameter("id");
+         Long tid=Long.parseLong(tempID);
+        current =ejbFacade.find(tid);  
+        return "/pages/getData/supplyView.xhtml";
+    }
+    
+    
+    
     private SupplyFacade getFacade() {
         return ejbFacade;
     }
