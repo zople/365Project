@@ -30,7 +30,6 @@ import javax.validation.constraints.Size;
 @NamedQueries({
     @NamedQuery(name = "Property.findAll", query = "SELECT p FROM Property p"),
     @NamedQuery(name = "Property.findById", query = "SELECT p FROM Property p WHERE p.id = :id"),
-    @NamedQuery(name = "Property.findByCategoryId", query = "SELECT p FROM Property p WHERE p.categoryId = :categoryId"),
     @NamedQuery(name = "Property.findByName", query = "SELECT p FROM Property p WHERE p.name = :name"),
     @NamedQuery(name = "Property.findByDescription", query = "SELECT p FROM Property p WHERE p.description = :description"),
     @NamedQuery(name = "Property.findByCreateTime", query = "SELECT p FROM Property p WHERE p.createTime = :createTime")})
@@ -52,7 +51,15 @@ public class Property implements Serializable {
     private Date createTime;
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
-    private Company categoryId;
+    private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
     public Property() {
     }
 

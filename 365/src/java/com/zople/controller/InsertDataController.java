@@ -78,6 +78,8 @@ import com.zople.domain.MRecruitment;
 import com.zople.domain.Pavilion;
 import com.zople.domain.Persion;
 import com.zople.domain.Position;
+import com.zople.domain.Product;
+import com.zople.domain.Property;
 import com.zople.domain.Quote;
 import com.zople.domain.Supply;
 import com.zople.domain.TblFriendlyLink;
@@ -160,10 +162,6 @@ public class InsertDataController {
     public void getInsertData() {
     }
 
-//    public String getInsertSupplyData() {
-//     
-//      return null;
-//    }
 
     public void getInsertBuyData() {
         String namesStr = "采购玻璃石材雕刻机 ,采购气体汇流排 ,采购二手发电机 ,采购150铝合金 ,采购IS离心泵 ,采购丹佛斯DANFOSS变频,采购断桥铝门窗双头组,求购开关电源 ,采购云丝手动喷枪 ,采购滚丝机 ,采购三维扫描仪 ,采购电动卷帘 ,采购身份证阅读器 ,采购冰柜 ,采购铜平垫 ,采购全彩LED视频处理器,采购电动货车 ,采购电动货车 ";
@@ -182,22 +180,43 @@ public class InsertDataController {
             buyFacade.create(buy);
         }
     }
-
+    /**
+     * 分类信息
+     * 产品信息
+     * 分类属性信息
+     */
     public void getInsertCategoriesData() {
         String[] categories = {"机械设备", "五金工具", "建筑五金", "机电五金", "锁具安防", "日用五金", "五金材料", "通用配件", "运动休闲", "环保设施", "厨房家电", "电子电工", "通用配件", "运动休闲", "环保设施", "厨房家电", "电子电工"};
         String[] categories2 = {"不锈钢材", "普通型钢", "户外用品", "空气净化", "变压器", "普通管材", "五金材料", "健身器材", " 家居用品", "环保设施", "厨房家电", "电子电工", "厨房设备", "家用电器", "电线电缆", "厨房家电", "消防设备"};
         Category category;
-        for (int i = 0; i < 20; i++) {
+        int h=1;
+        int j = 1;
+        for (int i = 1; i < 20; i++) {
             category = new Category();
             category.setId(Long.valueOf(i));
             category.setName(categories[random(categories.length)]);
             category.setPid(0l);
             categoryFacade.create(category);
-            for (int j = 0; j < 10; j++) {
+            for (; j < 10; j++) {
                 category = new Category();
                 category.setId(System.nanoTime());
-                category.setPid((long) i);
                 category.setName(categories2[random(categories2.length)]);
+                category.setPid((long) i);
+                for(;h<i*10;h++){
+                    Product product = new Product();
+                    product.setName(getText(2));
+                    product.setDescription(getText(40));
+                    product.setCategory(category);
+                    category.getProductList().add(product);
+                    
+                    Property property = new Property();
+                    property.setId(Long.valueOf(h));
+                    property.setName(getText(3));
+                    property.setDescription(getText(20));
+                    property.setCreateTime(showDate);
+                    property.setCategory(category);
+                    category.getPropertyList().add(property);
+                }
                 categoryFacade.create(category);
             }
         }
@@ -767,6 +786,7 @@ public class InsertDataController {
         insertPrvilionData();
         insetPersonData();
         insertCompanyDate();
+        insetImages();
         return "success";
    }
 
