@@ -23,9 +23,9 @@ body{
     padding: 5px;
 }
 .left_content {
-    height:540px;
     color: black;
-    width: 650px;
+    width: 85%;
+    border: 1px solid #78cde7;
 }
 .right_content {
     background-color: #dddddd;

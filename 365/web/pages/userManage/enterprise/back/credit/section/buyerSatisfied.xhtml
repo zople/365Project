@@ -38,7 +38,95 @@
             </p:menu>
         </ui:define>
         <ui:define name="content">
-            <h2>欢迎您！</h2>
+            <h:form>
+                <div class="credit">
+                    <div class="template1">
+                        <h:commandButton value="买家满意度" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px"/>
+                        <h:commandButton value="买家重复购买率" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px"/>
+                        <h:commandButton value="成功签单率" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px"/>
+                        <h:commandButton value="退款率" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px"/>
+                        <h:commandButton value="纠纷率" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px"/>
+                    </div>
+                    <div class="credit_top">*友情提醒：请尽量详细、准确的填写您的企业信息，以便买家以及银行能够尽可能多的了解贵企业的真实情况，增加合作机会！</div>
+                    <div class="credit_content">
+                        <div class="t1">
+                            订单评价情况：
+                            <br/>
+                            <div class="t">
+                                <br/>好评<br/>中评<br/>差评
+                            </div>
+                            <div class="t">
+                                近1个月
+                                <br/>
+                                <h:outputText value="3"/>
+                                <br/>
+                                <h:outputText value="2"/>
+                                <br/>
+                                <h:outputText value="1"/>
+                            </div>
+                            <div class="t">
+                                近3个月
+                                <br/>
+                                <h:outputText value="6"/>
+                                <br/>
+                                <h:outputText value="2"/>
+                                <br/>
+                                <h:outputText value="1"/>
+                            </div>
+                            <div class="t">
+                                近6个月
+                                <br/>
+                                <h:outputText value="12"/>
+                                <br/>
+                                <h:outputText value="3"/>
+                                <br/>
+                                <h:outputText value="2"/>
+                            </div>
+                            <div class="t">
+                                半年以上
+                                <br/>
+                                <h:outputText value="17"/>
+                                <br/>
+                                <h:outputText value="3"/>
+                                <br/>
+                                <h:outputText value="2"/> 
+                            </div>
+                            <div class="t">
+                                总计
+                                <br/>
+                                <h:outputText value="23"/>
+                                <br/>
+                                <h:outputText value="3"/>
+                                <br/>
+                                <h:outputText value="2"/> 
+                            </div>
+                        </div>
+                        <div class="t2">
+                            近一个月服务评价情况：
+                            <br/>
+                            <div class="t">
+                                评价项<br/>实物与描述相符程度<br/>买家的沟通容易程度<br/>发货速度<br/>服务周到程度
+                            </div>
+                            <div class="t">
+                                平均得分
+                                <br/>
+                                <h:outputText value="6"/>
+                                <br/>
+                                <h:outputText value="2"/>
+                                <br/>
+                                <h:outputText value="1"/>
+                                <br/>
+                                <h:outputText value="1"/>
+                            </div>
+                        </div>
+                        服务评价平均得分：
+                        <br/>
+                        买家满意度：
+                        <br/>
+                        近1个月买家满意度：
+                    </div>
+                </div>
+            </h:form>
         </ui:define>
     </ui:composition>
 </html>
