@@ -22,6 +22,7 @@ import com.zople.dao.EnEnterpriseFacade;
 import com.zople.dao.EnExhibitionFacade;
 import com.zople.dao.EnFavoriteFacade;
 import com.zople.dao.EnInquiryFacade;
+import com.zople.dao.EnMoneyFacade;
 import com.zople.dao.EnNewsFacade;
 import com.zople.dao.EnOrderFacade;
 import com.zople.dao.EnPremiumFacade;
@@ -63,6 +64,7 @@ import com.zople.domain.EnEnterprise;
 import com.zople.domain.EnExhibition;
 import com.zople.domain.EnFavorite;
 import com.zople.domain.EnInquiry;
+import com.zople.domain.EnMoney;
 import com.zople.domain.EnNews;
 import com.zople.domain.EnOrder;
 import com.zople.domain.EnPremium;
@@ -326,7 +328,8 @@ public class InsertDataController {
             news.setId(Long.valueOf(i));
             news.setName(getText(50));
             order.setId(Long.valueOf(i));
-            order.setName(getText(50));
+            order.setName(getText(4));
+            order.setDescription(getText(40));
             premium.setId(Long.valueOf(i));
             premium.setName(getText(50));
             storefront.setId(Long.valueOf(i));
@@ -787,6 +790,7 @@ public class InsertDataController {
         insetPersonData();
         insertCompanyDate();
         insetImages();
+        addMoney();  //金融动态
         return "success";
    }
 
@@ -880,8 +884,21 @@ public class InsertDataController {
             tbluserFacade.create(user);
         }
     }
-
-       
+   /**金融动态*/
+    @EJB
+    EnMoneyFacade moneyFacade;
+    private EnMoney money;
+    public void addMoney(){
+         for (int i = 0; i < 200; i++) {
+            money = new EnMoney();
+            money.setId(Long.valueOf(i));
+            money.setName(getText(50));
+            money.setMoney(Integer.valueOf(i+100));
+            moneyFacade.create(money);
+        }
+    }
+    
+   //
     public String getText(int length) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++) {
