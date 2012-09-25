@@ -56,8 +56,43 @@
             </p:menu>
         </ui:define>
         <ui:define name="content">
-            <h2>欢迎您！</h2>
+            <h:form>
+                <div class="business">
+                    <div class="template1">
+                        <h:commandButton value="销售报告" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px" />
+                    </div>
+                    <div class="business_order_content2">
+                        <h:dataTable value="#{persionController.persions}" var="persion" border="1">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="销售产品名称"/>
+                                </f:facet>
+                                <h:outputText value="#{persion.persionName}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="销售数量"/>
+                                </f:facet>
+                                <h:outputText value="#{persion.persionAge}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="销售日期"/>
+                                </f:facet>
+                                <h:outputText value="#{persion.jobIntention}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="操作"/>
+                                </f:facet>
+                                <h:commandLink value="查看" >
+                                    <f:param value="#{user.id}" name="id"/>
+                                </h:commandLink>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+                </div>
+            </h:form>
         </ui:define>
     </ui:composition>
-
 </html>
