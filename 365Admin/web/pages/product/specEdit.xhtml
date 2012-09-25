@@ -13,22 +13,23 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
            <h:form>
-                <h:inputHidden id="id" value="#{adminProductController.current.id}"/> 
+               <h:inputHidden id="id" value="#{specController.current.id}"/> 
                 <h:panelGrid columns="2">
+                     
                     <h:outputLabel value="产品品类"/>
-                    <h:selectOneMenu value="#{adminProductController.current.category.id}">
-                     <f:selectItems  value="#{adminProductController.PIdListList}" />
+                    <h:selectOneMenu value="#{specController.current.category.id}">
+                     <f:selectItems  value="#{specController.PIdListList}" />
 		    </h:selectOneMenu>
                     
-                    <h:outputLabel value="产品名称"  />
-                    <h:inputText id="name" value="#{adminProductController.current.name}"  required="true" requiredMessage="不能为空" />
+                    <h:outputLabel value="规格名称"  />
+                    <h:inputText id="name" value="#{specController.current.name}"  required="true" requiredMessage="不能为空" />
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{adminProductController.update()}" value="更新修改" >
+                <h:commandLink action="#{specController.update()}" value="更新修改" >
                 </h:commandLink>
                 <br />
                 <br />
-                <h:commandLink action="#{adminProductController.prepareList}" value="返回列表" immediate="true"/>
+                <h:commandLink action="#{specController.prepareList}" value="返回列表" immediate="true"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="返回首页"/>
