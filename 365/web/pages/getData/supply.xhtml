@@ -31,7 +31,15 @@ and open the template in the editor.
                  </h:panelGroup>-->
               <ul>
                     <ui:repeat  value="#{getDateManagedBean.supplyDate}" var="item">
-                                <li style="float: left; width: 100px; display:  block;">#{item.title}</li>
+                           <h:form>
+                                <li style="float: left; width: 100px; display:  block;">
+                                    
+                               <h:commandLink action="#{supplyController.fontById}" value="#{item.title}">
+                             <f:param name="id" value="#{item.id}"></f:param>
+                         </h:commandLink>  
+                                
+                                </li>
+                           </h:form>
                     </ui:repeat>
              </ul>
            <!--</h:form>-->
