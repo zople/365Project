@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
+        <ui:define name="left">
+            <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                <p:submenu label="订单管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                    <p:menuitem value="我的卖单" url="/faces/pages/userManage/enterprise/back/enEnterprise/sellOrder.xhtml" />
+                    <p:menuitem value="我的买单" url="/faces/pages/userManage/enterprise/back/enEnterprise/buyOrder.xhtml" />
+                    <p:menuitem value="评价管理" url="/faces/pages/userManage/enterprise/back/enEnterprise/buyerEvaluation.xhtml" />
+                    <p:menuitem value="销售报告" url="/faces/pages/userManage/enterprise/back/enEnterprise/salesReport.xhtml" />
+                    <p:menuitem value="投诉管理" url="/faces/pages/userManage/enterprise/back/enEnterprise/sellerComplaint.xhtml" />
+                </p:submenu>
+            </p:menu>
+            <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                <p:submenu label="业务设置管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                    <p:menuitem value="产品品类管理" url="#" />
+                    <p:menuitem value="运费设置" url="#" />
+                    <p:menuitem value="发票设置" url="#" />
+                    <p:menuitem value="金融服务设置" url="#" />
+                    <p:menuitem value="提示设置" url="#" />
+                </p:submenu>
+            </p:menu>
+            <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                <p:submenu label="供应管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                    <p:menuitem value="发布供应产品" url="#" />
+                    <p:menuitem value="我的供应" url="#" />
+                    <p:menuitem value="匹配供应" url="#" />
+                </p:submenu>
+            </p:menu>
+            <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                <p:submenu label="招商管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                    <p:menuitem value="发布招商" url="#" />
+                    <p:menuitem value="我的招商" url="#" />
+                    <p:menuitem value="招商咨询" url="#" />
+                </p:submenu>
+            </p:menu> 
+            <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                <p:submenu label="加工管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                    <p:menuitem value="发布加工" url="#" />
+                    <p:menuitem value="我的加工" url="#" />
+                    <p:menuitem value="加工咨询" url="#" />
+                </p:submenu>
+            </p:menu>
+            <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                <p:submenu label="物流管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                    <p:menuitem value="物流方式" url="#" />
+                    <p:menuitem value="物流跟踪" url="#" />
+                    <p:menuitem value="我的运单" url="#" />
+                </p:submenu>
+            </p:menu>
+        </ui:define>
+        <ui:define name="content">
+            <h:form>
+                <div class="business">
+                    <div class="template1">
+                        <h:commandButton value="我的卖单" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px" />
+                        <h:commandButton value="我的买单" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 15px" />
+                        <h:commandButton value="评价管理" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 15px" />
+                        <h:commandButton value="销售报告" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 15px" />
+                        <h:commandButton value="投诉管理" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 15px" />
+                    </div>
+                    <div class="business_order_top">
+                        产品名称：<h:inputText/>
+                        成交时间：  
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="00" />
+                            <f:selectItem itemValue="01" />
+                        </h:selectOneMenu>
+                        时
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="00" />
+                            <f:selectItem itemValue="01" />
+                        </h:selectOneMenu>
+                        分--
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="00" />
+                            <f:selectItem itemValue="01" />
+                        </h:selectOneMenu>
+                        时
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="00" />
+                            <f:selectItem itemValue="01" />
+                        </h:selectOneMenu>
+                        分<br/>
+                        卖家名称：<h:inputText/>
+                        交易状态：
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="全部" />
+                            <f:selectItem itemValue="等待卖家发货" />
+                            <f:selectItem itemValue="卖家已发货" />
+                            <f:selectItem itemValue="已取消" />
+                            <f:selectItem itemValue="已完成" />
+                            <f:selectItem itemValue="已关闭" />
+                        </h:selectOneMenu>
+                        评价状态：
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="全部" />
+                            <f:selectItem itemValue="已评价" />
+                            <f:selectItem itemValue="未评价" />
+                        </h:selectOneMenu>
+                        <br/>
+                        订单编号：<h:inputText/>
+                        <br/>
+                        <h:commandButton value="搜索"/>
+                    </div>
+                    <div class="business_order_content">
+                        <div class="business_order_content1">
+                            <div class="condition">全部订单</div>
+                            <div class="condition">等待发货</div>
+                            <div class="condition">等待付款</div>
+                            <div class="condition">等待确认收货</div>
+                            <div class="condition">等待评价</div>
+                            <div class="condition">近三个月订单</div>
+                            <div class="condition">近一年订单</div>
+                            <div class="page">
+                                <h:commandLink value="上一页"></h:commandLink>
+                                <h:commandLink value="下一页"></h:commandLink>
+                            </div>
+                        </div>
+                        <div class="business_order_content2">
+                            <h:commandButton value="批量导出订单" />
+                            <h:commandButton value="批量发货"  />
+                            <h:dataTable value="#{persionController.persions}" var="persion" border="1">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:selectManyCheckbox layout="pageDirection">
+                                            <f:selectItem itemLabel="全选" itemValue="false"/>
+                                        </h:selectManyCheckbox>
+                                    </f:facet>
+                                    <h:selectManyCheckbox layout="pageDirection">
+                                        <f:selectItem itemLabel="" itemValue="false"/>
+                                    </h:selectManyCheckbox>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="货品名称/规格"/>
+                                    </f:facet>
+                                    <h:outputText value="#{persion.persionName}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="单价"/>
+                                    </f:facet>
+                                    <h:outputText value="#{persion.persionAge}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="数量"/>
+                                    </f:facet>
+                                    <h:outputText value="#{persion.jobIntention}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="总金额"/>
+                                    </f:facet>
+                                    <h:outputText value="#{persion.contactTelephone}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="订单状态"/>
+                                    </f:facet>
+                                    <h:outputText value="#{persion.expectAddress}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="操作"/>
+                                    </f:facet>
+                                    <h:commandLink value="查看订单详情" >
+                                        <f:param value="#{user.id}" name="id"/>
+                                    </h:commandLink>
+                                    <br/>
+                                    <h:commandLink value="查看物流" >
+                                        <f:param value="#{user.id}" name="id"/>
+                                    </h:commandLink>
+                                    <br/>
+                                    <h:commandLink value="我要投诉" >
+                                        <f:param value="#{user.id}" name="id"/>
+                                    </h:commandLink>
+                                    <br/>
+                                    <h:commandLink value="关闭物流" >
+                                        <f:param value="#{user.id}" name="id"/>
+                                    </h:commandLink>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="其他"/>
+                                    </f:facet>
+                                    <h:outputText value="1111"/>
+                                </h:column>
+                            </h:dataTable>
+                        </div>
+                    </div>
+                    <div class="morePosition_bottom_right3">
+                        订单总数：22222
+                        <h:link>首页</h:link>
+                        <h:link>上一页</h:link>
+                        <h:link>下一页</h:link>
+                        <h:link>末页</h:link>
+                        共 页
+                    </div>
+                    <div class="business_order_bottom">
+                        <div class="business_order_bottom_title"> 交易投诉--我要投诉</div>
+                        <hr/>
+                        订单编号：<h:inputText/><br/>
+                        投诉原因：
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="请选择原因" />
+                            <f:selectItem itemValue="商品劣质" />
+                            <f:selectItem itemValue="恶意骚扰" />
+                            <f:selectItem itemValue="违背承诺" />
+                            <f:selectItem itemValue="延迟发货" />
+                            <f:selectItem itemValue="恶意差评" />
+                            <f:selectItem itemValue="其他" />
+                        </h:selectOneMenu><br/>
+                        投诉内容：
+                        <h:inputTextarea/><br/>
+                        <h:selectManyCheckbox layout="pageDirection">
+                            <f:selectItem itemLabel="是否需要易得客服介入" itemValue="false"/>
+                        </h:selectManyCheckbox>
+                        <br/>
+                        <h:commandButton value="发布投诉"/>
+                        <h:commandButton value="取消投诉"/>
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

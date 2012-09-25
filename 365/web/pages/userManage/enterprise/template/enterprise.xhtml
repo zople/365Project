@@ -18,6 +18,8 @@
             <h:outputStylesheet library="css" name="jsfcrud.css"/>
             <h:outputStylesheet library="css" name="enterprise.css"/>
             <h:outputStylesheet library="css" name="store/store.css"/>
+            <h:outputStylesheet library="css" name="business/order.css"/>
+            <h:outputStylesheet library="css" name="credit/credit.css"/>
             <h:outputStylesheet library="css" name="supply.css"/>
         </h:head>
 
@@ -25,34 +27,34 @@
             <div style="text-align: center">
                 <div style="text-align: left; margin: 0 auto; width: 1400px;">
                     <div id="header">
-                          <ui:insert name="top">
-                               <ui:include src="/pages/userManage/enterprise/commons/header.xhtml"/>
-                          </ui:insert>
+                        <ui:insert name="top">
+                            <ui:include src="/pages/userManage/enterprise/commons/header.xhtml"/>
+                        </ui:insert>
                     </div>
                     <div>
                         <div id="left">
                             <ui:insert name="left">
-                              <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
-                                <p:submenu label="信息管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
-                                    <p:menuitem value="发布产品信息" url="#" />
-                                    <p:menuitem value="发布求购信息" url="#" />
-                                </p:submenu>
-                              </p:menu>
-                           <!--<ui:include src="/pages/userManage/enterprise/commons/left.xhtml"/>-->
-                           </ui:insert>
+                                <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                                    <p:submenu label="信息管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                                        <p:menuitem value="发布产品信息" url="#" />
+                                        <p:menuitem value="发布求购信息" url="#" />
+                                    </p:submenu>
+                                </p:menu>
+                                <!--<ui:include src="/pages/userManage/enterprise/commons/left.xhtml"/>-->
+                            </ui:insert>
                         </div>
 
                         <div id="content" class="left_content">
-                             <ui:insert name="content">
+                            <ui:insert name="content">
 
-                             </ui:insert>
+                            </ui:insert>
                         </div>
                     </div>
                     <div id="bottom">
-                              <ui:include src="/pages/userManage/enterprise/commons/footer.xhtml"/>
+                        <ui:include src="/pages/userManage/enterprise/commons/footer.xhtml"/>
                     </div>
-             </div>   
-           </div>
+                </div>   
+            </div>
         </h:body>
     </f:view>  
 </html>

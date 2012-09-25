@@ -1,0 +1,60 @@
+/* 
+    Document   : index
+    Created on : 2012-9-10, 11:27:24
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.template1 {
+    height: 40px;
+    width: 100%;
+    background-color:    #99ffff;
+}
+.business {
+    width: 900px;
+    height:950px;
+}
+.business_order_top {
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 800px;
+    height:100px;
+    border: 1px solid #ffcccc;
+}
+
+.business_order_content {
+}
+.business_order_content1 {
+    margin-top: 20px;
+    height: 50px;
+}
+.business_order_content2 {
+    margin-top: 30px;
+}
+.condition {
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    float: left;
+    border: 1px solid  #0000ff;
+    background-color: #999999;
+    font-size: 18px;
+    color: white;
+}
+.page {
+    font-size: 18px;
+    float: right;
+    margin-top: 20px;
+}
+
+.business_order_bottom {
+    margin-left: 300px;
+    width: 500px;
+    height: 400px;
+    border: 1px solid #ffcccc;
+}
+.business_order_bottom_title {
+    font-size: 22px;
+    font-weight: bold;
+}
