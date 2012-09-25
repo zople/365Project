@@ -38,7 +38,95 @@
             </p:menu>
         </ui:define>
         <ui:define name="content">
-            <h2>欢迎您！</h2>
+            <h:form>
+                <div class="credit">
+                    <div class="template1">
+                        <h:commandButton value="企业经营状况" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px">
+                        </h:commandButton>
+                    </div>
+                    <div class="credit_top">*友情提醒：请尽量详细、准确的填写您的企业信息，以便买家以及银行能够尽可能多的了解贵企业的真实情况，增加合作机会！</div>
+                    <div class="credit_content">
+                        上年营业额：
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="请选择" />
+                            <f:selectItem itemValue="50万以下" />
+                            <f:selectItem itemValue="51-100万" />
+                            <f:selectItem itemValue="101-300万" />
+                            <f:selectItem itemValue="301-600万" />
+                            <f:selectItem itemValue="601-1000万" />
+                            <f:selectItem itemValue="1000万以上" />
+                        </h:selectOneMenu>
+                        <br/>
+                        主要市场：<h:inputText/>
+                        <br/>
+                        主要客户：<h:inputText/>
+                        <br/>
+                        <h:inputText/>
+                        <h:commandButton value="添加客户"></h:commandButton>
+                        <br/>
+                        年出口额：
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="20万以下" />
+                            <f:selectItem itemValue="21-50万" />
+                            <f:selectItem itemValue="51-100万" />
+                            <f:selectItem itemValue="101-200万" />
+                            <f:selectItem itemValue="201-500万" />
+                            <f:selectItem itemValue="500万以上" />
+                        </h:selectOneMenu>
+                        <br/>
+                        年进口额：
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="20万以下" />
+                            <f:selectItem itemValue="21-50万" />
+                            <f:selectItem itemValue="51-100万" />
+                            <f:selectItem itemValue="101-200万" />
+                            <f:selectItem itemValue="201-500万" />
+                            <f:selectItem itemValue="500万以上" />
+                        </h:selectOneMenu>
+                        <br/>
+                        认证体系：
+                        <h:selectManyCheckbox>
+                            <f:selectItem itemLabel="ISO9000" itemValue="false"/>
+                            <f:selectItem itemLabel="ISO9001" itemValue="false"/>
+                            <f:selectItem itemLabel="ISO9002" itemValue="false"/>
+                            <f:selectItem itemLabel="ISO9003" itemValue="false"/>
+                            <f:selectItem itemLabel="ISO9004" itemValue="false"/>
+                            <f:selectItem itemLabel="ISO14000" itemValue="false"/>
+                            <f:selectItem itemLabel="ISO14001" itemValue="false"/>
+                            <f:selectItem itemLabel="其他" itemValue="false"/>
+                        </h:selectManyCheckbox>
+                        <br/>
+                        质量控制：
+                        <h:selectOneRadio>
+                            <f:selectItem itemLabel="提供"/>
+                            <f:selectItem itemLabel="不提供"/>
+                        </h:selectOneRadio>
+                        <br/>
+                        研发团队：
+                        <h:selectOneRadio>
+                            <f:selectItem itemLabel="无"/>
+                            <f:selectItem itemLabel="有"/>
+                        </h:selectOneRadio>
+                        <h:inputText/>人
+                        <br/>
+                        OEM服务：
+                        <h:selectOneRadio>
+                            <f:selectItem itemLabel="无"/>
+                            <f:selectItem itemLabel="有"/>
+                        </h:selectOneRadio>
+                        <br/>
+                        厂房面积：<h:inputText/>平方米
+                        <br/>
+                        主要设备：<h:inputText/>
+                        数量：<h:inputText/>
+                        <h:commandButton value="添加设备"></h:commandButton>
+                    </div>
+                    <div class="credit_bottom">
+                        <h:commandButton value="保存当前"></h:commandButton>
+                        <h:commandButton value="取消"></h:commandButton>
+                    </div>
+                </div>
+            </h:form>
         </ui:define>
     </ui:composition>
 </html>

@@ -38,7 +38,36 @@
             </p:menu>
         </ui:define>
         <ui:define name="content">
-            <h2>欢迎您！</h2>
+            <h:form>
+                <div class="credit">
+                    <div class="template1">
+                        <h:commandButton value="买家满意度" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px"/>
+                        <h:commandButton value="买家重复购买率" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px"/>
+                        <h:commandButton value="成功签单率" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px"/>
+                        <h:commandButton value="退款率" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px"/>
+                        <h:commandButton value="纠纷率" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px"/>
+                    </div>
+                    <div class="credit_top">*友情提醒：请尽量详细、准确的填写您的企业信息，以便买家以及银行能够尽可能多的了解贵企业的真实情况，增加合作机会！</div>
+                    <div class="credit_content">
+                        买家重复购买率：
+                        <br/>
+                        <div class="t">
+                            签单次数<br/>二次签单率
+                        </div>
+                        <div class="t">
+                            签单率
+                            <br/>
+                            <h:outputText value="30%"/>
+                        </div>
+                        <div class="t">
+                            评分标准
+                            <br/>
+                            <h:outputText value="6"/>
+                        </div>
+                        买家重复购买得分：<h:outputText value="6"/>分
+                    </div>
+                </div>
+            </h:form>
         </ui:define>
     </ui:composition>
 </html>
