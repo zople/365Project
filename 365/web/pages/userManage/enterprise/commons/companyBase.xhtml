@@ -19,9 +19,24 @@ and open the template in the editor.
                         <h:outputLabel value="企业名称:" />
                         <h:inputText   value="" title="" required="true" requiredMessage="" style="width: 400px;"/>
                         <h:outputLabel value="企业类型："/>
-                        <h:inputText   value="" title="" />
+                        <p:selectOneMenu value="请选择">  
+                            <f:selectItem itemLabel="个体工商户" itemValue="" />  
+                            <f:selectItem itemLabel="私营独资企业" itemValue="1" />  
+                            <f:selectItem itemLabel="私营合伙企业" itemValue="2" />  
+                            <f:selectItem itemLabel="私营有限责任工商" itemValue="3" /> 
+                            
+                            <f:selectItem itemLabel="私营股份有限公司" itemValue="" />  
+                            <f:selectItem itemLabel="国有企业" itemValue="1" />  
+                            <f:selectItem itemLabel="集体企业" itemValue="2" />  
+                            <f:selectItem itemLabel="股份合作公司" itemValue="3" />
+                        </p:selectOneMenu>
+
                         <h:outputLabel value="所在地区:"/>
-                        <h:selectBooleanCheckbox value=""/>
+                        <p:selectOneMenu value="请选择">  
+                                <f:selectItem itemLabel="中国" itemValue="" />  
+                                <f:selectItem itemLabel="其他" itemValue="1" /> 
+                        </p:selectOneMenu>
+                        
                         <h:outputLabel value="公司地址:"/>
                         <h:inputText   value="" title="" />
                         <h:outputLabel value="邮政编码:"/>
