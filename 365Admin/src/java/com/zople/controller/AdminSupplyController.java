@@ -5,6 +5,7 @@ import com.zople.controller.util.PaginationHelper;
 import com.zople.dao.SupplyFacade;
 import com.zople.domain.Supply;
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -18,19 +19,20 @@ import javax.faces.model.SelectItem;
 import javax.inject.Named;
 
 
-@Named("supplyController")
+@Named("adminSupplyController")
 @SessionScoped
-public class SupplyController implements Serializable {
+public class AdminSupplyController implements Serializable {
 
 
     private Supply current;
     private DataModel items = null;
     @EJB
-    private com.zople.dao.SupplyFacade ejbFacade;
+   SupplyFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+     List<Supply> dataList;  //返回列表数据
 
-    public SupplyController() {
+    public AdminSupplyController() {
     }
 
     public Supply getSelected() {
@@ -42,6 +44,19 @@ public class SupplyController implements Serializable {
     }
 
     
+       /***
+      * 返回前台展示记录
+      * 
+      */
+      public  List<Supply> getInfoListBySql(){
+          String sql="select o from Supply o ";
+          
+           dataList=ejbFacade.GetSupplyDataByMaxSize(0,18);
+        // dataList=ejbFacade.findAllBysql(sql,0,12);
+          return dataList;
+        }
+    
+    
    public String fontById() {
          String tempID=JsfUtil.getRequestParameter("id");
          Long tid=Long.parseLong(tempID);
@@ -49,6 +64,22 @@ public class SupplyController implements Serializable {
         return "/pages/getData/supplyView.xhtml";
     }
     
+   
+      public String destroyById() {
+         String tempID=JsfUtil.getRequestParameter("id");
+         Long tid=Long.parseLong(tempID);
+        current =ejbFacade.find(tid);  
+        ejbFacade.remove(current);
+        return "supply";
+    }
+    
+   
+   
+   
+     public String link() {
+        return "supply";
+    }
+   
     
     
     private SupplyFacade getFacade() {
@@ -209,7 +240,7 @@ public class SupplyController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            SupplyController controller = (SupplyController)facesContext.getApplication().getELResolver().
+            AdminSupplyController controller = (AdminSupplyController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "supplyController");
             return controller.ejbFacade.find(getKey(value));
         }
