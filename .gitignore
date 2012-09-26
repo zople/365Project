@@ -14,3 +14,7 @@
 /nbproject/
 /365Admin/nbproject/
 /Model/nbproject/
+!/365Admin/nbproject/project.properties
+!/365/nbproject/project.properties
+!/Model/nbproject/project.properties
+!/nbproject/project.properties
