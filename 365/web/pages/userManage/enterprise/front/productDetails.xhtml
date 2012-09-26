@@ -6,29 +6,194 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>TODO supply a title</title>
     </h:head>
     <body>
-         <ui:composition template="/pages/userManage/enterprise/template/front.xhtml">
-                <ui:define name="content">
+        <ui:composition template="/pages/userManage/enterprise/template/front.xhtml">
+            <ui:define name="content">
+                <h:form>
                     <div class="enFrontContent1" style="height: 520px">
-                        <div class="entTop"><h:graphicImage name="39.png" library="images"/></div>
+                        <div class="entTop">产品信息</div>
                         <div>
-                            <h:graphicImage name="20120918144849.jpg" library="images"/>
-                          </div>
-                    </div>
-                    <div class="enFrontContent2">
-                        <div class="entTop"><h:graphicImage name="40.png" library="images"/></div>
-                        <div>
-                            <h:graphicImage name="20120918151250.jpg" library="images"/>
-                            <h:graphicImage name="20120918151429.jpg" library="images"/>
-                            <h:graphicImage name="20120918152128.jpg" library="images"/>
-                            <h:graphicImage name="20120918152227.jpg" library="images"/>
+                            <h2 style="line-height:  20px; font-size: 16px;text-align: center">【产品名称】</h2>
+                            <div style="float: left;">
+                                <h:graphicImage name="product2.jpg" library="images"/>
+                            </div>
+                            <div style="float: left;">
+                                【产品型号】：
+                                <br/>
+                                <h:panelGrid columns="2" cellpadding="5">  
+                                    <h:outputLabel for="spinnerBasic" value="订货量（个）" />  
+                                    <h:outputLabel for="spinnerBasic" value="价格" /> 
+                                    <h:outputLabel for="spinnerBasic" value="10-20" />  
+                                    <h:outputLabel for="spinnerBasic" value="10元1个" />
+                                    <h:outputLabel for="spinnerBasic" value="21-40" />  
+                                    <h:outputLabel for="spinnerBasic" value="9元1个" /> 
+                                    <h:outputLabel for="spinnerBasic" value="发货地点" />
+                                    <h:outputLabel for="spinnerBasic" value="上海" />
+                                    <h:outputLabel for="spinnerBasic" value="累计出售：" />
+                                    <h:outputLabel for="spinnerBasic" value="3个" />
+                                    <h:outputLabel for="spinnerBasic" value="供货能力：" />
+                                    <h:outputLabel for="spinnerBasic" value="30个" />
+                                </h:panelGrid>
+                                产品规格：
+                                <br/>
+                                颜色：黑色 蓝色
+                                <br/>
+                                样式：样式1 样式2
+                                <br/>
+                                <h:panelGrid id="grid" columns="2" cellpadding="5">  
+                                    <h:outputLabel for="spinnerBasic" value="我要购买：" />  
+                                    <p:spinner id="spinnerBasic" />   
+                                </h:panelGrid>  
+                                <br/>
+                                付款方式：网上银行 支付宝
+                                <br/>
+                                <p:commandButton value="立即订购" update="display" action="#{enOrderController.path('立即订购')}" />
+                                <p:commandButton value="加入购物车" update="display" oncomplete="dialog.show()" />  
+                                <p:dialog header="请选择产品规格" widgetVar="dialog" showEffect="fold" hideEffect="fold" width="400" height="200">  
+                                    <h:panelGrid id="display" columns="2" cellpadding="5">  
+                                        <h:outputText value="颜色：" />  
+                                        <h:graphicImage name="product1.jpg" library="images"/>
+                                        <h:outputText value="样式：" /> 
+                                        <h:outputText value="样式1   样式2" /> 
+                                        <h:outputText value="我要购买：" /> 
+                                        <p:spinner /> 
+                                    </h:panelGrid>
+                                    <p:commandButton value="加入采购单" update="display" oncomplete="dialog.hide()" />
+                                </p:dialog>
+                            </div>
                         </div>
                     </div>
-                </ui:define>
-            </ui:composition>
+                    <div class="enFrontContent2">
+                        <p:tabView id="tabView" dynamic="true" cache="true">  
+
+                            <p:tab id="tba1" title="详细信息">  
+                                <h:panelGrid columns="4" cellpadding="10">  
+                                    <h:outputText value="是否提供加工定制：" />
+                                    <h:outputText value="是" />
+                                    <h:outputText value="类型：" />
+                                    <h:outputText value="多款供选" />
+
+                                    <h:outputText value="垂头材料：" />
+                                    <h:outputText value="中碳钢低碳钢" />
+                                    <h:outputText value="是否防爆：" />
+                                    <h:outputText value="否" />
+
+                                    <h:outputText value="柄部材料：" />
+                                    <h:outputText value="塑料" />
+                                    <h:outputText value="品牌：" />
+                                    <h:outputText value="sidanly" />
+
+                                    <h:outputText value="型号：" />
+                                    <h:outputText value="803" />
+                                    <h:outputText value="全长：" />
+                                    <h:outputText value="160(mm)" />
+
+                                    <h:outputText value="重量：" />
+                                    <h:outputText value="0.38(kg)" />
+                                    <h:outputText value="适用范围：" />
+                                    <h:outputText value="广泛" />
+
+                                    <h:outputText value="规格：" />
+                                    <h:outputText value="8" />
+                                </h:panelGrid>
+                                <h:graphicImage name="product3.jpg" library="images"/>
+                                <h:graphicImage name="product4.jpg" library="images"/>
+                                <br/>
+                                详细介绍
+                                <br/>
+                                <h:graphicImage name="product5.jpg" library="images"/>
+                            </p:tab>  
+
+                            <p:tab id="tab2" title="商品评价"> 
+                                实物与描述相符程度
+                                <br/>
+                                <h:panelGrid columns="4" cellpadding="10">  
+                                    <h:outputText value="4分" />
+                                    <p:rating value="4" readonly="true" /> 
+                                    <h:outputText value="买家满意度：98%" />
+                                    <h:outputText value="目前有33人打分" />
+                                </h:panelGrid>
+                                <h:panelGrid columns="5" style="margin-bottom:10px" cellpadding="5">  
+                                    <h:selectOneRadio>  
+                                        <f:selectItem itemLabel="全部评价" itemValue="1" />  
+                                        <f:selectItem itemLabel="好评" itemValue="2" />  
+                                        <f:selectItem itemLabel="中评" itemValue="3" />
+                                        <f:selectItem itemLabel="差评" itemValue="4" /> 
+                                        <f:selectItem itemLabel="有评论内容的" itemValue="5" /> 
+                                    </h:selectOneRadio> 
+                                </h:panelGrid>
+                                <h:dataTable value="">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="评价方"/>
+                                        </f:facet>
+                                        <h:outputText value="小明"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="打分"/>
+                                        </f:facet>
+                                        <p:rating value="3" readonly="true" />
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="评价"/>
+                                        </f:facet>
+                                        <h:outputText value="小明"/>
+                                    </h:column>
+                                </h:dataTable>
+                                <div style="margin-left: 500px">
+                                    <h:commandLink value="上一页"/>
+                                    <h:commandLink value="下一页"/>
+                                </div>
+                            </p:tab>  
+
+                            <p:tab id="tab3" title="成交记录"> 
+                                近6个月商品累计售出1000件，累计成交30笔，人均采购约92件
+                                <br/>
+                                价格不同可能是由于购买数量不同以及促销活动引起的，以下是近6个月的成交记录
+                                <br/>
+                                <h:dataTable value="">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="购买方"/>
+                                        </f:facet>
+                                        <h:outputText value="小明"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="成交单价"/>
+                                        </f:facet>
+                                        <h:outputText value="10"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="数量"/>
+                                        </f:facet>
+                                        <h:outputText value="55"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="成交时间"/>
+                                        </f:facet>
+                                        <h:outputText value="2012-04-04 12:23"/>
+                                    </h:column>
+                                </h:dataTable>
+                                <div style="margin-left: 500px">
+                                    <h:commandLink value="上一页"/>
+                                    <h:commandLink value="下一页"/>
+                                </div>
+                            </p:tab>  
+                        </p:tabView>  
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
     </body>
 </html>

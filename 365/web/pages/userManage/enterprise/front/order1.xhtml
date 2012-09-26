@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head/>
+    <h:body>
+        <h:form>
+            <div style="margin: 0 auto;width: 900px" >
+                <h:graphicImage name="product6.jpg" library="images"/>
+                <h:selectManyCheckbox layout="pageDirection">
+                    <f:selectItem itemLabel="全选" itemValue="false"/>
+                </h:selectManyCheckbox>
+                商品总价（不含运费）：<h:outputText value="4600" />元，请确认是否有误
+                <br/>
+                <div style="margin-top: 50px;">
+                    <h:dataTable value="">
+                        <h:column>
+                            卖家名称：<h:outputText value="小明" />
+                            卖家联系人：<h:outputText value="小明" />
+                            <br/>
+                            <h:panelGrid columns="7" style="margin-bottom:10px" cellpadding="5">  
+                                <h:outputText value="" />
+                                <h:outputText value="" />
+                                <h:outputText value="产品名称" />
+                                <h:outputText value="单价" />
+                                <h:outputText value="数量" />
+                                <h:outputText value="小计" />
+                                <h:outputText value="操作" />
+                                <h:selectManyCheckbox layout="pageDirection">
+                                    <f:selectItem itemLabel="" itemValue="false"/>
+                                </h:selectManyCheckbox>
+                                <h:graphicImage name="product7.jpg" library="images"/>
+                                <h:outputText value="摄像头" />
+                                <h:outputText value="200" />
+                                <p:spinner value="30" /> 
+                                <h:outputText value="4600" />
+                                <h:panelGroup>
+                                    <h:commandLink value="收藏"/>
+                                    <br/>
+                                    <h:commandLink value="删除"/>
+                                </h:panelGroup>
+
+                            </h:panelGrid>
+                        </h:column>
+
+                    </h:dataTable>
+                </div>
+            </div>
+            <div style="margin-left: 500px;">
+                商品总价（不含运费）：<h:outputText value="4600" />元
+                <h:commandButton value="去结算" action="#{enOrderController.path('去结算')}" />
+            </div>
+        </h:form>
+    </h:body>
+
+
+</html>
