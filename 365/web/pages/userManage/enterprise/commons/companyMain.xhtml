@@ -11,22 +11,32 @@ and open the template in the editor.
         <title>TODO supply a title</title>
     </h:head>
     <body>
-        <div>
             <div>*友情提醒：请尽量详细，准确的填写您的惬意信息，以便前台客户能够尽可能多的了解到企业的真实
             情况，增加合作机会！
             </div>
+            <h2>主营产品分类</h2>
+            <div>主营产品分类：1,五金工具</div>
+            <ui:include src="/pages/userManage/enterprise/commons/companyManiProduct.xhtml"/>
+            <div style="clear: left;"></div>
             <div>
-                <div>
-                    <h2>主营产品分类</h2>
-                    <div>主营产品分类：<h:graphicImage library="images" name="1.png"/></div>
-                    <div>
-                        <ui:include src="/pages/userManage/enterprise/commons/companyManiProduct.xhtml"/>
-                    </div>
-                </div>
-                <div>
                     <h2>主营产品</h2>
-                </div>
-            </div>
-        </div>
+                    <h:panelGrid columns="5">
+                        <h:outputLabel value="*销售:"/>
+                        <h:inputText value="" /> <h:inputText value="" /> 
+                        <h:inputText value="" /> <h:inputText value="" />
+                        <h:link onclick="" value="继续添加"/>
+                    </h:panelGrid>
+                    <br/>
+                    <h:panelGrid columns="5">
+                        <h:outputLabel value="*采购:"/>
+                        <h:inputText value="" /> <h:inputText value="" /> 
+                        <h:inputText value="" /> <h:inputText value="" />
+                        <h:link onclick="" value="继续添加"/>
+                   </h:panelGrid><br/>
+                    <h:panelGrid columns="2">
+                       <h:commandButton value="保存当前"/> 
+                       <h:commandButton value="取消"/>
+                   </h:panelGrid>
+          </div>
     </body>
 </html>

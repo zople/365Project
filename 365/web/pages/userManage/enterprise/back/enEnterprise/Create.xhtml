@@ -17,9 +17,9 @@
             <h:form enctype="multipart/form-data">
                 <h:panelGrid columns="2">
                     <h:outputLabel value="企业名:" for="name" />
-                    <h:inputText id="name" value="#{enterpriseController.enterprise.name}" title="企业名" />
+                    <h:inputText id="name" value="" title="企业名" />
                     <h:outputLabel value="企业描述:" for="description" />
-                    <h:inputTextarea id="description" value="#{enterpriseController.enterprise.description}" title="企业描述" />
+                    <h:inputTextarea id="description" value="" title="企业描述" />
                     <h:outputLabel value="上传Logo:"/>
                     <p:fileUpload value="#{enterpriseController.file}" mode="simple" />
                 </h:panelGrid>
