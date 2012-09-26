@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
+        <ui:define name="left">
+              <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                        <p:submenu label="订单管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                            <p:menuitem value="销售管理" url="#" />
+                            <p:menuitem value="采购订单" url="#" />
+                            <p:menuitem value="评价管理" url="#" />
+                        </p:submenu>
+               </p:menu>
+               <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                        <p:submenu label="业务设置管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                            <p:menuitem value="产品品类管理" url="/faces/pages/userManage/enterprise/back/BusinessSet/CategorySet.xhtml" />
+                            <p:menuitem value="运费设置" url="/faces/pages/userManage/enterprise/back/BusinessSet/ShippingSet.xhtml" />
+                            <p:menuitem value="发票设置" url="/faces/pages/userManage/enterprise/back/BusinessSet/InvoiceSet.xhtml" />
+                            <p:menuitem value="金融服务设置" url="/faces/pages/userManage/enterprise/back/BusinessSet/FinancialServices.xhtml" />
+                            <!--<p:menuitem value="提示设置" url="#" />-->
+                        </p:submenu>
+               </p:menu>
+              <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                        <p:submenu label="供应管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                            <p:menuitem value="发布供应产品" url="#" />
+                            <p:menuitem value="我的供应" url="#" />
+                            <p:menuitem value="匹配供应" url="#" />
+                        </p:submenu>
+               </p:menu>
+               <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                        <p:submenu label="招商管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                            <p:menuitem value="发布招商" url="#" />
+                            <p:menuitem value="我的招商" url="#" />
+                            <p:menuitem value="招商咨询" url="#" />
+                        </p:submenu>
+               </p:menu> 
+                 <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                        <p:submenu label="加工管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                            <p:menuitem value="发布加工" url="#" />
+                            <p:menuitem value="我的加工" url="#" />
+                            <p:menuitem value="加工咨询" url="#" />
+                        </p:submenu>
+               </p:menu>
+            <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                        <p:submenu label="物流管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                            <p:menuitem value="物流方式" url="#" />
+                            <p:menuitem value="物流跟踪" url="#" />
+                            <p:menuitem value="我的运单" url="#" />
+                        </p:submenu>
+               </p:menu>
+        </ui:define>
+        <ui:define name="content">
+            <br/>
+            <br/>
+            <h2>选择产品品类：</h2>
+            <div style="width: 850px">
+                <select name="select2" style="width: 200px" size="15" multiple="multiple" class="selectclass" >
+                <option value="21" >原材料</option>
+                <option value="21" selected="selected">五金工具</option>
+                <option value="32">机械设备</option>
+                <option value="32">通用配件</option>
+                <option value="32">建筑装饰五金</option>
+                <option value="32">日用/工艺品/礼品</option>
+                <option value="32">厨房五金及家用电器</option>
+                <option value="32">锁具及安防</option>
+                <option value="32">卫浴及洁具</option>
+                <option value="32">运动休闲用品</option>
+                <option value="32">机电五金</option>
+                <option value="32">磨具磨料</option>
+            </select>
+            <select name="select2" style="width: 200px" size="15" multiple="multiple" class="selectclass" >
+                <option value="21" >手工工具</option>
+                <option value="21" >电动工具</option>
+                <option value="32">农、园、林工具</option>
+                <option value="32" selected="selected">钳工工具</option>
+                <option value="32">气动工具</option>
+                <option value="32">土木工具</option>
+                <option value="32">管工工具</option>
+                <option value="32">切削工具</option>
+                <option value="32">电工工具</option>
+                <option value="32">起重工具</option>
+                <option value="32">测重工具</option>
+                <option value="32">热到工具</option>
+            </select>
+            <select name="select2" style="width: 200px" size="15" multiple="multiple" class="selectclass" >
+                <option value="21" >钳子</option>
+                <option value="21" selected="selected">螺丝刀</option>
+                <option value="32">扳手</option>
+                <option value="32">手锯</option>
+                <option value="32">丝锥、板牙</option>
+                <option value="32">刷</option>
+                <option value="32">钝、挫</option>
+                <option value="32">剪</option>
+                <option value="32">斧子</option>
+                <option value="32">锤</option>
+                <option value="32">凿</option>
+                <option value="32">撬棍、起钉器</option>
+            </select>
+            <select name="select2" style="width: 200px" size="15" multiple="multiple" class="selectclass" >
+                <option value="21" >尖嘴钳</option>
+                <option value="21" selected="selected">扁嘴钳</option>
+                <option value="32">圆嘴钳</option>
+                <option value="32">斜嘴钳</option>
+                <option value="32">水泵钳</option>
+                <option value="32">电工钳</option>
+                <option value="32">钢丝钳</option>
+                <option value="32">弯嘴钳</option>
+                <option value="32">胡桃钳</option>
+                <option value="32">达到钳</option>
+                <option value="32">达到钳</option>
+                <option value="32">达到钳</option>
+            </select>
+            </div>
+            <br/>
+            <br/>
+            <h2>已经选择的产品品类：</h2>
+            <div style="width: 850px">
+                <select name="select2" style="width: 200px" size="15" multiple="multiple" class="selectclass" >
+                <option value="21" >原材料</option>
+                <option value="21" selected="selected">五金工具</option>
+                <option value="32">机械设备</option>
+                <option value="32">通用配件</option>
+            </select>
+            <select name="select2" style="width: 200px" size="15" multiple="multiple" class="selectclass" >
+                <option value="21" >紧固件</option>
+                <option value="21" >轴承</option>
+                <option value="32">弹簧</option>
+                <option value="32" selected="selected">阀门</option>
+                <option value="32">磨具</option>
+                <option value="32">喷头</option>
+            </select>
+            <select name="select2" style="width: 200px" size="15" multiple="multiple" class="selectclass" >
+                <option value="21" selected="selected">螺栓</option>
+                <option value="21" >螺钉</option>
+                <option value="32">螺母</option>
+                <option value="32">垫圈、挡圈</option>
+                <option value="32">削</option>
+                <option value="32">铆接类</option>
+                <option value="32">键</option>
+                <option value="32">螺柱</option>
+                <option value="32">卡圈</option>
+            </select>
+            <select name="select2" style="width: 200px" size="15" multiple="multiple" class="selectclass" >
+                <option value="21" >吊装螺栓</option>
+                <option value="21" selected="selected">内六角螺栓</option>
+                <option value="32">六角螺栓</option>
+            </select>
+            </div>
+        </ui:define>
+    </ui:composition>
+
+</html>

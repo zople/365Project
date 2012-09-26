@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>TODO supply a title</title>
+    </h:head>
+    <body>
+        <div>
+            <h2>添加联系人信息</h2>
+            <div>
+                <h:form>
+                    <div style="float: left;">
+                            <h:panelGrid columns="2" cellpadding="3">
+                                <h:outputLabel value="联系人 :" for="acSimple" />
+                                <h:inputText value=""/>
+
+                                <h:outputLabel value="电话 :" for="acMinLength" />
+                                <h:inputText value=""/>
+
+                                <h:outputLabel value="手机 :" for="acDelay" />
+                                <h:inputText value=""/>
+
+                                
+                           </h:panelGrid>
+                                <h:graphicImage name="renz.png" library="images"/>
+	                 
+                    </div>
+                    <div style="float: left;">
+                         <h:panelGrid columns="2" cellpadding="4">
+                                <h:outputLabel value="性别 :" for="acSimple" />
+                                <h:inputText value=""/>
+                                <h:outputLabel value="部门:" for="acMinLength" />
+                                <h:inputText value=""/>
+
+                                <h:outputLabel value="职位 :" for="acDelay" />
+                                <h:inputText value=""/>
+
+                                <h:outputLabel value="邮箱:" for="dd" />
+                                <h:inputText value=""/>
+                           </h:panelGrid>
+                    </div>
+                    <div style="float: left;">
+                          <h:panelGrid columns="1" cellpadding="2">
+                                 <p:commandButton value="保存" />
+                                 <p:commandButton value="取消"   />
+                           </h:panelGrid>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+        <div>
+            <h2>主要联系人信息</h2>
+            <h:panelGrid columns="3">
+                 <h:link value="修改"/>
+                 <h:link value="删除"/>
+                 <h:selectBooleanCheckbox value="">不在前台显示</h:selectBooleanCheckbox>
+            </h:panelGrid>
+            <div>
+                <h:panelGrid columns="2"  cellpadding="3" width="95%;">
+                    <h:outputLabel value="姓名："/><h:outputText value="#{getDateManagedBean.contactById.contactName}"/>
+                    <h:outputLabel value="性别："/><h:outputText value="#{getDateManagedBean.contactById.sex}"/>
+                    <h:outputLabel value="手机："/><h:outputText value="#{getDateManagedBean.contactById.tel}"/>
+                    <h:outputLabel value="电话："/><h:outputText value="#{getDateManagedBean.contactById.contactPhone}"/>
+                    <h:outputLabel value="部门："/><h:outputText value="#{getDateManagedBean.contactById.department}"/>
+                    <h:outputLabel value="邮箱："/><h:outputText value="#{getDateManagedBean.contactById.contactEmail}"/>
+                    <h:outputLabel value="职位："/><h:outputText value="#{getDateManagedBean.contactById.position}"/>
+                </h:panelGrid>
+            </div>
+        </div>
+        <div style="width: 100%;margin-bottom: 5px;">
+            <h2>其他联系人</h2>
+            <h:panelGrid columns="3">
+                  <h:link value="设为主要联系人"/>
+                  <h:link value="修改"/>
+                  <h:link value="删除"/>
+            </h:panelGrid>
+            <div>
+                <h:panelGrid columns="2"  cellpadding="3" width="95%;">
+                    <h:outputLabel value="姓名："/><h:outputText value="#{getDateManagedBean.contactById.contactName}"/>
+                    <h:outputLabel value="性别："/><h:outputText value="#{getDateManagedBean.contactById.sex}"/>
+                    <h:outputLabel value="手机："/><h:outputText value="#{getDateManagedBean.contactById.tel}"/>
+                    <h:outputLabel value="电话："/><h:outputText value="#{getDateManagedBean.contactById.contactPhone}"/>
+                    <h:outputLabel value="部门："/><h:outputText value="#{getDateManagedBean.contactById.department}"/>
+                    <h:outputLabel value="邮箱："/><h:outputText value="#{getDateManagedBean.contactById.contactEmail}"/>
+                    <h:outputLabel value="职位："/><h:outputText value="#{getDateManagedBean.contactById.position}"/>
+                </h:panelGrid>
+            </div>
+        </div>
+    </body>
+</html>

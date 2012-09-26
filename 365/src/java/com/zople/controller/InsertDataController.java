@@ -17,6 +17,7 @@ import com.zople.dao.AuthenticationFacade;
 import com.zople.dao.BuyFacade;
 import com.zople.dao.CategoryFacade;
 import com.zople.dao.CompanyFacade;
+import com.zople.dao.ContactFacade;
 import com.zople.dao.EnBusinessmenFacade;
 import com.zople.dao.EnEnterpriseFacade;
 import com.zople.dao.EnExhibitionFacade;
@@ -59,6 +60,7 @@ import com.zople.domain.Authentication;
 import com.zople.domain.Buy;
 import com.zople.domain.Category;
 import com.zople.domain.Company;
+import com.zople.domain.Contact;
 import com.zople.domain.EnBusinessmen;
 import com.zople.domain.EnEnterprise;
 import com.zople.domain.EnExhibition;
@@ -789,8 +791,9 @@ public class InsertDataController {
         insertPrvilionData();
         insetPersonData();
         insertCompanyDate();
-        insetImages();
+        insetImages();//图片
         addMoney();  //金融动态
+        insertContaceData();//联系人信息
         return "success";
    }
 
@@ -898,6 +901,23 @@ public class InsertDataController {
         }
     }
     
+    /*联系人*/
+    @EJB
+    ContactFacade contactFacade;
+    public void insertContaceData(){
+        for(int i=1;i<200;i++){
+             Contact contacts=new Contact();
+             contacts.setId(Long.valueOf(i));
+             contacts.setContactPhone("159002222"+i);
+             contacts.setContactName(getText(2));
+             contacts.setContactEmail(i+"9876544@qq.com");
+             contacts.setPosition(getText(4));
+             contacts.setTel("0800-900-22"+i);
+             contacts.setDepartment(getText(2));
+             contacts.setSex("女");
+             contactFacade.create(contacts);
+        }
+    }
    //
     public String getText(int length) {
         StringBuilder sb = new StringBuilder();

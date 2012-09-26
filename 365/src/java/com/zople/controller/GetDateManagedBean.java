@@ -5,8 +5,10 @@
 package com.zople.controller;
 
 import com.zople.dao.BuyFacade;
+import com.zople.dao.ContactFacade;
 import com.zople.dao.SupplyFacade;
 import com.zople.domain.Buy;
+import com.zople.domain.Contact;
 import com.zople.domain.Supply;
 import java.io.Serializable;
 import java.util.List;
@@ -47,6 +49,11 @@ public class GetDateManagedBean implements Serializable {
     public List<Buy> getBuyDataMax(){
         return buyFacade.getBuyDataMaxSize(0, 10);
     }
-   
+   //联系人信息
+    @EJB
+    ContactFacade contactFacade;
+    public Contact getContactById(){
+        return contactFacade.find(1l);
+    }
    
 }

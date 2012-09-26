@@ -4,6 +4,7 @@
  */
 package com.zople.dao;
 
+import com.zople.domain.Buy;
 import com.zople.domain.Supply;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -19,6 +20,7 @@ import javax.persistence.Query;
 public class SupplyFacade extends AbstractFacade<Supply> {
     @PersistenceContext(unitName = "365PU")
     private EntityManager em;
+    private Query queryquery;
 
     @Override
     protected EntityManager getEntityManager() {
@@ -33,6 +35,14 @@ public class SupplyFacade extends AbstractFacade<Supply> {
         query.setFirstResult(start);
         query.setMaxResults(limit);
         return query.getResultList();
+    }
+    
+    
+       public List<Supply> findAllBysql(String sql,int startNum,int limitNum) {
+         queryquery = em.createQuery(sql); 
+         queryquery.setFirstResult(startNum);
+         queryquery.setMaxResults(limitNum);
+        return queryquery.getResultList();
     }
     
 }

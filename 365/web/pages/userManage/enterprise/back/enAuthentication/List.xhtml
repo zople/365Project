@@ -42,27 +42,19 @@
             <ui:define name="content">
                 <p:tabView orientation="top|bottom|left|right">
                 <p:tab title="基本信息">
-                    <h:panelGrid columns="2" cellpadding="10">
-                            <ui:include src="/pages/userManage/enterprise/commons/companyBase.xhtml"/>
-                    </h:panelGrid>
+                      <ui:include src="/pages/userManage/enterprise/commons/companyBase.xhtml"/>
                 </p:tab>
                 <p:tab title="主营产品">
-                    <h:panelGrid columns="2" cellpadding="10">
-                        <!--<p:graphicImage value="/images/godfather/godfather2.jpg" />-->
                         <ui:include src="/pages/userManage/enterprise/commons/companyMain.xhtml"/>
-                    </h:panelGrid>
                 </p:tab>
                 <p:tab title="企业图片">
                     <h:panelGrid columns="2" cellpadding="10">
-                        <!--<p:graphicImage value="/images/godfather/godfather3.jpg" />-->
-                        <h:outputText value="企业图片"></h:outputText>
+                        <ui:include src="/pages/userManage/enterprise/commons/companyImages.xhtml"/>
                     </h:panelGrid>
                 </p:tab>
                 <p:tab title="联系人信息">
-                    <h:panelGrid columns="2" cellpadding="10">
                         <!--<p:graphicImage value="/images/godfather/godfather3.jpg" />-->
-                        <h:outputText value="联系人信息"></h:outputText>
-                    </h:panelGrid>
+                        <ui:include src="/pages/userManage/enterprise/commons/companyLinkMen.xhtml"/>
                 </p:tab>
             </p:tabView>
             </ui:define>
