@@ -12,27 +12,28 @@ and open the template in the editor.
                 xmlns:f="http://java.sun.com/jsf/core">
     <ui:define name="content">
             <div class="enFrontContent1">
-                <div class="entTop">
-                    <h:outputLabel value="企业介绍" style="float: left;"/>
-                    <h:link  outcome="/pages/userManage/enterprise/front/companyLink.xhtml" value="详细介绍" style="float: right"/>
-                </div>
-                <div style="padding: 10px;" >
-                    <div style="float: left; width: 50%;">
-                           <p:graphicImage value="#{imageController.image}" style="width: 340px;height: 300px;">
+               <p:tabView orientation="top|bottom|left|right">
+                   <p:tab title="企业介绍">
+                    <h:panelGrid columns="2" cellpadding="10">
+                             <h:outputText  value="#{enterpriseController.listById.description}"/>
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="资质荣誉">
+                    <p:graphicImage value="#{imageController.image}" style="width: 340px;height: 300px;">
                                 <f:param name="id" value="2"/>
-                           </p:graphicImage>
-                    </div>
-                    <div style="float: left; width: 50%; font-size: 14px;">
-                        <h:outputText  value="#{enterpriseController.listById.description}"/>
-                    </div>
-                    <div style="clear: left;"></div>
-                </div>
+                    </p:graphicImage>
+                </p:tab>
+                <p:tab title="企业图片">
+                        <h:graphicImage library="images" name="com.png"/>
+                </p:tab>
+            </p:tabView>
             </div>
             <div class="enFrontContent2">
                 <div class="entTop">产品展示</div>
-                <div></div>
+                <div>
+                   
+                </div>
             </div>
-
     </ui:define>
 </ui:composition>
 
