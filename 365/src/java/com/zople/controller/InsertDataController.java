@@ -17,11 +17,13 @@ import com.zople.dao.AuthenticationFacade;
 import com.zople.dao.BuyFacade;
 import com.zople.dao.CategoryFacade;
 import com.zople.dao.CompanyFacade;
+import com.zople.dao.ContactFacade;
 import com.zople.dao.EnBusinessmenFacade;
 import com.zople.dao.EnEnterpriseFacade;
 import com.zople.dao.EnExhibitionFacade;
 import com.zople.dao.EnFavoriteFacade;
 import com.zople.dao.EnInquiryFacade;
+import com.zople.dao.EnMoneyFacade;
 import com.zople.dao.EnNewsFacade;
 import com.zople.dao.EnOrderFacade;
 import com.zople.dao.EnPremiumFacade;
@@ -58,11 +60,13 @@ import com.zople.domain.Authentication;
 import com.zople.domain.Buy;
 import com.zople.domain.Category;
 import com.zople.domain.Company;
+import com.zople.domain.Contact;
 import com.zople.domain.EnBusinessmen;
 import com.zople.domain.EnEnterprise;
 import com.zople.domain.EnExhibition;
 import com.zople.domain.EnFavorite;
 import com.zople.domain.EnInquiry;
+import com.zople.domain.EnMoney;
 import com.zople.domain.EnNews;
 import com.zople.domain.EnOrder;
 import com.zople.domain.EnPremium;
@@ -78,6 +82,8 @@ import com.zople.domain.MRecruitment;
 import com.zople.domain.Pavilion;
 import com.zople.domain.Persion;
 import com.zople.domain.Position;
+import com.zople.domain.Product;
+import com.zople.domain.Property;
 import com.zople.domain.Quote;
 import com.zople.domain.Supply;
 import com.zople.domain.TblFriendlyLink;
@@ -160,10 +166,6 @@ public class InsertDataController {
     public void getInsertData() {
     }
 
-//    public String getInsertSupplyData() {
-//     
-//      return null;
-//    }
 
     public void getInsertBuyData() {
         String namesStr = "采购玻璃石材雕刻机 ,采购气体汇流排 ,采购二手发电机 ,采购150铝合金 ,采购IS离心泵 ,采购丹佛斯DANFOSS变频,采购断桥铝门窗双头组,求购开关电源 ,采购云丝手动喷枪 ,采购滚丝机 ,采购三维扫描仪 ,采购电动卷帘 ,采购身份证阅读器 ,采购冰柜 ,采购铜平垫 ,采购全彩LED视频处理器,采购电动货车 ,采购电动货车 ";
@@ -182,22 +184,43 @@ public class InsertDataController {
             buyFacade.create(buy);
         }
     }
-
+    /**
+     * 分类信息
+     * 产品信息
+     * 分类属性信息
+     */
     public void getInsertCategoriesData() {
         String[] categories = {"机械设备", "五金工具", "建筑五金", "机电五金", "锁具安防", "日用五金", "五金材料", "通用配件", "运动休闲", "环保设施", "厨房家电", "电子电工", "通用配件", "运动休闲", "环保设施", "厨房家电", "电子电工"};
         String[] categories2 = {"不锈钢材", "普通型钢", "户外用品", "空气净化", "变压器", "普通管材", "五金材料", "健身器材", " 家居用品", "环保设施", "厨房家电", "电子电工", "厨房设备", "家用电器", "电线电缆", "厨房家电", "消防设备"};
         Category category;
-        for (int i = 0; i < 20; i++) {
+        int h=1;
+        int j = 1;
+        for (int i = 1; i < 20; i++) {
             category = new Category();
             category.setId(Long.valueOf(i));
             category.setName(categories[random(categories.length)]);
             category.setPid(0l);
             categoryFacade.create(category);
-            for (int j = 0; j < 10; j++) {
+            for (; j < 10; j++) {
                 category = new Category();
                 category.setId(System.nanoTime());
-                category.setPid((long) i);
                 category.setName(categories2[random(categories2.length)]);
+                category.setPid((long) i);
+                for(;h<i*10;h++){
+                    Product product = new Product();
+                    product.setName(getText(2));
+                    product.setDescription(getText(40));
+                    product.setCategory(category);
+                    category.getProductList().add(product);
+                    
+                    Property property = new Property();
+                    property.setId(Long.valueOf(h));
+                    property.setName(getText(3));
+                    property.setDescription(getText(20));
+                    property.setCreateTime(showDate);
+                    property.setCategory(category);
+                    category.getPropertyList().add(property);
+                }
                 categoryFacade.create(category);
             }
         }
@@ -307,7 +330,8 @@ public class InsertDataController {
             news.setId(Long.valueOf(i));
             news.setName(getText(50));
             order.setId(Long.valueOf(i));
-            order.setName(getText(50));
+            order.setName(getText(4));
+            order.setDescription(getText(40));
             premium.setId(Long.valueOf(i));
             premium.setName(getText(50));
             storefront.setId(Long.valueOf(i));
@@ -767,6 +791,9 @@ public class InsertDataController {
         insertPrvilionData();
         insetPersonData();
         insertCompanyDate();
+        insetImages();//图片
+        addMoney();  //金融动态
+        insertContaceData();//联系人信息
         return "success";
    }
 
@@ -860,8 +887,38 @@ public class InsertDataController {
             tbluserFacade.create(user);
         }
     }
-
-       
+   /**金融动态*/
+    @EJB
+    EnMoneyFacade moneyFacade;
+    private EnMoney money;
+    public void addMoney(){
+         for (int i = 0; i < 200; i++) {
+            money = new EnMoney();
+            money.setId(Long.valueOf(i));
+            money.setName(getText(50));
+            money.setMoney(Integer.valueOf(i+100));
+            moneyFacade.create(money);
+        }
+    }
+    
+    /*联系人*/
+    @EJB
+    ContactFacade contactFacade;
+    public void insertContaceData(){
+        for(int i=1;i<200;i++){
+             Contact contacts=new Contact();
+             contacts.setId(Long.valueOf(i));
+             contacts.setContactPhone("159002222"+i);
+             contacts.setContactName(getText(2));
+             contacts.setContactEmail(i+"9876544@qq.com");
+             contacts.setPosition(getText(4));
+             contacts.setTel("0800-900-22"+i);
+             contacts.setDepartment(getText(2));
+             contacts.setSex("女");
+             contactFacade.create(contacts);
+        }
+    }
+   //
     public String getText(int length) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++) {

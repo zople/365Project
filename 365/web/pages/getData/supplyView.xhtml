@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>供应明细</title>
+    </head>
+    <body>
+        <div>
+            <ui:composition template="/pages/administratorManage/template/index.xhtml">
+                <ui:define name="content">
+                <div class="body">
+                     <DIV ><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">当前路径：首页&gt;供应&gt;供应明细</span></p></DIV>
+                        <div class="exhibition4">
+                            <div class="buyDeailLeft">
+                                <div class="buyDeailLeft1">
+                                    明细信息
+                                </div>
+                                <div class="buyDeailLeft2">
+                                    <div class="buyDeailLeft1TOP">采购单基本要求   有效期还有2天    已收到12条报价</div>
+                                    <div >
+                                      
+                                         
+                                    <h:outputText value="供应标题"/> :
+                                    <h:outputText value="#{supplyController.selected.title}"></h:outputText>   
+                                    
+                                    <br>
+                                       </br>
+                                     
+                                     <h:outputText value="供应内容"/> : <br>
+                                       </br>
+                                     <h:outputText value="#{supplyController.selected.description}"></h:outputText> 
+                                     
+                                  
+                                      <br>
+                                       </br>
+                                    </div>
+                                </div>
+                                 <div class="buyDeailLeft2">
+                                    <div class="buyDeailLeft1TOP">供应详细说明</div>
+                                    <div>
+                                     <h:outputText value="#{supplyController.selected.description}"></h:outputText> 
+                                    </div>
+                                </div>
+                                 <div class="buyDeailLeft2">
+                                    <div class="buyDeailLeft1TOP">附件：用户没有上传附件</div>
+                                    <div></div>
+                                </div>
+                                
+                            </div>
+                            <div class="buyDeailRight">
+                                <div class="buyDeailRight1">
+                                    <div class="buyDeailRight1Top">登录注册信息</div>
+                                    <div></div>
+                                </div>
+                                <div class="buyDeailRight1">
+                                    <div class="buyDeailRight1Top">大批量供应</div>
+                                    <div></div>
+                                </div>
+                                <div class="buyDeailRight1">
+                                    <div class="buyDeailRight1Top">供应排行榜   更多信息......</div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div  class="exhibition5">
+                            
+                        </div>
+                    </div>
+                </ui:define>
+            </ui:composition>
+        </div>
+    </body>
+</html>

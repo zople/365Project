@@ -1,0 +1,48 @@
+ .menu {
+    height: 40px;
+    width: 900px;
+    background-color: #66B3FF;
+}
+
+
+.top_style{
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 900px;
+    height:20px;
+    border: 1px solid #FF9224;
+}
+
+.serach_style{
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 900px;
+    height:100px;
+    border: 1px solid #4F4F4F;
+}
+
+.list_style {
+}
+.list_style1 {
+    margin-top: 20px;
+    height: 50px;
+}
+.list_style_content2 {
+    margin-top: 30px;
+}
+.list_menu {
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    float: left;
+    border: 1px solid  #0000ff;
+    background-color: #BEBEBE;
+    font-size: 18px;
+    color: white;
+}
+
+.page_style {
+    font-size: 18px;
+    float: right;
+    margin-top: 20px;
+}

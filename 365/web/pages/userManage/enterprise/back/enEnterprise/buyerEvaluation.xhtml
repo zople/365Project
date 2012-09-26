@@ -56,8 +56,76 @@
             </p:menu>
         </ui:define>
         <ui:define name="content">
-            <h2>欢迎您！</h2>
+            <h:form>
+                <div class="business">
+                    <div class="template1">
+                        <h:commandButton value="买家的评价" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px" />
+                        <h:commandButton value="卖家的评价" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 15px" />
+                        <h:commandButton value="给他人的评价" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 15px" />
+                    </div>
+                    <div class="page">
+                        <h:commandLink value="上一页"></h:commandLink>
+                        <h:commandLink value="下一页"></h:commandLink>
+                    </div>
+                    <div class="business_order_content2">
+                        <h:dataTable value="#{persionController.persions}" var="persion" border="1">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="评价级别"/>
+                                </f:facet>
+                                <h:outputText value="#{persion.persionName}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="评价内容"/>
+                                </f:facet>
+                                <h:outputText value="#{persion.persionAge}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="评价人"/>
+                                </f:facet>
+                                <h:outputText value="#{persion.jobIntention}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="订单信息"/>
+                                </f:facet>
+                                订单编号：<h:outputText value="#{persion.contactTelephone}"/><br/>
+                                成交时间：<h:outputText value="#{persion.contactTelephone}"/><br/>
+                                货品信息：<h:outputText value="#{persion.contactTelephone}"/><br/>
+                                货品价格：<h:outputText value="#{persion.contactTelephone}"/><br/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="操作"/>
+                                </f:facet>
+                                <h:selectManyCheckbox layout="pageDirection">
+                                    <f:selectItem itemLabel="是否在前台显示" itemValue="false"/>
+                                </h:selectManyCheckbox>
+                                <br/>
+                                <br/>
+                                <h:commandLink value="解释" >
+                                    <f:param value="#{user.id}" name="id"/>
+                                </h:commandLink>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="其他"/>
+                                </f:facet>
+                                <h:outputText value="1111"/>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+                    <div style="float: right">
+                        <h:link>首页</h:link>
+                        <h:link>上一页</h:link>
+                        <h:link>下一页</h:link>
+                        <h:link>末页</h:link>
+                        共 页
+                    </div>
+                </div>
+            </h:form>
         </ui:define>
     </ui:composition>
-
 </html>

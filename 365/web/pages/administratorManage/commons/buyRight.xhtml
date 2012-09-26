@@ -10,12 +10,20 @@ and open the template in the editor.
         <title>TODO supply a title</title>
     </h:head>
     <body>
-        <div>
-            <table>
-                <tr class="ProductRight1"><td><h:graphicImage name="6.png" library="images"/></td><td><h:graphicImage name="7.png" library="images"/></td></tr>
-                <tr class="ProductRight2"><td colspan="2">我是供应商，我是采购商</td></tr>
-                <tr class="buyRight3"><td colspan="2">大批量采购</td></tr>
-            </table>
+          <div class="login">
+                                    <div>
+                                        <span class="index1LeftTop" style="float: left; width: 48%; text-align: center;">
+                                            <h:link  outcome="/pages/login/login" value="用户登陆" style="color: white;"/>
+                                        </span>
+                                        <span class="index1LeftTop" style="float: right; width: 48%; text-align: center;">
+                                            <h:link outcome="/pages/register/Register" value="免费注册" style="color: white;"/>
+                                        </span>
+                                    </div>
+                                    <div class="index1LeftBottom">
+                                        <h:graphicImage name="login_1.png" library="images"/>
+                                    </div>
         </div>
+              <div style="height: 150px; border: 1px solid #78cde7; width:240px;padding: 5px; ">大批量采购</div>
+        
     </body>
 </html>

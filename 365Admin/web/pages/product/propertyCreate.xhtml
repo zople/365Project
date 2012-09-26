@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="产品品类管理"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+                <h:form>
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+       
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="品类分类"/>
+                    <h:selectOneMenu value="#{propertyController.current.category.id}">
+                     <f:selectItems  value="#{propertyController.PIdListList}" />
+		    </h:selectOneMenu>
+                    
+                    <h:outputLabel value="属性名称"  />
+                    <h:inputText id="name" value="#{propertyController.current.name}"  required="true" requiredMessage="不能为空" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{propertyController.create}" value="确认保存" >
+                </h:commandLink>
+                <br />
+                <br />
+                <h:commandLink action="#{propertyController.prepareList}" value="返回列表" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="返回首页"/>
+            </h:form>
+       </ui:define>
+    </ui:composition>
+
+</html>

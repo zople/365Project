@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
+        <ui:define name="left">
+            <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                <p:submenu label="实名认证管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                    <p:menuitem value="联系人实名认证" url="/faces/pages/userManage/enterprise/back/credit/section/contactPersionAuthentication.xhtml" />
+                    <p:menuitem value="企业实名认证" url="/faces/pages/userManage/enterprise/back/credit/section/enterpriseAuthentication.xhtml" />
+                    <p:menuitem value="资质证书管理" url="/faces/pages/userManage/enterprise/back/credit/section/certificateManage.xhtml" />
+                </p:submenu>
+            </p:menu>
+            <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                <p:submenu label="企业经营状况" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                    <p:menuitem value="企业经营状况" url="/faces/pages/userManage/enterprise/back/credit/section/operatingCondition.xhtml" />
+                </p:submenu>
+            </p:menu>
+            <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                <p:submenu label="易得经营分析" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                    <p:menuitem value="买家满意度" url="/faces/pages/userManage/enterprise/back/credit/section/buyerSatisfied.xhtml" />
+                    <p:menuitem value="买家重复购买率" url="/faces/pages/userManage/enterprise/back/credit/section/repeatPurchaseRate.xhtml" />
+                    <p:menuitem value="销售金额" url="/faces/pages/userManage/enterprise/back/credit/section/salesAmount.xhtml" />
+                    <p:menuitem value="成功签单率" url="/faces/pages/userManage/enterprise/back/credit/section/successSignRate.xhtml" />
+                    <p:menuitem value="退款率" url="/faces/pages/userManage/enterprise/back/credit/section/refundRate.xhtml" />
+                    <p:menuitem value="纠纷率" url="/faces/pages/userManage/enterprise/back/credit/section/disputeRate.xhtml" />
+                </p:submenu>
+            </p:menu>
+            <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                <p:submenu label="贷款管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                    <p:menuitem value="授信额度" url="/faces/pages/userManage/enterprise/back/credit/section/credit.xhtml" />
+                    <p:menuitem value="使用情况" url="/faces/pages/userManage/enterprise/back/credit/section/useCondition.xhtml" />
+                </p:submenu>
+            </p:menu>
+        </ui:define>
+        <ui:define name="content">
+            <h2>企业实名制认证</h2>
+        </ui:define>
+    </ui:composition>
+</html>

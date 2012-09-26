@@ -2,54 +2,65 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.zople.domain;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author wangxiu
+ *@描   述:   
+ *@ author:  yuzhijian_yuxia2217@163.com
+ *@version: 1.0
  */
 @Entity
 @Table(name = "tbl_spec")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Spec.findAll", query = "SELECT s FROM Spec s"),
     @NamedQuery(name = "Spec.findById", query = "SELECT s FROM Spec s WHERE s.id = :id"),
-    @NamedQuery(name = "Spec.findByCategoryId", query = "SELECT s FROM Spec s WHERE s.categoryId = :categoryId"),
-    @NamedQuery(name = "Spec.findByName", query = "SELECT s FROM Spec s WHERE s.name = :name"),
+    @NamedQuery(name = "Spec.findByCreateTime", query = "SELECT s FROM Spec s WHERE s.createTime = :createTime"),
     @NamedQuery(name = "Spec.findByDescription", query = "SELECT s FROM Spec s WHERE s.description = :description"),
-    @NamedQuery(name = "Spec.findByCreateTime", query = "SELECT s FROM Spec s WHERE s.createTime = :createTime")})
+    @NamedQuery(name = "Spec.findByName", query = "SELECT s FROM Spec s WHERE s.name = :name")})
 public class Spec implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
+    @SequenceGenerator(name = "spec_serial", allocationSize = 1, initialValue = 1, sequenceName = "spec_serial")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "spec_serial")
     @Column(name = "id")
     private Long id;
-    @Column(name = "category_id")
-    private BigInteger categoryId;
-    @Size(max = 100)
-    @Column(name = "name")
-    private String name;
-    @Size(max = 255)
-    @Column(name = "description")
-    private String description;
     @Column(name = "create_time")
     @Temporal(TemporalType.DATE)
     private Date createTime;
+    @Size(max = 255)
+    @Column(name = "description")
+    private String description;
+    @Size(max = 100)
+    @Column(name = "name")
+    private String name;
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    @ManyToOne
+    private Category category;
+   
 
     public Spec() {
     }
@@ -66,20 +77,12 @@ public class Spec implements Serializable {
         this.id = id;
     }
 
-    public BigInteger getCategoryId() {
-        return categoryId;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCategoryId(BigInteger categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public String getDescription() {
@@ -90,13 +93,23 @@ public class Spec implements Serializable {
         this.description = description;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getName() {
+        return name;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+   
 
     @Override
     public int hashCode() {
@@ -120,7 +133,7 @@ public class Spec implements Serializable {
 
     @Override
     public String toString() {
-        return "com.zople.dal.domain.Spec[ id=" + id + " ]";
+        return "com.zople.domain.Spec[ id=" + id + " ]";
     }
-    
+
 }

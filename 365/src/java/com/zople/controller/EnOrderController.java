@@ -5,6 +5,7 @@ import com.zople.controller.util.PaginationHelper;
 import com.zople.dao.EnOrderFacade;
 import com.zople.domain.EnOrder;
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -27,6 +28,17 @@ public class EnOrderController implements Serializable {
     private EnOrderFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    
+    //ycj
+    private List<EnOrder> enOrders;
+    public List<EnOrder> getEnOrders() {
+        enOrders=ejbFacade.findAll();
+        return enOrders;
+    }
+    public void setEnOrders(List<EnOrder> enOrders) {
+        this.enOrders = enOrders;
+    }
+    //ycj
 
     public EnOrderController() {
     }

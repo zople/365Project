@@ -1,15 +1,12 @@
 package com.zople.controller;
 
-import com.zople.domain.Supply;
 import com.zople.controller.util.JsfUtil;
 import com.zople.controller.util.PaginationHelper;
 import com.zople.dao.SupplyFacade;
-import com.zople.dao.SupplyFacade;
-
+import com.zople.domain.Supply;
 import java.io.Serializable;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
-import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -18,6 +15,7 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import javax.inject.Named;
 
 
 @Named("supplyController")
@@ -43,6 +41,16 @@ public class SupplyController implements Serializable {
         return current;
     }
 
+    
+   public String fontById() {
+         String tempID=JsfUtil.getRequestParameter("id");
+         Long tid=Long.parseLong(tempID);
+        current =ejbFacade.find(tid);  
+        return "/pages/getData/supplyView.xhtml";
+    }
+    
+    
+    
     private SupplyFacade getFacade() {
         return ejbFacade;
     }

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+      
+ 
+        <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="招商管理加列"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+ 
+              <div class="menu">
+                        <h:commandButton value="发布招商" style="width: 130px; height: 30px; background-color: #CAFFFF; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px" />
+                        <h:commandButton value="我的招商" style="width: 130px; height: 30px; background-color: #FFF7FB; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 15px" />
+                        <h:commandButton value="我的询盘" style="width: 130px; height: 30px; background-color: #CAFFFF; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 15px" />
+                    </div>
+            
+            <div class="top_style">*友情提醒 你目前是一般会友，可发布10条招商信息 </div>
+            <h:form>
+               <div class="serach_style">
+                        招商标题：<h:inputText/>
+                        截止时间： 
+                        <h:inputText/>
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="00" />
+                            <f:selectItem itemValue="01" />
+                        </h:selectOneMenu>
+                        时
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="00" />
+                            <f:selectItem itemValue="01" />
+                        </h:selectOneMenu>
+                        分--
+                        <h:inputText/>
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="00" />
+                            <f:selectItem itemValue="01" />
+                        </h:selectOneMenu>
+                        时
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="00" />
+                            <f:selectItem itemValue="01" />
+                        </h:selectOneMenu>
+                        分<br/>
+                        产品品类：<h:inputText/>
+                       招商区域： 
+                         <h:selectOneMenu>
+                            <f:selectItem itemValue="全部" />
+                            <f:selectItem itemValue="北京" />
+                            <f:selectItem itemValue="上海" />
+                            <f:selectItem itemValue="天津" />
+                        </h:selectOneMenu>
+                    状态：
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="全部" />
+                            <f:selectItem itemValue="上架" />
+                            <f:selectItem itemValue="下架" />
+                        </h:selectOneMenu>
+                        <br/>
+                        <h:commandButton value="搜索" action="#{canvassTraderController.link()}"/>
+                        
+                    </div>
+            <div class="list_style_content">
+                        <div class="list_style_content1">
+                            <div class="list_menu"><h:commandLink value="全部招商" action="#{canvassTraderController.link()}" ></h:commandLink></div>
+                            <div class="list_menu"><h:commandLink value="发布中的招商" action="#{canvassTraderController.link()}" ></h:commandLink></div>
+                            <div class="list_menu"><h:commandLink value="草稿箱" action="#{canvassTraderController.link()}" ></h:commandLink></div>
+                            <div class="list_menu"><h:commandLink value="审核未通过" action="#{canvassTraderController.link()}" ></h:commandLink></div>
+                         
+                            <div class="page_style">
+                                <h:commandLink value="上一页"></h:commandLink>
+                                <h:commandLink value="下一页"></h:commandLink>
+                            </div>
+                        </div>
+                
+                
+                
+                <br/>
+                <br/>
+                        <div class="list_style_content2">
+                            <h:commandButton value="批量删除" action="#{canvassTraderController.link()}" />
+                            <h:commandButton value="导出模板" action="#{canvassTraderController.link()}" />
+                            <h:dataTable value="#{canvassTraderController.infoListBySql}" var="infoList" border="1">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:selectManyCheckbox layout="pageDirection">
+                                            <f:selectItem itemLabel="全选" itemValue="false"/>
+                                        </h:selectManyCheckbox>
+                                    </f:facet>
+                                    <h:selectManyCheckbox layout="pageDirection">
+                                        <f:selectItem itemLabel="" itemValue="false"/>
+                                    </h:selectManyCheckbox>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="操作"/>
+                                    </f:facet>
+                                    
+                                     <h:commandLink action="#{canvassTraderController.findById}" value="查看">
+                             <f:param name="id" value="#{infoList.id}"></f:param>
+                             </h:commandLink>
+                        
+                      
+                       <h:commandLink action="#{canvassTraderController.findByIdEdit}" value="编辑">
+                             <f:param name="id" value="#{infoList.id}"></f:param>
+                         </h:commandLink>
+                        
+                        
+                      <h:commandLink action="#{canvassTraderController.destroyById}" value="删除"> 
+                          <f:param name="id" value="#{infoList.id}"></f:param>
+                        </h:commandLink>        
+                                     
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="状态"/>
+                                    </f:facet>
+                                    <h:outputText value="上架"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="招商标题"/>
+                                    </f:facet>
+                                    <h:outputText value="#{infoList.name}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="产品品类"/>
+                                    </f:facet>
+                                    <h:outputText value=""/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="招商级别"/>
+                                    </f:facet>
+                                    <h:outputText value="#{infoList.kind}"/>
+                                </h:column>
+                                
+                                 <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="招商区域"/>
+                                    </f:facet>
+           <h:outputText value="#{infoList.address}"/>
+                                </h:column>
+                                
+                                
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="截止日期"/>
+                                    </f:facet>
+                                    <h:outputText value="#{infoList.endtime}"/>
+                                </h:column>
+                                
+                                
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="发布日期"/>
+                                    </f:facet>
+                                    <h:outputText value="#{infoList.endtime}"/>
+                                </h:column>
+                               
+                            </h:dataTable>
+                        </div>
+            </div>
+            </h:form>
+        
+  </ui:define>
+    </ui:composition>
+ 
+</html>

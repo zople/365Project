@@ -32,7 +32,7 @@ root {
 }
 .enRightmain{
     height: 220px;
-    width:220px;
+    width:235px;
     border: 1px solid #78cde7;
     margin-left: 5px;
 }
@@ -54,6 +54,8 @@ root {
 .en2leftTop{
     height: 20px;
     border: 1px solid #78cde7;
+    background-image:url('/365/resources/images/title.png');
+    color: white;
 }
 .en1LeftBottom{
     height: 190px;
@@ -65,7 +67,7 @@ root {
     border: 1px solid #78cde7;
 }
 .enRight2{
-    width: 220px;
+    width: 225px;
     height: 365px;
     border: 1px solid #78cde7;
     margin-bottom: 4px;

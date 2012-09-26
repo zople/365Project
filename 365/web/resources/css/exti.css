@@ -275,7 +275,7 @@ root {
     float: left;
 }
 .Left1{
-    width: 248px;
+    width: 240px;
     height: 295px;
     border: 1px solid  #78cde7;
     margin-bottom: 5px;
@@ -283,14 +283,14 @@ root {
 }
 .Left2{
     height: 335px;
-    width: 248px;
+    width: 240px;
     border: 1px solid  #78cde7;
     margin-bottom: 5px;
 }
 
 .Left3{
     height: 560px;
-    width: 248px;
+    width: 240px;
     border: 1px solid  #78cde7;
 }
 .enFrontContent1{
@@ -308,4 +308,6 @@ root {
     border: 1px solid  #78cde7;
     background-color:  #fdb151;
 }
- 
+.ba{
+    background-color:   #78cde7;
+}

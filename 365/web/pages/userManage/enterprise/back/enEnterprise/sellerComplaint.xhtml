@@ -56,7 +56,56 @@
             </p:menu>
         </ui:define>
         <ui:define name="content">
-            <h2>欢迎您！</h2>
+            <h:form>
+                <div class="business">
+                    <div class="template1">
+                        <h:commandButton value="卖单投诉" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px" />
+                        <h:commandButton value="买单投诉" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 15px" />
+                    </div>
+                    <div class="business_order_content2">
+                        <h:dataTable value="#{persionController.persions}" var="persion" border="1">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="订单编号"/>
+                                </f:facet>
+                                <h:outputText value="#{persion.persionName}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="投诉原因"/>
+                                </f:facet>
+                                <h:outputText value="#{persion.persionAge}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="投诉人"/>
+                                </f:facet>
+                                <h:outputText value="#{persion.jobIntention}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="易得介入"/>
+                                </f:facet>
+                                <h:outputText value="#{persion.contactTelephone}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="操作"/>
+                                </f:facet>
+                                <h:commandLink value="解释" >
+                                    <f:param value="#{user.id}" name="id"/>
+                                </h:commandLink>
+                                <br/>
+                                <h:selectOneMenu>
+                                    <f:selectItem itemValue="投诉成立" />
+                                    <f:selectItem itemValue="驳回投诉" />
+                                    <f:selectItem itemValue="请求易得介入" />
+                                </h:selectOneMenu>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+                </div>
+            </h:form>
         </ui:define>
     </ui:composition>
 

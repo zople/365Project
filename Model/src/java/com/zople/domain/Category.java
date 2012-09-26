@@ -6,6 +6,7 @@ package com.zople.domain;
 
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -40,11 +41,13 @@ public class Category implements Serializable {
     private String name;
     @Column(name = "pid")
     private Long pid;
-    @OneToMany(mappedBy = "category",cascade = CascadeType.REFRESH)
-    private List<Product> productList;
+    @OneToMany(mappedBy = "category",cascade = {CascadeType.ALL})
+    private List<Product> productList=new ArrayList();
     @Transient 
     private List<Category> categories;
-
+    @OneToMany(mappedBy = "category",cascade = {CascadeType.ALL})
+    private List<Property> propertyList=new ArrayList();
+    
     public Category() {
     }
 
@@ -116,5 +119,14 @@ public class Category implements Serializable {
     public String toString() {
         return "com.zople.dal.domain.Category[ id=" + id + " ]";
     }
+
+    public List<Property> getPropertyList() {
+        return propertyList;
+    }
+
+    public void setPropertyList(List<Property> propertyList) {
+        this.propertyList = propertyList;
+    }
+
     
 }

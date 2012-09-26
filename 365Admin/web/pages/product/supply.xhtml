@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+      
+ 
+        <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="供应产品列表"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+ 
+              <div class="menu">
+                        <h:commandButton value="发布供应产品" style="width: 130px; height: 30px; background-color: #CAFFFF; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px" />
+                        <h:commandButton value="我的供应" style="width: 130px; height: 30px; background-color: #FFF7FB; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 15px" />
+                    </div>
+            
+            <div class="top_style">*友情提醒 你目前是一般会友，可发布20条信息 </div>
+            <h:form>
+               <div class="serach_style">
+                        产品类目：<h:inputText/>
+                        发布时间： 
+                        <h:inputText/>
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="00" />
+                            <f:selectItem itemValue="01" />
+                        </h:selectOneMenu>
+                        时
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="00" />
+                            <f:selectItem itemValue="01" />
+                        </h:selectOneMenu>
+                        分--
+                        <h:inputText/>
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="00" />
+                            <f:selectItem itemValue="01" />
+                        </h:selectOneMenu>
+                        时
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="00" />
+                            <f:selectItem itemValue="01" />
+                        </h:selectOneMenu>
+                        分<br/>
+                        产品名称<h:inputText/>
+                          状态：
+                        <h:selectOneMenu>
+                            <f:selectItem itemValue="全部" />
+                            <f:selectItem itemValue="上架" />
+                            <f:selectItem itemValue="下架" />
+                        </h:selectOneMenu>
+                        <br/>
+                        产品型号<h:inputText/>
+                        <br/>
+                        <h:commandButton value="搜索" action="#{adminSupplyController.link()}"/>
+                    </div>
+            <div class="list_style_content">
+                        <div class="list_style_content1">
+                            <div class="list_menu"> <h:commandLink value="全部供应产品" action="#{adminSupplyController.link()}"></h:commandLink></div>
+                            <div class="list_menu"><h:commandLink value="销售中的产品" action="#{adminSupplyController.link()}"></h:commandLink></div>
+                            <div class="list_menu"><h:commandLink value="下回产品品" action="#{adminSupplyController.link()}"></h:commandLink></div>
+                            <div class="list_menu"><h:commandLink value="草稿箱" action="#{adminSupplyController.link()}"></h:commandLink></div>
+                            <div class="list_menu"><h:commandLink value="审核未通过" action="#{adminSupplyController.link()}"></h:commandLink></div>
+                          <div class="list_menu"><h:commandLink value="精品推荐" action="#{adminSupplyController.link()}"></h:commandLink></div>
+                            <div class="page_style">
+                                <h:commandLink value="上一页" action="#{adminSupplyController.link()}"></h:commandLink>
+                                <h:commandLink value="下一页" action="#{adminSupplyController.link()}"></h:commandLink>
+                            </div>
+                        </div>
+                
+                <br/>
+                <br/>
+                        <div class="list_style_content2">
+                            <h:commandButton value="批量删除" action="#{adminSupplyController.link()}"/>
+                            <h:commandButton value="导出模板" action="#{adminSupplyController.link()}" />
+                            <h:commandButton value="精品推荐" action="#{adminSupplyController.link()}" />
+                            <h:commandButton value="取消推荐" action="#{adminSupplyController.link()}" />
+                            
+                            <h:dataTable value="#{adminSupplyController.infoListBySql}" var="infoList" border="1">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:selectManyCheckbox layout="pageDirection">
+                                            <f:selectItem itemLabel="全选" itemValue="false"/>
+                                        </h:selectManyCheckbox>
+                                    </f:facet>
+                                    <h:selectManyCheckbox layout="pageDirection">
+                                        <f:selectItem itemLabel="" itemValue="false"/>
+                                    </h:selectManyCheckbox>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="操作"/>
+                                    </f:facet>
+                                    
+                                    
+                            <h:commandLink action="#{adminSupplyController.findById}" value="查看">
+                             <f:param name="id" value="#{infoList.id}"></f:param>
+                             </h:commandLink>
+                        
+                      
+                       <h:commandLink action="#{adminSupplyController.findByIdEdit}" value="编辑">
+                             <f:param name="id" value="#{infoList.id}"></f:param>
+                         </h:commandLink>
+                        
+                        
+                      <h:commandLink action="#{adminSupplyController.destroyById}" value="删除"> 
+                          <f:param name="id" value="#{infoList.id}"></f:param>
+                        </h:commandLink>          
+                                     
+                                    
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="状态"/>
+                                    </f:facet>
+                                    <h:outputText value="上架"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="供应标题"/>
+                                    </f:facet>
+                                    <h:outputText value="#{infoList.title}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="产品名称"/>
+                                    </f:facet>
+                                    <h:outputText value=" 产品名称#{infoList.id}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="产品型号"/>
+                                    </f:facet>
+                                      <h:outputText value=" 产品型号#{infoList.id}"/>
+                                </h:column>
+                                
+                                 <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="产品价格"/>
+                                    </f:facet>
+                                     <h:outputText value=" #{infoList.id*3.5}"/>
+                                </h:column>
+                                
+                                
+                                  <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="最小起订量"/>
+                                    </f:facet>
+                                   <h:outputText value=" #{infoList.id*50}"/>
+                                </h:column>
+                                
+                                
+                                  <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="计价方式"/>
+                                    </f:facet>
+                                     <h:outputText value="计价方式#{infoList.id}"/>
+                                </h:column>
+                                
+                              
+                                
+                                  <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="发货地区"/>
+                                    </f:facet>
+                                      <h:outputText value="发货地址#{infoList.id}"/>
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="发货日期"/>
+                                    </f:facet>
+                                    <h:outputText value="2012-12-12"/>
+                                </h:column>
+                                
+                              
+                               
+                            </h:dataTable>
+                        </div>
+            </div>
+            </h:form>
+        
+  </ui:define>
+    </ui:composition>
+ 
+</html>

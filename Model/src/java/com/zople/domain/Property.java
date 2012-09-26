@@ -10,12 +10,16 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -30,7 +34,6 @@ import javax.validation.constraints.Size;
 @NamedQueries({
     @NamedQuery(name = "Property.findAll", query = "SELECT p FROM Property p"),
     @NamedQuery(name = "Property.findById", query = "SELECT p FROM Property p WHERE p.id = :id"),
-    @NamedQuery(name = "Property.findByCategoryId", query = "SELECT p FROM Property p WHERE p.categoryId = :categoryId"),
     @NamedQuery(name = "Property.findByName", query = "SELECT p FROM Property p WHERE p.name = :name"),
     @NamedQuery(name = "Property.findByDescription", query = "SELECT p FROM Property p WHERE p.description = :description"),
     @NamedQuery(name = "Property.findByCreateTime", query = "SELECT p FROM Property p WHERE p.createTime = :createTime")})
@@ -39,6 +42,8 @@ public class Property implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
+    @SequenceGenerator(name = "property_serial", allocationSize = 1, initialValue = 1, sequenceName = "property_serial")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "property_serial")
     @Column(name = "id")
     private Long id;
     @Size(max = 100)
@@ -52,7 +57,15 @@ public class Property implements Serializable {
     private Date createTime;
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
-    private Company categoryId;
+    private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
     public Property() {
     }
 

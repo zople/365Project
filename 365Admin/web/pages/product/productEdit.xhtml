@@ -13,6 +13,7 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
            <h:form>
+                <h:inputHidden id="id" value="#{adminProductController.current.id}"/> 
                 <h:panelGrid columns="2">
                     <h:outputLabel value="产品品类"/>
                     <h:selectOneMenu value="#{adminProductController.current.category.id}">

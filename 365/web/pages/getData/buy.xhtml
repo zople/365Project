@@ -13,11 +13,16 @@ and open the template in the editor.
     <body>
         <div>
                  <h:panelGroup>
-                     <h:dataTable value="#{getDateManagedBean.supplyDataMax}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row" rules="all" >
+                     <h:form>
+                         <h:dataTable value="#{getDateManagedBean.buyDataMax}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row" rules="all" >
                         <h:column>
-                            <h:outputText value="#{item.title}"/>
+                            <h:commandLink action="#{buyController.fontById}" value="#{item.title}">
+                             <f:param name="id" value="#{item.id}"></f:param>
+                         </h:commandLink>
                         </h:column>
                     </h:dataTable>
+                     
+                         </h:form>
                  </h:panelGroup>
         </div>
     </body>
