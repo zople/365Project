@@ -72,6 +72,16 @@ public class AdminMachiningController implements Serializable {
         return "machiningEdit";
     }
     
+       
+       
+       
+               
+     public String editInfo(){
+         
+         return "machiningCreate";
+     }
+       
+       
      public String link() {
        
         return "machining";

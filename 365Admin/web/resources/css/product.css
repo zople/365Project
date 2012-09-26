@@ -46,3 +46,21 @@
     float: right;
     margin-top: 20px;
 }
+
+
+
+.edit_style{
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 75px;
+    height:16px;
+    border: 1px solid #4F4F4F;
+}
+
+.edit_style1{
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 900px;
+    height:600px;
+    border: 1px solid #4F4F4F;
+}
