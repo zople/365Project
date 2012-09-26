@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>TODO supply a title</title>
+    </h:head>
+    <body>
+         <h:form enctype="multipart/form-data">
+                <h2>上传企业图片</h2>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="图片标题:" for="name" />
+                    <h:inputText id="name" value="" title="企业名" />
+                    <h:outputLabel value="上传Logo:"/>
+                    <p:fileUpload value="" mode="simple" />
+                </h:panelGrid>
+                
+                
+          </h:form>
+    </body>
+</html>

@@ -50,7 +50,11 @@ public class Contact implements Serializable {
     @JoinColumn(name = "company_id", referencedColumnName = "id")
     @ManyToOne
     private Company companyId;
-
+    
+    private String sex;
+    private String department;
+    private String position;
+    private String tel;
     public Contact() {
     }
 
@@ -121,6 +125,38 @@ public class Contact implements Serializable {
     @Override
     public String toString() {
         return "com.zople.dal.domain.Contact[ id=" + id + " ]";
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
     
 }

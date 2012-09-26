@@ -21,10 +21,15 @@ root {
     height: 235px;
 }
 .leftTop{
-    height: 40px;
+    width: 225px;
+    height: 20px;
+    padding: 2px;
+    color: white;
+    background-image:url('/365/resources/images/title.png');
 }
 .leftBottom{
     height: 400px;
+    padding: 5px;
 }
 .leftContentTop{
     width:520px;
