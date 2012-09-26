@@ -2,9 +2,10 @@ package com.zople.controller;
 
 import com.zople.controller.util.JsfUtil;
 import com.zople.controller.util.PaginationHelper;
-import com.zople.dao.SupplyFacade;
-import com.zople.domain.Supply;
+import com.zople.dao.AdminCanvassTraderFacade;
+import com.zople.domain.AdminCanvassTrader;
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -17,41 +18,90 @@ import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 import javax.inject.Named;
 
-
-@Named("supplyController")
+ 
+/**
+ *@描   述:   招商管理
+ *@ author:  yuzhijian_yuxia2217@163.com
+ *@version: 1.0
+ */
+@Named("canvassTraderController")
 @SessionScoped
-public class SupplyController implements Serializable {
+public class CanvassTraderController implements Serializable {
 
 
-    private Supply current;
+    private AdminCanvassTrader current;
     private DataModel items = null;
-    @EJB
-    private com.zople.dao.SupplyFacade ejbFacade;
+    @EJB 
+    private AdminCanvassTraderFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    
+     List<AdminCanvassTrader> dataList;  //返回列表数据
 
-    public SupplyController() {
+    public CanvassTraderController() {
     }
 
-    public Supply getSelected() {
+    
+    
+    /***
+      * 返回前台展示记录
+      * 
+      */
+      public  List<AdminCanvassTrader> getInfoListBySql(){
+          String sql="select o from AdminCanvassTrader o ";
+         dataList=ejbFacade.findAllBysql(sql,0,10);
+          return dataList;
+        }
+     
+           /***
+       * 根据Id查询
+       * @return  实体对象
+       */ 
+      public String findById() {
+         String tempID=JsfUtil.getRequestParameter("id");
+         Long tid=Long.parseLong(tempID);
+        current =ejbFacade.find(tid);
+        return "canvasstrader";
+    }
+      
+      
+          /***
+       * 根据ID删除实体
+       */ 
+       public String destroyById() {
+         String tempID=JsfUtil.getRequestParameter("id");
+         Long tid=Long.parseLong(tempID);
+        current =ejbFacade.find(tid);
+        ejbFacade.remove(current);
+        return "canvasstrader";
+    }
+    
+       
+         public String link() {
+        return "canvasstrader";
+    }
+       
+       
+            public String findByIdEdit() {
+         String tempID=JsfUtil.getRequestParameter("id");
+         Long tid=Long.parseLong(tempID);
+        current =ejbFacade.find(tid);
+        return "canvasstraderEdit";
+    }
+    
+    
+    
+    
+    
+    public AdminCanvassTrader getSelected() {
         if (current == null) {
-            current = new Supply();
+            current = new AdminCanvassTrader();
             selectedItemIndex = -1;
         }
         return current;
     }
 
-    
-   public String fontById() {
-         String tempID=JsfUtil.getRequestParameter("id");
-         Long tid=Long.parseLong(tempID);
-        current =ejbFacade.find(tid);  
-        return "/pages/getData/supplyView.xhtml";
-    }
-    
-    
-    
-    private SupplyFacade getFacade() {
+    private AdminCanvassTraderFacade getFacade() {
         return ejbFacade;
     }
     public PaginationHelper getPagination() {
@@ -65,12 +115,8 @@ public class SupplyController implements Serializable {
 
                 @Override
                 public DataModel createPageDataModel() {
-                    return new ListDataModel(
-                                               getFacade().findRange(
-                                                                         new int[]{getPageFirstItem(), getPageFirstItem()+getPageSize()}
-                                                                      )
-                                            );
-                 }
+                    return new ListDataModel(getFacade().findRange(new int[]{getPageFirstItem(), getPageFirstItem()+getPageSize()}));
+                }
             };
         }
         return pagination;
@@ -82,13 +128,13 @@ public class SupplyController implements Serializable {
     }
 
     public String prepareView() {
-        current = (Supply)getItems().getRowData();
+        current = (AdminCanvassTrader)getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
 
     public String prepareCreate() {
-        current = new Supply();
+        current = new AdminCanvassTrader();
         selectedItemIndex = -1;
         return "Create";
     }
@@ -96,7 +142,7 @@ public class SupplyController implements Serializable {
     public String create() {
         try {
             getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/resources/Bundle").getString("SupplyCreated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/resources/Bundle").getString("AdminCanvassTraderCreated"));
             return prepareCreate();
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/resources/Bundle").getString("PersistenceErrorOccured"));
@@ -105,7 +151,7 @@ public class SupplyController implements Serializable {
     }
 
     public String prepareEdit() {
-        current = (Supply)getItems().getRowData();
+        current = (AdminCanvassTrader)getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
@@ -113,7 +159,7 @@ public class SupplyController implements Serializable {
     public String update() {
         try {
             getFacade().edit(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/resources/Bundle").getString("SupplyUpdated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/resources/Bundle").getString("AdminCanvassTraderUpdated"));
             return "View";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/resources/Bundle").getString("PersistenceErrorOccured"));
@@ -122,7 +168,7 @@ public class SupplyController implements Serializable {
     }
 
     public String destroy() {
-        current = (Supply)getItems().getRowData();
+        current = (AdminCanvassTrader)getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         performDestroy();
         recreatePagination();
@@ -146,7 +192,7 @@ public class SupplyController implements Serializable {
     private void performDestroy() {
         try {
             getFacade().remove(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/resources/Bundle").getString("SupplyDeleted"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/resources/Bundle").getString("AdminCanvassTraderDeleted"));
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/resources/Bundle").getString("PersistenceErrorOccured"));
         }
@@ -202,15 +248,15 @@ public class SupplyController implements Serializable {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
-    @FacesConverter(forClass=Supply.class)
-    public static class SupplyControllerConverter implements Converter {
+    @FacesConverter(forClass=AdminCanvassTrader.class)
+    public static class AdminCanvassTraderControllerConverter implements Converter {
 
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            SupplyController controller = (SupplyController)facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "supplyController");
+            CanvassTraderController controller = (CanvassTraderController)facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "adminCanvassTraderController");
             return controller.ejbFacade.find(getKey(value));
         }
 
@@ -230,11 +276,11 @@ public class SupplyController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof Supply) {
-                Supply o = (Supply) object;
+            if (object instanceof AdminCanvassTrader) {
+                AdminCanvassTrader o = (AdminCanvassTrader) object;
                 return getStringKey(o.getId());
             } else {
-                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: "+Supply.class.getName());
+                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: "+AdminCanvassTrader.class.getName());
             }
         }
 
