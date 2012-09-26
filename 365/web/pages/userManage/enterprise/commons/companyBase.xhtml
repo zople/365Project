@@ -11,35 +11,34 @@ and open the template in the editor.
     <h:head>
     </h:head>
     <body>
-        <div style="float: left;">*友情提醒：请尽量详细，准确的填写您的惬意信息，以便前台客户能够尽可能多的了解到企业的真实
-            情况，增加合作机会！
-            </div>
         <h:form>
-                    <h2 style="line-height:  40px; font-size: 16px;">企业基本信息</h2>
+            <p:panel header=" *友情提醒：请尽量详细，准确的填写您的惬意信息，以便前台客户能够尽可能多的了解到企业的真实
+        情况，增加合作机会！" toggleable="true" id="panel">
+                    <h2 style="line-height:  40px; font-size: 16px;">企业信息</h2>
                     <h:panelGrid columns="2" style=" border: none;">
-                    <h:outputLabel value="企业名称："/>
-                    <h:inputText   value="" title="" required="true" requiredMessage=""/>
-                    <h:outputLabel value="企业类型："/>
-                    <h:inputText   value="" title="" />
-                    <h:outputLabel value="所在地区："/>
-                    <h:selectBooleanCheckbox value=""/>
-                    <h:outputLabel value="公司地址："/>
-                    <h:inputText   value="" title="" />
-                    <h:outputLabel value="邮政编码："/>
-                    <h:inputText   value="" title="" required="true" requiredMessage=""/>
-                    <h:outputLabel value="电子邮箱："/>
-                    <h:inputText   value="" title="" required="true" requiredMessage=""/>
-                    <h:outputLabel value="公司电话："/>
-                    <h:inputText   value="" title="" required="true" requiredMessage=""/>
-                    <h:outputLabel value="传真："/>
-                    <h:inputText   value="" title="" required="true" requiredMessage=""/>
-                    <h:outputLabel value="企业网址："/>
-                    <h:inputText   value="" title="" required="true" requiredMessage=""/>
-                   <h:outputText value="员工人数: " />
-                      <p:keyboard value="#{keyboardBean.value9}"
-                     keypadOnly="true"/>
-                    <h:outputLabel value="企业介绍："/>
-                     <h:inputText   value="" title="" required="true" requiredMessage=""/>
+                        <h:outputLabel value="企业名称:" />
+                        <h:inputText   value="" title="" required="true" requiredMessage="" style="width: 400px;"/>
+                        <h:outputLabel value="企业类型："/>
+                        <h:inputText   value="" title="" />
+                        <h:outputLabel value="所在地区:"/>
+                        <h:selectBooleanCheckbox value=""/>
+                        <h:outputLabel value="公司地址:"/>
+                        <h:inputText   value="" title="" />
+                        <h:outputLabel value="邮政编码:"/>
+                        <h:inputText   value="" title="" required="true" requiredMessage=""/>
+                        <h:outputLabel value="电子邮箱:"/>
+                        <h:inputText   value="" title="" required="true" requiredMessage=""/>
+                        <h:outputLabel value="公司电话:"/>
+                        <h:inputText   value="" title="" required="true" requiredMessage=""/>
+                        <h:outputLabel value="传真:"/>
+                        <h:inputText   value="" title="" required="true" requiredMessage=""/>
+                        <h:outputLabel value="企业网址:"/>
+                        <h:inputText   value="" title="" required="true" requiredMessage=""/>
+                       <h:outputText value="员工人数:" />
+                          <p:keyboard value="#{keyboardBean.value9}"
+                         keypadOnly="true"/>
+                        <h:outputLabel value="企业介绍:"/>
+                         <h:inputText   value="" title="" required="true" requiredMessage=""/>
                  </h:panelGrid>
                     <h2 style="line-height:  40px; font-size: 16px;">企业logo</h2>  
                 <h:panelGrid columns="2">
@@ -67,6 +66,7 @@ and open the template in the editor.
                 <br />
                 <h:commandButton value="保存当前" />
                 <h:commandButton value="取消"/>
+                </p:panel>
             </h:form>
     </body>
 </html>
