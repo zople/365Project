@@ -10,12 +10,16 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -38,6 +42,8 @@ public class Property implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
+    @SequenceGenerator(name = "property_serial", allocationSize = 1, initialValue = 1, sequenceName = "property_serial")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "property_serial")
     @Column(name = "id")
     private Long id;
     @Size(max = 100)
