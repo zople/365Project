@@ -9,84 +9,97 @@
     <h:body>
         <ui:composition template="/pages/administratorManage/template/index.xhtml">
             <ui:define name="top">
-                 <ui:include src="/pages/administratorManage/commons/header.xhtml"/>
+                <ui:include src="/pages/administratorManage/commons/header.xhtml"/>
             </ui:define>
             <ui:define name="content">
-                <div>
+                <h:form>
+                    <div>
                         <div style="float: left;">
-                                <div class="index1Left">
-                                    <div class="index1LeftTop">金融动态</div>
-                                    <div class="index1LeftBottom">****</div>
-                                </div>
-                                <div class="index1Content">
-                                    <h:graphicImage name="20.png" library="images"/>
-                                </div>
-                                <div class="index2Top">品牌聚焦</div>
-                                <div class="index2Bottom"></div>
-                                <div class="index3">
-                                    <div class="index3Left">
-                                        <div class="index1LeftTop">供应信息</div>
-                                        <div class="indeex3LeftBottom"><ui:include src="/pages/getData/supply.xhtml"/></div>
-                                    </div>
-                                    <div class="index3Left">
-                                        <div class="index1LeftTop">求购信息</div>
-                                        <div class="indeex3LeftBottom"><ui:include src="/pages/getData/buy.xhtml"/></div>
-                                        </div>
-                                    <div class="index3Left">
-                                        <div class="index1LeftTop">展会信息</div>
-                                        <div class="indeex3LeftBottom"></div>
-                                    </div>
-                                    <div class="index3Left">
-                                        <div class="index1LeftTop">招商信息</div>
-                                        <div class="indeex3LeftBottom"></div>
-                                    </div>
-                                </div>
-                          </div>
-                          <div class="index9Right">
-                              <div class="login">
-                                    <div>
-                                        <span class="index1LeftTop" style="float: left; width: 48%; text-align: center;">
-                                            <h:link  outcome="/pages/login/login" value="用户登陆" style="color: white;"/>
-                                        </span>
-                                        <span class="index1LeftTop" style="float: right; width: 48%; text-align: center;">
-                                            <h:link outcome="/pages/register/Register" value="免费注册" style="color: white;"/>
-                                        </span>
-                                    </div>
-                                    <div class="index1LeftBottom">
-                                        <h:graphicImage name="login_1.png" library="images"/>
-                                    </div>
-                              </div>
-                              <div class="login">
-                                    <div class="index1LeftTop">金融动态</div>
-                                    <div class="index1LeftBottom">****</div>
-                              </div>
-                              <div class="login">
-                                    <div class="index1LeftTop">最新交易</div>
-                                    <div class="index1LeftBottom">****</div>
-                              </div>
-                          </div>
-                  </div>
-                  <div class="index4">
-                            <div class="index4Left">
-                                <div class="index1LeftTop">推荐供应商</div>
-                                <div class="index4LeftBottom"></div>
+                            <div class="index1Left">
+                                <div class="index1LeftTop">金融动态</div>
+                                <div class="index1LeftBottom">****</div>
                             </div>
-                            <div class="index4Left">
-                                <div class="index1LeftTop">推荐招商项目</div>
-                                <div class="index4LeftBottom"></div>
+                            <div class="index1Content">
+                                <h:graphicImage name="20.png" library="images"/>
                             </div>
-                            <div class="index4Left">
-                                <div class="index1LeftTop">推荐五金市场</div>
-                                <div class="index4LeftBottom"></div>
+                            <div class="index2Top">品牌聚焦</div>
+                            <div class="index2Bottom"></div>
+                            <div class="index3">
+                                <div class="index3Left">
+                                    <div class="index1LeftTop">供应信息</div>
+                                    <div class="indeex3LeftBottom"><ui:include src="/pages/getData/supply.xhtml"/></div>
+                                </div>
+                                <div class="index3Left">
+                                    <div class="index1LeftTop">求购信息</div>
+                                    <div class="indeex3LeftBottom"><ui:include src="/pages/getData/buy.xhtml"/></div>
+                                </div>
+                                <div class="index3Left">
+                                    <div class="index1LeftTop">展会信息</div>
+                                    <div class="indeex3LeftBottom"></div>
+                                </div>
+                                <div class="index3Left">
+                                    <div class="index1LeftTop">招商信息</div>
+                                    <div class="indeex3LeftBottom"></div>
+                                </div>
                             </div>
-                 </div>
-                 <div class="index5"><h:graphicImage name="ad.png" library="images"/></div>
-                 <div class="index6"></div>
-                 <div class="index7"><h:graphicImage name="ad.png" library="images"/></div>
-                 <div class="index8"></div>
+                        </div>
+                        <div class="index9Right">
+                            <div class="login">
+                                <div>
+                                    <span class="index1LeftTop" style="float: left; width: 48%; text-align: center;">
+                                        <h:link  outcome="/pages/login/login" value="用户登陆" style="color: white;"/>
+                                    </span>
+                                    <span class="index1LeftTop" style="float: right; width: 48%; text-align: center;">
+                                        <h:link outcome="/pages/register/Register" value="免费注册" style="color: white;"/>
+                                    </span>
+                                </div>
+                                <div class="index1LeftBottom">
+                                    <h:graphicImage name="login_1.png" library="images"/>
+                                </div>
+                            </div>
+                            <div class="login">
+                                <div class="index1LeftTop">金融动态</div>
+                                <div class="index1LeftBottom">****</div>
+                            </div>
+                            <div class="login">
+                                <div class="index1LeftTop">最新交易</div>
+                                <div class="index1LeftBottom">
+                                    <h:dataTable value="#{enOrderController.enOrders}" var="enOrder" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 0px">
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="订单名称"/>
+                                            </f:facet>
+                                            <h:commandLink value="#{enOrder.name}">
+                                                <f:param value="#{enOrder.id}" name="id"/>
+                                            </h:commandLink>
+                                        </h:column>
+                                    </h:dataTable>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="index4">
+                        <div class="index4Left">
+                            <div class="index1LeftTop">推荐供应商</div>
+                            <div class="index4LeftBottom"></div>
+                        </div>
+                        <div class="index4Left">
+                            <div class="index1LeftTop">推荐招商项目</div>
+                            <div class="index4LeftBottom"></div>
+                        </div>
+                        <div class="index4Left">
+                            <div class="index1LeftTop">推荐五金市场</div>
+                            <div class="index4LeftBottom"></div>
+                        </div>
+                    </div>
+                    <div class="index5"><h:graphicImage name="ad.png" library="images"/></div>
+                    <div class="index6"></div>
+                    <div class="index7"><h:graphicImage name="ad.png" library="images"/></div>
+                    <div class="index8"></div>
+                </h:form>
             </ui:define>
             <ui:define name="bottom">
-                 <ui:include src="/pages/administratorManage/commons/footer.xhtml"/>
+                <ui:include src="/pages/administratorManage/commons/footer.xhtml"/>
             </ui:define>
         </ui:composition>
     </h:body>
