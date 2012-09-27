@@ -216,7 +216,6 @@ public class InsertDataController {
                     category.getProductList().add(product);
                     
                     Property property = new Property();
-                    property.setId(Long.valueOf(h));
                     property.setName(getText(3));
                     property.setDescription(getText(20));
                     property.setCreateTime(showDate);
