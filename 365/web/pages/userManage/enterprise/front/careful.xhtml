@@ -10,7 +10,11 @@
             <div class="enFrontContent1">
                 <div class="entTop">
                     <h:outputLabel value="企业介绍" style="float: left;"/>
-                    <h:link  outcome="/pages/userManage/enterprise/front/companyInfo.xhtml" value="详细介绍" style="float: right"/>
+                    <h:form>
+                        <h:commandLink action="#{getDateManagedBean.getEnterpriseById}" value="详细介绍" style="float: right;">
+                        <f:param name="id" value="#{enterpriseController.listById.id}"></f:param>
+                    </h:commandLink>
+                    </h:form>
                 </div>
                 <div style="padding: 10px;" >
                     <div style="float: left; width: 50%;">
