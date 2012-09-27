@@ -31,11 +31,11 @@ and open the template in the editor.
                       
                 <td style="font-size: 17px; border-style: none"><strong>招商标题:</strong><br/>
                 </td>
-                  <td style="font-size: 17px; border-style: none">#{recruitment.title} <br/>
+                  <td style="font-size: 17px; border-style: none">#{recruitment.name} <br/>
                 </td>
                         <td style="font-size: 17px; border-style: none"><strong>
                                 
-                            <h:commandLink action="#{adminCanvassTraderController.findById}" value="#{recruitment.title}">
+                            <h:commandLink action="#{adminCanvassTraderController.findById}" value="#{recruitment.name}">
                              <f:param name="id" value="#{recruitment.id}"></f:param>
                          </h:commandLink>     
                                 

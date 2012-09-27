@@ -36,6 +36,15 @@ public class EnOrderController implements Serializable {
         return enOrders;
     }
 
+    
+      public List<EnOrder> getTopEnOrders() {
+      String sql="select o from EnOrder o";
+        enOrders = ejbFacade.findAllBysql(sql, 10, 10);
+        return enOrders;
+    }
+    
+    
+    
     public void setEnOrders(List<EnOrder> enOrders) {
         this.enOrders = enOrders;
     }

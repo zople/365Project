@@ -216,7 +216,7 @@ public class InsertDataController {
                     category.getProductList().add(product);
                     
                     Property property = new Property();
-                    property.setId(Long.valueOf(h));
+                  //  property.setId(Long.valueOf(h));
                     property.setName(getText(3));
                     property.setDescription(getText(20));
                     property.setCreateTime(showDate);
@@ -255,7 +255,7 @@ public class InsertDataController {
             enterprise.setDescription(getText(50));
             for(;j<i*10;j++){
                Supply supply= new Supply();
-               supply.setId(Long.valueOf(j));
+               //supply.setId(Long.valueOf(j));
                supply.setTitle(getText(6));
                supply.setDescription(getText(20));
                supply.setCompany(enterprise);
