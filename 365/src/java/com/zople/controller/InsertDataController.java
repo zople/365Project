@@ -876,9 +876,9 @@ public class InsertDataController {
         //int [] userType = {1,2,3};   //1，企业用户2，市场用户3个人用户
         TblUser user=new TblUser();
         String userType = "企业，市场，用户";
-        for(int i=1;i<4;i++){
+        for(int i=1;i<200;i++){
             user.setId(Long.valueOf(i));
-            user.setUserType(i);
+            user.setUserType(random(4));
             user.setLoginName(getText(2));
             user.setPassword("123");
             user.setEmail(getText(2)+"@zmcloud.com");
