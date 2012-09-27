@@ -31,20 +31,12 @@ public class EnOrderController implements Serializable {
     //ycj
     private List<EnOrder> enOrders;
 
-    public List<EnOrder> getEnOrders() {
-        enOrders = ejbFacade.findAll();
+    public List<EnOrder> getTopEnOrders() {
+        String sql = "select o from EnOrder o";
+        enOrders = ejbFacade.findAllBysql(sql, 0, 5);
         return enOrders;
     }
 
-    
-      public List<EnOrder> getTopEnOrders() {
-      String sql="select o from EnOrder o";
-        enOrders = ejbFacade.findAllBysql(sql, 10, 10);
-        return enOrders;
-    }
-    
-    
-    
     public void setEnOrders(List<EnOrder> enOrders) {
         this.enOrders = enOrders;
     }
