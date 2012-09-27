@@ -111,6 +111,13 @@ public class EnNewsController implements Serializable {
         return "enterpriseNewView";
     }
     
+      
+         public String findFontById() {
+         String tempID=JsfUtil.getRequestParameter("id");
+         Long tid=Long.parseLong(tempID);
+        current =  ejbFacade.find(tid);
+        return "./face/pages/userManage/enterprise/front/enterpriseNewView";
+    }
     
     public String prepareEdit() {
         current = (EnNews) getItems().getRowData();

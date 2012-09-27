@@ -7,10 +7,12 @@ package com.zople.controller;
 import com.zople.dao.BuyFacade;
 import com.zople.dao.ContactFacade;
 import com.zople.dao.EnMoneyFacade;
+import com.zople.dao.EnNewsFacade;
 import com.zople.dao.SupplyFacade;
 import com.zople.domain.Buy;
 import com.zople.domain.Contact;
 import com.zople.domain.EnMoney;
+import com.zople.domain.EnNews;
 import com.zople.domain.Supply;
 import java.io.Serializable;
 import java.util.List;
@@ -63,4 +65,14 @@ public class GetDateManagedBean implements Serializable {
    public List<EnMoney>  getMoneyDataMax(){
         return moneyFacade.getMoneyList(1, 10);
    }
+   
+   //新闻动太
+    @EJB
+    EnNewsFacade eFacade;;
+   public List<EnNews> getEnNewsDataMax(){
+        return eFacade.getMoneyList(1, 3);
+   }
+   
+   
+   
 }
