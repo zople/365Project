@@ -37,6 +37,7 @@ import com.zople.dao.MMerchantFacade;
 import com.zople.dao.MMessageFacade;
 import com.zople.dao.MMymallFacade;
 import com.zople.dao.MRecruitmentFacade;
+import com.zople.dao.MachiningFacade;
 import com.zople.dao.PavilionFacade;
 import com.zople.dao.PersionFacade;
 import com.zople.dao.ProcessFacade;
@@ -79,6 +80,7 @@ import com.zople.domain.MMerchant;
 import com.zople.domain.MMessage;
 import com.zople.domain.MMymall;
 import com.zople.domain.MRecruitment;
+import com.zople.domain.Machining;
 import com.zople.domain.Pavilion;
 import com.zople.domain.Persion;
 import com.zople.domain.Position;
@@ -214,7 +216,7 @@ public class InsertDataController {
                     category.getProductList().add(product);
                     
                     Property property = new Property();
-                    property.setId(Long.valueOf(h));
+                  //  property.setId(Long.valueOf(h));
                     property.setName(getText(3));
                     property.setDescription(getText(20));
                     property.setCreateTime(showDate);
@@ -253,7 +255,7 @@ public class InsertDataController {
             enterprise.setDescription(getText(50));
             for(;j<i*10;j++){
                Supply supply= new Supply();
-               supply.setId(Long.valueOf(j));
+               //supply.setId(Long.valueOf(j));
                supply.setTitle(getText(6));
                supply.setDescription(getText(20));
                supply.setCompany(enterprise);
@@ -661,6 +663,22 @@ public class InsertDataController {
             processFacade.create(process);
         }
     }
+    //加工
+    @EJB
+    private MachiningFacade machiningFacade;
+    public void insertMachingData(){
+        for(int i=1;i<200;i++){
+            Machining machining = new Machining();
+            machining.setId(Long.valueOf(i));
+            machining.setKind(getText(3));
+            machining.setTitle(getText(5));
+            machining.setDevice("D00T"+i);
+            machining.setAbility(getText(2));
+            machining.setDescription(getText(50));
+            machiningFacade.create(machining);
+        }
+    }
+            
     @EJB
     private PavilionFacade pavilionFacade;
     public void insertPrvilionData(){
@@ -876,9 +894,9 @@ public class InsertDataController {
         //int [] userType = {1,2,3};   //1，企业用户2，市场用户3个人用户
         TblUser user=new TblUser();
         String userType = "企业，市场，用户";
-        for(int i=1;i<4;i++){
+        for(int i=1;i<200;i++){
             user.setId(Long.valueOf(i));
-            user.setUserType(i);
+            user.setUserType(random(4));
             user.setLoginName(getText(2));
             user.setPassword("123");
             user.setEmail(getText(2)+"@zmcloud.com");

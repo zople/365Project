@@ -5,11 +5,9 @@
 package com.zople.dao;
 
 import com.zople.domain.EnOrder;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 /**
  *
@@ -17,10 +15,8 @@ import javax.persistence.Query;
  */
 @Stateless
 public class EnOrderFacade extends AbstractFacade<EnOrder> {
-
     @PersistenceContext(unitName = "365PU")
     private EntityManager em;
-    private Query queryquery;
 
     @Override
     protected EntityManager getEntityManager() {
@@ -30,11 +26,5 @@ public class EnOrderFacade extends AbstractFacade<EnOrder> {
     public EnOrderFacade() {
         super(EnOrder.class);
     }
-
-    public List<EnOrder> findAllBysql(String sql, int startNum, int limitNum) {
-        queryquery = em.createQuery(sql);
-        queryquery.setFirstResult(startNum);
-        queryquery.setMaxResults(limitNum);
-        return queryquery.getResultList();
-    }
+    
 }

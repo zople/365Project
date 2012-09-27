@@ -11,11 +11,20 @@ and open the template in the editor.
         <title>TODO supply a title</title>
     </h:head>
     <body>
-        <div>
-           <table>
-               <tr><td class="leftTop">最新认证供应商</td></tr>
-               <tr><td class="en1LeftBottom">**********</td></tr>
-           </table>
-         </div>
+        <div class="index1Left" style="height: 225px;">
+            <div class="index1LeftTop">金融动态</div>
+            <div class="index1LeftBottom">
+              
+                  <ul>
+                    <ui:repeat  value="#{getDateManagedBean.moneyDataMax}" var="item">
+                           <h:form>
+                                <li style="float: left; width: 100px; display:  block;">
+                                     
+                                </li>
+                           </h:form>
+                    </ui:repeat>
+             </ul>
+            </div>
+        </div>
     </body>
 </html>
