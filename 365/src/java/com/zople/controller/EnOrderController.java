@@ -28,15 +28,26 @@ public class EnOrderController implements Serializable {
     private EnOrderFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
-    
     //ycj
     private List<EnOrder> enOrders;
+
     public List<EnOrder> getEnOrders() {
-        enOrders=ejbFacade.findAll();
+        enOrders = ejbFacade.findAll();
         return enOrders;
     }
+
     public void setEnOrders(List<EnOrder> enOrders) {
         this.enOrders = enOrders;
+    }
+
+    public String path(String s) {
+        String path = "";
+        if ("立即订购".equals(s)) {
+            path = "order1";
+        } else if ("去结算".equals(s)) {
+            path = "order2";
+        }
+        return path;
     }
     //ycj
 

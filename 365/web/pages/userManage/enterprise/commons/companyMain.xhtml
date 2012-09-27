@@ -6,20 +6,20 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>TODO supply a title</title>
     </h:head>
     <body>
-            <div>*友情提醒：请尽量详细，准确的填写您的惬意信息，以便前台客户能够尽可能多的了解到企业的真实
-            情况，增加合作机会！
-            </div>
-            <h2>主营产品分类</h2>
+            <p:panel header=" *友情提醒：请尽量详细，准确的填写您的惬意信息，以便前台客户能够尽可能多的了解到企业的真实
+        情况，增加合作机会！" toggleable="true" id="panel">
+            <h2 style="line-height:  40px; font-size: 16px;">主营产品分类</h2>
             <div>主营产品分类：1,五金工具</div>
             <ui:include src="/pages/userManage/enterprise/commons/companyManiProduct.xhtml"/>
             <div style="clear: left;"></div>
             <div>
-                    <h2>主营产品</h2>
+                    <h2 style="line-height:  40px; font-size: 16px;">主营产品</h2>
                     <h:panelGrid columns="5">
                         <h:outputLabel value="*销售:"/>
                         <h:inputText value="" /> <h:inputText value="" /> 
@@ -38,5 +38,6 @@ and open the template in the editor.
                        <h:commandButton value="取消"/>
                    </h:panelGrid>
           </div>
+         </p:panel>
     </body>
 </html>
