@@ -78,5 +78,6 @@ root {
 }
 .enRight2Bottom{
     height: 280px;
-
+    padding: 5px;
+    line-height: 20px;
 }
