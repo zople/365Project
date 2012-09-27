@@ -5,6 +5,7 @@ import com.zople.controller.util.PaginationHelper;
 import com.zople.dao.EnEnterpriseFacade;
 import com.zople.domain.EnEnterprise;
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -27,6 +28,13 @@ public class EnEnterpriseController implements Serializable {
     private EnEnterpriseFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    
+    List<EnEnterprise> dataList;
+        public List<EnEnterprise> getInfoListBySql() {
+        String sql = "select e from EnEnterprise e ";
+        dataList = ejbFacade.findAllBysql(sql, 0, 5);
+        return dataList;
+    }
 
     public EnEnterpriseController() {
     }
@@ -43,20 +51,20 @@ public class EnEnterpriseController implements Serializable {
         return ejbFacade;
     }
 
-        /***
-       * 根据Id查询
-       * @return  实体对象
-       */ 
+    /**
+     * *
+     * 根据Id查询
+     *
+     * @return 实体对象
+     */
     public String findById() {
-      String tempId=JsfUtil.getRequestParameter("id");
+        String tempId = JsfUtil.getRequestParameter("id");
         //String tempId="1";
-        Long tid=Long.parseLong(tempId);
-        current =  ejbFacade.find(tid);
-        return "contactUs";
+        Long tid = Long.parseLong(tempId);
+        current = ejbFacade.find(tid);
+        return "/pages/userManage/enterprise/front/careful.xhtml";
     }
-    
-    
-    
+
     public PaginationHelper getPagination() {
         if (pagination == null) {
             pagination = new PaginationHelper(10) {
