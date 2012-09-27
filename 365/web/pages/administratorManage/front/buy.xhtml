@@ -6,7 +6,9 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <head>
         <title>TODO supply a title</title>
     </head>
@@ -15,30 +17,67 @@ and open the template in the editor.
             <ui:composition template="/pages/administratorManage/template/index.xhtml">
                 <ui:define name="content">
                     <table class="table">
-                    <tr>
-                        <td class="product1Left"><ui:include src="/pages/administratorManage/commons/buy1Left.xhtml"/></td>
-                        <td class="product1Content"><ui:include src="/pages/administratorManage/commons/buy1Content.xhtml"/></td>
-                        <td class="product2Right"><ui:include src="/pages/administratorManage/commons/buyRight.xhtml"/></td>
-                    </tr>
-                          <a href="buyDetail.xhtml">求购明细</a>||
-                          
-                          <a href="quotedPrice.xhtml">我要报价</a>
-                </table>
-                
-               <table class="table">
+                        <tr>
+                            <td class="product1Left"><ui:include src="/pages/administratorManage/commons/buy1Left.xhtml"/></td>
+                            <td class="product1Content"><ui:include src="/pages/administratorManage/commons/buy1Content.xhtml"/></td>
+                            <td class="product2Right"><ui:include src="/pages/administratorManage/commons/buyRight.xhtml"/></td>
+                        </tr>
+                        <a href="buyDetail.xhtml">求购明细</a>||
+
+                        <a href="quotedPrice.xhtml">我要报价</a>
+                    </table>
+
+                    <table class="table">
                         <tr>
                             <td><ui:include src="/pages/administratorManage/commons/buyL1.xhtml" /></td>
-                            
+
                             <td><ui:include src="/pages/administratorManage/commons/buyR1.xhtml"/></td>
                         </tr>
-              </table>
-                    
-               <table class="table">
+                    </table>
+
+                    <table class="table">
                         <tr>
-                            <td><ui:include src="/pages/administratorManage/commons/buyL1.xhtml" /></td>
-                            <td><ui:include src="/pages/administratorManage/commons/buyR1.xhtml"/></td>
+                            <td>
+                                <h:form>
+                                    <table  class="buyL1">
+                                        <tr>
+                                            <td>
+                                                <h:dataTable value="#{getDateManagedBean.buyDataMax}" var="item">
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="求购产品"/>
+                                                        </f:facet>
+                                                        <h:commandLink action="#{buyController.fontById}" value="#{item.title}">
+                                                            <f:param name="id" value="#{item.id}"></f:param>
+                                                        </h:commandLink>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="供应商来自"/>
+                                                        </f:facet>
+                                                        <h:outputText value="上海"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="报价日期"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{item.createTime}"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="供应商信用度"/>
+                                                        </f:facet>
+                                                        <p:rating value="2" readonly="true" />
+                                                    </h:column>
+                                                </h:dataTable>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </h:form>
+                            </td>
+                            <td><h:graphicImage name="pinpai.png" library="images"/></td>
                         </tr>
-              </table>      
+                    </table>      
                 </ui:define>
             </ui:composition>
         </div>

@@ -10,20 +10,35 @@ and open the template in the editor.
         <title>TODO supply a title</title>
     </h:head>
     <body>
-          <div class="login">
-                                    <div>
-                                        <span class="index1LeftTop" style="float: left; width: 48%; text-align: center;">
-                                            <h:link  outcome="/pages/login/login" value="用户登陆" style="color: white;"/>
-                                        </span>
-                                        <span class="index1LeftTop" style="float: right; width: 48%; text-align: center;">
-                                            <h:link outcome="/pages/register/Register" value="免费注册" style="color: white;"/>
-                                        </span>
-                                    </div>
-                                    <div class="index1LeftBottom">
-                                        <h:graphicImage name="login_1.png" library="images"/>
-                                    </div>
-        </div>
-              <div style="height: 150px; border: 1px solid #78cde7; width:240px;padding: 5px; ">大批量采购</div>
-        
+        <h:form>
+            <div class="login">
+                <div>
+                    <span class="index1LeftTop" style="float: left; width: 48%; text-align: center;">
+                        <h:link  outcome="/pages/login/login" value="用户登陆" style="color: white;"/>
+                    </span>
+                    <span class="index1LeftTop" style="float: right; width: 48%; text-align: center;">
+                        <h:link outcome="/pages/register/Register" value="免费注册" style="color: white;"/>
+                    </span>
+                </div>
+                <div class="index1LeftBottom">
+                    <h:graphicImage name="login_1.png" library="images"/>
+                </div>
+            </div>
+            <div style="height: 150px; border: 1px solid #78cde7; width:240px;padding: 5px; ">
+                <h:graphicImage name="img3.jpg" library="images"/>
+                <h:dataTable value="#{buyController.infoListBySql}" var="buy">
+                    <h:column>
+                        <h:graphicImage name="img1.jpg" library="images"/>
+                    </h:column>
+                    <h:column>
+                        求购产品：<h:outputText value="#{buy.name}"/>
+                        <br/>
+                        求购数量：<h:outputText value="#{buy.count}"/>
+                        <br/>
+                        截止日期：<h:outputText value="#{buy.endtime}"/>
+                    </h:column>
+                </h:dataTable>
+            </div>
+        </h:form>
     </body>
 </html>

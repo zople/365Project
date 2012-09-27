@@ -54,7 +54,7 @@ public class BuyController {
       */
       public  List<Buy> getInfoListBySql(){
           String sql="select o from Buy o ";
-         dataList=facade.findAllBysql(sql,0,2);
+         dataList=facade.findAllBysql(sql,0,3);
           return dataList;
         }
      

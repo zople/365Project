@@ -8,6 +8,7 @@ package com.zople.domain;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -20,6 +21,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -86,6 +88,8 @@ public class EnEnterprise implements Serializable {
 //    @OneToMany(mappedBy = "company_id")
 //    private List<Buy> buyList = new ArrayList();
     private String description;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date create_time;
     
     public EnEnterprise() {
     }
@@ -230,6 +234,15 @@ public class EnEnterprise implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Date getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
+    }
+
  
     
 }
