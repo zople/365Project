@@ -19,7 +19,9 @@
                                     <h:graphicImage name="20.png" library="images"/>
                                 </div>
                                 <div class="index2Top">品牌聚焦</div>
-                                <div class="index2Bottom"></div>
+                                <div class="index2Bottom">
+                                    <ui:include src="/pages/index/section/RecommendBrand.xhtml"/>
+                                </div>
                                 <div class="index3">
                                     <div class="index3Left">
                                         <div class="index1LeftTop">供应信息</div>
@@ -31,11 +33,15 @@
                                         </div>
                                     <div class="index3Left">
                                         <div class="index1LeftTop">展会信息</div>
-                                        <div class="indeex3LeftBottom"></div>
+                                        <div class="indeex3LeftBottom">
+                                            <ui:include src="/pages/index/section/EnExhibitionList.xhtml"/>
+                                        </div>
                                     </div>
                                     <div class="index3Left">
                                         <div class="index1LeftTop">招商信息</div>
-                                        <div class="indeex3LeftBottom"></div>
+                                        <div class="indeex3LeftBottom">
+                                            <ui:include src="/pages/index/section/AdminCanvassTrader.xhtml"/>
+                                        </div>
                                     </div>
                                 </div>
                           </div>
@@ -103,13 +109,16 @@
                     </div>
                     <div class="index4Left">
                         <div class="index1LeftTop">推荐五金市场</div>
-                        <div class="index4LeftBottom"></div>
+                        <div class="index4LeftBottom">
+                           <ui:include src="/pages/index/section/MMallList.xhtml"/> 
+                        </div>
                     </div>
                 </div>
                 <div class="index5"><h:graphicImage name="ad.png" library="images"/></div>
-                <div class="index6"></div>
+                <div class="index6"> <ui:include src="/pages/index/section/Category.xhtml"/></div>
                 <div class="index7"><h:graphicImage name="ad.png" library="images"/></div>
-                <div class="index8"></div>
+                <div class="index8">
+                </div>
             </ui:define>
         </ui:composition>
     </h:body>

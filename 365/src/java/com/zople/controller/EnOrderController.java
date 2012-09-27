@@ -32,7 +32,8 @@ public class EnOrderController implements Serializable {
     private List<EnOrder> enOrders;
 
     public List<EnOrder> getEnOrders() {
-        enOrders = ejbFacade.findAll();
+        int num= ejbFacade.findAll().size()<10?ejbFacade.findAll().size():10;
+        enOrders = ejbFacade.findAll().subList(0,num);
         return enOrders;
     }
 

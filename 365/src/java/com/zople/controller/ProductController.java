@@ -7,6 +7,7 @@ import com.zople.dao.ProductFacade;
 import com.zople.domain.Category;
 import com.zople.domain.Enterprise;
 import com.zople.domain.Product;
+import com.zople.service.CategoryService;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -25,6 +26,8 @@ public class ProductController implements Serializable {
     private CategoryFacade categoryFacade;
     @EJB
     private EnterpriseFacade enterpriseFacade;
+    @EJB
+    private CategoryService catagoryService;
     private Long catagoryId;
     private Long enterpriseId;
 
@@ -47,6 +50,7 @@ public class ProductController implements Serializable {
             return null;
         }
     }
+    
 
     public List<Product> findAll(){
         return ejbFacade.findAll();
@@ -77,5 +81,13 @@ public class ProductController implements Serializable {
 
     public void setEnterpriseId(Long enterpriseId) {
         this.enterpriseId = enterpriseId;
+    }
+    
+    public List<Category> getProductCatalog(){
+           List<Category> categories=catagoryService.findByParentId(0L, 0, 18);
+        for(Category c:categories){
+            c.setCategories(catagoryService.findByParentId(c.getId(), 0, 10));
+        }
+        return categories;
     }
 }
