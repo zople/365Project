@@ -37,6 +37,7 @@ import com.zople.dao.MMerchantFacade;
 import com.zople.dao.MMessageFacade;
 import com.zople.dao.MMymallFacade;
 import com.zople.dao.MRecruitmentFacade;
+import com.zople.dao.MachiningFacade;
 import com.zople.dao.PavilionFacade;
 import com.zople.dao.PersionFacade;
 import com.zople.dao.ProcessFacade;
@@ -79,6 +80,7 @@ import com.zople.domain.MMerchant;
 import com.zople.domain.MMessage;
 import com.zople.domain.MMymall;
 import com.zople.domain.MRecruitment;
+import com.zople.domain.Machining;
 import com.zople.domain.Pavilion;
 import com.zople.domain.Persion;
 import com.zople.domain.Position;
@@ -661,6 +663,22 @@ public class InsertDataController {
             processFacade.create(process);
         }
     }
+    //加工
+    @EJB
+    private MachiningFacade machiningFacade;
+    public void insertMachingData(){
+        for(int i=1;i<200;i++){
+            Machining machining = new Machining();
+            machining.setId(Long.valueOf(i));
+            machining.setKind(getText(3));
+            machining.setTitle(getText(5));
+            machining.setDevice("D00T"+i);
+            machining.setAbility(getText(2));
+            machining.setDescription(getText(50));
+            machiningFacade.create(machining);
+        }
+    }
+            
     @EJB
     private PavilionFacade pavilionFacade;
     public void insertPrvilionData(){
