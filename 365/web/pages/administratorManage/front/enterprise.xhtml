@@ -132,7 +132,6 @@ and open the template in the editor.
                                      <h:form>
                                          <h:dataTable value="#{getDateManagedBean.enterpriseMore}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row" rules="all" >
                                              <h:column>
-                                                 <!--<h:link outcome="/pages/userManage/enterprise/front/companyInfo.xhtml" value="#{item.name}"/>-->
                                                   <h:commandLink action="#{getDateManagedBean.getEnterpriseById}" value="#{item.name}">
                                                            <f:param name="id" value="#{item.id}"></f:param>
                                                   </h:commandLink>

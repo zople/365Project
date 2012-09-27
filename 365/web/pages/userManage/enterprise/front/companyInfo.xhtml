@@ -10,6 +10,28 @@ and open the template in the editor.
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://java.sun.com/jsf/core">
+    <ui:define name="left">
+          <div class="Left1">
+                <div class="entTop">联系我们</div>
+                <div style=" padding: 5px;">
+                    <h:outputLabel value="企业名称：" /><h:outputText  value="#{getDateManagedBean.data.name}"/><br/><br/>
+                    <h:outputLabel value="企业地址：" /><h:outputText  value="#{getDateManagedBean.data.address}"/><br/><br/>
+                    <h:outputLabel value="企业网址：" /><h:outputText  value="#{getDateManagedBean.data.url}"/><br/><br/>
+                    <h:outputLabel value="联系人：" /><h:outputText  value="xxx"/><br/><br/>
+                    <h:outputLabel value="电话：" /><h:outputText  value="#{getDateManagedBean.data.telphone}"/><br/><br/>
+                    <h:outputLabel value="手机：" /><h:outputText  value="#{getDateManagedBean.data.phone}"/><br/><br/>
+                    <h:outputLabel value="QQ：" /><h:graphicImage name="QQ.png" library="images"/>
+               </div>
+            </div>
+            <div class="Left2">
+                <div  class="entTop">产品分类</div>
+                <div></div>
+            </div>
+            <div class="Left3">
+                <div  class="entTop">推荐产品</div>
+                <div></div>
+            </div>
+    </ui:define>
     <ui:define name="content">
             <div class="enFrontContent1">
                <p:tabView orientation="top|bottom|left|right">
