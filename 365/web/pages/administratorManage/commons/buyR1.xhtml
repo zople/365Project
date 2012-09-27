@@ -5,16 +5,44 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>TODO supply a title</title>
     </h:head>
     <body>
         <div>
-           <table  class="buyR1">
-               <tr class="buyR1Top"><td><h:graphicImage name="12.png" library="images"/></td></tr>
-                <tr class="buyR1Bottom"><td>wew</td></tr>
-            </table>
+            <h:form>
+                <table  class="buyR1">
+                    <tr class="buyR1Top"><td><h:graphicImage name="11.jpg" library="images"/></td></tr>
+                    <tr class="buyR1Bottom">
+                        <td>
+                            <h:dataTable value="#{getDateManagedBean.buyDataMax}" var="item">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="求购产品"/>
+                                    </f:facet>
+                                    <h:commandLink action="#{buyController.fontById}" value="#{item.title}">
+                                        <f:param name="id" value="#{item.id}"></f:param>
+                                    </h:commandLink>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="求购数量"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.count}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="求购商"/>
+                                    </f:facet>
+                                    <h:outputText value="求购商1"/>
+                                </h:column>
+                            </h:dataTable>
+                        </td>
+                    </tr>
+                </table>
+            </h:form>
         </div>
     </body>
 </html>
