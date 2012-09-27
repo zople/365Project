@@ -98,10 +98,14 @@ public class GetDateManagedBean implements Serializable {
         data = companyService.findById(Long.valueOf(JsfUtil.getRequestParameter("id")));
         return "/pages/userManage/enterprise/front/companyInfo.xhtml";
     }
-
+   public List<EnEnterprise> getEnterpriseLong(){
+       return companyService.getEnterprise(31, 10);
+   }
+    
+    
     public EnEnterprise getData() {
          data = companyService.findById(Long.valueOf(JsfUtil.getRequestParameter("id")));
-        return data;
+         return data;
     }
 
     public void setData(EnEnterprise data) {
