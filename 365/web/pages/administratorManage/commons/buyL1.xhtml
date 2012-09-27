@@ -5,16 +5,62 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>TODO supply a title</title>
     </h:head>
     <body>
         <div>
-            <table  class="buyL1">
-                <tr class="buyL1Top"><td><h:graphicImage name="12.png" library="images"/></td></tr>
-                <tr class="buyL1Bottom"><td>sswww</td></tr>
-            </table>
+            <h:form>
+                <table  class="buyL1">
+                    <tr class="buyL1Top"><td><h:graphicImage name="12.png" library="images"/></td></tr>
+                    <tr class="buyL1Bottom">
+                        <td>
+                            <h:dataTable value="#{getDateManagedBean.buyDataMax}" var="item">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="求购产品"/>
+                                    </f:facet>
+                                    <h:commandLink action="#{buyController.fontById}" value="#{item.title}">
+                                        <f:param name="id" value="#{item.id}"></f:param>
+                                    </h:commandLink>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="求购商所在地"/>
+                                    </f:facet>
+                                    <h:outputText value="天津"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="求购商等级"/>
+                                    </f:facet>
+                                    <h:outputText value="12级"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="发布日期"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.createTime}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="报价截止日期"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.endtime}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="我要报价"/>
+                                    </f:facet>
+                                    <a href="quotedPrice.xhtml">报价</a>
+                                </h:column>
+                            </h:dataTable>
+                        </td>
+                    </tr>
+                </table>
+            </h:form>
         </div>
     </body>
 </html>

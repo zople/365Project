@@ -5,16 +5,30 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>TODO supply a title</title>
     </h:head>
     <body>
         <div>
-            <table>
-                <tr><td class="leftTop">求购产品分类</td></tr>
-                <tr><td class="leftBottom">分类名称</td></tr>
-            </table>
+            <h:form>
+                <table>
+                    <tr><td class="leftTop">产品目录</td></tr>
+                    <tr>
+                        <td class="leftBottom">
+                            <h:dataTable value="#{productController.findAll()}" var="product">
+                                <h:column>
+                                    <h:graphicImage name="img1.jpg" library="images"/>
+                                </h:column>
+                                <h:column>
+                                    <h:outputText value="#{product.name}"/>
+                                </h:column>
+                            </h:dataTable>
+                        </td>
+                    </tr>
+                </table>
+            </h:form>
         </div>
     </body>
 </html>
