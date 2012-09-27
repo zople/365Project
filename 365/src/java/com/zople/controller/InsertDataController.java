@@ -252,6 +252,7 @@ public class InsertDataController {
             enterprise.setAddress(getText(20));
             enterprise.setMainProduct(getText(10));
             enterprise.setDescription(getText(50));
+            enterprise.setCreate_time(new Date());
             for(;j<i*10;j++){
                Supply supply= new Supply();
                supply.setTitle(getText(6));
