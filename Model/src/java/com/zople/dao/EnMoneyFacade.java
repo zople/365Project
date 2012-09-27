@@ -5,9 +5,11 @@
 package com.zople.dao;
 
 import com.zople.domain.EnMoney;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -17,6 +19,7 @@ import javax.persistence.PersistenceContext;
 public class EnMoneyFacade extends AbstractFacade<EnMoney> {
     @PersistenceContext(unitName = "365PU")
     private EntityManager em;
+    private Query queryquery;
 
     @Override
     protected EntityManager getEntityManager() {
@@ -26,5 +29,11 @@ public class EnMoneyFacade extends AbstractFacade<EnMoney> {
     public EnMoneyFacade() {
         super(EnMoney.class);
     }
-    
+    public List<EnMoney> getMoneyList(int start,int size){
+        queryquery = em.createQuery("select t from EnMoney t");
+        queryquery.setFirstResult(start);
+        queryquery.setMaxResults(size);
+        return queryquery.getResultList();
+        
+    }
 }
