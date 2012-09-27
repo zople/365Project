@@ -244,7 +244,7 @@ public class InsertDataController {
         for(int i=1;i<200;i++){
             enterprise=new EnEnterprise();
             enterprise.setId(Long.valueOf(i));
-            enterprise.setName(getText(10));
+            enterprise.setName(getText(5));
             enterprise.setUrl("http://www."+i+".com");
             enterprise.setTelphone("1234567"+i+5);
             enterprise.setPhone("0800"+"1111"+i+2);
@@ -254,7 +254,6 @@ public class InsertDataController {
             enterprise.setDescription(getText(50));
             for(;j<i*10;j++){
                Supply supply= new Supply();
-               supply.setId(Long.valueOf(j));
                supply.setTitle(getText(6));
                supply.setDescription(getText(20));
                supply.setCompany(enterprise);
@@ -912,7 +911,7 @@ public class InsertDataController {
          for (int i = 0; i < 200; i++) {
             money = new EnMoney();
             money.setId(Long.valueOf(i));
-            money.setName(getText(50));
+            money.setName(getText(3));
             money.setMoney(Integer.valueOf(i+100));
             moneyFacade.create(money);
         }

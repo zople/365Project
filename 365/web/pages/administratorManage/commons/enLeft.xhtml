@@ -6,7 +6,8 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>TODO supply a title</title>
     </h:head>
@@ -14,16 +15,24 @@ and open the template in the editor.
         <div class="index1Left" style="height: 225px;">
             <div class="index1LeftTop">金融动态</div>
             <div class="index1LeftBottom">
-              
-                  <ul>
-                    <ui:repeat  value="#{getDateManagedBean.moneyDataMax}" var="item">
-                           <h:form>
-                                <li style="float: left; width: 100px; display:  block;">
-                                     
-                                </li>
-                           </h:form>
-                    </ui:repeat>
-             </ul>
+                <h:panelGroup>
+                     <h:form>
+                         <h:dataTable value="#{getDateManagedBean.moneyDataMax}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row" rules="all" >
+                             <h:column>
+                                 <f:facet name="header" class="headerF">
+                                      <h:outputLabel value="公司名称" class="headerF"/>
+                                  </f:facet>
+                                      <h:outputText value="#{item.name}" />
+                             </h:column>
+                              <h:column>
+                                  <f:facet name="header">
+                                      <h:outputLabel value="信贷额度" class="headerF" />
+                                  </f:facet>
+                                  <h:outputText value="#{item.money}元"  style="text-align: center"/>
+                              </h:column>
+                         </h:dataTable>
+                       </h:form>
+                 </h:panelGroup>
             </div>
         </div>
     </body>

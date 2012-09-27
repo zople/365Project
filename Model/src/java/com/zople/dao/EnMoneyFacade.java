@@ -34,6 +34,5 @@ public class EnMoneyFacade extends AbstractFacade<EnMoney> {
         queryquery.setFirstResult(start);
         queryquery.setMaxResults(size);
         return queryquery.getResultList();
-        
     }
 }
