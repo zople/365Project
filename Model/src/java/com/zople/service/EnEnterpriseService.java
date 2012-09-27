@@ -10,6 +10,9 @@ import com.zople.domain.EnEnterprise;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *@描   述: 联系我们  
@@ -18,7 +21,13 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class EnEnterpriseService {
-    
+    @PersistenceContext(unitName = "365PU")
+    private EntityManager em;  
+    private Query queryquery;
+
+    public EntityManager getEm() {
+        return em;
+    }
     
       
   @EJB
@@ -57,7 +66,13 @@ public class EnEnterpriseService {
    public EnEnterprise findById(Long id){
         return facade.find(id);
     }
-
+//企业信息
+   public List<EnEnterprise> getEnterprise(int start,int size){
+          queryquery = em.createQuery("select t from EnEnterprise t");
+          queryquery.setFirstResult(start);
+          queryquery.setMaxResults(size);
+          return queryquery.getResultList();
+   }
     
 
 }

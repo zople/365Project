@@ -91,6 +91,8 @@ public class EnterpriseController implements Serializable {
     public EnEnterprise getListById(){
         return companyService.findById(Long.valueOf(1));
    }
+    
+    
     public Enterprise getEnterprise() {
         return enterprise;
     }

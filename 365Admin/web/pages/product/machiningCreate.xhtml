@@ -50,11 +50,7 @@
          <p:calendar  id="popupCal" />  
           <h:outputText value="加工设备名称 : " /> 
           <p:inputText /> 
-          
-           
           </h:panelGrid>       
-          
-        
             
       <h:panelGrid columns="3" style="margin-bottom:10px" cellpadding="5">  
       <h:outputText value="所属类型 : " /> 
@@ -73,7 +69,16 @@
          </p:selectOneMenu> 
                </h:panelGrid>       
           
+           <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">  
+               
+        <h:outputText value="加工能力 : " /> 
+          <p:inputText /> 
           
+          <h:outputText value="详细描述 : " /> 
+          <p:editor id="editor" value="#{editorBean.value}" width="600"/>  
+
+               
+           </h:panelGrid>
           
              </div>
           
