@@ -24,7 +24,8 @@
                <div class="serach_style">
                         加工标题：<h:inputText/>
                         截止时间： 
-                        <h:inputText/>
+                       <p:calendar  id="popupCal" />  
+
                         <h:selectOneMenu>
                             <f:selectItem itemValue="00" />
                             <f:selectItem itemValue="01" />
@@ -35,7 +36,7 @@
                             <f:selectItem itemValue="01" />
                         </h:selectOneMenu>
                         分--
-                        <h:inputText/>
+                        <p:calendar  id="popupCal1" />  
                         <h:selectOneMenu>
                             <f:selectItem itemValue="00" />
                             <f:selectItem itemValue="01" />
@@ -73,6 +74,7 @@
                 <br/>
                 <br/>
                         <div class="list_style_content2">
+                             <h:commandButton action="#{machiningController.editInfo}" value="添加"  />
                             <h:commandButton action="#{machiningController.link}" value="批量删除"  />
                             <h:commandButton  action="#{machiningController.link}" value="导出模板"  />
                             <h:dataTable value="#{machiningController.infoListBySql}" var="infoList" border="1">
@@ -91,7 +93,13 @@
                                         <h:outputText value="操作"/>
                                     </f:facet>
                                     
+                                       
+                            <h:commandLink action="#{machiningController.editInfo}" value="添加">
+                             <f:param name="id" value="#{infoList.id}"></f:param>
+                             </h:commandLink>
                                     
+                                    
+                               
                             <h:commandLink action="#{machiningController.findById}" value="查看">
                              <f:param name="id" value="#{infoList.id}"></f:param>
                              </h:commandLink>

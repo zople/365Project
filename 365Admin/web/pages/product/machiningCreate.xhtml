@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+      
+ 
+        <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="发布加工管理"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+ 
+              <div class="menu">
+                        <h:commandButton value="发布加工" style="width: 130px; height: 30px; background-color: #FFF7FB; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px" />
+                        <h:commandButton value="我的加工" style="width: 130px; height: 30px; background-color: #CAFFFF; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 15px" />
+                        <h:commandButton value="我的询盘" style="width: 130px; height: 30px; background-color: #CAFFFF; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 15px" />
+                    </div>
+            
+            <div class="top_style">*友情提醒 你目前是一般会友，可发布5条加工信息 </div>
+            <h:form>
+                 
+               <div class="edit_style">
+                    填写加工信息
+                    </div>
+                
+        <div class="edit_style1">
+           <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">  
+
+          <h:outputText value="加工类型 : " /> <p:selectOneRadio id="options" value="">  
+          <f:selectItem itemLabel="提供加工" itemValue="1" />  
+          <f:selectItem itemLabel="加工需求" itemValue="2" />  
+          </p:selectOneRadio>  
+    
+          <h:outputText value="加工类型 : " /> 
+           <p:selectManyCheckbox value="#{formBean.selectedOptions}">  
+             <f:selectItem itemLabel="来料加工" itemValue="Option 1" />  
+           <f:selectItem itemLabel="来件装配" itemValue="Option 2" />  
+             <f:selectItem itemLabel="来料来样加工" itemValue="Option 3" />  
+              <f:selectItem itemLabel="任何方式" itemValue="Option 4" /> 
+         </p:selectManyCheckbox>  
+          
+          <h:outputText value="加工标题 : " /> 
+          <p:inputText /> 
+          <h:outputText value="加工关键词 : " /> 
+          <p:inputText /> 
+          <h:outputText value="截止日期 : " /> 
+         <p:calendar  id="popupCal" />  
+          <h:outputText value="加工设备名称 : " /> 
+          <p:inputText /> 
+          
+           
+          </h:panelGrid>       
+          
+        
+            
+      <h:panelGrid columns="3" style="margin-bottom:10px" cellpadding="5">  
+      <h:outputText value="所属类型 : " /> 
+          <p:selectOneMenu value="#{buttonBean.number}">  
+             <f:selectItem itemLabel="一级分类" itemValue="" />  
+             <f:selectItem itemLabel="工具类" itemValue="1" />  
+              <f:selectItem itemLabel="刀类" itemValue="2" />  
+             <f:selectItem itemLabel="铲类" itemValue="3" />  
+         </p:selectOneMenu> 
+           
+          <p:selectOneMenu value="#{buttonBean.dd}">  
+             <f:selectItem itemLabel="二级分类" itemValue="" />  
+             <f:selectItem itemLabel="钳子" itemValue="1" />  
+              <f:selectItem itemLabel="菜刀" itemValue="2" />  
+             <f:selectItem itemLabel="剪刀" itemValue="3" />  
+         </p:selectOneMenu> 
+               </h:panelGrid>       
+          
+          
+          
+             </div>
+          
+            </h:form>
+        
+  </ui:define>
+    </ui:composition>
+ 
+</html>
