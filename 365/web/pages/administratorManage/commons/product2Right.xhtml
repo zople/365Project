@@ -5,7 +5,8 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>TODO supply a title</title>
     </h:head>
@@ -20,13 +21,54 @@ and open the template in the editor.
                     </span>
                </div>
                <div class="index1LeftBottom"><h:graphicImage name="login_1.png" library="images"/></div>
-              <div>
-                   <span class="index1LeftTop" style="float: left; width: 48%; text-align: center;">
-                                            <h:link  outcome="/pages/login/login" value="易得新闻" style="color: white;"/>
-                   </span>
-                   <span class="index1LeftTop" style="float: right; width: 48%; text-align: center;">
-                                            <h:link outcome="/pages/register/Register" value="易的广告" style="color: white;"/>
-                    </span>
+               <div class="left_sytle">
+                   
+                   
+                   
+          <div class="left_sytle01" >
+            <div class="left_sytle1" >
+                 易得新闻
+             </div>       
+              
+               <div class="left_sytle2" >
+                   <h:panelGroup>
+                     <h:form>
+                         <h:dataTable value="#{getDateManagedBean.enNewsDataMax}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row" rules="all" >
+                        <h:column>
+                          
+                            
+                            <h:link outcome="/pages/userManage/enterprise/front/enterpriseNew.xhtml" value="#{item.name}" />
+                        </h:column>
+                    </h:dataTable>
+                     
+                         </h:form>
+                 </h:panelGroup>
+             </div> 
+              
+           </div>
+                   
+            
+         <div class="right_sytle01" >
+             <div class="right_sytle1" >
+                 易的广告
+                  </div>   
+             
+              <div class="left_sytle2" >
+                    <h:panelGroup>
+                     <h:form>
+                         <h:dataTable value="#{getDateManagedBean.enNewsDataMax}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row" rules="all" >
+                        <h:column>
+                          
+                            
+                            <h:link outcome="/pages/userManage/enterprise/front/enterpriseNew.xhtml" value="易得#{item.name}" />
+                        </h:column>
+                    </h:dataTable>
+                     
+                         </h:form>
+                 </h:panelGroup>
+             </div> 
+                   
+         </div>
                </div>
          </div>
     </body>

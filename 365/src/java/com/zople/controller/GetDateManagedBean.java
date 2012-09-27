@@ -8,12 +8,14 @@ import com.zople.controller.util.JsfUtil;
 import com.zople.dao.BuyFacade;
 import com.zople.dao.ContactFacade;
 import com.zople.dao.EnMoneyFacade;
+import com.zople.dao.EnNewsFacade;
 import com.zople.dao.SupplyFacade;
 import com.zople.dao.TblUserFacade;
 import com.zople.domain.Buy;
 import com.zople.domain.Contact;
 import com.zople.domain.EnEnterprise;
 import com.zople.domain.EnMoney;
+import com.zople.domain.EnNews;
 import com.zople.domain.Supply;
 import com.zople.domain.TblUser;
 import com.zople.domain.WjCategory;
@@ -70,6 +72,7 @@ public class GetDateManagedBean implements Serializable {
    public List<EnMoney>  getMoneyDataMax(){
         return moneyFacade.getMoneyList(1, 10);
    }
+ 
    //最新企业登录名
    @EJB
    TblUserFacade userFacade;
@@ -103,5 +106,13 @@ public class GetDateManagedBean implements Serializable {
     public void setData(List<EnEnterprise> data) {
         this.data = data;
     }
-    
+ 
+   
+   //新闻动太
+    @EJB
+    EnNewsFacade eFacade;;
+   public List<EnNews> getEnNewsDataMax(){
+        return eFacade.getMoneyList(1, 3);
+   }
+   
 }

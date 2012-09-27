@@ -5,16 +5,32 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>TODO supply a title</title>
     </h:head>
     <body>
         <div>
-            <table>
-                <tr><td class="leftContentTop"><h:graphicImage name="10.png" library="images"/></td></tr>
-                <tr><td class="leftContentBottom">精品推荐</td></tr>
-            </table>
+            <h:form>
+                <table>
+                    <tr><td class="leftContentTop"><h:graphicImage name="10.png" library="images"/></td></tr>
+                    <tr><td><h:graphicImage name="img2.jpg" library="images"/></td></tr>
+                    <tr>
+                        <td class="leftContentBottom">
+                            <h:dataTable value="#{getDateManagedBean.buyDataMax}" var="item">
+                                <h:column>
+                                    <h:commandLink>                     
+                                        <h:commandLink action="#{buyController.fontById}" value="#{item.title}">
+                                            <f:param name="id" value="#{item.id}"></f:param>
+                                        </h:commandLink>
+                                    </h:commandLink>
+                                </h:column>
+                            </h:dataTable>
+                        </td>
+                    </tr>
+                </table>
+            </h:form>
         </div>
     </body>
 </html>
