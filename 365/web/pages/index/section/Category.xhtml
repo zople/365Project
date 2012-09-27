@@ -1,32 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      >
-    <h:body>
-        <table style="font-size: 17px; border-style: none">
-            <ui:repeat value="#{categoryController.categories}" var="category" varStatus="status" >
-                <h:panelGroup rendered="#{status.index mod 3 eq 0}">  
-                    <tr style="font-size: 17px; border-style: none"></tr>  
-                </h:panelGroup>
-                <td style="font-size: 17px; border-style: none"><strong>#{category.name}:</strong><br/>
-                    <table style="font-size: 17px; border-style: none">
-                        <ui:repeat value="#{category.categories}" var="sonCategory" varStatus="sonStatus" >
-                            <h:panelGroup rendered="#{sonStatus.index mod 3 eq 0}">  
-                                <tr style="font-size: 17px; border-style: none"></tr>  
-                            </h:panelGroup>
-                            <td style="font-size: 17px; border-style: none">#{sonCategory.name}
-                            </td>
-                        </ui:repeat>
-                    </table>
-                </td>
-            </ui:repeat>
-        </table>
-    </h:body>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+    <div style="margin-bottom: 4px;margin-top: 10px;background-color:  #0788e0"><font style="font-size: 20px;">五金产品目录</font></div>
+    <ui:repeat value="#{productController.productCatalog}" var="category" >
+        <div style="float:left;width: 333px;">
+            <h1 style="color:  black;margin-top: 4px;margin-bottom: 4px;">#{category.name}:</h1>
+            <div>
+                <ui>
+                    <ui:repeat value="#{category.categories}" var="categorySon">
+                        <li style="float:left;list-style-type: none;font-size: 12px;width: 60px; margin-bottom: 2px;">
+                            <h:link outcome="/pages/userManage/enterprise/front/productDetails.xhtml">
+                                #{categorySon.name}
+                            </h:link>
+                        </li>
+                    </ui:repeat>
+                </ui>
+            </div>
+        </div>
+    </ui:repeat>
+
+</ui:composition>
