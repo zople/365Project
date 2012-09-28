@@ -56,14 +56,14 @@
                             <f:selectItem itemValue="加工需求" />
                         </h:selectOneMenu>
                         <br/>
-                        <h:commandButton action="#{machiningController.link}" value="搜索"/>
+                        <h:commandButton action="#{adminMachiningController.link}" value="搜索"/>
                     </div>
             <div class="list_style_content">
                         <div class="list_style_content1">
-                            <div class="list_menu"> <h:commandLink value="全部加工" action="#{machiningController.link}"></h:commandLink></div>
-                            <div class="list_menu"><h:commandLink value="发布中的加工" action="#{machiningController.link}"></h:commandLink></div>
-                            <div class="list_menu"><h:commandLink value="草稿箱" action="#{machiningController.link}"></h:commandLink></div>
-                            <div class="list_menu"><h:commandLink value="审核未通过" action="#{machiningController.link}"></h:commandLink></div>
+                            <div class="list_menu"> <h:commandLink value="全部加工" action="#{adminMachiningController.link}"></h:commandLink></div>
+                            <div class="list_menu"><h:commandLink value="发布中的加工" action="#{adminMachiningController.link}"></h:commandLink></div>
+                            <div class="list_menu"><h:commandLink value="草稿箱" action="#{adminMachiningController.link}"></h:commandLink></div>
+                            <div class="list_menu"><h:commandLink value="审核未通过" action="#{adminMachiningController.link}"></h:commandLink></div>
                          
                             <div class="page_style">
                                 <h:commandLink value="上一页"></h:commandLink>
@@ -74,10 +74,10 @@
                 <br/>
                 <br/>
                         <div class="list_style_content2">
-                             <h:commandButton action="#{machiningController.editInfo}" value="添加"  />
-                            <h:commandButton action="#{machiningController.link}" value="批量删除"  />
-                            <h:commandButton  action="#{machiningController.link}" value="导出模板"  />
-                            <h:dataTable value="#{machiningController.infoListBySql}" var="infoList" border="1">
+                             <h:commandButton action="#{adminMachiningController.editInfo}" value="添加"  />
+                            <h:commandButton action="#{adminMachiningController.link}" value="批量删除"  />
+                            <h:commandButton  action="#{adminMachiningController.link}" value="导出模板"  />
+                            <h:dataTable value="#{adminMachiningController.infoListBySql}" var="infoList" border="1">
                                 <h:column>
                                     <f:facet name="header">
                                         <h:selectManyCheckbox layout="pageDirection">
@@ -94,23 +94,23 @@
                                     </f:facet>
                                     
                                        
-                            <h:commandLink action="#{machiningController.editInfo}" value="添加">
+                            <h:commandLink action="#{adminMachiningController.editInfo}" value="添加">
                              <f:param name="id" value="#{infoList.id}"></f:param>
                              </h:commandLink>
                                     
                                     
                                
-                            <h:commandLink action="#{machiningController.findById}" value="查看">
+                            <h:commandLink action="#{adminMachiningController.findById}" value="查看">
                              <f:param name="id" value="#{infoList.id}"></f:param>
                              </h:commandLink>
                         
                       
-                       <h:commandLink action="#{machiningController.findByIdEdit}" value="编辑">
+                       <h:commandLink action="#{adminMachiningController.findByIdEdit}" value="编辑">
                              <f:param name="id" value="#{infoList.id}"></f:param>
                          </h:commandLink>
                         
                         
-                      <h:commandLink action="#{machiningController.destroyById}" value="删除"> 
+                      <h:commandLink action="#{adminMachiningController.destroyById}" value="删除"> 
                           <f:param name="id" value="#{infoList.id}"></f:param>
                         </h:commandLink>          
                                     
