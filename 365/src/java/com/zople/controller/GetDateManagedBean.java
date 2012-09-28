@@ -5,29 +5,30 @@
 package com.zople.controller;
 
 import com.zople.controller.util.JsfUtil;
+import com.zople.dao.AdminCanvassTraderFacade;
 import com.zople.dao.BuyFacade;
 import com.zople.dao.ContactFacade;
 import com.zople.dao.EnMoneyFacade;
 import com.zople.dao.EnNewsFacade;
+import com.zople.dao.MachiningFacade;
 import com.zople.dao.SupplyFacade;
 import com.zople.dao.TblUserFacade;
+import com.zople.domain.AdminCanvassTrader;
 import com.zople.domain.Buy;
 import com.zople.domain.Contact;
 import com.zople.domain.EnEnterprise;
 import com.zople.domain.EnMoney;
 import com.zople.domain.EnNews;
+import com.zople.domain.Machining;
 import com.zople.domain.Supply;
 import com.zople.domain.TblUser;
-import com.zople.domain.WjCategory;
 import com.zople.service.EnEnterpriseService;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 
 import javax.inject.Named;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -119,5 +120,22 @@ public class GetDateManagedBean implements Serializable {
    public List<EnNews> getEnNewsDataMax(){
         return eFacade.getMoneyList(1, 3);
    }
+   
+   //招商
+   @EJB
+    AdminCanvassTraderFacade canvasFacade;;
+   public List<AdminCanvassTrader> getCanvasFacadeDataMax(){
+        return canvasFacade.getMoneyList(0, 8);
+   }
+   
+   
+   //加工
+   
+   @EJB
+   MachiningFacade mFacade;;
+   public List<Machining> getMachiningDataMax(){
+        return mFacade.getMoneyList(0, 8);
+   }
+   
    
 }

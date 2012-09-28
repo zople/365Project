@@ -5,6 +5,7 @@
 
 package com.zople.dao;
 
+import com.zople.domain.AdminCanvassTrader;
 import com.zople.domain.Machining;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -42,4 +43,14 @@ public class MachiningFacade extends AbstractFacade<Machining> {
         super(Machining.class);
     }
 
+    
+        public List<Machining> getMoneyList(int start,int size){
+        queryquery = em.createQuery("select t from Machining t");
+        queryquery.setFirstResult(start);
+        queryquery.setMaxResults(size);
+        return queryquery.getResultList();
+        
+    }
+    
+    
 }

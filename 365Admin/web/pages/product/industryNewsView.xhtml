@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+ 
+         <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="产品品类管理"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+           <h:form>
+                <h:panelGrid columns="2">
+                   <h:outputLabel value="资讯ID"/>
+                    <h:outputLabel id="id" value="#{industryNewsController.selected.id}"    required="true" requiredMessage="不能为空"/>
+                     
+                    
+                    <h:outputLabel value="咨询标题"/>
+                   <h:outputLabel value="#{industryNewsController.selected.classTitle}"/>
+                    
+                     <h:outputLabel value="咨询内空"  />
+                    <h:outputLabel id="name" value="#{industryNewsController.selected.content}"   required="true" requiredMessage="不能为空" />
+                </h:panelGrid>
+                <br />
+                
+                <br />
+                <br />
+                <h:commandLink action="#{industryNewsController.prepareList}" value="返回列表" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="返回首页"/>
+            </h:form>
+    
+ </ui:define>
+    </ui:composition>
+</html>

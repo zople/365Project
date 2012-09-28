@@ -5,6 +5,7 @@
 package com.zople.dao;
 
 import com.zople.domain.AdminCanvassTrader;
+import com.zople.domain.EnNews;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -38,5 +39,13 @@ public class AdminCanvassTraderFacade extends AbstractFacade<AdminCanvassTrader>
         return queryquery.getResultList();
     }
     
+       
+         public List<AdminCanvassTrader> getMoneyList(int start,int size){
+        queryquery = em.createQuery("select t from AdminCanvassTrader t");
+        queryquery.setFirstResult(start);
+        queryquery.setMaxResults(size);
+        return queryquery.getResultList();
+        
+    }
     
 }
