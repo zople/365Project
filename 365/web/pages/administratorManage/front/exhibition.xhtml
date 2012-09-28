@@ -35,19 +35,14 @@ and open the template in the editor.
                         
                         <div class="exhibition4">
                             <div class="exhibition4Left">
-                                <div class="exhibition4Left1">
-                                    <div class="en2leftTop">推荐展会</div>
-                                    <div></div>
-                                </div>
-                                <div class="exhibition4Left2">
-                                    <div class="en2leftTop">展会资讯</div>
-                                    <div></div>
-                                </div>
+                                <ui:include src="/pages/administratorManage/front/exhibitionleft.xhtml"/>
                             </div>
                             <div class="exhibition4Right">
                                 <div class="exhibition4Right1">
                                     <div class="en2leftTop">最新展会</div>
-                                    <div class="exhibition4Right1Bottom"></div>
+                                    <div class="exhibition4Right1Bottom">
+                                        <ui:include src="/pages/administratorManage/front/exhibitionlist.xhtml"/>
+                                    </div>
                                 </div>
                                 <div class="exhibition4Right1">
                                     <div class="en2leftTop">推荐展馆</div>
