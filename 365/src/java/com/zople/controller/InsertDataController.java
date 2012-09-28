@@ -813,6 +813,7 @@ public class InsertDataController {
         insetImages();//图片
         addMoney();  //金融动态
         insertContaceData();//联系人信息
+        insertMachingData();//加工信息。
         return "success";
    }
 
