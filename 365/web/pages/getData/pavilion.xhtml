@@ -8,21 +8,30 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core">
-    <head>
-        <title>TODO supply a title</title>
-    </head>
     <body>
-             <h:form>
-                 <h:panelGroup>
-                     <h:dataTable value="#{imageController.pavilion}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row" rules="all" >
-                        <h:column>
-                            <h:outputText value="#{item.title}"/>
-                        </h:column>
-                        <p:graphicImage value="#{imageController.Pavilion}">
-                                  <f:param name="id" value="#{item.id}"></f:param>
-                        </p:graphicImage>
-                    </h:dataTable>
-                 </h:panelGroup>
-           </h:form>
+        <h:form>
+            <h:panelGroup>
+                <h:dataTable value="#{ pavilionController.pavilionList}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row" rules="all" >
+                    <h:column>
+                        <f:facet name="header">
+                            联系人
+                        </f:facet>
+                        <h:outputText value="#{item.linkman}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            联系方式
+                        </f:facet>
+                        <h:outputText value="#{item.way}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            说明
+                        </f:facet>
+                        <h:outputText value="#{item.description}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+        </h:form>
     </body>
 </html>

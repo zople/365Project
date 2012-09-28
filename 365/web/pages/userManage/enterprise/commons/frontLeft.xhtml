@@ -14,11 +14,15 @@ and open the template in the editor.
             </div>
             <div class="Left2">
                 <div  class="entTop">产品分类</div>
-                <div></div>
+                <div><ui:include src="/pages/administratorManage/commons/buy1Left.xhtml"/></div>
             </div>
             <div class="Left3">
                 <div  class="entTop">推荐产品</div>
-                <div></div>
+                <div>
+                    <ui:repeat value="#{productController.recommendProduct}" var="product">
+                      <h:link value="#{product.name}" outcome="/pages/userManage/enterprise/front/productDetails.xhtml"/><br/>
+                    </ui:repeat>
+                </div>
             </div>
     </body>
 </html>
