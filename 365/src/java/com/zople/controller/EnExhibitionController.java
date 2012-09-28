@@ -34,7 +34,8 @@ public class EnExhibitionController implements Serializable {
 
     public List<EnExhibition> getExhibitionList(){
         // FIXME
-        return getFacade().findAll().subList(0, 10);
+        int size=getFacade().count()>10?10:getFacade().count();
+        return getFacade().findAll().subList(0, size);
     }
     
     public EnExhibition getItem(){
