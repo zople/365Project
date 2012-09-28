@@ -18,7 +18,7 @@ import javax.inject.Named;
  *@ author:   yuzhijian_yuxia2217@163.com
  *@version: 1.0
  */
-@Named("machiningController")
+@Named("adminMachiningController")
 @SessionScoped
 public class AdminMachiningController implements Serializable {
     
