@@ -40,7 +40,7 @@ public class FriendShipController implements Serializable {
 //    }
     public String delete() {
         String id = JsfUtil.getRequestParameter("id");
-        friendlyLinkFacade.remove(tblFriendlyLink);
+        friendlyLinkFacade.remove(friendlyLinkFacade.find(Long.parseLong(id)));
         return "list.xhtml";
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////
