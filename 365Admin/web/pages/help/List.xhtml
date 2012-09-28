@@ -19,37 +19,37 @@
                     <h:dataTable value="#{HelpController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAdminHelpTitle_id}"/>
+                                <h:outputText value="id"/>
                             </f:facet>
-                            <h:outputText value="#{item.id}"/>
+                            <h:outputText value="id"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAdminHelpTitle_className}"/>
+                                <h:outputText value="名字"/>
                             </f:facet>
                             <h:outputText value="#{item.className}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAdminHelpTitle_name}"/>
+                                <h:outputText value="标题"/>
                             </f:facet>
                             <h:outputText value="#{item.name}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAdminHelpTitle_content}"/>
+                                <h:outputText value="内容"/>
                             </f:facet>
                             <h:outputText value="#{item.content}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAdminHelpTitle_description}"/>
+                                <h:outputText value="描述"/>
                             </f:facet>
                             <h:outputText value="#{item.description}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAdminHelpTitle_createTime}"/>
+                                <h:outputText value="编辑时间"/>
                             </f:facet>
                             <h:outputText value="#{item.createTime}">
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
@@ -59,19 +59,17 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{HelpController.prepareView}" value="#{bundle.ListAdminHelpViewLink}"/>
+                            <h:commandLink action="#{HelpController.prepareEdit}" value="编辑"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{HelpController.prepareEdit}" value="#{bundle.ListAdminHelpEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{HelpController.destroy}" value="#{bundle.ListAdminHelpDestroyLink}"/>
+                            <h:commandLink action="#{HelpController.destroy}" value="删除"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{HelpController.prepareCreate}" value="#{bundle.ListAdminHelpCreateLink}"/>
+                <h:commandLink action="#{HelpController.prepareCreate}" value="添加"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ListAdminHelpIndexLink}"/>
+                <h:link outcome="/index" value="返回"/>
             </h:form>
         </ui:define>
     </ui:composition>
