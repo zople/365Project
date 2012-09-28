@@ -45,7 +45,7 @@ public class GetDateManagedBean implements Serializable {
     @EJB
     SupplyFacade supplyFacade;
     private List items = null;
-    private List<EnEnterprise> data;
+    private EnEnterprise data;
     //供应信息
     public List<Supply>  getSupplyDate(){
         items= supplyFacade.GetSupplyDataByMaxSize(1, 30);
@@ -95,15 +95,20 @@ public class GetDateManagedBean implements Serializable {
         return companyService.getEnterprise(11, 10);
     }
     public String getEnterpriseById(){
-//        data = companyService.findById(Long.valueOf(JsfUtil.getRequestParameter("id")));
-        return "/pages/userManage/enterprise/commons/frontLeft";
+        data = companyService.findById(Long.valueOf(JsfUtil.getRequestParameter("id")));
+        return "/pages/userManage/enterprise/front/companyInfo.xhtml";
+    }
+   public List<EnEnterprise> getEnterpriseLong(){
+       return companyService.getEnterprise(31, 10);
+   }
+    
+    
+    public EnEnterprise getData() {
+         data = companyService.findById(Long.valueOf(JsfUtil.getRequestParameter("id")));
+         return data;
     }
 
-    public List<EnEnterprise> getData() {
-        return data;
-    }
-
-    public void setData(List<EnEnterprise> data) {
+    public void setData(EnEnterprise data) {
         this.data = data;
     }
  

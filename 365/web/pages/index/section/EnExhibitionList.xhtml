@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:form>
+    <ul>
+        <ui:repeat value="#{ enExhibitionController.exhibitionList}" var="exhibition" >
+            <li style="list-style-type: none">
+                <h:outputFormat value="{0, date,MM.dd}"> 
+                    <f:param value="#{exhibition.startTime}" /> 
+                </h:outputFormat> 
+                <h:commandLink value="#{exhibition.title}" action="#{enExhibitionController.goDetail}">
+                    <f:param name="id" value="#{exhibition.id}"/>
+                </h:commandLink>
+            </li>
+        </ui:repeat>
+    </ul>
+    </h:form>
+</ui:composition>

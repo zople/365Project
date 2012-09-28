@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEnFavoriteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="left">
+              <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                        <p:submenu label="我的收藏夹" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                            <p:menuitem value="产品收藏" url="/faces/pages/userManage/enterprise/back/enFavorite/productFavorite.xhtml" />
+                            <p:menuitem value="求购收藏" url="/faces/pages/userManage/enterprise/back/enFavorite/buyFavorite.xhtml" />
+                            <p:menuitem value="招商收藏" url="/faces/pages/userManage/enterprise/back/enFavorite/merchantFavorite.xhtml" />
+                            <p:menuitem value="加工收藏" url="/faces/pages/userManage/enterprise/back/enFavorite/processingFavorite.xhtml" />
+                        </p:submenu>
+               </p:menu>
+               <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
+                        <p:submenu label="我的被收藏" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
+                           <p:menuitem value="我的被收藏信息" url="/faces/pages/userManage/enterprise/back/enFavorite/myFavorited.xhtml" />
+                        </p:submenu>
+                </p:menu>
+        </ui:define>
+        <ui:define name="content">
+             <h:form>
+                    <div class="favorite">
+                        <div class="template1">
+                        <p:tabView id="tabView" dynamic="true" cache="true">  
+
+                            <p:tab id="tba1" title="详细信息">  
+                                <h:panelGrid columns="4" cellpadding="10">  
+                                    <h:outputText value="是否提供加工定制：" />
+                                    <h:outputText value="是" />
+                                    <h:outputText value="类型：" />
+                                    <h:outputText value="多款供选" />
+
+                                    <h:outputText value="垂头材料：" />
+                                    <h:outputText value="中碳钢低碳钢" />
+                                    <h:outputText value="是否防爆：" />
+                                    <h:outputText value="否" />
+
+                                    <h:outputText value="柄部材料：" />
+                                    <h:outputText value="塑料" />
+                                    <h:outputText value="品牌：" />
+                                    <h:outputText value="sidanly" />
+
+                                    <h:outputText value="型号：" />
+                                    <h:outputText value="803" />
+                                    <h:outputText value="全长：" />
+                                    <h:outputText value="160(mm)" />
+
+                                    <h:outputText value="重量：" />
+                                    <h:outputText value="0.38(kg)" />
+                                    <h:outputText value="适用范围：" />
+                                    <h:outputText value="广泛" />
+
+                                    <h:outputText value="规格：" />
+                                    <h:outputText value="8" />
+                                </h:panelGrid>
+                                <h:graphicImage name="product3.jpg" library="images"/>
+                                <h:graphicImage name="product4.jpg" library="images"/>
+                                <br/>
+                                详细介绍
+                                <br/>
+                                <h:graphicImage name="product5.jpg" library="images"/>
+                            </p:tab>  
+
+                            <p:tab id="tab2" title="商品评价"> 
+                                实物与描述相符程度
+                                <br/>
+                                <h:panelGrid columns="4" cellpadding="10">  
+                                    <h:outputText value="4分" />
+                                    <p:rating value="4" readonly="true" /> 
+                                    <h:outputText value="买家满意度：98%" />
+                                    <h:outputText value="目前有33人打分" />
+                                </h:panelGrid>
+                                <h:panelGrid columns="5" style="margin-bottom:10px" cellpadding="5">  
+                                    <h:selectOneRadio>  
+                                        <f:selectItem itemLabel="全部评价" itemValue="1" />  
+                                        <f:selectItem itemLabel="好评" itemValue="2" />  
+                                        <f:selectItem itemLabel="中评" itemValue="3" />
+                                        <f:selectItem itemLabel="差评" itemValue="4" /> 
+                                        <f:selectItem itemLabel="有评论内容的" itemValue="5" /> 
+                                    </h:selectOneRadio> 
+                                </h:panelGrid>
+                                <h:dataTable value="">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="评价方"/>
+                                        </f:facet>
+                                        <h:outputText value="小明"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="打分"/>
+                                        </f:facet>
+                                        <p:rating value="3" readonly="true" />
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="评价"/>
+                                        </f:facet>
+                                        <h:outputText value="小明"/>
+                                    </h:column>
+                                </h:dataTable>
+                                <div style="margin-left: 500px">
+                                    <h:commandLink value="上一页"/>
+                                    <h:commandLink value="下一页"/>
+                                </div>
+                            </p:tab>  
+
+                            <p:tab id="tab3" title="成交记录"> 
+                                近6个月商品累计售出1000件，累计成交30笔，人均采购约92件
+                                <br/>
+                                价格不同可能是由于购买数量不同以及促销活动引起的，以下是近6个月的成交记录
+                                <br/>
+                                <h:dataTable value="">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="购买方"/>
+                                        </f:facet>
+                                        <h:outputText value="小明"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="成交单价"/>
+                                        </f:facet>
+                                        <h:outputText value="10"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="数量"/>
+                                        </f:facet>
+                                        <h:outputText value="55"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="成交时间"/>
+                                        </f:facet>
+                                        <h:outputText value="2012-04-04 12:23"/>
+                                    </h:column>
+                                </h:dataTable>
+                                <div style="margin-left: 500px">
+                                    <h:commandLink value="上一页"/>
+                                    <h:commandLink value="下一页"/>
+                                </div>
+                            </p:tab>  
+                        </p:tabView>  
+                        </div>
+                        <div class="favorite_top">*友情提醒：在此显示你收藏的企业信息</div>
+                        <div class="favorite_content">
+
+                        </div>
+                    </div>
+                </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
