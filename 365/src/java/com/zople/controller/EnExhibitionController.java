@@ -31,7 +31,12 @@ public class EnExhibitionController implements Serializable {
 
     public EnExhibitionController() {
     }
-
+    
+    public String goDetail(){
+       String id=JsfUtil.getRequestParameter("id");
+        current=ejbFacade.find(Long.valueOf(id));
+       return "/pages/administratorManage/front/exhibitiondetailed.xhtml";
+    }
     public List<EnExhibition> getExhibitionList(){
         // FIXME
         return getFacade().findAll().subList(0, 10);

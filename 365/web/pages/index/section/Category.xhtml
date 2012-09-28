@@ -10,8 +10,8 @@
                 <ui>
                     <ui:repeat value="#{category.categories}" var="categorySon">
                         <li style="float:left;list-style-type: none;font-size: 12px;width: 60px; margin-bottom: 2px;">
-                            <h:link outcome="/pages/userManage/enterprise/front/productDetails.xhtml">
-                                #{categorySon.name}
+                            <h:link value="#{categorySon.name}" outcome="#{productController.goSearch}">
+                                <f:param name="id" value="#{categorySon.id}"/>
                             </h:link>
                         </li>
                     </ui:repeat>

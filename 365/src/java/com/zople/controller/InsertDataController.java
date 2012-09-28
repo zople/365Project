@@ -203,12 +203,12 @@ public class InsertDataController {
             category.setName(categories[random(categories.length)]);
             category.setPid(0l);
             categoryFacade.create(category);
-            for (; j < 10; j++) {
+            for (; j < 10*i; j++) {
                 category = new Category();
-                category.setId(System.nanoTime());
+                category.setId(Long.valueOf(System.nanoTime()));
                 category.setName(categories2[random(categories2.length)]);
                 category.setPid((long) i);
-                for(;h<i*10;h++){
+                for(;h<j*10;h++){
                     Product product = new Product();
                     product.setName(getText(2));
                     product.setDescription(getText(40));

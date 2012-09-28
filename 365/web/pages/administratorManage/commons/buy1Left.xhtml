@@ -4,31 +4,18 @@ To change this template, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
-    <h:head>
-        <title>TODO supply a title</title>
-    </h:head>
-    <body>
-        <div>
-            <h:form>
-                <table>
-                    <tr><td class="leftTop">产品目录</td></tr>
-                    <tr>
-                        <td class="leftBottom">
-                            <h:dataTable value="#{productController.findAll()}" var="product">
-                                <h:column>
-                                    <h:graphicImage name="img1.jpg" library="images"/>
-                                </h:column>
-                                <h:column>
-                                    <h:outputText value="#{product.name}"/>
-                                </h:column>
-                            </h:dataTable>
-                        </td>
-                    </tr>
-                </table>
-            </h:form>
-        </div>
-    </body>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"  
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+    <f:view contentType="text/html">
+        <h:form>
+            <ui:repeat value="#{productController.productCatalog}" var="category" >
+                <h:button value="#{category.name}" outcome="#{productController.goSearch}" style="width: 150px;">
+                    <f:param name="id" value="#{category.id}"/>
+                </h:button>
+            </ui:repeat>
+        </h:form>
+    </f:view>
+</ui:composition>
