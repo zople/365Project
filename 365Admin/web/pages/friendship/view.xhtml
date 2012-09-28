@@ -11,21 +11,13 @@
         </ui:define>
         <ui:define name="content">
             <h:form>
-            <div class="user">
-                登录名：<h:outputText value="#{userController.user.loginName}"/><br/>
-                密码：<h:outputText value="#{userController.user.password}"/><br/>
-                邮箱：<h:outputText value="#{userController.user.email}"/><br/>
-                创建时间：<h:outputText value="#{userController.user.createTime}"/><br/>
-                最后登录时间：<h:outputText value="#{userController.user.lastLoginTime}"/><br/>
-                用户类型：<h:outputText value="#{userController.user.userType}"/><br/>
-            </div>
-            <div class="user_check">
-                是否通过审核
-                <h:commandButton value="是" />
-                <h:commandButton value="否" />
-            </div>
+                <div>
+                    友情链接名：<h:outputText value="#{friendShipController.tblFriendlyLink.name}"/><br/>
+                    友情链接内容：<h:outputText value="#{friendShipController.tblFriendlyLink.content}"/><br/>
+                    友情链接描述：<h:outputText value="#{friendShipController.tblFriendlyLink.description}"/><br/>
+                    创建时间：<h:outputText value="#{friendShipController.tblFriendlyLink.createTime}"/><br/>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>
-
 </html>
