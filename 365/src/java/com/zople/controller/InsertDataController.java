@@ -391,6 +391,7 @@ public class InsertDataController {
             adminCanvassTrader.setName(getText(20));
             adminCanvassTrader.setPack(getText(5));
             adminCanvassTrader.setStandard(getText(10));
+            adminCanvassTrader.setTitle(getText(3));
             adminCanvassTraderFacade.create(adminCanvassTrader);
         }
     }
