@@ -391,6 +391,7 @@ public class InsertDataController {
             adminCanvassTrader.setName(getText(20));
             adminCanvassTrader.setPack(getText(5));
             adminCanvassTrader.setStandard(getText(10));
+            adminCanvassTrader.setTitle(getText(3));
             adminCanvassTraderFacade.create(adminCanvassTrader);
         }
     }
@@ -813,6 +814,7 @@ public class InsertDataController {
         insetImages();//图片
         addMoney();  //金融动态
         insertContaceData();//联系人信息
+        insertMachingData();//加工信息。
         return "success";
    }
 

@@ -6,7 +6,8 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
     <head>
         <title>TODO supply a title</title>
     </head>
@@ -18,15 +19,15 @@ and open the template in the editor.
                     <div class="import1">
                         <div class="importleft">
                             <div class="en2leftTop">产品目录</div>
-                            <div class="importleftBottom">********</div>
+                            <div class="importleftBottom"><ui:include src="/pages/administratorManage/commons/buy1Left.xhtml"/></div>
                         </div>
                         <div class="importContent">
-                            <div class="importContentTop"><h:graphicImage name="banner.png" library="images" /></div>
+                            <div class="importContentTop"><h:graphicImage name="zhaosan.png" library="images" /></div>
                             <div class="importContentBottom">知名招商推荐</div>
                         </div>
                         <div class="importRight">
                             <div class="en2leftTop">注册  登陆</div>
-                            <div class="importRight2"></div>
+                            <div class="importRight2"><h:graphicImage name="login_1.png" library="images" /></div>
                             <div class="en2leftTop">快速查找招商项目</div>
                         </div>
                     </div>
@@ -35,15 +36,61 @@ and open the template in the editor.
                     <div class="import2">
                         <div>
                             <div  class="import2Top"><h:graphicImage name="15.png" library="images"/></div>
-                            <div  class="import2Bottom"></div>
+                            <div  class="import2Bottom">
+                                
+                                <h:dataTable value="#{getDateManagedBean.canvasFacadeDataMax}"  var="enOrder1" border="0" cellpadding="2" cellspacing="0"   rules="all" style="border:solid 0px">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="招商标题"/>
+                                        </f:facet>
+                                        <h:outputText value="#{enOrder1.name}"/>
+                                    </h:column>
+                                     <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="截止日期"/>
+                                        </f:facet>
+                                         <h:outputText value="#{enOrder1.endtime}"/>
+                                    </h:column>
+                                </h:dataTable>      
+                                
+                                
+                                
+                            </div>
                         </div>
                         <div>
                             <div  class="import2Top"><h:graphicImage name="16.png" library="images"/></div>
-                            <div  class="import2Bottom"></div>
+                            <div  class="import2Bottom">
+                                
+                                <h:dataTable value="#{getDateManagedBean.machiningDataMax}" var="enOrder" border="0" cellpadding="2" cellspacing="0"   rules="all" style="border:solid 0px">
+                                   <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="加工类型"/>
+                                        </f:facet>
+                                       <h:outputText value="#{enOrder.kind}"/>
+                                    </h:column>
+                                    
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="加工标题"/>
+                                        </f:facet>
+                                        <h:outputText value="#{enOrder.title}"/>
+                                    </h:column>
+                                     <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="加工能力"/>
+                                        </f:facet>
+                                         <h:outputText value="#{enOrder.ability}"/>
+                                    </h:column>
+                                </h:dataTable>    
+                                
+                                
+                                
+                                
+                            </div>
                         </div>
                         <div>
                             <div  class="import2Top"><h:graphicImage name="17.png" library="images"/></div>
-                            <div  class="import2Bottom"></div>
+                            <div  class="import2Bottom"><h:graphicImage name="dd.png" library="images"/></div>
                         </div>
                     </div>
                 </ui:define>
