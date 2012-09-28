@@ -10,41 +10,60 @@
         <ui:composition template="/pages/administratorManage/template/index.xhtml">
             <ui:define name="content">
                 <div>
-                        <div style="float: left;">
-                                <div class="index1Left">
-                                    <div class="index1LeftTop">金融动态</div>
-                                    <div class="index1LeftBottom">****</div>
+                    <div style="float: left;">
+                        <div class="index1Left">
+                            <div class="index1LeftTop">金融动态</div>
+                            <div class="index1LeftBottom">
+                                <h:panelGroup>
+                                    <h:form>
+                                        <h:dataTable value="#{getDateManagedBean.moneyDataMax}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row" rules="all" >
+                                            <h:column>
+                                                <f:facet name="header" class="headerF">
+                                                    <h:outputLabel value="公司名称" class="headerF"/>
+                                                </f:facet>
+                                                <h:outputText value="#{item.name}" />
+                                            </h:column>
+                                            <h:column class="headerF">
+                                                <f:facet name="header">
+                                                    <h:outputLabel value="信贷额度" class="headerF" />
+                                                </f:facet>
+                                                <h:outputText value="#{item.money}元"  style="text-align: center"/>
+                                            </h:column>
+                                        </h:dataTable>
+                                    </h:form>
+                                </h:panelGroup>
+                            </div>
+                        </div>
+                        <div class="index1Content">
+                            <h:graphicImage name="20.png" library="images"/>
+                        </div>
+                        <div class="index2Top">品牌聚焦</div>
+                        <div class="index2Bottom">
+                            <ui:include src="/pages/index/section/RecommendBrand.xhtml"/>
+                        </div>
+                        <div class="index3">
+                            <div class="index3Left">
+                                <div class="index1LeftTop">供应信息</div>
+                                <div class="indeex3LeftBottom"><ui:include src="/pages/getData/supply.xhtml"/></div>
+                            </div>
+                            <div class="index3Left">
+                                <div class="index1LeftTop">求购信息</div>
+                                <div class="indeex3LeftBottom"><ui:include src="/pages/getData/buy.xhtml"/></div>
+                            </div>
+                            <div class="index3Left">
+                                <div class="index1LeftTop">展会信息</div>
+                                <div class="indeex3LeftBottom">
+                                    <ui:include src="/pages/index/section/EnExhibitionList.xhtml"/>
                                 </div>
-                                <div class="index1Content">
-                                    <h:graphicImage name="20.png" library="images"/>
+                            </div>
+                            <div class="index3Left">
+                                <div class="index1LeftTop">招商信息</div>
+                                <div class="indeex3LeftBottom">
+                                    <ui:include src="/pages/index/section/AdminCanvassTrader.xhtml"/>
                                 </div>
-                                <div class="index2Top">品牌聚焦</div>
-                                <div class="index2Bottom">
-                                    <ui:include src="/pages/index/section/RecommendBrand.xhtml"/>
-                                </div>
-                                <div class="index3">
-                                    <div class="index3Left">
-                                        <div class="index1LeftTop">供应信息</div>
-                                        <div class="indeex3LeftBottom"><ui:include src="/pages/getData/supply.xhtml"/></div>
-                                    </div>
-                                    <div class="index3Left">
-                                        <div class="index1LeftTop">求购信息</div>
-                                        <div class="indeex3LeftBottom"><ui:include src="/pages/getData/buy.xhtml"/></div>
-                                        </div>
-                                    <div class="index3Left">
-                                        <div class="index1LeftTop">展会信息</div>
-                                        <div class="indeex3LeftBottom">
-                                            <ui:include src="/pages/index/section/EnExhibitionList.xhtml"/>
-                                        </div>
-                                    </div>
-                                    <div class="index3Left">
-                                        <div class="index1LeftTop">招商信息</div>
-                                        <div class="indeex3LeftBottom">
-                                            <ui:include src="/pages/index/section/AdminCanvassTrader.xhtml"/>
-                                        </div>
-                                    </div>
-                                </div>
-                          </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="index9Right">
                         <div class="login">
                             <div>
@@ -61,7 +80,26 @@
                         </div>
                         <div class="login">
                             <div class="index1LeftTop">金融动态</div>
-                            <div class="index1LeftBottom">****</div>
+                            <div class="index1LeftBottom">
+                                <h:panelGroup>
+                                    <h:form>
+                                        <h:dataTable value="#{getDateManagedBean.moneyDataMax}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row" rules="all" >
+                                            <h:column>
+                                                <f:facet name="header" class="headerF">
+                                                    <h:outputLabel value="公司名称" class="headerF"/>
+                                                </f:facet>
+                                                <h:outputText value="#{item.name}" />
+                                            </h:column>
+                                            <h:column class="headerF">
+                                                <f:facet name="header">
+                                                    <h:outputLabel value="信贷额度" class="headerF" />
+                                                </f:facet>
+                                                <h:outputText value="#{item.money}元"  style="text-align: center"/>
+                                            </h:column>
+                                        </h:dataTable>
+                                    </h:form>
+                                </h:panelGroup>
+                            </div>
                         </div>
                         <div class="login">
                             <div class="index1LeftTop">最新交易</div>
@@ -109,7 +147,7 @@
                     <div class="index4Left">
                         <div class="index1LeftTop">推荐五金市场</div>
                         <div class="index4LeftBottom">
-                           <ui:include src="/pages/index/section/MMallList.xhtml"/> 
+                            <ui:include src="/pages/index/section/MMallList.xhtml"/> 
                         </div>
                     </div>
                 </div>
