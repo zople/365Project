@@ -5,7 +5,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
 
-    <ui:composition template="/pages/administratorManage/template/back.xhtml">
+    <ui:composition template="/template.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.ViewAdminHelpTitle}"></h:outputText>
         </ui:define>
@@ -15,8 +15,8 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewAdminHelpLabel_id}"/>
-                    <h:outputText value="#{adminHelpController.selected.id}" title="#{bundle.ViewAdminHelpTitle_id}"/>
+                    <h:outputText value="id"/>
+                    <h:outputText value="#{adminHelpController.selected.id}" title="标题"/>
                     <h:outputText value="#{bundle.ViewAdminHelpLabel_className}"/>
                     <h:outputText value="#{adminHelpController.selected.className}" title="#{bundle.ViewAdminHelpTitle_className}"/>
                     <h:outputText value="#{bundle.ViewAdminHelpLabel_name}"/>
