@@ -69,10 +69,28 @@ and open the template in the editor.
                 </table>
 
                 <table  class="table" id="tablePro3">
-                    <tr class="product3Top"><td><div class="leftTop">1F手动工具
-                    </div></td></tr>
-                    <tr class="product3Content"><td><div class="leftTop">2F电动工具</div></td></tr>
-                    <tr class="product3bottom"><td><h:graphicImage  name="down.png" library="images"/></td></tr>
+                    <ui:repeat value="#{productController.productCatalog2}" var="catalog">
+                        <tr class="product3Top">
+                            <td>
+                                <div class="leftTop">#{catalog.name}
+                                </div>
+                                <ui:repeat value="#{catalog.categories}" var="s">
+                                    <li style="list-style-type: none">#{s.name}</li>
+                                </ui:repeat>
+                            </td>
+                            <td>
+                                <ui:repeat value="#{catalog.categories}" var="s2">
+                                    <ui:repeat value="#{s2.productList}" var="p">
+                                        <li style="float: left;width: 150px;list-style-type: none">
+                                            <h:link value="#{p.name}" outcome="/pages/userManage/enterprise/front/productDetails.xhtml">
+                                                <f:param name="id" value="#{p.id}"/>
+                                            </h:link>
+                                        </li>
+                                    </ui:repeat>
+                                </ui:repeat>
+                            </td>
+                        </tr>
+                    </ui:repeat>
                 </table>
             </ui:define>
         </ui:composition>

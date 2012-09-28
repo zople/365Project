@@ -99,7 +99,7 @@ public class ProductController implements Serializable {
         Category category = categoryFacade.find(Long.valueOf(id));
         List<Product> products = new ArrayList<Product>();
         if (category.getPid() == 0) {
-            List<Category> categories =categoryFacade.findByParentId(category.getId(), 0, 100);
+            List<Category> categories = categoryFacade.findByParentId(category.getId(), 0, 100);
             for (Category c : categories) {
                 products.addAll(categoryFacade.find(c.getId()).getProductList());
             }
@@ -111,5 +111,16 @@ public class ProductController implements Serializable {
 
     public String getGoSearch() {
         return "/pages/index/section/ProductSearch.xhtml";
+    }
+
+    public List<Category> getProductCatalog2() {
+        List<Category> categories = catagoryService.findByParentId(0L, 0, 18);
+        for (Category c : categories) {
+            c.setCategories(catagoryService.findByParentId(c.getId(), 0, 10));
+        }
+        return categories.subList(0, 2);
+    }
+    public List<Product> getRecommendProduct(){
+        return ejbFacade.findAll().subList(0, 10);
     }
 }
