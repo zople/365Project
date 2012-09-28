@@ -127,10 +127,8 @@ public class GetDateManagedBean implements Serializable {
    public List<AdminCanvassTrader> getCanvasFacadeDataMax(){
         return canvasFacade.getMoneyList(0, 8);
    }
-   
-   
+
    //加工
-   
    @EJB
    MachiningFacade mFacade;;
    public List<Machining> getMachiningDataMax(){

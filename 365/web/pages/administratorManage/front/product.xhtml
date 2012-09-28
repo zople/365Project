@@ -30,17 +30,20 @@ and open the template in the editor.
                                     <tr><td class="product2LeftTop"><h:graphicImage  name="8.png" library="images"/></td></tr>
                                     <tr><td class="product2LeftBottom">
                                      <div style="padding: 10px 0 0 10px" class="index4LeftBottom">
-                                    <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津英伟不锈钢有限公司" style="color: black;"/><br/>
-                                    <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津腾达有限公司" style="color: black;"/><br/>
-                                    <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津壮丽管道有限公司" style="color: black;"/><br/>
-                                    <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津问题有限公司" style="color: black;"/><br/>
-                                    <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津责任有限公司" style="color: black;"/><br/>
-                                    <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津跨国时代有限公司" style="color: black;"/><br/>
-                                    <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津美好风光有限公司" style="color: black;"/><br/>
-                                    <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津任重道远有限公司" style="color: black;"/><br/>
-                                    <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津友朋有限公司" style="color: black;"/><br/>
-                                    <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津远方来有限公司" style="color: black;"/><br/>
-                        </div>         
+                                        <h:form>
+                                <h:dataTable value="#{enEnterpriseController.infoListBySql}" var="item">
+                                    <h:column>
+                                        <h:commandLink action="#{enEnterpriseController.findById()}" value="#{item.name}" cellpadding="2">
+                                            <f:param name="id" value="#{item.id}"></f:param>
+                                        </h:commandLink>
+                                    </h:column>
+                                    
+                                     <h:column>
+                                         <h:outputLabel value="#{item.create_time}" />
+                                    </h:column>
+                                </h:dataTable>
+                            </h:form>   
+                                     </div>         
                                             
                                             
                                             
