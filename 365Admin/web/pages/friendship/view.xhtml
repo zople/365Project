@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListRoleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:form>
+            <div class="user">
+                登录名：<h:outputText value="#{userController.user.loginName}"/><br/>
+                密码：<h:outputText value="#{userController.user.password}"/><br/>
+                邮箱：<h:outputText value="#{userController.user.email}"/><br/>
+                创建时间：<h:outputText value="#{userController.user.createTime}"/><br/>
+                最后登录时间：<h:outputText value="#{userController.user.lastLoginTime}"/><br/>
+                用户类型：<h:outputText value="#{userController.user.userType}"/><br/>
+            </div>
+            <div class="user_check">
+                是否通过审核
+                <h:commandButton value="是" />
+                <h:commandButton value="否" />
+            </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
