@@ -9,9 +9,12 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -38,6 +41,8 @@ public class TblFriendlyLink implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
+    @SequenceGenerator(name = "friendly_serial", allocationSize = 1, initialValue = 1, sequenceName = "friendly_serial")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "friendly_serial")
     @Column(name = "id")
     private Long id;
     @Size(max = 100)
