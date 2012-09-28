@@ -24,7 +24,7 @@ public class FriendShipController implements Serializable {
 
     public String view() {
         String id = JsfUtil.getRequestParameter("id");
-        tblFriendlyLink = friendlyLinkFacade.find(id);
+        tblFriendlyLink = friendlyLinkFacade.find(Long.parseLong(id));
         return "view.xhtml";
     }
 
