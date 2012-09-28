@@ -8,63 +8,26 @@ and open the template in the editor.
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
-    <head>
-        <title>TODO supply a title</title>
-    </head>
-    <body>
-        <div>
-            <ui:composition template="/pages/administratorManage/template/index.xhtml">
-                <ui:define name="content">
-                    <div class="body">
-
-                        <div class="exhibition3">
-                            <h:graphicImage name="24.png" library="images"/>
-                        </div>
-
-                        <div class="exhibition4">
-
-                            <div class="exhibition4Left">
-                                <div class="exhibition4Left1">
-                                    <ui:include src="exhibitionleft.xhtml"/>
-                                </div>
-                                <!--
-                                <div class="exhibition4Left2">
-                                    <div class="exhibition4Left1TOP">展会资讯</div>
-                                    <div>
-                                        >门窗幕墙行业风云榜评选 9-13
-                                    </div>
-                                </div>
-                                -->
-                            </div>
-
-                            <div class="exhibition4Right">
-                                <div class="exhibition4Right1">
-                                    <div class="exhibition4Right1Top">最新展会</div>
-                                    <div class="exhibition4Right1Top">按月搜索</div>
-                                    <div class="exhibition4Right1Top">
-                                        <h:dataTable value="#{enExhibitionController.exhibitionList}" var="item">
-                                            <h:column>
-                                                <h:outputText value="#{item.title}"/>
-                                            </h:column>
-                                            <h:column>
-                                                <h:outputText value="#{item.content}"/>
-                                            </h:column>
-                                            <h:column>
-                                                <h:outputText value="#{item.start_time}"/>
-                                            </h:column>
-                                        </h:dataTable>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div  class="exhibition5"></div>
-
-                    </div>
-                </ui:define>
-            </ui:composition>
-        </div>
-    </body>
+    <ui:composition>
+        <h:dataTable value="#{enExhibitionController.exhibitionList}" var="item">
+            <h:column>
+                <f:facet name="header">
+                    标题
+                </f:facet>
+                <h:outputText value="#{item.title}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    标题
+                </f:facet>
+                <h:outputText value="#{item.content}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    标题
+                </f:facet>
+                <h:outputText value="#{item.startTime}"/>
+            </h:column>
+        </h:dataTable>
+    </ui:composition>
 </html>
