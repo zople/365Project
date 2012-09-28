@@ -64,7 +64,12 @@ public class MachiningController implements Serializable {
         return "machiningView";
     }
     
-      
+                public String findFontById() {
+         String tempID=JsfUtil.getRequestParameter("id");
+         Long tid=Long.parseLong(tempID);
+        current =facade.find(tid);
+        return "/pages/userManage/enterprise/front/machiningView.xhtml";
+    }
       
         public Machining getSelected() {
         if (current == null) {
