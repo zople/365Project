@@ -19,14 +19,14 @@ and open the template in the editor.
                      <h:form>
                          <h:dataTable value="#{getDateManagedBean.moneyDataMax}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row" rules="all" >
                              <h:column>
-                                 <f:facet name="header" class="headerF">
-                                      <h:outputLabel value="公司名称" class="headerF"/>
+                                 <f:facet name="header">
+                                      <h:outputLabel value="公司名称"/>
                                   </f:facet>
                                       <h:outputText value="#{item.name}" />
                              </h:column>
-                             <h:column class="headerF">
+                             <h:column >
                                   <f:facet name="header">
-                                      <h:outputLabel value="信贷额度" class="headerF" />
+                                      <h:outputLabel value="信贷额度"/>
                                   </f:facet>
                                   <h:outputText value="#{item.money}元"  style="text-align: center"/>
                               </h:column>

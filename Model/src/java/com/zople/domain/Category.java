@@ -12,6 +12,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -41,7 +42,7 @@ public class Category implements Serializable {
     private String name;
     @Column(name = "pid")
     private Long pid;
-    @OneToMany(mappedBy = "category",cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "category",cascade = {CascadeType.ALL},fetch=FetchType.EAGER)
     private List<Product> productList=new ArrayList();
     @Transient 
     private List<Category> categories;
