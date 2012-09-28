@@ -37,14 +37,20 @@ and open the template in the editor.
                         <div>
                             <div  class="import2Top"><h:graphicImage name="15.png" library="images"/></div>
                             <div  class="import2Bottom">
-                                
+                                <h:form>
                                 <h:dataTable value="#{getDateManagedBean.canvasFacadeDataMax}"  var="enOrder1" border="0" cellpadding="2" cellspacing="0"   rules="all" style="border:solid 0px">
                                     <h:column>
                                         <f:facet name="header">
                                             <h:outputText value="招商标题"/>
                                         </f:facet>
-                                        <h:outputText value="#{enOrder1.name}"/>
+                                        
+                                        
+                                        <h:commandLink value="#{enOrder1.name}" action="#{adminCanvassTraderController.findFontById}">
+                        <f:param name="id" value="#{enOrder1.id}"/>
+                    </h:commandLink>     
+                                        
                                     </h:column>
+                       
                                      <h:column>
                                         <f:facet name="header">
                                             <h:outputText value="截止日期"/>
@@ -53,7 +59,7 @@ and open the template in the editor.
                                     </h:column>
                                 </h:dataTable>      
                                 
-                                
+                                </h:form>
                                 
                             </div>
                         </div>
