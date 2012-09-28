@@ -65,6 +65,12 @@ public class AdminCanvassTraderController implements Serializable {
     }
     
     
+          public String findFontById() {
+         String tempID=JsfUtil.getRequestParameter("id");
+         Long tid=Long.parseLong(tempID);
+        current =ejbFacade.find(tid);
+        return "/pages/userManage/enterprise/front/canvassTraderView.xhtml";
+    }
     
     
     

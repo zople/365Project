@@ -234,6 +234,8 @@ public class InsertDataController {
             friendlyLink.setId(Long.valueOf(i));
             friendlyLink.setContent(getText(10));
             friendlyLink.setDescription(getText(50));
+            friendlyLink.setCreateTime(new Date());
+            friendlyLink.setName(getText(2));
             friendlyLinkFacade.create(friendlyLink);
         }
     }
@@ -391,6 +393,7 @@ public class InsertDataController {
             adminCanvassTrader.setName(getText(20));
             adminCanvassTrader.setPack(getText(5));
             adminCanvassTrader.setStandard(getText(10));
+            adminCanvassTrader.setTitle(getText(3));
             adminCanvassTraderFacade.create(adminCanvassTrader);
         }
     }
@@ -428,7 +431,7 @@ public class InsertDataController {
             adminIndustryNewsFacade.create(adminIndustryNews);
         }
     }
-
+   //帮助
     public void getAdminHelpIndustryNewsData() {
         AdminHelp adminHelp;
         for (int i = 0; i < 200; i++) {
@@ -437,6 +440,8 @@ public class InsertDataController {
             adminHelp.setDescription(getText(20));
             adminHelp.setCreateTime(new Date());
             adminHelp.setContent(getText(60));
+            adminHelp.setClassName(getText(2));
+            adminHelp.setName(getText(2));
             adminHelpFacade.create(adminHelp);
         }
     }
@@ -813,6 +818,7 @@ public class InsertDataController {
         insetImages();//图片
         addMoney();  //金融动态
         insertContaceData();//联系人信息
+        insertMachingData();//加工信息。
         return "success";
    }
 
@@ -897,7 +903,7 @@ public class InsertDataController {
         String userType = "企业，市场，用户";
         for(int i=1;i<200;i++){
             user.setId(Long.valueOf(i));
-            user.setUserType(random(4));
+            user.setUserType(random(3));
             user.setLoginName(getText(2));
             user.setPassword("123");
             user.setEmail(getText(2)+"@zmcloud.com");

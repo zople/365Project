@@ -1,14 +1,11 @@
 package com.zople.controller;
 
-import com.zople.domain.EnExhibition;
 import com.zople.controller.util.JsfUtil;
 import com.zople.controller.util.PaginationHelper;
-import com.zople.dao.EnExhibitionFacade;
+import com.zople.dao.AdminHelpFacade;
+import com.zople.domain.AdminHelp;
 import java.io.Serializable;
-import java.util.List;
-import java.util.ResourceBundle;
 import javax.ejb.EJB;
-import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -17,52 +14,39 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import javax.inject.Named;
 
-@Named("enExhibitionController")
+
+@Named("HelpController")
 @SessionScoped
-public class EnExhibitionController implements Serializable {
+public class HelpController implements Serializable {
 
-    private EnExhibition current;
+
+    private AdminHelp current;
     private DataModel items = null;
-    @EJB
-    private EnExhibitionFacade ejbFacade;
+    @EJB 
+    private AdminHelpFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
-    public EnExhibitionController() {
+    public HelpController() {
     }
-    
-    public String goDetail(){
-       String id=JsfUtil.getRequestParameter("id");
-        current=ejbFacade.find(Long.valueOf(id));
-       return "/pages/administratorManage/front/exhibitiondetailed.xhtml";
-    }
-    public List<EnExhibition> getExhibitionList(){
-        // FIXME
-        int size=getFacade().count()>10?10:getFacade().count();
-        return getFacade().findAll().subList(0, size);
-    }
-    
-    public EnExhibition getItem(){
-        // FIXME
-        return getFacade().findAll().get(0);
-    }
-    
-    public EnExhibition getSelected() {
+
+    public AdminHelp getSelected() {
         if (current == null) {
-            current = new EnExhibition();
+            current = new AdminHelp();
             selectedItemIndex = -1;
         }
         return current;
     }
 
-    private EnExhibitionFacade getFacade() {
+    private AdminHelpFacade getFacade() {
         return ejbFacade;
     }
-
     public PaginationHelper getPagination() {
         if (pagination == null) {
             pagination = new PaginationHelper(10) {
+
                 @Override
                 public int getItemsCount() {
                     return getFacade().count();
@@ -70,7 +54,7 @@ public class EnExhibitionController implements Serializable {
 
                 @Override
                 public DataModel createPageDataModel() {
-                    return new ListDataModel(getFacade().findRange(new int[]{getPageFirstItem(), getPageFirstItem() + getPageSize()}));
+                    return new ListDataModel(getFacade().findRange(new int[]{getPageFirstItem(), getPageFirstItem()+getPageSize()}));
                 }
             };
         }
@@ -83,13 +67,13 @@ public class EnExhibitionController implements Serializable {
     }
 
     public String prepareView() {
-        current = (EnExhibition) getItems().getRowData();
+        current = (AdminHelp)getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
 
     public String prepareCreate() {
-        current = new EnExhibition();
+        current = new AdminHelp();
         selectedItemIndex = -1;
         return "Create";
     }
@@ -97,16 +81,14 @@ public class EnExhibitionController implements Serializable {
     public String create() {
         try {
             getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/resources/Bundle").getString("EnExhibitionCreated"));
             return prepareCreate();
         } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/resources/Bundle").getString("PersistenceErrorOccured"));
             return null;
         }
     }
 
     public String prepareEdit() {
-        current = (EnExhibition) getItems().getRowData();
+        current = (AdminHelp)getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
@@ -114,16 +96,14 @@ public class EnExhibitionController implements Serializable {
     public String update() {
         try {
             getFacade().edit(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/resources/Bundle").getString("EnExhibitionUpdated"));
             return "View";
         } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/resources/Bundle").getString("PersistenceErrorOccured"));
             return null;
         }
     }
 
     public String destroy() {
-        current = (EnExhibition) getItems().getRowData();
+        current = (AdminHelp)getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         performDestroy();
         recreatePagination();
@@ -147,9 +127,7 @@ public class EnExhibitionController implements Serializable {
     private void performDestroy() {
         try {
             getFacade().remove(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/resources/Bundle").getString("EnExhibitionDeleted"));
         } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/resources/Bundle").getString("PersistenceErrorOccured"));
         }
     }
 
@@ -157,14 +135,14 @@ public class EnExhibitionController implements Serializable {
         int count = getFacade().count();
         if (selectedItemIndex >= count) {
             // selected index cannot be bigger than number of items:
-            selectedItemIndex = count - 1;
+            selectedItemIndex = count-1;
             // go to previous page if last page disappeared:
             if (pagination.getPageFirstItem() >= count) {
                 pagination.previousPage();
             }
         }
         if (selectedItemIndex >= 0) {
-            current = getFacade().findRange(new int[]{selectedItemIndex, selectedItemIndex + 1}).get(0);
+            current = getFacade().findRange(new int[]{selectedItemIndex, selectedItemIndex+1}).get(0);
         }
     }
 
@@ -203,15 +181,15 @@ public class EnExhibitionController implements Serializable {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
-    @FacesConverter(forClass = EnExhibition.class)
-    public static class EnExhibitionControllerConverter implements Converter {
+    @FacesConverter(forClass=AdminHelp.class)
+    public static class AdminHelpControllerConverter implements Converter {
 
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            EnExhibitionController controller = (EnExhibitionController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "enExhibitionController");
+            HelpController controller = (HelpController)facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "adminHelpController");
             return controller.ejbFacade.find(getKey(value));
         }
 
@@ -231,12 +209,14 @@ public class EnExhibitionController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof EnExhibition) {
-                EnExhibition o = (EnExhibition) object;
+            if (object instanceof AdminHelp) {
+                AdminHelp o = (AdminHelp) object;
                 return getStringKey(o.getId());
             } else {
-                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + EnExhibition.class.getName());
+                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: "+AdminHelp.class.getName());
             }
         }
+
     }
+
 }

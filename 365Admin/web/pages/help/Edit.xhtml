@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAdminHelpTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="id" for="id" />
+                    <h:inputText id="id" value="#{HelpController.selected.id}" title="#{bundle.EditAdminHelpTitle_id}" required="true" requiredMessage="#{bundle.EditAdminHelpRequiredMessage_id}"/>
+                    <h:outputLabel value="名字" for="className" />
+                    <h:inputText id="className" value="#{HelpController.selected.className}" title="#{bundle.EditAdminHelpTitle_className}" />
+                    <h:outputLabel value="内容" for="content" />
+                    <h:inputText id="content" value="#{HelpController.selected.content}" title="#{bundle.EditAdminHelpTitle_content}" />
+                    <h:outputLabel value="描述" for="description" />
+                    <h:inputText id="description" value="#{HelpController.selected.description}" title="#{bundle.EditAdminHelpTitle_description}" />
+                    <h:outputLabel value="时间" for="createTime" />
+                    <h:inputText id="createTime" value="#{HelpController.selected.createTime}" title="#{bundle.EditAdminHelpTitle_createTime}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                </h:panelGrid>
+                <h:commandLink action="#{HelpController.update}" value="编辑"/>
+                <br />
+                <br />
+                <br />
+                <h:link outcome="/index" value="返回" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

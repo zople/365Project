@@ -51,10 +51,11 @@ public class IndexLoadDataController {
     }
     
     public List<AdminCanvassTrader> getAdminCanvassTraderList(){
-        return adminCanvassTraderFacade.findAll().subList(0, 10);
+       
+        return adminCanvassTraderFacade.findAll().subList(0,adminCanvassTraderFacade.count()>10?10:adminCanvassTraderFacade.count());
     }
     public List<MMall> getMMallList(){
-        return mMallFacade.findAll().subList(0, 10);
+        return mMallFacade.findAll().subList(0, mMallFacade.count()>10?10:mMallFacade.count());
     }
     public List<TblFriendlyLink> getFriendLinks(){
         return friendlyLinkFacade.findAll().subList(0, friendlyLinkFacade.count()>10?10:friendlyLinkFacade.count());

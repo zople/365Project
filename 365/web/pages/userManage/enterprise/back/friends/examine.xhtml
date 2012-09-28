@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>待审核商友</title>
+    </h:head>
+    <body>
+        <h:form>
+                <p:selectManyCheckbox value="#{formBean.selectedOptions}">  
+                            <f:selectItem itemLabel="批量审核通过" itemValue="批量审核通过" />  
+                 </p:selectManyCheckbox>
+                
+                <h:dataTable value="#{getDateManagedBean.enterpriseMore}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row" rules="all" >
+                    <h:column>
+                        <p:selectManyCheckbox value="#{formBean.selectedOptions}">  
+                            <f:selectItem itemLabel="" itemValue="" />  
+                        </p:selectManyCheckbox>
+                    </h:column>
+                    <h:column>
+                        <p:graphicImage value="#{imageController.image}" style="width:50px;height: 50px; margin-right: 10px;">
+                            <f:param name="id" value="2"/>
+                        </p:graphicImage>
+                    </h:column>
+                    <h:column>
+                          <h:outputText  value="#{item.name}:"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandLink value="审核通过" action="#"/><br/>
+                        <h:commandLink value="删除" action="#"/><br/>
+                    </h:column>
+                </h:dataTable>
+      </h:form>
+    </body>
+</html>
