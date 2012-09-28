@@ -12,27 +12,7 @@
                 <div>
                     <div style="float: left;">
                         <div class="index1Left">
-                            <div class="index1LeftTop">金融动态</div>
-                            <div class="index1LeftBottom">
-                                <h:panelGroup>
-                                    <h:form>
-                                        <h:dataTable value="#{getDateManagedBean.moneyDataMax}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row" rules="all" >
-                                            <h:column>
-                                                <f:facet name="header" class="headerF">
-                                                    <h:outputLabel value="公司名称" class="headerF"/>
-                                                </f:facet>
-                                                <h:outputText value="#{item.name}" />
-                                            </h:column>
-                                            <h:column class="headerF">
-                                                <f:facet name="header">
-                                                    <h:outputLabel value="信贷额度" class="headerF" />
-                                                </f:facet>
-                                                <h:outputText value="#{item.money}元"  style="text-align: center"/>
-                                            </h:column>
-                                        </h:dataTable>
-                                    </h:form>
-                                </h:panelGroup>
-                            </div>
+                            <ui:include src="/pages/administratorManage/commons/enLeft.xhtml"/>
                         </div>
                         <div class="index1Content">
                             <h:graphicImage name="20.png" library="images"/>
@@ -79,27 +59,7 @@
                             </div>
                         </div>
                         <div class="login">
-                            <div class="index1LeftTop">金融动态</div>
-                            <div class="index1LeftBottom">
-                                <h:panelGroup>
-                                    <h:form>
-                                        <h:dataTable value="#{getDateManagedBean.moneyDataMax}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row" rules="all" >
-                                            <h:column>
-                                                <f:facet name="header" class="headerF">
-                                                    <h:outputLabel value="公司名称" class="headerF"/>
-                                                </f:facet>
-                                                <h:outputText value="#{item.name}" />
-                                            </h:column>
-                                            <h:column class="headerF">
-                                                <f:facet name="header">
-                                                    <h:outputLabel value="信贷额度" class="headerF" />
-                                                </f:facet>
-                                                <h:outputText value="#{item.money}元"  style="text-align: center"/>
-                                            </h:column>
-                                        </h:dataTable>
-                                    </h:form>
-                                </h:panelGroup>
-                            </div>
+                            <ui:include src="/pages/administratorManage/commons/enLeft.xhtml"/>
                         </div>
                         <div class="login">
                             <div class="index1LeftTop">最新交易</div>
