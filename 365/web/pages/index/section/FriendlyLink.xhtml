@@ -5,10 +5,8 @@
     <h:form>
     <ul>
         <ui:repeat value="#{ indexLoadDataController.friendLinks}" var="friendLink" >
-            <li style="list-style-type: none">
-                <h:commandLink value="#{friendLink.name}" action="#{enExhibitionController.goDetail}">
-                    <f:param name="id" value="#{exhibition.id}"/>
-                </h:commandLink>
+            <li style="list-style-type: none;float: left;margin-left:10px; ">
+                <a >#{friendLink.content}</a>
             </li>
         </ui:repeat>
     </ul>
