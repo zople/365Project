@@ -7,11 +7,13 @@ package com.zople.controller;
 import com.zople.dao.AdminCanvassTraderFacade;
 import com.zople.dao.AdminIndustryNewsFacade;
 import com.zople.dao.EnExhibitionFacade;
+import com.zople.dao.FriendlyLinkFacade;
 import com.zople.dao.MMallFacade;
 import com.zople.domain.AdminCanvassTrader;
 import com.zople.domain.AdminIndustryNews;
 import com.zople.domain.EnExhibition;
 import com.zople.domain.MMall;
+import com.zople.domain.TblFriendlyLink;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
@@ -37,6 +39,8 @@ public class IndexLoadDataController {
     private AdminCanvassTraderFacade adminCanvassTraderFacade;
     @EJB
     private MMallFacade mMallFacade;
+    @EJB
+    private FriendlyLinkFacade friendlyLinkFacade;
     
     public List<EnExhibition> getExhibitionList(){
         return enExhibitionFacade.findAll().subList(0, 10);
@@ -53,5 +57,7 @@ public class IndexLoadDataController {
     public List<MMall> getMMallList(){
         return mMallFacade.findAll().subList(0, mMallFacade.count()>10?10:mMallFacade.count());
     }
-
+    public List<TblFriendlyLink> getFriendLinks(){
+        return friendlyLinkFacade.findAll().subList(0, friendlyLinkFacade.count()>10?10:friendlyLinkFacade.count());
+    }
 }

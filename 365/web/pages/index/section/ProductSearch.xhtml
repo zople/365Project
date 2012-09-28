@@ -5,12 +5,66 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:h="http://java.sun.com/jsf/html">
-    <h:head/>
-    <h:body>
-        <ui:composition template="/pages/administratorManage/template/index.xhtml">
-            <ui:define name="content">
-                
-            </ui:define>
-        </ui:composition>
+    <h:head>
+        <h:outputStylesheet library="css" name="reset.css"/>
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet library="css" name="cssLayout.css"/>
+        <h:outputStylesheet library="css" name="bottom.css"/>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputStylesheet library="css" name="administrator_index.css"/>
+        <h:outputStylesheet library="css" name="product.css"/>
+        <h:outputStylesheet library="css" name="en.css"/>
+        <h:outputStylesheet library="css" name="importTrade.css"/>
+        <h:outputStylesheet library="css" name="market.css"/>
+        <h:outputStylesheet library="css" name="index.css"/>
+        <h:outputStylesheet library="css" name="exti.css"/>
+        <h:outputStylesheet library="css" name="info.css"/>
+        <h:outputStylesheet library="css" name="buy.css"/>
+        <h:outputStylesheet library="css" name="recruitment/left.css"/>
+        <h:outputStylesheet library="css" name="recruitment/recruitment.css"/>
+        <h:outputStylesheet library="css" name="recruitment/moreRecruitment.css"/>
+        <h:outputStylesheet library="css" name="recruitment/position.css"/>
+        <h:outputStylesheet library="css" name="recruitment/morePosition.css"/>
+        <h:outputStylesheet library="css" name="recruitment/resume.css"/>
+        <h:outputStylesheet library="css" name="recruitment/resumeDetail.css"/>
+    </h:head>
+    <h:body style="text-align: center;"> 
+        <div style="width:1000px;margin: 0 auto;text-align: left;">
+            <ui:include src="/pages/administratorManage/commons/header.xhtml"/>
+            <div>首页>产品></div>
+            <ui:repeat value="#{productController.searchProductByCategory}" var="product">
+                <div style="width: 1000px;clear: both;border-bottom: 1px; border-bottom-style:  dashed;margin-top: 5px;padding-top: 5px;">
+                    <div style="float: left;width: 100px;">
+                        <h:link value="" outcome="/pages/userManage/enterprise/front/productDetails.xhtml">
+                            <p:graphicImage value="#{imageController.image}" style="width:100px;height:95px;">
+                                <f:param name="id" value="2"/>
+                            </p:graphicImage>
+                        </h:link>
+                    </div>
+                    <div style="float: left;width: 200px;margin-left: 50px;">
+                        <ul>
+                            <li style="list-style-type: none">产品名称:#{product.name}</li>
+                            <li style="list-style-type: none">最低起批量：10</li>
+                            <li style="list-style-type: none"></li>
+                        </ul>
+                    </div>
+                    <div style="float: left;width: 200px;margin-left: 50px;">
+                        <ul>
+                            <li style="list-style-type: none">价格:60.00</li>
+                            <li style="list-style-type: none">成交：58</li>
+                            <li style="list-style-type: none">评价：Very Good</li>
+                        </ul>
+                    </div>
+                    <div style="float: left;width:200px;margin-left: 50px;">
+                        <ul>
+                            <li style="list-style-type: none">上海润涛五金贸易有限公司</li>
+                            <li style="list-style-type: none">所在地区：上海</li>
+                            <li style="list-style-type: none">实名认证：通过</li>
+                            <li style="list-style-type: none">卖家信用：五星</li>
+                        </ul>
+                    </div>
+                </div>
+            </ui:repeat>
+        </div>
     </h:body>
 </html>

@@ -35,7 +35,7 @@ public class CategoryFacade extends AbstractFacade<Category>{
         Query query=em.createQuery(sql);
         query.setMaxResults(maxResults);
         query.setFirstResult(start);
-        return em.createQuery(sql).getResultList();
+        return query.getResultList();
     }
     
 }

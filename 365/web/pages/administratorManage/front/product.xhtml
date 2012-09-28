@@ -29,24 +29,18 @@ and open the template in the editor.
                                 <tr>
                                     <tr><td class="product2LeftTop"><h:graphicImage  name="8.png" library="images"/></td></tr>
                                     <tr><td class="product2LeftBottom">
-                                     <div style="padding: 10px 0 0 10px" class="index4LeftBottom">
-                                        <h:form>
-                                <h:dataTable value="#{enEnterpriseController.infoListBySql}" var="item">
-                                    <h:column>
-                                        <h:commandLink action="#{enEnterpriseController.findById()}" value="#{item.name}" cellpadding="2">
-                                            <f:param name="id" value="#{item.id}"></f:param>
-                                        </h:commandLink>
-                                    </h:column>
-                                    
-                                     <h:column>
-                                         <h:outputLabel value="#{item.create_time}" />
-                                    </h:column>
-                                </h:dataTable>
-                            </h:form>   
-                                     </div>         
-                                            
-                                            
-                                            
+                                            <div style="padding: 10px 0 0 10px" class="index4LeftBottom">
+                                                <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津英伟不锈钢有限公司" style="color: black;"/><br/>
+                                                <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津腾达有限公司" style="color: black;"/><br/>
+                                                <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津壮丽管道有限公司" style="color: black;"/><br/>
+                                                <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津问题有限公司" style="color: black;"/><br/>
+                                                <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津责任有限公司" style="color: black;"/><br/>
+                                                <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津跨国时代有限公司" style="color: black;"/><br/>
+                                                <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津美好风光有限公司" style="color: black;"/><br/>
+                                                <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津任重道远有限公司" style="color: black;"/><br/>
+                                                <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津友朋有限公司" style="color: black;"/><br/>
+                                                <h:link outcome="/pages/userManage/enterprise/front/careful.xhtml" value="【荐】天津远方来有限公司" style="color: black;"/><br/>
+                                            </div>         
                                         </td></tr>
                                 </tr>
                             </table>
@@ -54,31 +48,49 @@ and open the template in the editor.
                         <td><table><tr><td class="product2Right">
                                         <div class="leftTop">最新订单</div>
                                         <div>
-                                  <h:dataTable value="#{enOrderController.topEnOrders}" var="enOrder" border="0" cellpadding="2" cellspacing="0"   rules="all" style="border:solid 0px">
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="订单名称"/>
-                                        </f:facet>
-                                        <h:outputText value="#{enOrder.name}"/>
-                                    </h:column>
-                                     <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="订单时间"/>
-                                        </f:facet>
-                                        <h:outputText value="2012-09-28"/>
-                                    </h:column>
-                                </h:dataTable>    
-                                            
-                                            
+
+                                            <h:dataTable value="#{enOrderController.topEnOrders}" var="enOrder" border="0" cellpadding="2" cellspacing="0"   rules="all" style="border:solid 0px">
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="订单名称"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{enOrder.name}"/>
+                                                </h:column>
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="订单时间"/>
+                                                    </f:facet>
+                                                    <h:outputText value="2012-09-28"/>
+                                                </h:column>
+                                            </h:dataTable>    
                                         </div>
-                        </td></tr></table></td>
+                                    </td></tr></table></td>
                     </tr>
                 </table>
-                
+
                 <table  class="table" id="tablePro3">
-                    <tr class="product3Top"><td><div class="leftTop">1F手动工具</div></td></tr>
-                    <tr class="product3Content"><td><div class="leftTop">2F电动工具</div></td></tr>
-                    <tr class="product3bottom"><td><h:graphicImage  name="down.png" library="images"/></td></tr>
+                    <ui:repeat value="#{productController.productCatalog2}" var="catalog">
+                        <tr class="product3Top">
+                            <td>
+                                <div class="leftTop">#{catalog.name}
+                                </div>
+                                <ui:repeat value="#{catalog.categories}" var="s">
+                                    <li style="list-style-type: none">#{s.name}</li>
+                                </ui:repeat>
+                            </td>
+                            <td>
+                                <ui:repeat value="#{catalog.categories}" var="s2">
+                                    <ui:repeat value="#{s2.productList}" var="p">
+                                        <li style="float: left;width: 150px;list-style-type: none">
+                                            <h:link value="#{p.name}" outcome="/pages/userManage/enterprise/front/productDetails.xhtml">
+                                                <f:param name="id" value="#{p.id}"/>
+                                            </h:link>
+                                        </li>
+                                    </ui:repeat>
+                                </ui:repeat>
+                            </td>
+                        </tr>
+                    </ui:repeat>
                 </table>
             </ui:define>
         </ui:composition>
