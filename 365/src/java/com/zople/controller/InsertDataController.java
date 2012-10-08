@@ -862,7 +862,7 @@ public class InsertDataController {
         Image  image;
         File f=null;
          HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-        String url=request.getRealPath("/")+"\\resources\\images\\18.png";
+        String url=request.getRealPath("/")+File.separator+"resources"+File.separator+"images"+File.separator+"18.png";
         FileInputStream fis;
         for(int i=0;i<100;i++){
         try {
