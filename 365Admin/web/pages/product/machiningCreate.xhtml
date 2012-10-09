@@ -71,9 +71,16 @@
           
            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">  
                
+     
+               
         <h:outputText value="加工能力 : " /> 
           <p:inputText /> 
           
+          
+   <h:outputText value="加工图片 : " /> 
+   
+    <p:fileUpload value="#{fileUploadController.file}" mode="simple"/>  
+
           <h:outputText value="详细描述 : " /> 
           <p:editor id="editor" value="#{editorBean.value}" width="600"/>  
 

@@ -12,6 +12,7 @@
         <ui:define name="content">
             <h:form>
                 <div class="user">
+                    <h:commandButton value="添加友情链接" action="#{friendShipController.toCreate()}"/>
                     <div class="user_list_top">
                         <div class="user_list_delete">
                             <h:commandButton value="批量删除" />
@@ -34,7 +35,7 @@
                                 <f:facet name="header">
                                     <h:outputText value="友情连接ID"/>
                                 </f:facet>
-                                <h:outputText value="#{tblFriendlyLinks.id}"/>
+                                <h:outputText value="#{tblFriendlyLink.id}"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
@@ -60,11 +61,15 @@
                                 </f:facet>
                                 <h:outputText value="#{tblFriendlyLink.createTime}"/>
                             </h:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;操作"/>
-                            </f:facet>
+
                             <h:column >
+                                <f:facet name="header">
+                                    <h:outputText value="操作"/>
+                                </f:facet>
                                 <h:commandLink action="#{friendShipController.view()}" value="查看" >
+                                    <f:param value="#{tblFriendlyLink.id}" name="id"/>
+                                </h:commandLink>/
+                                <h:commandLink action="#{friendShipController.toEdit()}" value="更新" >
                                     <f:param value="#{tblFriendlyLink.id}" name="id"/>
                                 </h:commandLink>/
                                 <h:commandLink action="#{friendShipController.delete()}" value="删除" >
