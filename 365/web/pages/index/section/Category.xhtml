@@ -9,7 +9,7 @@
             <div>
                 <ui>
                     <ui:repeat value="#{category.categories}" var="categorySon">
-                        <li style="float:left;list-style-type: none;font-size: 15px;width: 100px; margin-bottom: 2px; height: 30px">
+                        <li style="float:left;list-style-type: none;font-size: 15px;width: 100px; margin-bottom: 2px; height: 20px">
                             <h:link value="#{categorySon.name}" outcome="#{productController.goSearch}">
                                 <f:param name="id" value="#{categorySon.id}"/>
                             </h:link>
