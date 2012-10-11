@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head/>
+
+    <h:body>
+        <ui:composition template="/pages/administratorManage/template/index.xhtml">
+            <ui:define name="content">
+                <div id="scrollDiv">
+                    <ul>
+                        <ui:repeat  value="#{getDateManagedBean.moneyDataMax}" var="item">
+                            <li>
+                                <div style="float: left;">
+                                    <p:graphicImage value="#{imageController.image}" style="width: 100px;height: 50px;">
+                                           <f:param name="id" value="2"/>
+                                       </p:graphicImage></div>
+                                <div style="float: right;"><h:outputText value="#{item.name}"/></div>
+                                
+                            </li>
+                        </ui:repeat>
+                    </ul>
+                </div>
+                <script type="text/javascript">
+                    (function($){
+                        $.fn.extend({
+                            Scroll:function(opt,callback){
+                                //参数初始化
+                                if(!opt) var opt={};
+                                var _this=this.eq(0).find("ul:first");
+                                var lineH=_this.find("li:first").height(), //获取行高
+                                line=opt.line?parseInt(opt.line,10):parseInt(this.height()/lineH,10), //每次滚动的行数，默认为一屏，即父容器高度
+                                speed=opt.speed?parseInt(opt.speed,10):500, //卷动速度，数值越大，速度越慢（毫秒）
+                                timer=opt.timer?parseInt(opt.timer,10):3000; //滚动的时间间隔（毫秒）
+                                if(line==0) line=1;
+                                var upHeight=0-line*lineH;
+                                //滚动函数
+                                scrollUp=function(){
+                                    _this.animate({
+                                        marginTop:upHeight
+                                    },speed,function(){
+                                        for(i=1;line>=i;i++){
+                                            _this.find("li:first").appendTo(_this);
+                                        }
+                                        _this.css({marginTop:0});
+                                    });
+                                }
+                                //鼠标事件绑定
+                                _this.hover(function(){
+                                    clearInterval(timerID);
+                                },function(){
+                                    timerID=setInterval("scrollUp()",timer);
+                                }).mouseout();
+                            }        
+                        })
+                    })(jQuery);
+ 
+                    $(document).ready(function(){
+                        $("#scrollDiv").Scroll({line:1,speed:200,timer:3000});
+                    });
+                </script>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

@@ -6,7 +6,6 @@ package com.zople.dao;
 
 import com.zople.dao.utils.CollectionUtil;
 import com.zople.domain.User;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

@@ -255,7 +255,7 @@ public class InsertDataController {
             enterprise.setAddress(getText(20));
             enterprise.setMainProduct(getText(10));
             enterprise.setDescription(getText(50));
-            enterprise.setCreate_time(new Date());
+            enterprise.setCreateTime(new Date());
             for(;j<i*10;j++){
                Supply supply= new Supply();
                //supply.setId(Long.valueOf(j));
@@ -862,7 +862,7 @@ public class InsertDataController {
         Image  image;
         File f=null;
          HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-        String url=request.getRealPath("/")+"\\resources\\images\\18.png";
+        String url=request.getRealPath("/")+File.separator+"resources"+File.separator+"images"+File.separator+"18.png";
         FileInputStream fis;
         for(int i=0;i<100;i++){
         try {
@@ -894,21 +894,16 @@ public class InsertDataController {
         this.showDate = showDate;
     }
        
-    /** 新增用户信息  **/
+    /**（1）用户基本信息**/
     @EJB
     private TblUserFacade tbluserFacade;
     public void insetUserData(){
-        //int [] userType = {1,2,3};   //1，企业用户2，市场用户3个人用户
         TblUser user=new TblUser();
-        String userType = "企业，市场，用户";
         for(int i=1;i<200;i++){
             user.setId(Long.valueOf(i));
             user.setUserType(random(3));
-            user.setLoginName(getText(2));
+            user.setLoginName("test"+i);
             user.setPassword("123");
-            user.setEmail(getText(2)+"@zmcloud.com");
-            user.setCreateTime(new Date());
-            user.setLastLoginTime(new Date());
             tbluserFacade.create(user);
         }
     }
