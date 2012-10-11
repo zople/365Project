@@ -9,6 +9,8 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -25,7 +27,6 @@ import javax.validation.constraints.Size;
 @NamedQueries({
     @NamedQuery(name = "OrderOrderproduct.findAll", query = "SELECT o FROM OrderOrderproduct o"),
     @NamedQuery(name = "OrderOrderproduct.findById", query = "SELECT o FROM OrderOrderproduct o WHERE o.id = :id"),
-    @NamedQuery(name = "OrderOrderproduct.findByOrderNo", query = "SELECT o FROM OrderOrderproduct o WHERE o.orderNo = :orderNo"),
     @NamedQuery(name = "OrderOrderproduct.findByProductName", query = "SELECT o FROM OrderOrderproduct o WHERE o.productName = :productName"),
     @NamedQuery(name = "OrderOrderproduct.findByProductPrice", query = "SELECT o FROM OrderOrderproduct o WHERE o.productPrice = :productPrice"),
     @NamedQuery(name = "OrderOrderproduct.findByProductAccount", query = "SELECT o FROM OrderOrderproduct o WHERE o.productAccount = :productAccount"),
@@ -38,9 +39,6 @@ public class OrderOrderproduct implements Serializable {
     @NotNull
     @Column(name = "id")
     private Long id;
-    @Size(max = 32)
-    @Column(name = "order_no")
-    private String orderNo;
     @Size(max = 32)
     @Column(name = "product_name")
     private String productName;
@@ -56,6 +54,10 @@ public class OrderOrderproduct implements Serializable {
     @Size(max = 32)
     @Column(name = "order_state")
     private String orderState;
+    
+    @ManyToOne
+    @JoinColumn(name="order_no",referencedColumnName="order_no")
+    private OrderOrderinfo Orderinfo;
 
     public OrderOrderproduct() {
     }
@@ -70,14 +72,6 @@ public class OrderOrderproduct implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getOrderNo() {
-        return orderNo;
-    }
-
-    public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo;
     }
 
     public String getProductName() {
@@ -143,6 +137,14 @@ public class OrderOrderproduct implements Serializable {
     @Override
     public String toString() {
         return "com.zople.domain.OrderOrderproduct[ id=" + id + " ]";
+    }
+
+    public OrderOrderinfo getOrderinfo() {
+        return Orderinfo;
+    }
+
+    public void setOrderinfo(OrderOrderinfo Orderinfo) {
+        this.Orderinfo = Orderinfo;
     }
     
 }
