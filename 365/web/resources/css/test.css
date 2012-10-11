@@ -1,0 +1,51 @@
+/* 
+    Document   : test
+    Created on : 2012-10-8, 16:14:25
+    Author     : wangxiu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+.MainBox1RC {
+    width: 200px;
+    height: 100px;
+    border-right: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    overflow: hidden;
+}
+.MainBox1RList {
+    width: 200px;
+    height: 50px;
+    margin: 3px 0 3px 5px;
+    float: left;
+    display: inline;
+    border-bottom: 1px dotted #E4E4E4;
+    color: #333;
+}
+stylesheetdiv {
+     display: block;
+}
+.MainBox1RC {
+    width: 100px;
+    height: 20px;
+    border-right: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    overflow: hidden;
+}
+
+ #main_text{width:500px;height:240px; overflow:hidden;padding:5px;border:#000 1px solid;}
+ #main_text1{ width:500px; float:left; }
+ #main_text2{ width:500px; float:left;}
+ .text{cursor:pointer;}
+ .text .text_left{ width:200px;height:50px; float:left; font-size:20px; text-align:center; padding-top:30px;}
+ .text .text_right{ width:200px; height:50px; float:left;font-size:20px; text-align:center; padding-top:30px;}
+ 
+ 
+  ul,li{margin:0;padding:0}
+                #scrollDiv{width:500px;height:400px;min-height:25px;line-height:25px;border:#ccc 1px solid;overflow:hidden}
+                #scrollDiv li{height:80px;padding-left:10px;}

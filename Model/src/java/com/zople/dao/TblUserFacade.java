@@ -14,6 +14,7 @@ import javax.persistence.Query;
 /**
  *
  * @author 王文彦
+ * 用户基本信息
  */
 @Stateless
 public class TblUserFacade extends AbstractFacade<TblUser> {

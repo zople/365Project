@@ -22,45 +22,44 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author 王文彦
+ * 1，用户基本信息实体
+ *    用户登陆实体
  */
 @Entity
-@Table(name = "tbl_user")
+@Table(name = "tbl_userinfo")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "TblUser.findAll", query = "SELECT t FROM TblUser t"),
-    @NamedQuery(name = "TblUser.findById", query = "SELECT t FROM TblUser t WHERE t.id = :id"),
-    @NamedQuery(name = "TblUser.findByCreateTime", query = "SELECT t FROM TblUser t WHERE t.createTime = :createTime"),
-    @NamedQuery(name = "TblUser.findByEmail", query = "SELECT t FROM TblUser t WHERE t.email = :email"),
-    @NamedQuery(name = "TblUser.findByLastLoginTime", query = "SELECT t FROM TblUser t WHERE t.lastLoginTime = :lastLoginTime"),
-    @NamedQuery(name = "TblUser.findByLoginName", query = "SELECT t FROM TblUser t WHERE t.loginName = :loginName"),
-    @NamedQuery(name = "TblUser.findByPassword", query = "SELECT t FROM TblUser t WHERE t.password = :password"),
-    @NamedQuery(name = "TblUser.findByUserType", query = "SELECT t FROM TblUser t WHERE t.userType = :userType")})
 public class TblUser implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
-    @Column(name = "id")
+    @Column(name = "userid")  //用户ID
     private Long id;
-    @Column(name = "create_time")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createTime;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
-    @Size(max = 255)
-    @Column(name = "email")
-    private String email;
-    @Column(name = "last_login_time")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastLoginTime;
-    @Size(max = 255)
-    @Column(name = "login_name")
+    @Column(name = "username")//登陆用户名
     private String loginName;
-    @Size(max = 255)
-    @Column(name = "password")
+    @Column(name = "password")//密码
     private String password;
-    @Column(name = "user_type")
-    private Integer userType;
-
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date effetDate;//账号生效日期
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date failDate;//账号失效日期
+    private int locking;//是否锁定用户
+    private int flag;//用户状态
+    private String creator;//创建人
+    private String updateUser;//修改人
+    private int sorts;//排序
+    private String remarks;//备注
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date lockTime;//用户锁定时间
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date preLoginTime;//上次登陆时间
+    @Column(name = "usertype")
+    private Integer userType;//用户类型
+    private int errornum;//密码输错次数
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date updatetime;//修改时间
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date createdate;//创建时间
+    
     public TblUser() {
     }
 
@@ -74,30 +73,6 @@ public class TblUser implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Date getLastLoginTime() {
-        return lastLoginTime;
-    }
-
-    public void setLastLoginTime(Date lastLoginTime) {
-        this.lastLoginTime = lastLoginTime;
     }
 
     public String getLoginName() {

@@ -16,12 +16,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -47,6 +50,18 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "EnEnterprise.findByTelphone", query = "SELECT e FROM EnEnterprise e WHERE e.telphone = :telphone"),
     @NamedQuery(name = "EnEnterprise.findByUrl", query = "SELECT e FROM EnEnterprise e WHERE e.url = :url")})
 public class EnEnterprise implements Serializable {
+    
+    @Column(name = "create_time")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createTime;
+    @Size(max = 255)
+    @Column(name = "description", length = 255)
+    private String description;
+    @ManyToMany(mappedBy = "enEnterpriseList")
+    private List<AdminStyle> adminStyleList;
+    @JoinColumn(name = "tbl_user_id", referencedColumnName = "userid")
+    @ManyToOne
+    private TblUserinfo tblUserId;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -87,10 +102,6 @@ public class EnEnterprise implements Serializable {
     private List<Supply> supplyList = new ArrayList();
 //    @OneToMany(mappedBy = "company_id")
 //    private List<Buy> buyList = new ArrayList();
-    private String description;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date create_time;
-    
     public EnEnterprise() {
     }
 
@@ -235,12 +246,28 @@ public class EnEnterprise implements Serializable {
         this.description = description;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public List<AdminStyle> getAdminStyleList() {
+        return adminStyleList;
+    }
+
+    public void setAdminStyleList(List<AdminStyle> adminStyleList) {
+        this.adminStyleList = adminStyleList;
+    }
+
+    public TblUserinfo getTblUserId() {
+        return tblUserId;
+    }
+
+    public void setTblUserId(TblUserinfo tblUserId) {
+        this.tblUserId = tblUserId;
     }
 
  

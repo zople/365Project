@@ -187,43 +187,4 @@ public class AdminHelpController implements Serializable {
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
-
-    @FacesConverter(forClass=AdminHelp.class)
-    public static class AdminHelpControllerConverter implements Converter {
-
-        public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
-            if (value == null || value.length() == 0) {
-                return null;
-            }
-            AdminHelpController controller = (AdminHelpController)facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "adminHelpController");
-            return controller.ejbFacade.find(getKey(value));
-        }
-
-        java.lang.Long getKey(String value) {
-            java.lang.Long key;
-            key = Long.valueOf(value);
-            return key;
-        }
-
-        String getStringKey(java.lang.Long value) {
-            StringBuffer sb = new StringBuffer();
-            sb.append(value);
-            return sb.toString();
-        }
-
-        public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
-            if (object == null) {
-                return null;
-            }
-            if (object instanceof AdminHelp) {
-                AdminHelp o = (AdminHelp) object;
-                return getStringKey(o.getId());
-            } else {
-                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: "+AdminHelp.class.getName());
-            }
-        }
-
-    }
-
 }
