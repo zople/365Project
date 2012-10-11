@@ -50,8 +50,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "EnEnterprise.findByTelphone", query = "SELECT e FROM EnEnterprise e WHERE e.telphone = :telphone"),
     @NamedQuery(name = "EnEnterprise.findByUrl", query = "SELECT e FROM EnEnterprise e WHERE e.url = :url")})
 public class EnEnterprise implements Serializable {
-    @Column(name = "image_id")
-    private BigInteger imageId;
+    
     @Column(name = "create_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
@@ -103,9 +102,6 @@ public class EnEnterprise implements Serializable {
     private List<Supply> supplyList = new ArrayList();
 //    @OneToMany(mappedBy = "company_id")
 //    private List<Buy> buyList = new ArrayList();
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date create_time;
-    
     public EnEnterprise() {
     }
 
@@ -248,22 +244,6 @@ public class EnEnterprise implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Date getCreate_time() {
-        return create_time;
-    }
-
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
-    }
-
-    public BigInteger getImageId() {
-        return imageId;
-    }
-
-    public void setImageId(BigInteger imageId) {
-        this.imageId = imageId;
     }
 
     public Date getCreateTime() {

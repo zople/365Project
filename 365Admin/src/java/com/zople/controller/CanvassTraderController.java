@@ -247,43 +247,4 @@ public class CanvassTraderController implements Serializable {
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
-
-    @FacesConverter(forClass=AdminCanvassTrader.class)
-    public static class AdminCanvassTraderControllerConverter implements Converter {
-
-        public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
-            if (value == null || value.length() == 0) {
-                return null;
-            }
-            CanvassTraderController controller = (CanvassTraderController)facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "adminCanvassTraderController");
-            return controller.ejbFacade.find(getKey(value));
-        }
-
-        java.lang.Long getKey(String value) {
-            java.lang.Long key;
-            key = Long.valueOf(value);
-            return key;
-        }
-
-        String getStringKey(java.lang.Long value) {
-            StringBuffer sb = new StringBuffer();
-            sb.append(value);
-            return sb.toString();
-        }
-
-        public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
-            if (object == null) {
-                return null;
-            }
-            if (object instanceof AdminCanvassTrader) {
-                AdminCanvassTrader o = (AdminCanvassTrader) object;
-                return getStringKey(o.getId());
-            } else {
-                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: "+AdminCanvassTrader.class.getName());
-            }
-        }
-
-    }
-
 }
