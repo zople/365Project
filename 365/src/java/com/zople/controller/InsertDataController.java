@@ -231,7 +231,7 @@ public class InsertDataController {
         TblFriendlyLink friendlyLink;
         for(int i=0;i<200;i++){
             friendlyLink=new TblFriendlyLink();
-            friendlyLink.setId(Long.valueOf(i));
+            //friendlyLink.setId(Long.valueOf(i));
             friendlyLink.setContent(getText(10));
             friendlyLink.setDescription(getText(50));
             friendlyLink.setCreateTime(new Date());
