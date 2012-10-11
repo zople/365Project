@@ -47,7 +47,7 @@
                       </p:menu>
                        
                         <p:menu style="background-image: url('/resources/images/1.png'); background-color: #c9e3f7;margin-bottom: 4px;width: 190px;">
-                        <p:submenu label="#{template.mm3}" style="background-image: url('/resources/images/1.png');background-color: #096fa7; color:   #ffffff">
+                        <p:submenu label="商户管理" style="background-image: url('/resources/images/1.png');background-color: #096fa7; color:   #ffffff">
                             <p:menuitem value="商户目录" url="/faces/pages/userManage/shoppingmall/back/mMall/List.xhtml" />
                             <p:menuitem value="入住商户审核" url="/faces/pages/userManage/shoppingmall/back/mMerchant/List.xhtml" />
                             <p:menuitem value="站内信" url="/faces/pages/userManage/shoppingmall/back/mMessage/List.xhtml" />
@@ -55,7 +55,7 @@
                       </p:menu>
                        
                         <p:menu style="background-image: url('/resources/images/1.png'); background-color: #c9e3f7;margin-bottom: 4px;width: 190px;">
-                        <p:submenu label="#{template.mm4}" style="background-image: url('/resources/images/1.png');background-color: #096fa7; color:   #ffffff">
+                        <p:submenu label="账户管理" style="background-image: url('/resources/images/1.png');background-color: #096fa7; color:   #ffffff">
                             <p:menuitem value="修改账户" url="/faces/pages/userManage/shoppingmall/back/mMall/List.xhtml" />
                             <p:menuitem value="修改密码" url="/faces/pages/userManage/shoppingmall/back/mMerchant/List.xhtml" />
                         </p:submenu>
@@ -63,18 +63,12 @@
                     </ui:insert>
                 </div>
 
-                <div id="content" class="left_content">
+                <div id="content">
                       <ui:insert name="content">
                       
                      </ui:insert>
                 </div>
-            </div>
-            <div id="bottom">
-                 <ui:insert name="bottom">
-                      <ui:include src="/pages/userManage/shoppingmall/commons/footer.xhtml"/>
-                 </ui:insert>
-               
-            </div>
+            </div>         
         </body>
 
     </f:view>  
