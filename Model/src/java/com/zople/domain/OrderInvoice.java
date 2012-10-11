@@ -20,7 +20,8 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author 王文彦
+ * @author wangxiu
+ * 订单发票
  */
 @Entity
 @Table(name = "order_invoice")
@@ -38,22 +39,22 @@ public class OrderInvoice implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Size(max = 20)
-    @Column(name = "invoice_type", length = 20)
+    @Column(name = "invoice_type")
     private String invoiceType;
     @Size(max = 20)
-    @Column(name = "head", length = 20)
+    @Column(name = "head")
     private String head;
     @Size(max = 20)
-    @Column(name = "head_type", length = 20)
+    @Column(name = "head_type")
     private String headType;
     @Size(max = 20)
-    @Column(name = "corp_name", length = 20)
+    @Column(name = "corp_name")
     private String corpName;
     @Size(max = 20)
-    @Column(name = "taxpayer_no", length = 20)
+    @Column(name = "taxpayer_no")
     private String taxpayerNo;
     @Column(name = "invoice_time")
     @Temporal(TemporalType.TIMESTAMP)

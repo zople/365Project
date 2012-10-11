@@ -13,6 +13,7 @@ import javax.persistence.PersistenceContext;
 /**
  *
  * @author 王文彦
+ * 权限对象表
  */
 @Stateless
 public class AuthorityFacade extends AbstractFacade<Authority> {

@@ -17,7 +17,8 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author 王文彦
+ * @author wangxiu
+ * 订单商品表供应
  */
 @Entity
 @Table(name = "order_orderproduct")
@@ -35,25 +36,25 @@ public class OrderOrderproduct implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Size(max = 32)
-    @Column(name = "order_no", length = 32)
+    @Column(name = "order_no")
     private String orderNo;
     @Size(max = 32)
-    @Column(name = "product_name", length = 32)
+    @Column(name = "product_name")
     private String productName;
     @Size(max = 32)
-    @Column(name = "product_price", length = 32)
+    @Column(name = "product_price")
     private String productPrice;
     @Size(max = 32)
-    @Column(name = "product_account", length = 32)
+    @Column(name = "product_account")
     private String productAccount;
     @Size(max = 32)
-    @Column(name = "product_total", length = 32)
+    @Column(name = "product_total")
     private String productTotal;
     @Size(max = 32)
-    @Column(name = "order_state", length = 32)
+    @Column(name = "order_state")
     private String orderState;
 
     public OrderOrderproduct() {

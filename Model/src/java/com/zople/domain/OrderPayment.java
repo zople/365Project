@@ -20,7 +20,8 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author 王文彦
+ * @author wangxiu
+ * 订单支付表
  */
 @Entity
 @Table(name = "order_payment")
@@ -40,27 +41,27 @@ public class OrderPayment implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Size(max = 32)
-    @Column(name = "orderno", length = 32)
+    @Column(name = "orderno")
     private String orderno;
     @Column(name = "pay_state")
     private Short payState;
     @Size(max = 32)
-    @Column(name = "product_price", length = 32)
+    @Column(name = "product_price")
     private String productPrice;
     @Size(max = 32)
-    @Column(name = "product_account", length = 32)
+    @Column(name = "product_account")
     private String productAccount;
     @Size(max = 32)
-    @Column(name = "transaction_code", length = 32)
+    @Column(name = "transaction_code")
     private String transactionCode;
     @Size(max = 32)
-    @Column(name = "order_state", length = 32)
+    @Column(name = "order_state")
     private String orderState;
     @Size(max = 32)
-    @Column(name = "remark", length = 32)
+    @Column(name = "remark")
     private String remark;
     @Column(name = "pay_time")
     @Temporal(TemporalType.TIMESTAMP)

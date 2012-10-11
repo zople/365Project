@@ -17,7 +17,8 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author 王文彦
+ * @author wangxiu
+ * 订单联系人
  */
 @Entity
 @Table(name = "order_contact")
@@ -36,29 +37,29 @@ public class OrderContact implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Size(max = 32)
-    @Column(name = "consignee", length = 32)
+    @Column(name = "consignee")
     private String consignee;
     @Size(max = 32)
-    @Column(name = "consignee_model", length = 32)
+    @Column(name = "consignee_model")
     private String consigneeModel;
-    // @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone/fax format, should be as xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
+    // @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="电话/传真格式无效, 应为 xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
     @Size(max = 32)
-    @Column(name = "phone", length = 32)
+    @Column(name = "phone")
     private String phone;
     @Size(max = 32)
-    @Column(name = "mobile", length = 32)
+    @Column(name = "mobile")
     private String mobile;
     @Size(max = 10)
-    @Column(name = "zip_code", length = 10)
+    @Column(name = "zip_code")
     private String zipCode;
     @Size(max = 32)
-    @Column(name = "address", length = 32)
+    @Column(name = "address")
     private String address;
     @Size(max = 32)
-    @Column(name = "sign_user", length = 32)
+    @Column(name = "sign_user")
     private String signUser;
 
     public OrderContact() {

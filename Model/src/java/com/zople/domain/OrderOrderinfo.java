@@ -21,7 +21,8 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author 王文彦
+ * @author wangxiu
+ * 订单表
  */
 @Entity
 @Table(name = "order_orderinfo")
@@ -58,78 +59,78 @@ public class OrderOrderinfo implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Size(max = 32)
-    @Column(name = "order_no", length = 32)
+    @Column(name = "order_no")
     private String orderNo;
     @Size(max = 8)
-    @Column(name = "order_state", length = 8)
+    @Column(name = "order_state")
     private String orderState;
     @Column(name = "state_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date stateTime;
     @Size(max = 32)
-    @Column(name = "reason_code", length = 32)
+    @Column(name = "reason_code")
     private String reasonCode;
     @Size(max = 32)
-    @Column(name = "remark", length = 32)
+    @Column(name = "remark")
     private String remark;
     @Size(max = 32)
-    @Column(name = "distribution_model", length = 32)
+    @Column(name = "distribution_model")
     private String distributionModel;
     @Size(max = 32)
-    @Column(name = "pay_model", length = 32)
+    @Column(name = "pay_model")
     private String payModel;
     @Size(max = 20)
-    @Column(name = "pay_state", length = 20)
+    @Column(name = "pay_state")
     private String payState;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "receivable_amount", precision = 10, scale = 2)
+    @Column(name = "receivable_amount")
     private BigDecimal receivableAmount;
     @Size(max = 32)
-    @Column(name = "pre_payment", length = 32)
+    @Column(name = "pre_payment")
     private String prePayment;
     @Column(name = "finish_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date finishTime;
     @Size(max = 32)
-    @Column(name = "vender_code", length = 32)
+    @Column(name = "vender_code")
     private String venderCode;
-    @Column(name = "freight", precision = 10, scale = 2)
+    @Column(name = "freight")
     private BigDecimal freight;
-    @Column(name = "weight", precision = 10, scale = 4)
+    @Column(name = "weight")
     private BigDecimal weight;
     @Size(max = 32)
-    @Column(name = "invoice", length = 32)
+    @Column(name = "invoice")
     private String invoice;
     @Size(max = 32)
-    @Column(name = "enterprise_id_buy", length = 32)
+    @Column(name = "enterprise_id_buy")
     private String enterpriseIdBuy;
     @Column(name = "order_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date orderTime;
     @Size(max = 32)
-    @Column(name = "order_remaek", length = 32)
+    @Column(name = "order_remaek")
     private String orderRemaek;
-    @Column(name = "sale_amount", precision = 10, scale = 2)
+    @Column(name = "sale_amount")
     private BigDecimal saleAmount;
     @Size(max = 32)
-    @Column(name = "terminate_type", length = 32)
+    @Column(name = "terminate_type")
     private String terminateType;
     @Size(max = 32)
-    @Column(name = "enterprise_id_sell", length = 32)
+    @Column(name = "enterprise_id_sell")
     private String enterpriseIdSell;
     @Column(name = "receives_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date receivesTime;
     @Size(max = 32)
-    @Column(name = "express_id", length = 32)
+    @Column(name = "express_id")
     private String expressId;
     @Size(max = 32)
-    @Column(name = "need_invoice", length = 32)
+    @Column(name = "need_invoice")
     private String needInvoice;
-    @Column(name = "received_amount", precision = 10, scale = 2)
+    @Column(name = "received_amount")
     private BigDecimal receivedAmount;
 
     public OrderOrderinfo() {
