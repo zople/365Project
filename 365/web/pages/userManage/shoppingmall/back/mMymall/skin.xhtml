@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+         <ui:composition template="/pages/userManage/shoppingmall/template/shoppingmall.xhtml">
+             <ui:define name="title">
+            <h:outputText value="市场模板"></h:outputText>
+        </ui:define>
+            <ui:define name="content">
+                <ui:define name="left">
+                    <p:menu style="background-color: #999999;margin-bottom: 4px;width: 190px;">
+                        <p:submenu label="#{template.mm2}" style="background-color: #999999; color: #ffffff">
+                            <p:menuitem value="市场模板" url="/faces/pages/userManage/shoppingmall/back/mMall/skin.xhtml" />
+                            <p:menuitem value="市场图片" url="/faces/pages/userManage/shoppingmall/back/mMerchant/picture.xhtml" />
+                            <p:menuitem value="栏目设置" url="/faces/pages/userManage/shoppingmall/back/mMessage/column.xhtml" />
+                        </p:submenu>
+                      </p:menu>
+                </ui:define>
+                <ui:define name="right">
+                    <div class="menu">
+                        <h:outputText value="市场模板选择" style="width: 130px; height: 30px; background-color: #CAFFFF; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px" />
+                    </div>
+                    <div class="top_style">*友情提醒:为市场个性化定制模板，设置商铺模板第一时间抓住客户眼球 </div>
+                </ui:define>
+            </ui:define>
+        </ui:composition>
+        <div>TODO write content</div>
+    </body>
+</html>
