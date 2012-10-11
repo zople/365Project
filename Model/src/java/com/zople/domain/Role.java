@@ -5,9 +5,8 @@
 package com.zople.domain;
 
 import java.io.Serializable;
-import java.util.HashSet;
+import java.util.Date;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,15 +22,17 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
+import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
  *
  * @author 王文彦
+ * 角色 
  */
 @Entity
-@Table(name = "tbl_role")
+@Table(name = "tbl_role_info")
 @NamedQueries({
     @NamedQuery(name = "Role.findAll", query = "SELECT r FROM Role r"),
     @NamedQuery(name = "Role.findById", query = "SELECT r FROM Role r WHERE r.id = :id"),
@@ -53,6 +54,18 @@ public class Role implements Serializable {
     @JoinColumn(name = "authority_id", referencedColumnName = "id")})
     @ManyToMany(cascade={CascadeType.REFRESH},fetch=FetchType.EAGER)
     private List<Authority> authoritySet;
+    
+    private String description;
+    private String creator;
+    private Integer sorts;
+    @Column(name = "update_user")
+    private String updateUser;
+    @Column(name = "update_time")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date updateTime;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    @Column(name = "create_time")
+    private Date createTime;
 
     public Role() {
     }
@@ -113,6 +126,54 @@ public class Role implements Serializable {
     @Override
     public String toString() {
         return "com.zople.dal.domain.Role[ id=" + id + " ]";
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    public Integer getSorts() {
+        return sorts;
+    }
+
+    public void setSorts(Integer sorts) {
+        this.sorts = sorts;
+    }
+
+    public String getUpdateUser() {
+        return updateUser;
+    }
+
+    public void setUpdateUser(String updateUser) {
+        this.updateUser = updateUser;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
     
 }
