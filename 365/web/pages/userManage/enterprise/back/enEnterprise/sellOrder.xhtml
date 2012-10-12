@@ -180,7 +180,7 @@
                                     <f:facet name="header">
                                         <h:outputText value="操作"/>
                                     </f:facet>
-                                    <h:commandLink value="查看订单详情" >
+                                    <h:commandLink value="查看订单详情"  action="/pages/userManage/enterprise/back/enEnterprise/orderDetails.xhtml">
                                         <f:param value="#{user.id}" name="id"/>
                                     </h:commandLink>
                                     <br/>
@@ -200,7 +200,12 @@
                                     <f:facet name="header">
                                         <h:outputText value="其他"/>
                                     </f:facet>
-                                    <h:outputText value="1111"/>
+                                    <h:commandLink value="查看退款详情" action="/pages/userManage/enterprise/back/enEnterprise/orderQuit.xhtml" >
+                                        <f:param value="#{user.id}" name="id"/>
+                                    </h:commandLink>
+                                    <h:commandLink value="查看投诉详情" action="/pages/userManage/enterprise/back/enEnterprise/orderQuit.xhtml" >
+                                        <f:param value="#{user.id}" name="id"/>
+                                    </h:commandLink>
                                 </h:column>
                             </h:dataTable>
                         </div>
