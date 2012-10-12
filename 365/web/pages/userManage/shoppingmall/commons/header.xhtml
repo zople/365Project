@@ -1,8 +1,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
-    <div class="shoppingmall">
-        <h:graphicImage name="1.png"  library="images"/>
-    </div>
-       
- </html>
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:form>
+        <div >
+            <div style="height: 40px; padding-top: 6px;float: right">
+                <h:link outcome="/pages/userManage/enterprise/back/main" value="易得首页" style="padding: 8px; font-size: 15px;"/>
+                <h:link outcome="/pages/userManage/enterprise/back/enEnterprise/List" value="产品信息"  style="padding: 8px; font-size: 15px;"/>
+                <h:link outcome="/pages/userManage/enterprise/back/credit/section/List" value="求购信息"  style="padding: 8px; font-size: 15px;"/>
+                <h:link outcome="/pages/userManage/enterprise/back/enAuthentication/List" value="企业"  style="padding: 8px; font-size: 15px;"/>
+                <h:link outcome="/pages/userManage/enterprise/back/friends/index" value="商友管理"  style="padding: 8px; font-size: 15px;"/>
+                <h:link outcome="/pages/userManage/enterprise/back/enFavorite/List" value="展会"  style="padding: 8px; font-size: 15px;"/>
+                <h:link outcome="/pages/userManage/enterprise/back/enInquiry/List" value="帮助中心"  style="padding: 8px; font-size: 15px;"/>
+            </div>
+            <div style="clear: right;"></div>
+            <div>
+                <p:fieldset >  
+                    <h:panelGrid columns="3" cellpadding="10">  
+                        <p:graphicImage name="1.png"  library="images"/>  
+                        <h:outputText value="易得天下" style="padding: 15px; font-size: 25px" /> 
+                        <div>
+                            <div style="height: 10px; margin-bottom: 5px; margin-top: 2px;">
+                                <h:outputFormat value="{0,date,yyyy年MM月dd日 星期几}">
+                                    尊敬的，，您好！今天是：<f:param value="#{insertDataController.showDate}"/>
+                                </h:outputFormat>
+                            </div>                    
+                            <div style="border: 1px solid #78cde7; height: 20px; padding-top: 6px; background-color:  #78cde7; float: right">
+                                <h:link outcome="/pages/userManage/enterprise/back/main" value="安全退出"  style="padding: 8px; font-size: 13px;"/>
+                                <h:link outcome="/pages/userManage/enterprise/back/main" value="站内信（0）"  style="padding: 8px; font-size: 13px;"/>
+                                <h:link outcome="/pages/userManage/enterprise/back/main" value="我的店铺"  style="padding: 8px; font-size: 13px;"/>
+                                <h:link outcome="/pages/userManage/enterprise/back/main" value="常用操作" style="padding: 8px; font-size: 13px;"/>
+                            </div> 
+                        </div>
+                    </h:panelGrid>  
+                </p:fieldset>  
+            </div> 
+            <div style="height:20px; border: 1px solid #66ffff; padding: 10px; background-color:  #c9e3f7;">
+                <h:link value="首页" outcome="/index" style=" margin-right: 10%;"/>
+                <h:link value="信息管理" outcome="/index" style=" margin-right: 10%;"/>
+                <h:link value="我的市场" outcome="/index" style=" margin-right: 10%;"/>
+                <h:link value="账户管理" outcome="/index" style=" margin-right: 10%;"/>
+            </div>
+        </div>
+    </h:form>    
+</html>

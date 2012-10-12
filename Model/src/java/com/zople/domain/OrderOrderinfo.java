@@ -6,13 +6,16 @@ package com.zople.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -132,7 +135,12 @@ public class OrderOrderinfo implements Serializable {
     private String needInvoice;
     @Column(name = "received_amount")
     private BigDecimal receivedAmount;
-
+    
+    //订单项
+    @OneToMany(mappedBy = "Orderinfo")
+    private List<OrderOrderproduct> orderItemsList=new ArrayList();
+    
+    
     public OrderOrderinfo() {
     }
 
@@ -371,6 +379,14 @@ public class OrderOrderinfo implements Serializable {
     @Override
     public String toString() {
         return "com.zople.domain.OrderOrderinfo[ id=" + id + " ]";
+    }
+
+    public List<OrderOrderproduct> getOrderItemsList() {
+        return orderItemsList;
+    }
+
+    public void setOrderItemsList(List<OrderOrderproduct> orderItemsList) {
+        this.orderItemsList = orderItemsList;
     }
     
 }
