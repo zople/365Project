@@ -12,11 +12,13 @@ package com.zople.controller.util;
 public enum OrderStateEnum {
     
    
-  INITIAL_STATE(0,"等待买家付款","等待买家付款","该状态为订单初始化状态，买家可以进行付款，和找人代付"),
-  PAYMENT_STATE(1,"等待卖家发货","买家已经付款",""),
-  SHIPMENTS_STATE(2,"卖家已经发货","等待买家确认付款","");
-    
-    
+  ORDER_INITIAL_STATE(0,"等待买家付款","等待买家付款","该状态为订单初始化状态，买家可以进行付款，和找人代付"),
+  ORDER_PAYMENT_STATE(1,"等待卖家发货","买家已经付款",""),
+  ORDER_SHIPMENTS_STATE(2,"卖家已经发货","等待买家确认付款",""),
+  ORDER_REFUND_STATE(3,"等待卖家确认退款","买家已申请退款",""),
+  ORDER_REFUND_COMPLETE_STATE(4,"退款成功","退款成功",""),
+  ORDER_COMPLETE_STATE(5,"交易完成","交易完成",""),
+  ORDER_CLOSE_STATE(6,"交易关闭","交易关闭","");
     
    
     //数字状态

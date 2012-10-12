@@ -32,6 +32,9 @@ public class OrderAuditServer {
    public void createPosition(String orderno,int state,String content) {
        
        OrderAudit orderAudit = new OrderAudit();
+       orderAudit.setAuditContent(content);
+       orderAudit.setAuditState(state);
+       orderAudit.setOrderno(orderno);
        
         facade.create(orderAudit);
     }
