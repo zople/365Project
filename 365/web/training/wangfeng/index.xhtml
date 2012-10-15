@@ -6,17 +6,16 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        Hello from Facelets
-        <h:panelGrid columns="4" >
-            <h:commandLink action="" value="立即购买"/>
-            <h:commandLink action="" value="提交订单"/>
-            <h:commandLink action="" value="支付"/>
-            <h:commandLink action="" value="收货"/> 
-            <h:commandLink action="" value="退货"/> 
-            <h:commandLink action="" value="确认收货"/>
-            <h:commandLink action="" value=""/>
-            <h:commandLink action="" value=""/>
-            <h:commandLink action="" value=""/> 
+        <h:panelGrid columns="10" >
+            <h:link action="/index" value="立即购买"/>
+            <h:link action="/index" value="提交订单"/>
+            <h:link action="/index" value="付款"/>
+            <h:link action="/index" value="收货"/> 
+            <h:link action="/index" value="确认收货"/>
+            <h:link action="/index" value="退货"/> 
+            <h:link action="/index" value="退款"/>
+            <h:link action="/index" value="评价"/>
+            <h:link action="/index" value="仲裁"/>
         </h:panelGrid>
     </h:body>
 </html>
