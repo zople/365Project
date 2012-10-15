@@ -19,10 +19,6 @@
                     <file>${reference.365Admin.dist-ear}</file>
                     <path-in-war>/</path-in-war>
                 </library>
-                <library>
-                    <file>${reference.365Admin.dist-ear}</file>
-                    <path-in-war>/</path-in-war>
-                </library>
             </web-module-additional-libraries>
         </data>
         <libraries xmlns="http://www.netbeans.org/ns/ant-project-libraries/1">

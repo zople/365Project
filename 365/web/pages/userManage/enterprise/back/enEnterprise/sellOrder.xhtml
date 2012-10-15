@@ -180,7 +180,7 @@
                                     <f:facet name="header">
                                         <h:outputText value="操作"/>
                                     </f:facet>
-                                    <h:commandLink value="查看订单详情" >
+                                    <h:commandLink value="查看订单详情"  action="/pages/userManage/enterprise/back/enEnterprise/orderDetails.xhtml">
                                         <f:param value="#{user.id}" name="id"/>
                                     </h:commandLink>
                                     <br/>
@@ -188,10 +188,11 @@
                                         <f:param value="#{user.id}" name="id"/>
                                     </h:commandLink>
                                     <br/>
-                                    <h:commandLink value="我要投诉" >
+                                    <h:commandLink value="我要投诉">
                                         <f:param value="#{user.id}" name="id"/>
                                     </h:commandLink>
                                     <br/>
+                                    
                                     <h:commandLink value="关闭物流" >
                                         <f:param value="#{user.id}" name="id"/>
                                     </h:commandLink>
@@ -200,7 +201,10 @@
                                     <f:facet name="header">
                                         <h:outputText value="其他"/>
                                     </f:facet>
-                                    <h:outputText value="1111"/>
+                                    <h:commandLink value="查看投诉详情"  action="/pages/userManage/enterprise/back/enEnterprise/checkComplaint.xhtml"/>
+                                    <h:commandLink value="查看退款详情" action="/pages/userManage/enterprise/back/enEnterprise/orderQuit.xhtml" >
+                                        <f:param value="#{user.id}" name="id"/>
+                                    </h:commandLink>
                                 </h:column>
                             </h:dataTable>
                         </div>
