@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -141,9 +142,12 @@ public class OrderOrderinfo implements Serializable {
     private BigDecimal receivedAmount;
     
     //订单项
-    @OneToMany(mappedBy = "Orderinfo")
+    @OneToMany(mappedBy = "Orderinfo",cascade={CascadeType.ALL})
     private List<OrderOrderproduct> orderItemsList=new ArrayList();
     
+    //订单状态
+    @OneToMany(cascade={CascadeType.ALL})
+    private List<OrderAudit> orderAudit = new ArrayList();
     
     public OrderOrderinfo() {
     }
@@ -392,6 +396,14 @@ public class OrderOrderinfo implements Serializable {
 
     public void setOrderItemsList(List<OrderOrderproduct> orderItemsList) {
         this.orderItemsList = orderItemsList;
+    }
+
+    public List<OrderAudit> getOrderAudit() {
+        return orderAudit;
+    }
+
+    public void setOrderAudit(List<OrderAudit> orderAudit) {
+        this.orderAudit = orderAudit;
     }
     
 }

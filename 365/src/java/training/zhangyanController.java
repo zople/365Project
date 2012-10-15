@@ -47,7 +47,7 @@ public class zhangyanController {
     
     public void buyRightNow(){
         OrderOrderinfo orderInfo=new OrderOrderinfo();
-        for (int i = 1; i < 20; i++) {
+        for (int i = 1; i < 2; i++) {
             int j = 1;
             orderInfo.setPayState("未支付");
             orderInfo.setReceivedAmount(BigDecimal.valueOf(1500));
@@ -66,6 +66,10 @@ public class zhangyanController {
                 orderInfo.getOrderItemsList().add(orderProduct);
             }
             orderInfoFacade.create(orderInfo);
+            OrderAudit orderAudit=new OrderAudit();
+            orderAudit.setAuditState(Integer.valueOf(0));    
+            orderAudit.setOrderno(orderInfo.getOrderNo());
+            orderAudit.setAuditContent("sdfagf");
         }
         
         
