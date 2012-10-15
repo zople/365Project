@@ -11,6 +11,7 @@ import com.zople.domain.OrderOrderproduct;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Random;
 import javax.ejb.EJB;
@@ -52,7 +53,7 @@ public class yuliyaoController implements Serializable {
     private OrderOrderproductFacade orderproductFacade;
     @EJB
     private OrderOrderinfoFacade orderinfotFacade;
-    public void buyImmediately(){
+    public void submitOrder(){
         OrderOrderinfo orderinfo;
           int j=1;
        for(int i=1;i<100;i++){
@@ -63,64 +64,62 @@ public class yuliyaoController implements Serializable {
             orderproduct.setId(Long.valueOf(j));
             orderproduct.setProductName(getText(2));
             orderproduct.setProductPrice(String.valueOf(j*10));
-            orderproduct.setProductAccount(String.valueOf(j*2));
-            orderproduct.setProductTotal(orderproduct.getProductTotal());
-            orderproduct.setOrderState(orderproduct.getOrderState());
+            orderproduct.setProductAccount(String.valueOf(2));
+            orderproduct.setProductTotal(String.valueOf(j*20));
+            orderproduct.setOrderState("等待付款");
             orderinfo.getOrderItemsList().add(orderproduct);
             
        }
-           orderinfo.setOrderNo(orderinfo.getOrderNo());
-           orderinfo.setOrderState(orderinfo.getOrderState());
-           orderinfo.setStateTime(orderinfo.getStateTime());
-           orderinfo.setReasonCode(orderinfo.getReasonCode());
-           orderinfo.setRemark(orderinfo.getRemark());
-           orderinfo.setDistributionModel(orderinfo.getDistributionModel());
-           orderinfo.setPayModel(orderinfo.getPayModel());
-           orderinfo.setPayState(orderinfo.getPayState());
-           orderinfo.setReceivableAmount(orderinfo.getReceivableAmount());
-           orderinfo.setPrePayment(orderinfo.getPrePayment());
-           orderinfo.setFinishTime(orderinfo.getFinishTime());
-           orderinfo.setVenderCode(orderinfo.getVenderCode());
-           orderinfo.setFreight(orderinfo.getFreight());
-           orderinfo.setWeight(orderinfo.getWeight());
-           orderinfo.setInvoice(orderinfo.getInvoice());
-           orderinfo.setEnterpriseIdBuy(orderinfo.getEnterpriseIdBuy());
+           orderinfo.setOrderNo("4321");
+           orderinfo.setOrderState("等待付款");
+           orderinfo.setStateTime(new Date());
+           orderinfo.setReasonCode(getText(2));
+           orderinfo.setRemark(getText(12));
+           orderinfo.setDistributionModel(getText(2));
+           orderinfo.setPayModel(getText(2));
+           orderinfo.setPayState("等待付款");
+           orderinfo.setReceivableAmount(BigDecimal.valueOf(j*20));
+           orderinfo.setPrePayment(String.valueOf(j*20));
+           orderinfo.setFinishTime(new Date());
+           orderinfo.setVenderCode("4567");
+           orderinfo.setFreight(BigDecimal.valueOf(20));
+           orderinfo.setWeight(BigDecimal.valueOf(5));
+           orderinfo.setInvoice("9876000");
+           orderinfo.setEnterpriseIdBuy(getText(4));
            orderinfo.setOrderTime(new Date());
-           orderinfo.setOrderRemaek(orderinfo.getOrderRemaek());
-           orderinfo.setSaleAmount(orderinfo.getSaleAmount());
-           orderinfo.setTerminateType(orderinfo.getTerminateType());
-           orderinfo.setEnterpriseIdSell(orderinfo.getEnterpriseIdSell());
-           orderinfo.setReceivesTime(orderinfo.getReceivesTime());
-           orderinfo.setExpressId(orderinfo.getExpressId());
-           orderinfo.setNeedInvoice(orderinfo.getNeedInvoice());
-           orderinfo.setReceivedAmount(orderinfo.getReceivedAmount());
+           orderinfo.setOrderRemaek(getText(4));
+           orderinfo.setSaleAmount(BigDecimal.valueOf(2));
+           orderinfo.setTerminateType(getText(2));
+           orderinfo.setEnterpriseIdSell(getText(4));
+           orderinfo.setReceivesTime(new Date());
+           orderinfo.setExpressId(getText(3));
+           orderinfo.setNeedInvoice(getText(2));
+           orderinfo.setReceivedAmount(BigDecimal.valueOf(2));
            orderinfotFacade.create(orderinfo); 
        }
          
                 
     }
-    public void submitOrder(){
+    
+    public void waitForPayment(){
         
     }
-    public void payment(){
+    public void sendProduct(){
         
     }
     public void receiveProduct(){
         
     }
-    public void confirmProduct(){
+    public void applyForRefundment(){
         
     }
-    public void returnProduct(){
+    public void tradeSuccess(){
         
     }
-    public void refundment(){
+    public void tradefailure(){
         
     }
-    public void evaluate(){
-        
-    }
-    public void arbitration(){
+    public void tradeOver(){
         
     }
     
