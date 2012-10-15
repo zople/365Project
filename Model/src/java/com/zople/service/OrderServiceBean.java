@@ -20,6 +20,20 @@ public class OrderServiceBean implements OrderServiceBeanLocal {
     @Override
     public OrderOrderinfo createOrder(long enterprseId, long productId) {
         OrderOrderinfo order=new OrderOrderinfo();
+        
+        //订单信息
+        
+       //供应产品信息取数保存到订单产品表
+        
+        
+        //
+        
+        
+        
+        
+        
+        
+        
         return null;
     }
 

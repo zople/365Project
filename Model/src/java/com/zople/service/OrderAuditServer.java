@@ -29,7 +29,7 @@ public class OrderAuditServer {
    * content   流程审批过程中的意见内容
    *  
    */
-   public void createPosition(String orderno,int state,String content) {
+   public void createAudit(String orderno,int state,String content) {
        
        OrderAudit orderAudit = new OrderAudit();
        orderAudit.setAuditContent(content);
