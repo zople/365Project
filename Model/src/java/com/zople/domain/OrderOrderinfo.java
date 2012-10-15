@@ -64,7 +64,7 @@ public class OrderOrderinfo implements Serializable {
     @NotNull
     @Column(name = "id")
     private Long id;
-    @Size(max = 32)
+    @Size(max = 200)
     @Column(name = "order_no")
     private String orderNo;
     @Size(max = 8)

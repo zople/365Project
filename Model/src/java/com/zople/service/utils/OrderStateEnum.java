@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.zople.controller.util;
+package com.zople.service.utils;
 
 /**
  *@描   述:  订单状态枚举
