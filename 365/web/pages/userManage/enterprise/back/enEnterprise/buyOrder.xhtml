@@ -183,6 +183,10 @@
                                         <f:param value="#{user.id}" name="id"/>
                                     </h:commandLink>
                                     <br/>
+                                    <h:commandLink value="取消订单"  action="/pages/userManage/enterprise/back/enEnterprise/cancelOrder.xhtml">
+                                        <f:param value="#{user.id}" name="id"/>
+                                    </h:commandLink>
+                                    <br/>
                                     <h:commandLink value="关闭物流" >
                                         <f:param value="#{user.id}" name="id"/>
                                     </h:commandLink>
@@ -191,7 +195,11 @@
                                     <f:facet name="header">
                                         <h:outputText value="其他"/>
                                     </f:facet>
-                                    <h:outputText value="1111"/>
+                                    <br/>
+                                    <h:commandLink value="评价"  action="/pages/userManage/enterprise/back/enEnterprise/evaluate.xhtml">
+                                        <f:param value="#{user.id}" name="id"/>
+                                    </h:commandLink>
+                                    <br/>
                                 </h:column>
                             </h:dataTable>
                         </div>
