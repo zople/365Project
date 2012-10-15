@@ -5,6 +5,7 @@
 package com.zople.controller;
 
 import com.zople.controller.util.JsfUtil;
+import com.zople.controller.util.OrderStateEnum;
 import com.zople.controller.util.PaginationHelper;
 import com.zople.dao.CategoryFacade;
 import com.zople.domain.Category;
@@ -45,6 +46,7 @@ public class CategoryController {
        * @return  实体对象
        */ 
       public String findById() {
+          
          String tempID=JsfUtil.getRequestParameter("id");
          Long tid=Long.parseLong(tempID);
         current =  ejbFacade.find(tid);
