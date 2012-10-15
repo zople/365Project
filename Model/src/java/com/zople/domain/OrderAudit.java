@@ -52,6 +52,7 @@ public class OrderAudit implements Serializable {
     @Temporal(TemporalType.TIME)
     private Date auditTime;
 
+
     public OrderAudit() {
     }
 
