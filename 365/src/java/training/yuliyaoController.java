@@ -4,9 +4,7 @@
  */
 package training;
 
-import com.zople.dao.OrderAuditFacade;
 import com.zople.dao.OrderOrderinfoFacade;
-import com.zople.dao.OrderOrderproductFacade;
 import com.zople.domain.OrderAudit;
 import com.zople.domain.OrderOrderinfo;
 import com.zople.domain.OrderOrderproduct;
