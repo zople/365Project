@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        <h:panelGrid columns="10" >
+            <h:commandButton action="#{yuliyaoController.submitOrder}" value="提交订单"/>
+            <h:commandButton action="#{yuliyaoController.waitForPayment}" value="等待付款"/>
+            <h:commandButton action="#{yuliyaoController.sendProduct}" value="发货"/> 
+            <h:commandButton action="#{yuliyaoController.receiveProduct}" value="收货"/>
+            <h:commandButton action="#{yuliyaoController.applyForRefundment}" value="申请退款"/>
+            <h:commandButton action="#{yuliyaoController.tradeSuccess}" value="交易成功"/>
+            <h:commandButton action="#{yuliyaoController.tradefailure}" value="交易失败"/>
+            <h:commandButton action="#{yuliyaoController.tradeOver}" value="交易关闭"/>
+        </h:panelGrid>    
+        </h:form>   
+    </h:body>
+</html>
+

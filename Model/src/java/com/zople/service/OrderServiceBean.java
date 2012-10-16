@@ -27,9 +27,20 @@ public class OrderServiceBean implements OrderServiceBeanLocal {
     @Override
     public OrderOrderinfo createOrder(long sellerId, long productId, long buyerId) {
         OrderOrderinfo order=new OrderOrderinfo();
-        order.setEnterpriseIdBuy(buyerId);
-        order.setEnterpriseIdSell(sellerId);
-        order.setStateTime(new Date());
+        
+        //订单信息
+        
+       //供应产品信息取数保存到订单产品表
+        
+        
+        //
+        
+        
+        
+        
+        
+        
+        
         return null;
     }   
 

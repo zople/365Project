@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -132,7 +133,15 @@ public class OrderOrderinfo implements Serializable {
     private String needInvoice;
     @Column(name = "received_amount")
     private BigDecimal receivedAmount;
-
+    
+    //订单项
+    @OneToMany(mappedBy = "Orderinfo",cascade={CascadeType.ALL})
+    private List<OrderOrderproduct> orderItemsList=new ArrayList();
+    
+    //订单状态
+    @OneToMany(cascade={CascadeType.ALL})
+    private List<OrderAudit> orderAudit = new ArrayList();
+    
     public OrderOrderinfo() {
     }
 
@@ -371,6 +380,14 @@ public class OrderOrderinfo implements Serializable {
     @Override
     public String toString() {
         return "com.zople.domain.OrderOrderinfo[ id=" + id + " ]";
+    }
+
+    public List<OrderAudit> getOrderAudit() {
+        return orderAudit;
+    }
+
+    public void setOrderAudit(List<OrderAudit> orderAudit) {
+        this.orderAudit = orderAudit;
     }
     
 }
