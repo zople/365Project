@@ -8,13 +8,13 @@ import com.zople.dao.OrderOrderinfoFacade;
 import com.zople.domain.OrderAudit;
 import com.zople.domain.OrderOrderinfo;
 import com.zople.domain.OrderOrderproduct;
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Random;
 import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
 /**
  *
