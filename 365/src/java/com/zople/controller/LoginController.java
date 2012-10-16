@@ -10,16 +10,10 @@ import com.zople.controller.util.JsfUtil;
 import com.zople.dao.basic.UserInfoFacade;
 import com.zople.domain.basic.UserInfo;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.persistence.NoResultException;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -60,14 +54,14 @@ public class LoginController implements Serializable {
         }
         if(password==null){
             flg=false;
-            JsfUtil.addErrorMessage("password", "用户名不能为空"); 
+            JsfUtil.addErrorMessage("password", "密码不能为空"); 
         }
         if(!flg){
             return null;
         }
         UserInfo userInfo=userInfoFacade.findBuyName(username);
-        if(userInfo==null){
-             JsfUtil.addErrorMessage("password", "用户名不存在"); 
+        if(userInfo==null||userInfo.getUserType()!=1){
+             JsfUtil.addErrorMessage("username", "用户名不存在"); 
              return null;
         }
         if(password.equals(userInfo.getPassword())){
@@ -76,8 +70,9 @@ public class LoginController implements Serializable {
              SessionUser user=new SessionUser();
              user.setId(password);
              session.setAttribute(SessionUserHelper.USER_SESSION_KEY, user);
-            return "";
+            return "/pages/userManage/enterprise/back/main.xhtml";
         }
+         JsfUtil.addErrorMessage("password", "密码错误"); 
         
         return null;
     }
