@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.zople.domain;
+package com.zople.domain.product;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -6,29 +6,28 @@ package com.zople.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.ArrayList;
+import java.math.BigInteger;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author wangxiu
- * 订单表
+ * @author 王文彦
  */
 @Entity
 @Table(name = "order_orderinfo")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "OrderOrderinfo.findAll", query = "SELECT o FROM OrderOrderinfo o"),
     @NamedQuery(name = "OrderOrderinfo.findById", query = "SELECT o FROM OrderOrderinfo o WHERE o.id = :id"),
@@ -107,9 +106,8 @@ public class OrderOrderinfo implements Serializable {
     @Size(max = 32)
     @Column(name = "invoice")
     private String invoice;
-    @Size(max = 32)
     @Column(name = "enterprise_id_buy")
-    private String enterpriseIdBuy;
+    private Long enterpriseIdBuy;
     @Column(name = "order_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date orderTime;
@@ -121,9 +119,8 @@ public class OrderOrderinfo implements Serializable {
     @Size(max = 32)
     @Column(name = "terminate_type")
     private String terminateType;
-    @Size(max = 32)
     @Column(name = "enterprise_id_sell")
-    private String enterpriseIdSell;
+    private Long enterpriseIdSell;
     @Column(name = "receives_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date receivesTime;
@@ -135,12 +132,7 @@ public class OrderOrderinfo implements Serializable {
     private String needInvoice;
     @Column(name = "received_amount")
     private BigDecimal receivedAmount;
-    
-    //订单项
-    @OneToMany(mappedBy = "Orderinfo")
-    private List<OrderOrderproduct> orderItemsList=new ArrayList();
-    
-    
+
     public OrderOrderinfo() {
     }
 
@@ -276,11 +268,11 @@ public class OrderOrderinfo implements Serializable {
         this.invoice = invoice;
     }
 
-    public String getEnterpriseIdBuy() {
+    public Long getEnterpriseIdBuy() {
         return enterpriseIdBuy;
     }
 
-    public void setEnterpriseIdBuy(String enterpriseIdBuy) {
+    public void setEnterpriseIdBuy(Long enterpriseIdBuy) {
         this.enterpriseIdBuy = enterpriseIdBuy;
     }
 
@@ -316,11 +308,11 @@ public class OrderOrderinfo implements Serializable {
         this.terminateType = terminateType;
     }
 
-    public String getEnterpriseIdSell() {
+    public Long getEnterpriseIdSell() {
         return enterpriseIdSell;
     }
 
-    public void setEnterpriseIdSell(String enterpriseIdSell) {
+    public void setEnterpriseIdSell(Long enterpriseIdSell) {
         this.enterpriseIdSell = enterpriseIdSell;
     }
 
@@ -379,14 +371,6 @@ public class OrderOrderinfo implements Serializable {
     @Override
     public String toString() {
         return "com.zople.domain.OrderOrderinfo[ id=" + id + " ]";
-    }
-
-    public List<OrderOrderproduct> getOrderItemsList() {
-        return orderItemsList;
-    }
-
-    public void setOrderItemsList(List<OrderOrderproduct> orderItemsList) {
-        this.orderItemsList = orderItemsList;
     }
     
 }
