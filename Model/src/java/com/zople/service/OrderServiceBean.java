@@ -5,6 +5,7 @@
 package com.zople.service;
 
 import com.zople.domain.OrderOrderinfo;
+import java.util.Date;
 import java.util.UUID;
 import javax.ejb.Stateless;
 
@@ -17,8 +18,14 @@ public class OrderServiceBean implements OrderServiceBeanLocal {
     
     
 
+    /**
+     *
+     * @param enterprseId the value of enterprseId
+     * @param productId the value of productId
+     * @param buyerId the value of buyerId
+     */
     @Override
-    public OrderOrderinfo createOrder(long enterprseId, long productId) {
+    public OrderOrderinfo createOrder(long sellerId, long productId, long buyerId) {
         OrderOrderinfo order=new OrderOrderinfo();
         
         //订单信息
@@ -35,7 +42,7 @@ public class OrderServiceBean implements OrderServiceBeanLocal {
         
         
         return null;
-    }
+    }   
 
     @Override
     public String orderCodeGenerator() {

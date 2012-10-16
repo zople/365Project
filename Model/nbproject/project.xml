@@ -8,6 +8,8 @@
             <included-library dirs="200">libs.Hibernate.classpath</included-library>
             <included-library dirs="200">libs.SLF4J.classpath</included-library>
             <included-library dirs="200">libs.JUnit4.1.classpath</included-library>
+            <included-library dirs="200">file.reference.je-analysis-1.5.3.jar</included-library>
+            <included-library dirs="200">file.reference.lucene-core-2.4.1.jar</included-library>
             <source-roots>
                 <root id="src.dir" name="Source Packages"/>
             </source-roots>
@@ -18,5 +20,8 @@
         <libraries xmlns="http://www.netbeans.org/ns/ant-project-libraries/1">
             <definitions>..\.\lib\nblibraries.properties</definitions>
         </libraries>
+        <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>以空格间隔</word>
+        </spellchecker-wordlist>
     </configuration>
 </project>

@@ -5,7 +5,7 @@
 package com.zople.controller;
 
 import com.zople.controller.util.JsfUtil;
-import com.zople.controller.util.OrderStateEnum;
+import com.zople.service.utils.OrderStateEnum;
 import com.zople.controller.util.PaginationHelper;
 import com.zople.dao.CategoryFacade;
 import com.zople.domain.Category;
