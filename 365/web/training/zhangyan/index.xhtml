@@ -9,15 +9,24 @@
         <h:form>
 
         <h:panelGrid columns="10" >
-            <h:commandLink action="#{zhangyanController.buyRightNow()}" value="提交订单"/>
-            <h:commandLink action="/index" value="等待付款"/>
-            <h:commandLink action="/index" value="发货"/> 
-            <h:commandLink action="/index" value="收货"/>
-            <h:commandLink action="/index" value="申请退款"/>
-            <h:commandLink action="/index" value="交易成功"/>
-            <h:commandLink action="/index" value="交易失败"/>
-            <h:commandLink action="/index" value="交易关闭"/>
-        </h:panelGrid>    
+            <h:commandLink action="#{zhangyanController.submitOrder()}" value="提交订单"/>
+            <h:commandLink action="#{zhangyanController.waitPay()}" value="等待付款"/>
+            <h:commandLink action="#{zhangyanController.deliverGoods()}" value="发货"/> 
+            <h:commandLink action="#{zhangyanController.takeDeliver()}" value="收货"/>
+            <h:commandLink action="#{zhangyanController.applicationDrawback()}" value="申请退款"/>
+            <h:commandLink action="#{zhangyanController.dealSuccess()}" value="交易成功"/>
+            <h:commandLink action="#{zhangyanController.dealFailed()}" value="交易失败"/>
+            <h:commandLink action="#{zhangyanController.dealClosed()}" value="交易关闭"/>
+        </h:panelGrid>   
+            <h:dataTable value="#{zhangyanController.items}" var="item">
+                <h:column >
+                    <input name="id" value="#{item.id}"/>
+                </h:column>
+                <h:column >
+                    <input name="sum" value="#{item.amount}"/>
+                </h:column>
+            </h:dataTable>
+            <h:commandButton value="11" action="#{zhangyanController.dosonething}"/>
         </h:form>   
 
     </h:body>
