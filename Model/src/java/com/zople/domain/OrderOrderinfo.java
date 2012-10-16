@@ -13,11 +13,14 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -62,6 +65,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class OrderOrderinfo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @TableGenerator(name="ORDERORDERINFO_GEN",table="TBL_PRIMARY_KEY_GENERATOR",pkColumnName="KEY",valueColumnName="VALUE",pkColumnValue="ORDERORDERINFO_ID",allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.TABLE, generator="ORDERORDERINFO_GEN")
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "id")
@@ -319,13 +325,8 @@ public class OrderOrderinfo implements Serializable {
         this.terminateType = terminateType;
     }
 
-    public Long getEnterpriseIdSell() {
-        return enterpriseIdSell;
-    }
 
-    public void setEnterpriseIdSell(Long enterpriseIdSell) {
-        this.enterpriseIdSell = enterpriseIdSell;
-    }
+
 
     public Date getReceivesTime() {
         return receivesTime;
@@ -333,6 +334,14 @@ public class OrderOrderinfo implements Serializable {
 
     public void setReceivesTime(Date receivesTime) {
         this.receivesTime = receivesTime;
+    }
+
+    public Long getEnterpriseIdSell() {
+        return enterpriseIdSell;
+    }
+
+    public void setEnterpriseIdSell(Long enterpriseIdSell) {
+        this.enterpriseIdSell = enterpriseIdSell;
     }
 
     public String getExpressId() {
@@ -390,6 +399,10 @@ public class OrderOrderinfo implements Serializable {
 
     public void setOrderAudit(List<OrderAudit> orderAudit) {
         this.orderAudit = orderAudit;
+    }
+
+    public Object getOrderItemsList() {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
     
 }
