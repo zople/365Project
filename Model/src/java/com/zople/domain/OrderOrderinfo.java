@@ -25,14 +25,15 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author wangxiu
- * 订单表
+ * @author 王文彦
  */
 @Entity
 @Table(name = "order_orderinfo")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "OrderOrderinfo.findAll", query = "SELECT o FROM OrderOrderinfo o"),
     @NamedQuery(name = "OrderOrderinfo.findById", query = "SELECT o FROM OrderOrderinfo o WHERE o.id = :id"),
@@ -71,7 +72,7 @@ public class OrderOrderinfo implements Serializable {
     @NotNull
     @Column(name = "id")
     private Long id;
-    @Size(max = 32)
+    @Size(max = 200)
     @Column(name = "order_no")
     private String orderNo;
     @Size(max = 8)
@@ -325,6 +326,8 @@ public class OrderOrderinfo implements Serializable {
     }
 
 
+
+
     public Date getReceivesTime() {
         return receivesTime;
     }
@@ -390,20 +393,16 @@ public class OrderOrderinfo implements Serializable {
         return "com.zople.domain.OrderOrderinfo[ id=" + id + " ]";
     }
 
-    public List<OrderOrderproduct> getOrderItemsList() {
-        return orderItemsList;
-    }
-
-    public void setOrderItemsList(List<OrderOrderproduct> orderItemsList) {
-        this.orderItemsList = orderItemsList;
-    }
-
     public List<OrderAudit> getOrderAudit() {
         return orderAudit;
     }
 
     public void setOrderAudit(List<OrderAudit> orderAudit) {
         this.orderAudit = orderAudit;
+    }
+
+    public Object getOrderItemsList() {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
     
 }

@@ -4,6 +4,7 @@ import com.zople.controller.util.JsfUtil;
 import com.zople.controller.util.PaginationHelper;
 import com.zople.dao.EnOrderFacade;
 import com.zople.domain.EnOrder;
+import com.zople.service.order.OrderServiceBeanLocal;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -18,6 +19,11 @@ import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 import javax.inject.Named;
 
+/**
+ *@描   述:  订单管理
+ *@ author:  yuzhijian_yuxia2217@163.com
+ *@version: 1.0
+ */
 @Named("enOrderController")
 @SessionScoped
 public class EnOrderController implements Serializable {
@@ -30,6 +36,27 @@ public class EnOrderController implements Serializable {
     private int selectedItemIndex;
     //ycj
     private List<EnOrder> enOrders;
+    
+    //加载订单管理Server
+    @EJB
+    OrderServiceBeanLocal orderServiceBeanLocal;
+    
+    
+   
+    
+    /**
+     * 提交订单
+     */
+    public String SubmitOrder(){
+        
+    // orderServiceBeanLocal.SubmitOrder(null);
+      
+        return "";
+    }
+    
+    
+    
+    
 
     public List<EnOrder> getEnOrders() {
         int num= ejbFacade.findAll().size()<10?ejbFacade.findAll().size():10;

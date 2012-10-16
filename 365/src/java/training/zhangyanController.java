@@ -5,9 +5,10 @@
 package training;
 
 import com.zople.controller.util.JsfUtil;
-import com.zople.dao.OrderAuditFacade;
+
 import com.zople.dao.OrderOrderinfoFacade;
 import com.zople.dao.OrderOrderproductFacade;
+import com.zople.dao.order.OrderAuditFacade;
 import com.zople.domain.OrderAudit;
 import com.zople.domain.OrderOrderinfo;
 import com.zople.domain.OrderOrderproduct;
@@ -79,7 +80,7 @@ public class zhangyanController  implements Serializable {
                 orderProduct.setProductName("国产锤子");
                 orderProduct.setProductPrice(String.valueOf(500));
                 orderProduct.setProductTotal(String.valueOf(3));
-                orderInfo.getOrderItemsList().add(orderProduct);
+               // orderInfo.getOrderItemsList().add(orderProduct);
             }
             
            orderInfoFacade.create(orderInfo);

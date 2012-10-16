@@ -5,7 +5,7 @@
 package training;
 
 import com.zople.dao.OrderOrderinfoFacade;
-import com.zople.dao.OrderOrderproductFacade;
+import com.zople.domain.OrderAudit;
 import com.zople.domain.OrderOrderinfo;
 import com.zople.domain.OrderOrderproduct;
 import javax.inject.Named;
@@ -49,17 +49,19 @@ public class yuliyaoController implements Serializable {
     
     public yuliyaoController() {
     }
-    @EJB
-    private OrderOrderproductFacade orderproductFacade;
+//    @EJB
+//    private OrderAuditFacade orderauditFacade;
+//    @EJB
+//    private OrderOrderproductFacade orderproductFacade;
     @EJB
     private OrderOrderinfoFacade orderinfotFacade;
     public void submitOrder(){
         OrderOrderinfo orderinfo;
-          int j=1;
-       for(int i=1;i<100;i++){
+           int j=1;
            orderinfo = new OrderOrderinfo();
-           orderinfo.setId(Long.valueOf(i));
-           for(;j<i*10;j++){
+           orderinfo.setId(Long.valueOf(1));
+           orderinfo.setOrderNo("4321");
+           for(;j<10;j++){
             OrderOrderproduct orderproduct =new OrderOrderproduct();
             orderproduct.setId(Long.valueOf(j));
             orderproduct.setProductName(getText(2));
@@ -67,10 +69,19 @@ public class yuliyaoController implements Serializable {
             orderproduct.setProductAccount(String.valueOf(2));
             orderproduct.setProductTotal(String.valueOf(j*20));
             orderproduct.setOrderState("等待付款");
-            orderinfo.getOrderItemsList().add(orderproduct);
+            orderproduct.setOrderinfo(orderinfo);
+          //  orderinfo.getOrderItemsList().add(orderproduct);
             
-       }
-           orderinfo.setOrderNo("4321");
+            OrderAudit orderaudit=new OrderAudit();
+            orderaudit.setAuditId(Long.valueOf(j));
+            orderaudit.setOrderno(orderinfo.getOrderNo());
+            orderaudit.setAuditState(0);
+            orderaudit.setAuditContent("提交订单");
+            orderaudit.setAuditTime(new Date());
+            orderinfo.getOrderAudit().add(orderaudit);
+            
+         }
+          
            orderinfo.setOrderState("等待付款");
            orderinfo.setStateTime(new Date());
            orderinfo.setReasonCode(getText(2));
@@ -85,20 +96,17 @@ public class yuliyaoController implements Serializable {
            orderinfo.setFreight(BigDecimal.valueOf(20));
            orderinfo.setWeight(BigDecimal.valueOf(5));
            orderinfo.setInvoice("9876000");
-//           orderinfo.setEnterpriseIdBuy(getText(4));
+          // orderinfo.setEnterpriseIdBuy(getText(4));
            orderinfo.setOrderTime(new Date());
            orderinfo.setOrderRemaek(getText(4));
            orderinfo.setSaleAmount(BigDecimal.valueOf(2));
            orderinfo.setTerminateType(getText(2));
-        //   orderinfo.setEnterpriseIdSell(getText(4));
+         //  orderinfo.setEnterpriseIdSell(getText(4));
            orderinfo.setReceivesTime(new Date());
            orderinfo.setExpressId(getText(3));
            orderinfo.setNeedInvoice(getText(2));
            orderinfo.setReceivedAmount(BigDecimal.valueOf(2));
            orderinfotFacade.create(orderinfo); 
-       }
-         
-                
     }
     
     public void waitForPayment(){
@@ -124,3 +132,4 @@ public class yuliyaoController implements Serializable {
     }
     
 }
+
