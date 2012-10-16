@@ -10,6 +10,8 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -32,6 +34,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "OrderAudit.findByAuditContent", query = "SELECT o FROM OrderAudit o WHERE o.auditContent = :auditContent"),
     @NamedQuery(name = "OrderAudit.findByAuditTime", query = "SELECT o FROM OrderAudit o WHERE o.auditTime = :auditTime")})
 public class OrderAudit implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -51,7 +54,9 @@ public class OrderAudit implements Serializable {
     @Column(name = "audit_time")
     @Temporal(TemporalType.TIME)
     private Date auditTime;
-
+    @ManyToOne
+    @JoinColumn(name = "order_no", referencedColumnName = "order_no")
+    private OrderOrderinfo Orderinfo;
 
     public OrderAudit() {
     }
@@ -105,6 +110,14 @@ public class OrderAudit implements Serializable {
         this.auditTime = auditTime;
     }
 
+    public OrderOrderinfo getOrderinfo() {
+        return Orderinfo;
+    }
+
+    public void setOrderinfo(OrderOrderinfo Orderinfo) {
+        this.Orderinfo = Orderinfo;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -129,5 +142,4 @@ public class OrderAudit implements Serializable {
     public String toString() {
         return "com.zople.domain.OrderAudit[ auditId=" + auditId + " ]";
     }
-    
 }

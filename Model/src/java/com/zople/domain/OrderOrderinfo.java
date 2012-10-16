@@ -13,6 +13,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -138,7 +139,7 @@ public class OrderOrderinfo implements Serializable {
     private BigDecimal receivedAmount;
     
     //订单项
-    @OneToMany(mappedBy = "Orderinfo",cascade={CascadeType.ALL})
+    @OneToMany(mappedBy = "Orderinfo",cascade={CascadeType.ALL},fetch=FetchType.EAGER)
     private List<OrderOrderproduct> orderItemsList=new ArrayList();
     
     //订单状态
