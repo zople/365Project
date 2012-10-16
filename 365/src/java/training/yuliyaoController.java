@@ -62,6 +62,7 @@ public class yuliyaoController implements Serializable {
            int j=1;
            orderinfo = new OrderOrderinfo();
            orderinfo.setId(Long.valueOf(1));
+           orderinfo.setOrderNo("4321");
            for(;j<10;j++){
             OrderOrderproduct orderproduct =new OrderOrderproduct();
             orderproduct.setId(Long.valueOf(j));
@@ -82,7 +83,7 @@ public class yuliyaoController implements Serializable {
             orderinfo.getOrderAudit().add(orderaudit);
             
          }
-           orderinfo.setOrderNo("4321");
+          
            orderinfo.setOrderState("等待付款");
            orderinfo.setStateTime(new Date());
            orderinfo.setReasonCode(getText(2));
