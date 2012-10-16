@@ -7,7 +7,7 @@
         <property name="databaseName" value="365DB"/>
         <property name="User" value="postgres"/>
         <property name="Password" value="123"/>
-        <property name="URL" value="jdbc:postgresql://localhost/365DB"/>
+        <property name="URL" value="jdbc:postgresql://localhost:5432/365DB"/>
         <property name="driverClass" value="org.postgresql.Driver"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="365DS" object-type="user" pool-name="post-gre-sql_365DB_postgresPool"/>
