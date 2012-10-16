@@ -72,8 +72,6 @@ public class yuliyaoController implements Serializable {
             orderproduct.setProductTotal(String.valueOf(j*20));
             orderproduct.setOrderState("等待付款");
             orderproduct.setOrderinfo(orderinfo);
-            orderinfo.getOrderItemsList().add(orderproduct);
-            
             OrderAudit orderaudit=new OrderAudit();
             orderaudit.setAuditId(Long.valueOf(j));
             orderaudit.setOrderno(orderinfo.getOrderNo());
@@ -98,12 +96,10 @@ public class yuliyaoController implements Serializable {
            orderinfo.setFreight(BigDecimal.valueOf(20));
            orderinfo.setWeight(BigDecimal.valueOf(5));
            orderinfo.setInvoice("9876000");
-           orderinfo.setEnterpriseIdBuy(getText(4));
            orderinfo.setOrderTime(new Date());
            orderinfo.setOrderRemaek(getText(4));
            orderinfo.setSaleAmount(BigDecimal.valueOf(2));
            orderinfo.setTerminateType(getText(2));
-           orderinfo.setEnterpriseIdSell(getText(4));
            orderinfo.setReceivesTime(new Date());
            orderinfo.setExpressId(getText(3));
            orderinfo.setNeedInvoice(getText(2));
