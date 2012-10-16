@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
@@ -34,7 +33,7 @@ public class EnterpriseOrderController implements Serializable {
     
     public void test() {
         orderOrderinfo = orderOrderinfoFacade.find(1L);
-        List<OrderOrderproduct> orderOrderproducts = orderOrderinfo.getOrderItemsList();
+        List<OrderOrderproduct> orderOrderproducts = (List<OrderOrderproduct>) orderOrderinfo.getOrderItemsList();
         for (int i = 0; i < orderOrderproducts.size(); i++) {
             System.out.println(orderOrderproducts.get(i).getId());
         }
@@ -72,7 +71,7 @@ public class EnterpriseOrderController implements Serializable {
         List<OrderDto> orderDtos = new ArrayList<OrderDto>();
         List<OrderOrderinfo> orderOrderinfos = getOrderOrderinfos();
         for (OrderOrderinfo orderOrderinfo : orderOrderinfos) {
-            List<OrderOrderproduct> orderOrderproducts = orderOrderinfo.getOrderItemsList();
+            List<OrderOrderproduct> orderOrderproducts = (List<OrderOrderproduct>) orderOrderinfo.getOrderItemsList();
             for (int i = 0; i < orderOrderproducts.size(); i++) {
                 OrderDto orderDto = new OrderDto();
                 orderDto.setId(orderOrderproducts.get(i).getId());
