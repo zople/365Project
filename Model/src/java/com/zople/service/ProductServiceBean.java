@@ -45,10 +45,9 @@ public class ProductServiceBean implements ProductServiceBeanLocal {
         
     } 
     
-    public void searchProduct(String keyWords){
+    public void searchProduct(String keyWords,int start,int limit){
         keyWords=segmentWordsServiceBean.segment(keyWords," & ");
-        
-        
+        supplyProductFacade.search(keyWords, start, limit);
     }
     public ProductMainInfoFacade getProductMainInfoFacade() {
         return productMainInfoFacade;

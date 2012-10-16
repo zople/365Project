@@ -8,6 +8,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,8 +29,10 @@ public class SupplyProductFacade extends AbstractFacade<SupplyProduct> {
     }
     
     public List<SupplyProduct> search(String keyWords,int start,int limit){
-      
-        return null;
+        Query query=em.createQuery("select s from SupplyProduct s where to_tsvector('simple', s.product_name_segmentation || ' ' ||s.description_segmentation) @@ to_tsquery('"+keyWords+"')");
+        query.setFirstResult(start);
+        query.setMaxResults(limit);
+        return query.getResultList();
     }
     
 }

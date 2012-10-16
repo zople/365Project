@@ -16,6 +16,6 @@ public class CollectionUtil {
         if(list==null||list.isEmpty()){
             return null;
         }
-        return list.get(1);
+        return list.get(0);
     }
 }
