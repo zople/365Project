@@ -14,7 +14,13 @@ import javax.ejb.Local;
 @Local
 public interface OrderServiceBeanLocal {
 
-    OrderOrderinfo createOrder(long enterprseId, long productId);
+    /**
+     *
+     * @param enterprseId the value of enterprseId
+     * @param productId the value of productId
+     * @param buyerId the value of buyerId
+     */
+    OrderOrderinfo createOrder(long enterprseId, long productId, long buyerId);
 
     String orderCodeGenerator();
     

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.zople.domain;
+package com.zople.domain.product;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -21,36 +21,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- *
+ * 产品主数据实体
  * @author 王文彦
  */
 @Entity
 @Table(name = "spgl_productinfo")
-@NamedQueries({
-    @NamedQuery(name = "SpglProductinfo.findAll", query = "SELECT s FROM SpglProductinfo s"),
-    @NamedQuery(name = "SpglProductinfo.findById", query = "SELECT s FROM SpglProductinfo s WHERE s.id = :id"),
-    @NamedQuery(name = "SpglProductinfo.findByProductCode", query = "SELECT s FROM SpglProductinfo s WHERE s.productCode = :productCode"),
-    @NamedQuery(name = "SpglProductinfo.findByLongDesc", query = "SELECT s FROM SpglProductinfo s WHERE s.longDesc = :longDesc"),
-    @NamedQuery(name = "SpglProductinfo.findByProType", query = "SELECT s FROM SpglProductinfo s WHERE s.proType = :proType"),
-    @NamedQuery(name = "SpglProductinfo.findByBrandId", query = "SELECT s FROM SpglProductinfo s WHERE s.brandId = :brandId"),
-    @NamedQuery(name = "SpglProductinfo.findByName", query = "SELECT s FROM SpglProductinfo s WHERE s.name = :name"),
-    @NamedQuery(name = "SpglProductinfo.findByEnglishName", query = "SELECT s FROM SpglProductinfo s WHERE s.englishName = :englishName"),
-    @NamedQuery(name = "SpglProductinfo.findByUnits", query = "SELECT s FROM SpglProductinfo s WHERE s.units = :units"),
-    @NamedQuery(name = "SpglProductinfo.findByOutputRate", query = "SELECT s FROM SpglProductinfo s WHERE s.outputRate = :outputRate"),
-    @NamedQuery(name = "SpglProductinfo.findByProductWidth", query = "SELECT s FROM SpglProductinfo s WHERE s.productWidth = :productWidth"),
-    @NamedQuery(name = "SpglProductinfo.findByProductHeight", query = "SELECT s FROM SpglProductinfo s WHERE s.productHeight = :productHeight"),
-    @NamedQuery(name = "SpglProductinfo.findByProductType", query = "SELECT s FROM SpglProductinfo s WHERE s.productType = :productType"),
-    @NamedQuery(name = "SpglProductinfo.findByIsStored", query = "SELECT s FROM SpglProductinfo s WHERE s.isStored = :isStored"),
-    @NamedQuery(name = "SpglProductinfo.findByStackHeight", query = "SELECT s FROM SpglProductinfo s WHERE s.stackHeight = :stackHeight"),
-    @NamedQuery(name = "SpglProductinfo.findByGrossWeight", query = "SELECT s FROM SpglProductinfo s WHERE s.grossWeight = :grossWeight"),
-    @NamedQuery(name = "SpglProductinfo.findByManufacturer", query = "SELECT s FROM SpglProductinfo s WHERE s.manufacturer = :manufacturer"),
-    @NamedQuery(name = "SpglProductinfo.findByRemark", query = "SELECT s FROM SpglProductinfo s WHERE s.remark = :remark"),
-    @NamedQuery(name = "SpglProductinfo.findBySorts", query = "SELECT s FROM SpglProductinfo s WHERE s.sorts = :sorts"),
-    @NamedQuery(name = "SpglProductinfo.findByCreator", query = "SELECT s FROM SpglProductinfo s WHERE s.creator = :creator"),
-    @NamedQuery(name = "SpglProductinfo.findByUpdateUser", query = "SELECT s FROM SpglProductinfo s WHERE s.updateUser = :updateUser"),
-    @NamedQuery(name = "SpglProductinfo.findByUpdateTime", query = "SELECT s FROM SpglProductinfo s WHERE s.updateTime = :updateTime"),
-    @NamedQuery(name = "SpglProductinfo.findByCreateTime", query = "SELECT s FROM SpglProductinfo s WHERE s.createTime = :createTime")})
-public class SpglProductinfo implements Serializable {
+public class ProductMainInfo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -114,10 +90,10 @@ public class SpglProductinfo implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date createTime;
 
-    public SpglProductinfo() {
+    public ProductMainInfo() {
     }
 
-    public SpglProductinfo(Long id) {
+    public ProductMainInfo(Long id) {
         this.id = id;
     }
 
@@ -307,10 +283,10 @@ public class SpglProductinfo implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof SpglProductinfo)) {
+        if (!(object instanceof ProductMainInfo)) {
             return false;
         }
-        SpglProductinfo other = (SpglProductinfo) object;
+        ProductMainInfo other = (ProductMainInfo) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

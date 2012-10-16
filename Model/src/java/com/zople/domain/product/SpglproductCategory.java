@@ -2,9 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.zople.domain;
+package com.zople.domain.product;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -23,38 +24,33 @@ import javax.validation.constraints.Size;
  * @author 王文彦
  */
 @Entity
-@Table(name = "spgl_productSpecInfo")
+@Table(name = "spgl_productCategory")
 @NamedQueries({
-    @NamedQuery(name = "SpglproductSpecInfo.findAll", query = "SELECT s FROM SpglproductSpecInfo s"),
-    @NamedQuery(name = "SpglproductSpecInfo.findById", query = "SELECT s FROM SpglproductSpecInfo s WHERE s.id = :id"),
-    @NamedQuery(name = "SpglproductSpecInfo.findByProductId", query = "SELECT s FROM SpglproductSpecInfo s WHERE s.productId = :productId"),
-    @NamedQuery(name = "SpglproductSpecInfo.findBySpec", query = "SELECT s FROM SpglproductSpecInfo s WHERE s.spec = :spec"),
-    @NamedQuery(name = "SpglproductSpecInfo.findBySorts", query = "SELECT s FROM SpglproductSpecInfo s WHERE s.sorts = :sorts"),
-    @NamedQuery(name = "SpglproductSpecInfo.findByCreator", query = "SELECT s FROM SpglproductSpecInfo s WHERE s.creator = :creator"),
-    @NamedQuery(name = "SpglproductSpecInfo.findByUpdateUser", query = "SELECT s FROM SpglproductSpecInfo s WHERE s.updateUser = :updateUser"),
-    @NamedQuery(name = "SpglproductSpecInfo.findByCreateTime", query = "SELECT s FROM SpglproductSpecInfo s WHERE s.createTime = :createTime"),
-    @NamedQuery(name = "SpglproductSpecInfo.findByUpdateTime", query = "SELECT s FROM SpglproductSpecInfo s WHERE s.updateTime = :updateTime")})
-public class SpglproductSpecInfo implements Serializable {
+    @NamedQuery(name = "SpglproductCategory.findAll", query = "SELECT s FROM SpglproductCategory s"),
+    @NamedQuery(name = "SpglproductCategory.findById", query = "SELECT s FROM SpglproductCategory s WHERE s.id = :id"),
+    @NamedQuery(name = "SpglproductCategory.findByProductId", query = "SELECT s FROM SpglproductCategory s WHERE s.productId = :productId"),
+    @NamedQuery(name = "SpglproductCategory.findByCateId", query = "SELECT s FROM SpglproductCategory s WHERE s.cateId = :cateId"),
+    @NamedQuery(name = "SpglproductCategory.findByCatetypeId", query = "SELECT s FROM SpglproductCategory s WHERE s.catetypeId = :catetypeId"),
+    @NamedQuery(name = "SpglproductCategory.findBySorts", query = "SELECT s FROM SpglproductCategory s WHERE s.sorts = :sorts"),
+    @NamedQuery(name = "SpglproductCategory.findByCreator", query = "SELECT s FROM SpglproductCategory s WHERE s.creator = :creator"),
+    @NamedQuery(name = "SpglproductCategory.findByUpdateUser", query = "SELECT s FROM SpglproductCategory s WHERE s.updateUser = :updateUser"),
+    @NamedQuery(name = "SpglproductCategory.findByCreateTime", query = "SELECT s FROM SpglproductCategory s WHERE s.createTime = :createTime"),
+    @NamedQuery(name = "SpglproductCategory.findByUpdateTime", query = "SELECT s FROM SpglproductCategory s WHERE s.updateTime = :updateTime")})
+public class SpglproductCategory implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "id", nullable = false)
     private Long id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 32)
-    @Column(name = "product_id", nullable = false, length = 32)
-    private String productId;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 40)
-    @Column(name = "spec", nullable = false, length = 40)
-    private String spec;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "sorts", nullable = false)
-    private short sorts;
+    @Column(name = "product_id")
+    private BigInteger productId;
+    @Column(name = "cate_id")
+    private BigInteger cateId;
+    @Column(name = "catetype_id")
+    private BigInteger catetypeId;
+    @Column(name = "sorts")
+    private Short sorts;
     @Size(max = 20)
     @Column(name = "creator", length = 20)
     private String creator;
@@ -68,18 +64,11 @@ public class SpglproductSpecInfo implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateTime;
 
-    public SpglproductSpecInfo() {
+    public SpglproductCategory() {
     }
 
-    public SpglproductSpecInfo(Long id) {
+    public SpglproductCategory(Long id) {
         this.id = id;
-    }
-
-    public SpglproductSpecInfo(Long id, String productId, String spec, short sorts) {
-        this.id = id;
-        this.productId = productId;
-        this.spec = spec;
-        this.sorts = sorts;
     }
 
     public Long getId() {
@@ -90,27 +79,35 @@ public class SpglproductSpecInfo implements Serializable {
         this.id = id;
     }
 
-    public String getProductId() {
+    public BigInteger getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(BigInteger productId) {
         this.productId = productId;
     }
 
-    public String getSpec() {
-        return spec;
+    public BigInteger getCateId() {
+        return cateId;
     }
 
-    public void setSpec(String spec) {
-        this.spec = spec;
+    public void setCateId(BigInteger cateId) {
+        this.cateId = cateId;
     }
 
-    public short getSorts() {
+    public BigInteger getCatetypeId() {
+        return catetypeId;
+    }
+
+    public void setCatetypeId(BigInteger catetypeId) {
+        this.catetypeId = catetypeId;
+    }
+
+    public Short getSorts() {
         return sorts;
     }
 
-    public void setSorts(short sorts) {
+    public void setSorts(Short sorts) {
         this.sorts = sorts;
     }
 
@@ -156,10 +153,10 @@ public class SpglproductSpecInfo implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof SpglproductSpecInfo)) {
+        if (!(object instanceof SpglproductCategory)) {
             return false;
         }
-        SpglproductSpecInfo other = (SpglproductSpecInfo) object;
+        SpglproductCategory other = (SpglproductCategory) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -168,7 +165,7 @@ public class SpglproductSpecInfo implements Serializable {
 
     @Override
     public String toString() {
-        return "com.zople.domain.SpglproductSpecInfo[ id=" + id + " ]";
+        return "com.zople.domain.SpglproductCategory[ id=" + id + " ]";
     }
     
 }

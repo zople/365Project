@@ -19,18 +19,20 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author wangxiu
- * 订单表
+ * @author 王文彦
  */
 @Entity
 @Table(name = "order_orderinfo")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "OrderOrderinfo.findAll", query = "SELECT o FROM OrderOrderinfo o"),
     @NamedQuery(name = "OrderOrderinfo.findById", query = "SELECT o FROM OrderOrderinfo o WHERE o.id = :id"),
@@ -62,11 +64,14 @@ import javax.validation.constraints.Size;
 public class OrderOrderinfo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @TableGenerator(name="ORDERORDERINFO_GEN",table="TBL_PRIMARY_KEY_GENERATOR",pkColumnName="KEY",valueColumnName="VALUE",pkColumnValue="ORDERORDERINFO_ID",allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.TABLE, generator="ORDERORDERINFO_GEN")
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "id")
     private Long id;
-    @Size(max = 32)
+    @Size(max = 200)
     @Column(name = "order_no")
     private String orderNo;
     @Size(max = 8)
@@ -109,9 +114,8 @@ public class OrderOrderinfo implements Serializable {
     @Size(max = 32)
     @Column(name = "invoice")
     private String invoice;
-    @Size(max = 32)
     @Column(name = "enterprise_id_buy")
-    private String enterpriseIdBuy;
+    private Long enterpriseIdBuy;
     @Column(name = "order_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date orderTime;
@@ -123,9 +127,8 @@ public class OrderOrderinfo implements Serializable {
     @Size(max = 32)
     @Column(name = "terminate_type")
     private String terminateType;
-    @Size(max = 32)
     @Column(name = "enterprise_id_sell")
-    private String enterpriseIdSell;
+    private Long enterpriseIdSell;
     @Column(name = "receives_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date receivesTime;
@@ -281,11 +284,11 @@ public class OrderOrderinfo implements Serializable {
         this.invoice = invoice;
     }
 
-    public String getEnterpriseIdBuy() {
+    public Long getEnterpriseIdBuy() {
         return enterpriseIdBuy;
     }
 
-    public void setEnterpriseIdBuy(String enterpriseIdBuy) {
+    public void setEnterpriseIdBuy(Long enterpriseIdBuy) {
         this.enterpriseIdBuy = enterpriseIdBuy;
     }
 
@@ -321,13 +324,8 @@ public class OrderOrderinfo implements Serializable {
         this.terminateType = terminateType;
     }
 
-    public String getEnterpriseIdSell() {
-        return enterpriseIdSell;
-    }
 
-    public void setEnterpriseIdSell(String enterpriseIdSell) {
-        this.enterpriseIdSell = enterpriseIdSell;
-    }
+
 
     public Date getReceivesTime() {
         return receivesTime;
@@ -335,6 +333,14 @@ public class OrderOrderinfo implements Serializable {
 
     public void setReceivesTime(Date receivesTime) {
         this.receivesTime = receivesTime;
+    }
+
+    public Long getEnterpriseIdSell() {
+        return enterpriseIdSell;
+    }
+
+    public void setEnterpriseIdSell(Long enterpriseIdSell) {
+        this.enterpriseIdSell = enterpriseIdSell;
     }
 
     public String getExpressId() {
@@ -386,20 +392,16 @@ public class OrderOrderinfo implements Serializable {
         return "com.zople.domain.OrderOrderinfo[ id=" + id + " ]";
     }
 
-    public List<OrderOrderproduct> getOrderItemsList() {
-        return orderItemsList;
-    }
-
-    public void setOrderItemsList(List<OrderOrderproduct> orderItemsList) {
-        this.orderItemsList = orderItemsList;
-    }
-
     public List<OrderAudit> getOrderAudit() {
         return orderAudit;
     }
 
     public void setOrderAudit(List<OrderAudit> orderAudit) {
         this.orderAudit = orderAudit;
+    }
+
+    public Object getOrderItemsList() {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
     
 }
