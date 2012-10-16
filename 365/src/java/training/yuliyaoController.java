@@ -84,13 +84,13 @@ public class yuliyaoController implements Serializable {
             
          }
           
-           orderinfo.setOrderState("等待付款");
+           orderinfo.setOrderState("提交订单");
            orderinfo.setStateTime(new Date());
            orderinfo.setReasonCode(getText(2));
            orderinfo.setRemark(getText(12));
            orderinfo.setDistributionModel(getText(2));
            orderinfo.setPayModel(getText(2));
-           orderinfo.setPayState("等待付款");
+           orderinfo.setPayState("提交订单");
            orderinfo.setReceivableAmount(BigDecimal.valueOf(j*20));
            orderinfo.setPrePayment(String.valueOf(j*20));
            orderinfo.setFinishTime(new Date());
