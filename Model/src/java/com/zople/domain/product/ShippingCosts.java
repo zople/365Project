@@ -195,4 +195,3 @@ public class ShippingCosts implements Serializable {
     }
     
 }
-
