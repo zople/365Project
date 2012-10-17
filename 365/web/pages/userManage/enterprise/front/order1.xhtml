@@ -20,6 +20,15 @@
                         <h:column>
                             卖家名称：<h:outputText value="小明" />
                             卖家联系人：<h:outputText value="小明" />
+                            <h:dataTable value="#{zhangyanController.items}" var="item">
+                                <h:column >
+                                    <input name="id" value="#{item.id}"/>
+                                </h:column>
+                                <h:column >
+                                    <input name="sum" value="#{item.amount}"/>
+                                </h:column>
+                            </h:dataTable>
+                            <h:commandButton value="11" action="#{zhangyanController.dosonething}"/>
                             <br/>
                             <h:panelGrid columns="7" style="margin-bottom:10px" cellpadding="5">  
                                 <h:outputText value="" />

@@ -157,8 +157,8 @@ public class zhangyanController  implements Serializable {
     
     public List<Item> getItems() {
         items=new ArrayList<Item>();
-        items.add(new Item("1","2"));
-        items.add(new Item("3","4"));
+        items.add(new Item("ff","dd"));
+        items.add(new Item("qq","bb"));
         return items;
     }
 

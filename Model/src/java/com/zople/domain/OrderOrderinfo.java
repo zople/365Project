@@ -145,6 +145,14 @@ public class OrderOrderinfo implements Serializable {
     //订单项
     @OneToMany(mappedBy = "Orderinfo",cascade={CascadeType.ALL})
     private List<OrderOrderproduct> orderItemsList=new ArrayList();
+
+    public List<OrderOrderproduct> getOrderItemsList() {
+        return orderItemsList;
+    }
+
+    public void setOrderItemsList(List<OrderOrderproduct> orderItemsList) {
+        this.orderItemsList = orderItemsList;
+    }
     
     //订单状态
     @OneToMany(cascade={CascadeType.ALL})
@@ -401,8 +409,6 @@ public class OrderOrderinfo implements Serializable {
         this.orderAudit = orderAudit;
     }
 
-    public Object getOrderItemsList() {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
+ 
     
 }
