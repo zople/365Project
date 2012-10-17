@@ -22,6 +22,8 @@ public class SearchController {
     @EJB
     private ProductServiceBeanLocal productServiceBeanLocal;
     
+    private String keyWords;
+    
     public SearchController() {
         
     }
@@ -30,5 +32,14 @@ public class SearchController {
         
 //        PagingResultValue<SupplyProduct>  productServiceBeanLocal.searchProduct("", 0, 100);
     }
+
+    public String getKeyWords() {
+        return keyWords;
+    }
+
+    public void setKeyWords(String keyWords) {
+        this.keyWords = keyWords;
+    }
+    
     
 }
