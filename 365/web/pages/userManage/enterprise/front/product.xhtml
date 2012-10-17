@@ -6,13 +6,15 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>TODO supply a title</title>
     </h:head>
     <body>
-         <ui:composition template="/pages/userManage/enterprise/template/front.xhtml">
-                <ui:define name="content">
+        <ui:composition template="/pages/userManage/enterprise/template/front.xhtml">
+            <ui:define name="content">
+                <h:form>
                     <div class="enFrontContent1" style="height: 180px">
                         <div class="entTop">产品分类</div>
                         <div>
@@ -22,30 +24,20 @@ and open the template in the editor.
                                 <tr><td>家电产品手板模型(35)</td><td>数码电子产品手板模型(33)</td><td>汽车外壳产品手板模型(18)</td><td>电子礼品手板模型(9)</td></tr>
                                 <tr><td>塑胶玩具产品手板模型(19)</td><td>医疗器材手板模型(11)</td><td>电动工具手板模型(5)</td><td>金属铝件CNC加工(12)</td></tr>
                             </table>
-                          </div>
+                        </div>
                     </div>
                     <div class="enFrontContent2">
                         <div class="entTop">产品展示</div>
-                        <div><table style="font-size: 13px">
-                                <tr><td style="width: 140px"><h:link outcome="productDetails.xhtml" ><h:graphicImage name="0120918133040.jpg" library="images"/><br/>【商品名称】<br/>【价格】 </h:link></td>
-                                    <td style="width: 140px"><h:link outcome="productDetails.xhtml" ><h:graphicImage name="0120918133040.jpg" library="images"/><br/>【商品名称】<br/>【价格】 </h:link></td>
-                                    <td style="width: 140px"><h:link outcome="productDetails.xhtml" ><h:graphicImage name="0120918133040.jpg" library="images"/><br/>【商品名称】<br/>【价格】 </h:link></td>
-                                    <td style="width: 140px"><h:link outcome="productDetails.xhtml" ><h:graphicImage name="0120918133040.jpg" library="images"/><br/>【商品名称】<br/>【价格】 </h:link></td></tr>
-                                <tr><td style="width: 140px"><h:link outcome="productDetails.xhtml" ><h:graphicImage name="0120918133040.jpg" library="images"/><br/>【商品名称】<br/>【价格】 </h:link></td>
-                                    <td style="width: 140px"><h:link outcome="productDetails.xhtml" ><h:graphicImage name="0120918133040.jpg" library="images"/><br/>【商品名称】<br/>【价格】 </h:link></td>
-                                    <td style="width: 140px"><h:link outcome="productDetails.xhtml" ><h:graphicImage name="0120918133040.jpg" library="images"/><br/>【商品名称】<br/>【价格】 </h:link></td>
-                                    <td style="width: 140px"><h:link outcome="productDetails.xhtml" ><h:graphicImage name="0120918133040.jpg" library="images"/><br/>【商品名称】<br/>【价格】 </h:link></td></tr>
-                                <tr><td style="width: 140px"><h:link outcome="productDetails.xhtml" ><h:graphicImage name="0120918133040.jpg" library="images"/><br/>【商品名称】<br/>【价格】 </h:link></td>
-                                    <td style="width: 140px"><h:link outcome="productDetails.xhtml" ><h:graphicImage name="0120918133040.jpg" library="images"/><br/>【商品名称】<br/>【价格】 </h:link></td>
-                                    <td style="width: 140px"><h:link outcome="productDetails.xhtml" ><h:graphicImage name="0120918133040.jpg" library="images"/><br/>【商品名称】<br/>【价格】 </h:link></td>
-                                    <td style="width: 140px"><h:link outcome="productDetails.xhtml" ><h:graphicImage name="0120918133040.jpg" library="images"/><br/>【商品名称】<br/>【价格】 </h:link></td></tr>
-                                <tr><td style="width: 140px"><h:link outcome="productDetails.xhtml" ><h:graphicImage name="0120918133040.jpg" library="images"/><br/>【商品名称】<br/>【价格】 </h:link></td>
-                                    <td style="width: 140px"><h:link outcome="productDetails.xhtml" ><h:graphicImage name="0120918133040.jpg" library="images"/><br/>【商品名称】<br/>【价格】 </h:link></td>
-                                    <td style="width: 140px"><h:link outcome="productDetails.xhtml" ><h:graphicImage name="0120918133040.jpg" library="images"/><br/>【商品名称】<br/>【价格】 </h:link></td>
-                                    <td style="width: 140px"><h:link outcome="productDetails.xhtml" ><h:graphicImage name="0120918133040.jpg" library="images"/><br/>【商品名称】<br/>【价格】 </h:link></td></tr>
-                        </table></div>
+                        <div>
+                            <h:dataTable value="#{productController}" var="product">
+                                <h:column>
+                                    <h:commandLink action="#{productController}"><h:graphicImage name="0120918133040.jpg" library="images"/> <br/>【商品名称】<br/>【价格】 </h:commandLink>
+                                </h:column>
+                            </h:dataTable>
+                        </div>
                     </div>
-                </ui:define>
-            </ui:composition>
+                </h:form>
+            </ui:define>
+        </ui:composition>
     </body>
 </html>
