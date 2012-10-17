@@ -42,14 +42,14 @@ public class OrderServiceBean implements OrderServiceBeanLocal {
         entity.setId(productId); 
         orderinfoFacade.create(entity);
         
-            //供应产品信息取数保存到订单产品
+       //供应产品信息取数保存到订单产品
         OrderOrderproduct orderOrderproduct = new OrderOrderproduct();
         orderOrderproduct.setId(productId);
         orderOrderproduct.setProductName("摄像头");
         orderproductFacade.create(orderOrderproduct);  
              
         //流程审核信息
-     OrderAudit orderAudit = new OrderAudit();
+        OrderAudit orderAudit = new OrderAudit();
         orderAudit.setAuditId(productId);
         orderAudit.setAuditState(new Integer(OrderStateEnum.ORDER_INITIAL_STATE.getCode()));//初始化状态
         orderAudit.setOrderno(entity.getOrderNo());
