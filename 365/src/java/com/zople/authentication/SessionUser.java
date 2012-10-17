@@ -15,6 +15,8 @@ public class SessionUser {
     private String id;
     private String name;
 
+    public static void main(String[] args){
+    }
     public String getId() {
         return id;
     }
