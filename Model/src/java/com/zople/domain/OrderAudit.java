@@ -9,11 +9,16 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -22,6 +27,8 @@ import javax.validation.constraints.Size;
 /**
  *
  * @author wangxiu
+ * 流程表  日志表 
+ * 
  */
 @Entity
 @Table(name = "order_audit")
@@ -33,10 +40,13 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "OrderAudit.findByAuditContent", query = "SELECT o FROM OrderAudit o WHERE o.auditContent = :auditContent"),
     @NamedQuery(name = "OrderAudit.findByAuditTime", query = "SELECT o FROM OrderAudit o WHERE o.auditTime = :auditTime")})
 public class OrderAudit implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @SequenceGenerator(name = "audit_serial", allocationSize = 1, initialValue = 1, sequenceName = "audit_serial")
     @Id
     @Basic(optional = false)
+    @TableGenerator(name="ORDERAUDIT_GEN",table="TBL_PRIMARY_KEY_GENERATOR",pkColumnName="KEY",valueColumnName="VALUE",pkColumnValue="ORDERAUDIT_ID",allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.TABLE, generator="ORDERAUDIT_GEN")
     @NotNull
     @Column(name = "audit_id")
     private Long auditId;
@@ -53,7 +63,9 @@ public class OrderAudit implements Serializable {
     @Column(name = "audit_time")
     @Temporal(TemporalType.TIME)
     private Date auditTime;
-
+    @ManyToOne
+    @JoinColumn(name = "order_no", referencedColumnName = "order_no")
+    private OrderOrderinfo Orderinfo;
 
     public OrderAudit() {
     }
@@ -107,6 +119,14 @@ public class OrderAudit implements Serializable {
         this.auditTime = auditTime;
     }
 
+    public OrderOrderinfo getOrderinfo() {
+        return Orderinfo;
+    }
+
+    public void setOrderinfo(OrderOrderinfo Orderinfo) {
+        this.Orderinfo = Orderinfo;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -131,5 +151,4 @@ public class OrderAudit implements Serializable {
     public String toString() {
         return "com.zople.domain.OrderAudit[ auditId=" + auditId + " ]";
     }
-    
 }
