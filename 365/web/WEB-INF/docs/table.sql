@@ -1030,3 +1030,28 @@ create table sppl_cateattrrvinfo(
 	update_time timestamp without time zone,
         CONSTRAINT "sppl_cateattrrvinfo_PKEY" PRIMARY KEY (id )
 );
+
+create table sad_supply_product(
+	id bigint,--主键
+    enterprise_id bigint,--	企业ID
+    product_id bigint,--产品ID	
+	product_name varchar(50),--产品
+	product_name_segmentation text,--产品名分词
+	category_id_path varchar(60),--分类ID路径以","分割
+	category_name_path varchar(100),--分类名以空格分词
+    passed boolean ,--是否通过供应审核
+	description text,--产品描述
+    description_segmentation text,--产品分词描述
+	min_order_amount numeric(11),-- 最小起订量
+	inventory_amount numeric(11),--产品库存数量	
+	information_valid_date timestamp without time zone,--信息发布有效期
+	pcp_services integer,--是否提供加工\定制服务		
+	pricing_type varchar(32),--产品计价方式	
+	status		integer,--状态
+    sorts		integer,--排序
+	creator     character varying(20),
+	update_user character varying(30),
+	create_time timestamp without time zone,
+	update_time timestamp without time zone,
+	CONSTRAINT "SAD_SUPPLY_PRODUCT_PKEY" PRIMARY KEY (id )
+);
