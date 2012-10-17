@@ -1,12 +1,15 @@
 package com.zople.controller;
 
+import com.zople.common.SessionUserHelper;
 import com.zople.controller.util.JsfUtil;
 import com.zople.dao.CategoryFacade;
 import com.zople.dao.EnterpriseFacade;
 import com.zople.dao.ProductFacade;
+import com.zople.dao.product.SupplyProductFacade;
 import com.zople.domain.Category;
 import com.zople.domain.Enterprise;
 import com.zople.domain.Product;
+import com.zople.domain.product.SupplyProduct;
 import com.zople.service.CategoryService;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,7 +17,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.servlet.http.HttpSession;
 
 @Named("productController")
 @RequestScoped
@@ -120,7 +125,35 @@ public class ProductController implements Serializable {
         }
         return categories.subList(0, 2);
     }
-    public List<Product> getRecommendProduct(){
+
+    public List<Product> getRecommendProduct() {
         return ejbFacade.findAll().subList(0, 10);
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @EJB
+    private SupplyProductFacade supplyProductFacade;
+    private List<SupplyProduct> supplyProducts;
+    private SupplyProduct supplyProduct;
+
+    public List<SupplyProduct> disSupplyProduct() {
+        supplyProducts = supplyProductFacade.findAll();
+        return supplyProducts;
+    }
+
+    public String disSupplyProductById() {
+        String id = JsfUtil.getRequestParameter("id");
+        supplyProduct = supplyProductFacade.find(Long.parseLong(id));
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        session.setAttribute("enterpriseId", supplyProduct.getEnterpriseId());
+        System.out.println("------------------------------------------------"+SessionUserHelper.getSessionUser().getId());
+        return "productDetails";
+    }
+
+    public SupplyProduct getSupplyProduct() {
+        return supplyProduct;
+    }
+
+    public void setSupplyProduct(SupplyProduct supplyProduct) {
+        this.supplyProduct = supplyProduct;
     }
 }

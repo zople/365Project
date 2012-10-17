@@ -29,9 +29,13 @@ and open the template in the editor.
                     <div class="enFrontContent2">
                         <div class="entTop">产品展示</div>
                         <div>
-                            <h:dataTable value="#{productController}" var="product">
+                            <h:dataTable value="#{productController.disSupplyProduct()}" var="supplyProduct">
                                 <h:column>
-                                    <h:commandLink action="#{productController}"><h:graphicImage name="0120918133040.jpg" library="images"/> <br/>【商品名称】<br/>【价格】 </h:commandLink>
+                                    <h:commandLink action="#{productController.disSupplyProductById()}">
+                                        <h:graphicImage name="0120918133040.jpg" library="images"/>
+                                        <br/>【商品名称】<br/>【价格】 
+                                        <f:param value="#{supplyProduct.id}" name="id"/>
+                                    </h:commandLink>
                                 </h:column>
                             </h:dataTable>
 
