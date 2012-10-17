@@ -1030,7 +1030,7 @@ create table sppl_cateattrrvinfo(
 	update_time timestamp without time zone,
         CONSTRAINT "sppl_cateattrrvinfo_PKEY" PRIMARY KEY (id )
 );
-
+--供应商品表
 create table sad_supply_product(
 	id bigint,--主键
     enterprise_id bigint,--	企业ID
@@ -1058,4 +1058,19 @@ create table sad_supply_product(
 --创建产品搜索索引
 CREATE INDEX PRODUCT_SEARCH_INDEX ON sad_supply_product USING gin(to_tsvector('english', product_name_segmentation || ' ' || description_segmentation));
 analyze sad_supply_product;
-
+--企业运费表
+CREATE TABLE en_shipping_costs
+(
+  logistic_name character(100), -- 物流公司
+  first_price numeric(19,2),
+  follow_price numeric(19,2),
+  enterprise_id bigint,
+  start_area character(100),
+  is_visit integer,
+  creator character(50),
+  update_user character(50),
+  update_time date,
+  create_time date,
+  shipping_costs_id bigint NOT NULL,
+  CONSTRAINT en_shipping_costs_pkey PRIMARY KEY (shipping_costs_id )
+);
