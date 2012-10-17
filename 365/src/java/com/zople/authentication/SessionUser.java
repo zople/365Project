@@ -9,7 +9,9 @@ package com.zople.authentication;
  * @author 王文彦
  */
 public class SessionUser {
-    
+    /**用户标示符*/
+    private String identifier;
+    /**登录实体ID*/
     private String id;
     private String name;
 
@@ -27,6 +29,14 @@ public class SessionUser {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
     }
     
     
