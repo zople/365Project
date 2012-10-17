@@ -936,6 +936,10 @@ public class InsertDataController {
              contacts.setDepartment(getText(2));
              contacts.setSex("女");
              contactFacade.create(contacts);
+             for(Contact contact:contactFacade.findAll()){
+                 contact.setSex("男");
+                 contactFacade.edit(contact);
+             }
         }
     }
    //

@@ -2,6 +2,8 @@ package com.zople.authentication;
 
 import com.zople.common.SessionUserHelper;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.context.ExternalContext;
@@ -45,9 +47,14 @@ public class AuthenticationPhaseListener implements PhaseListener {
     }
 
     private boolean requestingSecureView(FacesContext context) {
-        ExternalContext extContext = context.getExternalContext();
+        List<String> unSecure=new ArrayList<String>();
+        unSecure.add("/pages/login/login.xhtml");
+        unSecure.add("/addData.xhtml");
+        unSecure.add("/insertData.xhtml");
+        unSecure.add("/index.xhtml");
+        ExternalContext extContext = context.getExternalContext();       
         String path = extContext.getRequestPathInfo();
         System.out.println(path);
-        return !"/pages/login/login.xhtml".equals(path);
+        return !unSecure.contains(path);              
     }
 }
