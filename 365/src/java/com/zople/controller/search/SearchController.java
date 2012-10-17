@@ -4,6 +4,8 @@
  */
 package com.zople.controller.search;
 
+import com.zople.common.PagingResultValue;
+import com.zople.domain.product.SupplyProduct;
 import com.zople.service.ProductServiceBeanLocal;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
@@ -24,6 +26,9 @@ public class SearchController {
         
     }
     
-    public void searchSupplyProduct(){}
+    public void searchSupplyProduct(){
+        
+//        PagingResultValue<SupplyProduct>  productServiceBeanLocal.searchProduct("", 0, 100);
+    }
     
 }
