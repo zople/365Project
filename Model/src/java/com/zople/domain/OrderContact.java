@@ -61,6 +61,16 @@ public class OrderContact implements Serializable {
     @Size(max = 32)
     @Column(name = "sign_user")
     private String signUser;
+    @Column(name = "order_no")
+    private String orderNO;
+
+    public String getOrderNO() {
+        return orderNO;
+    }
+
+    public void setOrderNO(String orderNO) {
+        this.orderNO = orderNO;
+    }
 
     public OrderContact() {
     }

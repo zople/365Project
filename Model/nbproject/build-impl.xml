@@ -809,22 +809,30 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${libs.Hibernate.classpath}" todir="${build.classes.dir}"/>
         <copyfiles files="${libs.SLF4J.classpath}" todir="${build.classes.dir}"/>
         <copyfiles files="${libs.JUnit4.1.classpath}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.je-analysis-1.5.3.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.lucene-core-2.4.1.jar}" todir="${build.classes.dir}"/>
     </target>
     <target if="is.server.weblogic" name="-library-inclusion-in-archive-weblogic">
         <basename file="${libs.Hibernate.classpath}" property="manifest.libs.Hibernate.classpath"/>
         <basename file="${libs.SLF4J.classpath}" property="manifest.libs.SLF4J.classpath"/>
         <basename file="${libs.JUnit4.1.classpath}" property="manifest.libs.JUnit4.1.classpath"/>
+        <basename file="${file.reference.je-analysis-1.5.3.jar}" property="manifest.file.reference.je-analysis-1.5.3.jar"/>
+        <basename file="${file.reference.lucene-core-2.4.1.jar}" property="manifest.file.reference.lucene-core-2.4.1.jar"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Extension-List" value="jar-1 jar-2 jar-3 "/>
+            <attribute name="Extension-List" value="jar-1 jar-2 jar-3 jar-4 jar-5 "/>
             <attribute name="jar-1-Extension-Name" value="${manifest.libs.Hibernate.classpath}"/>
             <attribute name="jar-2-Extension-Name" value="${manifest.libs.SLF4J.classpath}"/>
             <attribute name="jar-3-Extension-Name" value="${manifest.libs.JUnit4.1.classpath}"/>
+            <attribute name="jar-4-Extension-Name" value="${manifest.file.reference.je-analysis-1.5.3.jar}"/>
+            <attribute name="jar-5-Extension-Name" value="${manifest.file.reference.lucene-core-2.4.1.jar}"/>
         </manifest>
     </target>
     <target depends="compile" name="library-inclusion-in-manifest">
         <copyfiles files="${libs.Hibernate.classpath}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${libs.SLF4J.classpath}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${libs.JUnit4.1.classpath}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.je-analysis-1.5.3.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.lucene-core-2.4.1.jar}" todir="${dist.ear.dir}/lib"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
     <target name="-copy-meta-inf">

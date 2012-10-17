@@ -3,9 +3,10 @@
  * and open the template in the editor.
  */
 
-package com.zople.service;
+package com.zople.service.order;
 
-import com.zople.dao.OrderAuditFacade;
+import com.zople.service.*;
+import com.zople.dao.order.OrderAuditFacade;
 import com.zople.domain.OrderAudit;
 import java.util.List;
 import javax.ejb.EJB;
@@ -44,9 +45,9 @@ public class OrderAuditServer {
     * orderno  订单编号
     * return list;
     */
-    public List<OrderAudit> findAll(String orderno) {
-        String sql="select o from OrderAudit o where o.orderno='"+orderno+"'";
-        return facade.getOrderAuditList(sql);
-    }
+    //public List<OrderAudit> findAll(String orderno) {
+      //  String sql="select o from OrderAudit o where o.orderno='"+orderno+"'";
+       // return facade.getOrderAuditList(sql);
+   // }
     
 }
