@@ -42,4 +42,9 @@ public class SupplyProductFacade extends AbstractFacade<SupplyProduct> {
         Query query = em.createQuery("select count(s.id) from SupplyProduct s where to_tsvector('simple', s.product_name_segmentation || ' ' ||s.description_segmentation) @@ to_tsquery('" + keyWords + "')");
         return Integer.valueOf(query.getSingleResult().toString());
     }
+
+    public SupplyProduct sel(String id) {
+        Query query = em.createQuery("select s from SupplyProduct s where s.productId=" + id);
+        return (SupplyProduct) query.getSingleResult();
+    }
 }

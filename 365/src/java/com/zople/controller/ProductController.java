@@ -5,11 +5,16 @@ import com.zople.controller.util.JsfUtil;
 import com.zople.dao.CategoryFacade;
 import com.zople.dao.EnterpriseFacade;
 import com.zople.dao.ProductFacade;
+import com.zople.dao.ProductMainInfoFacade;
+import com.zople.dao.TblEnterpriseFacade;
 import com.zople.dao.product.SupplyProductFacade;
 import com.zople.domain.Category;
 import com.zople.domain.Enterprise;
 import com.zople.domain.Product;
+import com.zople.domain.TblEnterprise;
+import com.zople.domain.product.ProductMainInfo;
 import com.zople.domain.product.SupplyProduct;
+import com.zople.dto.ProductDto;
 import com.zople.service.CategoryService;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -131,29 +136,47 @@ public class ProductController implements Serializable {
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @EJB
+    private ProductMainInfoFacade productMainInfoFacade;
+    @EJB
     private SupplyProductFacade supplyProductFacade;
+    @EJB
+    private TblEnterpriseFacade tblEnterpriseFacade;
+    private List<ProductMainInfo> productMainInfos;
+    private ProductMainInfo productMainInfo;
     private List<SupplyProduct> supplyProducts;
     private SupplyProduct supplyProduct;
+    private TblEnterprise tblEnterprise;
+    private ProductDto productDto;
 
-    public List<SupplyProduct> disSupplyProduct() {
-        supplyProducts = supplyProductFacade.findAll();
-        return supplyProducts;
+    public List<ProductMainInfo> disMainProduct() {
+        productMainInfos = productMainInfoFacade.findAll();
+        return productMainInfos;
     }
 
-    public String disSupplyProductById() {
+    public String disMainProductById() {
+        productDto = new ProductDto();
+
         String id = JsfUtil.getRequestParameter("id");
-        supplyProduct = supplyProductFacade.find(Long.parseLong(id));
+        productMainInfo = productMainInfoFacade.find(Long.parseLong(id));
+        productDto.setId(Long.parseLong(id));
+        productDto.setName(productMainInfo.getName());
+        productDto.setProductType(productMainInfo.getProductType());
+
+        supplyProduct = supplyProductFacade.sel(id);
+        tblEnterprise = tblEnterpriseFacade.findById(supplyProduct.getEnterpriseId().toString());
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        session.setAttribute("enterpriseId", supplyProduct.getEnterpriseId());
-        System.out.println("------------------------------------------------"+SessionUserHelper.getSessionUser().getId());
+        //session.setAttribute("sellEnterpriseId", supplyProduct.getEnterpriseId());
+        session.setAttribute("sellEnterprise", tblEnterprise);
+        System.out.println("买家企业ID：" + supplyProduct.getEnterpriseId());
+        System.out.println("卖家企业ID：" + SessionUserHelper.getSessionUser().getId());
         return "productDetails";
     }
 
-    public SupplyProduct getSupplyProduct() {
-        return supplyProduct;
+    public ProductDto getProductDto() {
+        return productDto;
     }
 
-    public void setSupplyProduct(SupplyProduct supplyProduct) {
-        this.supplyProduct = supplyProduct;
+    public void setProductDto(ProductDto productDto) {
+        this.productDto = productDto;
     }
 }
