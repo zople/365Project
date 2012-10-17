@@ -16,7 +16,7 @@ public class SessionUserHelper {
 
     public static final String USER_SESSION_KEY = "USER_SESSION_KEY";
 
-    public SessionUser getSessionUser() {
+    public static SessionUser getSessionUser() {
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         if (session == null) {
             return null;

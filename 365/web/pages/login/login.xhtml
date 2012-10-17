@@ -11,26 +11,23 @@
     </h:head>
     <h:body style="text-align: center;">
         <div style="margin: 0 auto; width: 500px;height: 500px; padding-top:10%;">
-        <h:form>
-            <p:panelGrid columns="3">  
-                <f:facet name="header">  
-                    用户登录<p:messages id="messages" showDetail="true" autoUpdate="true"/> 
-                </f:facet>  
-
-                <h:outputLabel for="userName" value="用户名：" />  
-                <p:inputText id="userName" value="#{loginController.userName}" label="" required="true" requiredMessage="用户名不能为空"
-                />  
-                <p:message  for="userName"/>
-
-                <h:outputLabel for="password" value="密码：" />  
-                <p:password id="password" value="#{loginController.password}" required="true" label="" requiredMessage="密码不能为空"/>  
-                 <p:message  for="password"/>
-
-                <f:facet name="footer">  
-                    <p:commandButton action="#{loginController.login}" value="登录" style="margin-left: 50px"/>  
-                </f:facet>  
-            </p:panelGrid>  
-        </h:form>
+            <h:form>
+                <h:panelGrid columns="3">  
+                    <f:facet name="header">  
+                        用户登录
+                    </f:facet>  
+                    <h:outputLabel for="username" value="用户名：" />  
+                    <h:inputText id="username" value="#{loginController.username}"  required="true" requiredMessage="用户名不能为空"
+                                 />  
+                    <h:message  for="username"/>
+                    <h:outputLabel for="password" value="密码：" />  
+                    <h:inputSecret id ="password" value="#{loginController.password}" required="true" label="" requiredMessage="密码不能为空" />
+                    <h:message  for="password"/>
+                    <f:facet name="footer">  
+                        <h:commandButton action="#{loginController.login}" value="登录" style="margin-left: 50px"/>  
+                    </f:facet>  
+                </h:panelGrid>  
+            </h:form>
         </div>
     </h:body>
 </html>
