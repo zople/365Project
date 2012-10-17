@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -33,6 +34,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "OrderAudit.findByAuditTime", query = "SELECT o FROM OrderAudit o WHERE o.auditTime = :auditTime")})
 public class OrderAudit implements Serializable {
     private static final long serialVersionUID = 1L;
+    @SequenceGenerator(name = "audit_serial", allocationSize = 1, initialValue = 1, sequenceName = "audit_serial")
     @Id
     @Basic(optional = false)
     @NotNull

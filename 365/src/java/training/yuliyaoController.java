@@ -61,8 +61,8 @@ public class yuliyaoController implements Serializable {
         OrderOrderinfo orderinfo;
            int j=1;
            orderinfo = new OrderOrderinfo();
-           orderinfo.setId(Long.valueOf(1));
-           orderinfo.setOrderNo("4321");
+           orderinfo.setId(Long.valueOf(3));
+           orderinfo.setOrderNo("1234");
            for(;j<10;j++){
             OrderOrderproduct orderproduct =new OrderOrderproduct();
             orderproduct.setId(Long.valueOf(j));
