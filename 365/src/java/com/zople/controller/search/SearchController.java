@@ -4,20 +4,26 @@
  */
 package com.zople.controller.search;
 
+import com.zople.service.ProductServiceBeanLocal;
+import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
 
 /**
  *
  * @author 王文彦
  */
 @Named(value = "searchController")
-@Dependent
+@RequestScoped
 public class SearchController {
-
-    /**
-     * Creates a new instance of SearchController   
-     */
+    
+    @EJB
+    private ProductServiceBeanLocal productServiceBeanLocal;
+    
     public SearchController() {
+        
     }
+    
+    public void searchSupplyProduct(){}
+    
 }
