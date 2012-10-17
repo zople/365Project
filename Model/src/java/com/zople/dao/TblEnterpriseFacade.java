@@ -4,10 +4,13 @@
  */
 package com.zople.dao;
 
+import com.zople.dao.utils.CollectionUtil;
 import com.zople.domain.TblEnterprise;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -25,6 +28,12 @@ public class TblEnterpriseFacade extends AbstractFacade<TblEnterprise> {
 
     public TblEnterpriseFacade() {
         super(TblEnterprise.class);
+    }
+    
+    public TblEnterprise findByUserId(Long userId){
+        Query query=em.createQuery("select u from TblEnterprise u where u.userId="+userId.toString());
+        List<TblEnterprise> res=query.getResultList();
+        return CollectionUtil.getFirstElement(res);
     }
     
 }
