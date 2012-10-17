@@ -1055,3 +1055,7 @@ create table sad_supply_product(
 	update_time timestamp without time zone,
 	CONSTRAINT "SAD_SUPPLY_PRODUCT_PKEY" PRIMARY KEY (id )
 );
+--创建产品搜索索引
+CREATE INDEX PRODUCT_SEARCH_INDEX ON sad_supply_product USING gin(to_tsvector('english', product_name_segmentation || ' ' || description_segmentation));
+analyze sad_supply_product;
+
