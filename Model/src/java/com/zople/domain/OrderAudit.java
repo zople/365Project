@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
@@ -41,6 +42,7 @@ import javax.validation.constraints.Size;
 public class OrderAudit implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @SequenceGenerator(name = "audit_serial", allocationSize = 1, initialValue = 1, sequenceName = "audit_serial")
     @Id
     @Basic(optional = false)
     @TableGenerator(name="ORDERAUDIT_GEN",table="TBL_PRIMARY_KEY_GENERATOR",pkColumnName="KEY",valueColumnName="VALUE",pkColumnValue="ORDERAUDIT_ID",allocationSize=1)
