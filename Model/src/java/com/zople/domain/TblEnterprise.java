@@ -105,7 +105,7 @@ public class TblEnterprise implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date createTime;
     @Column(name = "user_id")
-    private BigInteger userId;
+    private long userId;
     @Size(max = 100)
     @Column(name = "main_product")
     private String mainProduct;
@@ -394,11 +394,11 @@ public class TblEnterprise implements Serializable {
         this.createTime = createTime;
     }
 
-    public BigInteger getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(BigInteger userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
