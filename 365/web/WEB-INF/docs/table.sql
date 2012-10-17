@@ -1030,7 +1030,7 @@ create table sppl_cateattrrvinfo(
 	update_time timestamp without time zone,
         CONSTRAINT "sppl_cateattrrvinfo_PKEY" PRIMARY KEY (id )
 );
-<<<<<<< HEAD
+
 --供应商品表
 create table sad_supply_product(
 	id bigint,--主键
