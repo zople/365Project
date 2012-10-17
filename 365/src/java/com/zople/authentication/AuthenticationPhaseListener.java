@@ -1,8 +1,5 @@
 package com.zople.authentication;
 
-import javax.el.ELContext;
-import javax.el.ValueExpression;
-import javax.faces.FacesException;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
