@@ -48,10 +48,10 @@
                                 <h:outputText value="" />
                                 
                                 <h:graphicImage name="product7.jpg" library="images"/>
-                                <h:inputText id="productName" value="#{orderController.productName}"/>
-                                <h:inputText id="productPrice" value="#{orderController.price}"/>
-                                <h:inputText id="num" value="#{orderController.num}" readonly="true"/>                                            
-                                <h:inputText value="#{orderController.num}" />  
+                                <h:inputText id="productName" value="#{productController.productDto.name}"/>
+                                <h:inputText id="productPrice" value="#{productController.productDto.specificationsPrice}"/>
+                                <h:inputText id="num" value="#{productController.productDto.count}" readonly="true"/>                                            
+                                <h:inputText value="" />  
                                  <h:selectOneMenu id="item">
                                     <f:ajax execute="item" listener="#{orderController.sumFreight}" render="shipcost"/>
                                     <f:selectItem itemValue="EMS 50.0元" />
