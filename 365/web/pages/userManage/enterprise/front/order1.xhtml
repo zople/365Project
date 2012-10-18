@@ -18,7 +18,7 @@
                 <div style="margin-top: 50px;">
                     <h:dataTable value="">
                         <h:column>
-                            卖家名称：<h:outputText value="小明" />
+                            卖家名称：<h:outputText value="#{enterpriseOrderController.tblEnterprise.name}" />
                             卖家联系人：<h:outputText value="小明" />
                             <h:dataTable value="#{zhangyanController.items}" var="item">
                                 <h:column >

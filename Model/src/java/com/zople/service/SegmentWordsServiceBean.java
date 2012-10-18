@@ -91,6 +91,7 @@ public class SegmentWordsServiceBean implements SegmentWordsServiceBeanLocal {
      * @param text 要分词的文本
      * @return
      */
+    @Override
     public String segment(String text) {
         return segment(text, SEPARATOR);
     }
