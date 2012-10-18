@@ -11,11 +11,13 @@ import com.zople.domain.product.ProductMainInfo;
 import com.zople.domain.product.ShippingCosts;
 import java.math.BigDecimal;
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author XiaoYanZi
  */
+@Stateless
 public class DeliveryFeeServiceBean implements DeliveryFeeServiceBeanLocal {
     
      @EJB
@@ -29,7 +31,7 @@ public class DeliveryFeeServiceBean implements DeliveryFeeServiceBeanLocal {
     public BigDecimal getDeliveryFee(long productId,long enterpriseId,BigDecimal amount) {
         BigDecimal totalFee = null;
         Long unitWeight=null;
-        BigDecimal DivAmount=amount.divide(new BigDecimal(1));
+        BigDecimal subAmount=amount.subtract(new BigDecimal(1));
         ShippingCosts  shippingCosts=getShippingCosts(enterpriseId);
         ProductMainInfo productMainInfo=getProductMainInfo(productId);
         unitWeight=productMainInfo.getGrossWeight().longValue();
@@ -37,7 +39,7 @@ public class DeliveryFeeServiceBean implements DeliveryFeeServiceBeanLocal {
             totalFee=shippingCosts.getFirstPrice();
         }
         else{            
-            totalFee= shippingCosts.getFirstPrice().add(DivAmount.multiply(shippingCosts.getFollowPrice()));           
+            totalFee= shippingCosts.getFirstPrice().add(subAmount.multiply(shippingCosts.getFollowPrice()));     
         }          
         
         return totalFee;
@@ -57,6 +59,6 @@ public class DeliveryFeeServiceBean implements DeliveryFeeServiceBeanLocal {
    public ShippingCosts getShippingCosts(long enterpriseId){
        ShippingCosts shippingCosts=new ShippingCosts();
        shippingCosts=shippingCostsFacade.find(enterpriseId);
-        return null;
+        return shippingCosts;
    }
 }
