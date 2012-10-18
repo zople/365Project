@@ -4,7 +4,8 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head/>
     <h:body>
         <h:form>
@@ -28,45 +29,51 @@
                     </h:dataTable>
                 </div>
                 <div style="margin-top: 50px;">
-                    确认订单信息
+                    
+                    <div>确认订单信息</div>
+                    <div>
+                         卖家名称：  <h:outputText value="小明" />
+                         卖家联系人：<h:outputText value="小明" />
+                    </div>
+                    
                     <h:dataTable value="">
                         <h:column>
-                            卖家名称：  <h:outputText value="小明" />
-                            卖家联系人：<h:outputText value="小明" />
-                            <br/>
-                            <h:panelGrid columns="7" style="margin-bottom:10px" cellpadding="5">  
-                                <h:outputText  value="" />
-                                <h:outputText  value="" />
+                            <h:panelGrid columns="7" style="margin-bottom:10px" cellpadding="5"> 
+                                <h:outputText  value="产品图片" />
                                 <h:outputText  value="产品名称" />
-                                <h:outputText value="单价" />
+                                <h:outputText value="单价（元）" />
                                 <h:outputText value="数量" />
-                                <h:outputText value="小计" />
-                                <h:outputText value="操作" />
-                                <h:selectManyCheckbox layout="pageDirection">
-                                    <f:selectItem itemLabel="" itemValue="false"/>
-                                </h:selectManyCheckbox>
+                                <h:outputText value="小计（元）" />
+                                <h:outputText value="运费" />
+                                <h:outputText value="" />
+                                
                                 <h:graphicImage name="product7.jpg" library="images"/>
-                                <h:inputText id="productId" value="#{orderController.productId}"/>
                                 <h:inputText id="productName" value="#{orderController.productName}"/>
-                                <h:inputText id="num" value="200"/>
-                                <p:spinner value="30" /> 
-                                <h:outputText value="4600" />
-                                <h:panelGroup>
-                                    <h:commandLink value="收藏"/>
-                                    <br/>
-                                    <h:commandLink value="删除"/>
-                                </h:panelGroup>
-                                给卖家留言：<h:inputTextarea/>
-                                物流方式：
-                                <h:selectOneMenu>
+                                <h:inputText id="productPrice" value="#{orderController.price}"/>
+                                <h:inputText id="num" value="#{orderController.num}" readonly="true"/>                                            
+                                <h:inputText value="#{orderController.num}" />  
+                                 <h:selectOneMenu id="item">
+                                    <f:ajax execute="item" listener="#{orderController.sumFreight}" render="shipcost"/>
                                     <f:selectItem itemValue="EMS 50.0元" />
                                     <f:selectItem itemValue="DHL 80.0元" />
                                     <f:selectItem itemValue="顺丰 80.0元" />
                                     <f:selectItem itemValue="中铁 56.0元" />
                                 </h:selectOneMenu>
-                                <h:outputText value="50.0" />
+                                <h:outputText id="shipcost" value="#{orderController.shippingCost}" /> 
                             </h:panelGrid>
+                            
+                            <div>
+                                <div style="float: left;">
+                                 给卖家留言：<h:inputTextarea/>
+                            </div>
+                            <div style="float: right;">
+                                运费： <h:outputText value="#{orderController.num}" /><br/>
+                                商品总价： <h:outputText value="#{orderController.num}" />
+                            </div>
+                            </div>
+                            
                         </h:column>
+                        <div style="margin: 30px;"></div>
                     </h:dataTable>
                 </div>
             </div>

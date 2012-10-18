@@ -78,6 +78,7 @@ public class EnOrderController implements Serializable {
             path = "order1";
         } else if ("去结算".equals(s)) {
             path = "order2";
+            System.out.println(path);
         }
         return path;
     }
