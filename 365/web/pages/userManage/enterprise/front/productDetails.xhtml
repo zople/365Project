@@ -30,30 +30,26 @@ and open the template in the editor.
                                     <h:outputLabel for="spinnerBasic" value="订货量（个）" />  
                                     <h:outputLabel for="spinnerBasic" value="价格" /> 
                                     <h:outputLabel for="spinnerBasic" value="10-20" />  
-                                    <h:outputLabel for="spinnerBasic" value="10元1个" />
+                                    <h:outputLabel for="spinnerBasic" value="#{productController.productDto.specificationsPrice}元1个" />
                                     <h:outputLabel for="spinnerBasic" value="21-40" />  
-                                    <h:outputLabel for="spinnerBasic" value="9元1个" /> 
+                                    <h:outputLabel for="spinnerBasic" value="#{productController.productDto.specificationsPrice}元1个" /> 
                                     <h:outputLabel for="spinnerBasic" value="发货地点" />
-                                    <h:outputLabel for="spinnerBasic" value="上海" />
+                                    <h:outputLabel for="spinnerBasic" value="" />
                                     <h:outputLabel for="spinnerBasic" value="累计出售：" />
-                                    <h:outputLabel for="spinnerBasic" value="3个" />
+                                    <h:outputLabel for="spinnerBasic" value="" />
                                     <h:outputLabel for="spinnerBasic" value="供货能力：" />
-                                    <h:outputLabel for="spinnerBasic" value="30个" />
+                                    <h:outputLabel for="spinnerBasic" value="#{productController.productDto.speStockQuantity}个" />
+                                    <h:outputLabel for="spinnerBasic" value="产品规格：" />  
+                                    <h:outputLabel for="spinnerBasic" value="" />  
                                 </h:panelGrid>
-                                产品规格：
-                                <br/>
-                                颜色：黑色 蓝色
-                                <br/>
-                                样式：样式1 样式2
-                                <br/>
                                 <h:panelGrid id="grid" columns="2" cellpadding="5">  
                                     <h:outputLabel for="spinnerBasic" value="我要购买：" />  
-                                    <p:spinner id="spinnerBasic" />   
+                                    <p:spinner id="spinnerBasic" value="#{productController.count}" />   
                                 </h:panelGrid>  
                                 <br/>
                                 付款方式：网上银行 支付宝
                                 <br/>
-                                <p:commandButton value="立即订购" update="display" action="#{enOrderController.path('立即订购')}" />
+                                <p:commandButton value="立即订购" update="display" action="#{productController.path('立即订购')}" />
                                 <p:commandButton value="加入购物车" update="display" oncomplete="dialog.show()" />  
                                 <p:dialog header="请选择产品规格" widgetVar="dialog" showEffect="fold" hideEffect="fold" width="400" height="200">  
                                     <h:panelGrid id="display" columns="2" cellpadding="5">  
