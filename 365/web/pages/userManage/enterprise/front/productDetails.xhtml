@@ -19,12 +19,12 @@ and open the template in the editor.
                     <div class="enFrontContent1" style="height: 520px">
                         <div class="entTop">产品信息</div>
                         <div>
-                            <h2 style="line-height:  20px; font-size: 16px;text-align: center">【产品名称】</h2>
+                            <h2 style="line-height:  20px; font-size: 16px;text-align: center">【产品名称】:<h:outputText value="#{productController.productDto.name}" /> </h2>
                             <div style="float: left;">
                                 <h:graphicImage name="product2.jpg" library="images"/>
                             </div>
                             <div style="float: left;">
-                                【产品型号】：
+                                【产品型号】：<h:outputText value="#{productController.productDto.productType}" />
                                 <br/>
                                 <h:panelGrid columns="2" cellpadding="5">  
                                     <h:outputLabel for="spinnerBasic" value="订货量（个）" />  
