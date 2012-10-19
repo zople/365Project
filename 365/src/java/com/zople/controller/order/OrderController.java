@@ -5,12 +5,15 @@
 
 package com.zople.controller.order;
 
+import com.zople.dao.ProductMainInfoFacade;
 import com.zople.domain.OrderOrderinfo;
 import com.zople.domain.TblEnterprise;
+import com.zople.domain.product.ProductMainInfo;
 import com.zople.service.order.DeliveryFeeServiceBeanLocal;
 import com.zople.service.order.OrderServiceBeanLocal;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
@@ -33,6 +36,9 @@ public class OrderController implements Serializable {
     OrderServiceBeanLocal orderServiceBeanLocal;
     @EJB
     DeliveryFeeServiceBeanLocal deliveryFeeServiceBeanLocal;
+    @EJB
+    private ProductMainInfoFacade productMainInfoFacade;
+    
     //页面参数
      private Long productId;//供应产品ID
      private BigDecimal   price;//单价
@@ -41,6 +47,8 @@ public class OrderController implements Serializable {
      private BigDecimal   subtotal;//总金额
      private BigDecimal shippingCost;//运费
      private TblEnterprise tblEnterprise;
+     private List<ProductMainInfo> productMainInfos;
+     HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
      public BigDecimal getShippingCost() {
         return shippingCost;
     }
@@ -71,8 +79,8 @@ public class OrderController implements Serializable {
      * 按首重续重计算运费
      * @return 
      */
-    public void sumFreight(){    
-       
+    public void sumFreight(){   
+      
         BigDecimal amount=new BigDecimal(num);
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         tblEnterprise = (TblEnterprise) session.getAttribute("sellEnterprise");
