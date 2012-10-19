@@ -40,6 +40,14 @@ public class EnOrderController implements Serializable {
     //加载订单管理Server
     @EJB
     OrderServiceBeanLocal orderServiceBeanLocal;
+
+    public OrderServiceBeanLocal getOrderServiceBeanLocal() {
+        return orderServiceBeanLocal;
+    }
+
+    public void setOrderServiceBeanLocal(OrderServiceBeanLocal orderServiceBeanLocal) {
+        this.orderServiceBeanLocal = orderServiceBeanLocal;
+    }
     
     
    

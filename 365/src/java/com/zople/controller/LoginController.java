@@ -7,9 +7,7 @@ package com.zople.controller;
 import com.zople.authentication.SessionUser;
 import com.zople.common.SessionUserHelper;
 import com.zople.controller.util.JsfUtil;
-import com.zople.dao.TblEnterpriseFacade;
 import com.zople.dao.basic.UserInfoFacade;
-import com.zople.domain.TblEnterprise;
 import com.zople.domain.basic.UserInfo;
 import java.io.Serializable;
 import javax.ejb.EJB;
@@ -28,8 +26,6 @@ public class LoginController implements Serializable {
 
     @EJB
     UserInfoFacade userInfoFacade;
-    @EJB
-    TblEnterpriseFacade tblEnterpriseFacade;
     private String username;
     private String password;
     private boolean login = false;
@@ -55,12 +51,7 @@ public class LoginController implements Serializable {
         if (password.equals(userInfo.getPassword())) {
             HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
             SessionUser user = new SessionUser();
-            TblEnterprise tblEnterprise=tblEnterpriseFacade.findByUserId(userInfo.getId());
-            if(tblEnterprise!=null){
-                user.setId(tblEnterprise.getId().toString());
-                user.setName(tblEnterprise.getName());
-            
-            }
+            user.setId("11111111111111");
             user.setIdentifier(userInfo.getId().toString());
             session.setAttribute(SessionUserHelper.USER_SESSION_KEY, user);
             login = true;

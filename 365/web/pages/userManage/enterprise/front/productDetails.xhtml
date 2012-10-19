@@ -40,7 +40,7 @@ and open the template in the editor.
                                     <h:outputLabel for="spinnerBasic" value="供货能力：" />
                                     <h:outputLabel for="spinnerBasic" value="#{productController.productDto.speStockQuantity}个" />
                                     <h:outputLabel for="spinnerBasic" value="产品规格：" />  
-                                    <h:outputLabel for="spinnerBasic" value="" />  
+                                    <h:outputLabel for="spinnerBasic" value="" /> 
                                 </h:panelGrid>
                                 <h:panelGrid id="grid" columns="2" cellpadding="5">  
                                     <h:outputLabel for="spinnerBasic" value="我要购买：" />  
@@ -49,7 +49,9 @@ and open the template in the editor.
                                 <br/>
                                 付款方式：网上银行 支付宝
                                 <br/>
-                                <p:commandButton value="立即订购" update="display" action="#{productController.path('立即订购')}" />
+                                <p:commandButton value="立即订购" update="display" action="#{productController.path('立即订购')}" >
+                                    <f:param value="#{productController.productDto.id}" name="id"/>
+                                </p:commandButton>
                                 <p:commandButton value="加入购物车" update="display" oncomplete="dialog.show()" />  
                                 <p:dialog header="请选择产品规格" widgetVar="dialog" showEffect="fold" hideEffect="fold" width="400" height="200">  
                                     <h:panelGrid id="display" columns="2" cellpadding="5">  
