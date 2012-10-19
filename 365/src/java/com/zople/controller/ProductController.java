@@ -24,12 +24,13 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 
 @Named("productController")
-@RequestScoped
+@SessionScoped
 public class ProductController implements Serializable {
 
     private Product product;
@@ -183,6 +184,7 @@ public class ProductController implements Serializable {
         productDto.setSpecificationsPrice(sadSupplyProductprice.getSpecificationsPrice().toString());
         productDto.setSpeStockQuantity(sadSupplyProductprice.getSpeStockQuantity());
         productDto.setCount(getCount());
+        session.setAttribute("count", getCount());
 
         System.out.println("买家企业ID：" + supplyProduct.getEnterpriseId());
         System.out.println("卖家企业ID：" + SessionUserHelper.getSessionUser().getId());
