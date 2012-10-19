@@ -167,7 +167,6 @@ public class ProductController implements Serializable {
         productDto = new ProductDto();
 
         String id = JsfUtil.getRequestParameter("id");
-        System.out.println("*************************************************"+id);
         
         productMainInfo = productMainInfoFacade.find(Long.parseLong(id));
         productDto.setId(Long.parseLong(id));
@@ -185,7 +184,7 @@ public class ProductController implements Serializable {
         productDto.setSpeStockQuantity(sadSupplyProductprice.getSpeStockQuantity());
         productDto.setCount(getCount());
         session.setAttribute("count", getCount());
-
+        
         System.out.println("买家企业ID：" + supplyProduct.getEnterpriseId());
         System.out.println("卖家企业ID：" + SessionUserHelper.getSessionUser().getId());
         return "productDetails";
