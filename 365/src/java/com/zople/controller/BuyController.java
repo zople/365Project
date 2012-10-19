@@ -92,5 +92,10 @@ public class BuyController {
     public void setId(Long id) {
         this.id = id;
     }
+    
+    public String iddata(){
+        Long ida = facade.find(id).getId();
+        return "";
+    }
 }
 
