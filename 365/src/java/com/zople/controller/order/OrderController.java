@@ -9,6 +9,7 @@ import com.zople.dao.ProductMainInfoFacade;
 import com.zople.domain.OrderOrderinfo;
 import com.zople.domain.TblEnterprise;
 import com.zople.domain.product.ProductMainInfo;
+import com.zople.dto.ProductDto;
 import com.zople.service.order.DeliveryFeeServiceBeanLocal;
 import com.zople.service.order.OrderServiceBeanLocal;
 import java.io.Serializable;
@@ -47,7 +48,7 @@ public class OrderController implements Serializable {
      private BigDecimal   subtotal;//总金额
      private BigDecimal shippingCost;//运费
      private TblEnterprise tblEnterprise;
-     private List<ProductMainInfo> productMainInfos;
+     private ProductDto productDto;//页面显示的产品详情
      HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
      public BigDecimal getShippingCost() {
         return shippingCost;
@@ -84,10 +85,20 @@ public class OrderController implements Serializable {
         BigDecimal amount=new BigDecimal(num);
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         tblEnterprise = (TblEnterprise) session.getAttribute("sellEnterprise");
-        shippingCost=deliveryFeeServiceBeanLocal.getDeliveryFee(productId, tblEnterprise.getId(), amount);
-        
+        shippingCost=deliveryFeeServiceBeanLocal.getDeliveryFee(productId, tblEnterprise.getId(), amount);       
         
     }
+    /**
+     * 从Session页面展示数据
+     * @return 
+     */
+    public String showPages(){
+       // productDto=session.getAttributeNames("productDto");
+        
+        return "";
+    }
+    
+    
     public Long getProductId() {
         return productId;
     }
@@ -127,10 +138,7 @@ public class OrderController implements Serializable {
     public void setProductName(String productName) {
         this.productName = productName;
     }
-    
-    
-     
-    
+   
     
     
     
