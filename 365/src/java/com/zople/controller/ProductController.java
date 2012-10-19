@@ -141,7 +141,10 @@ public class ProductController implements Serializable {
         productMainInfos = productMainInfoFacade.findAll();
         return productMainInfos;
     }
-
+/**
+ *  通过商品ＩＤ获得商品详情
+ * @return 
+ */
     public String disMainProductById() {
         String id = JsfUtil.getRequestParameter("id");
         productDto = productService.findProductDto(id, 0);

@@ -9,33 +9,21 @@
     <h:body>
         <h:form>
             <div style="margin: 0 auto;width: 900px" >
-                <h:graphicImage name="product6.jpg" library="images"/>
-                <h:selectManyCheckbox layout="pageDirection">
-                    <f:selectItem itemLabel="全选" itemValue="false"/>
-                </h:selectManyCheckbox>
-                商品总价（不含运费）：<h:outputText value="4600" />元，请确认是否有误
+                            商品总价（不含运费）：<h:outputText value="4600" />元，请确认是否有误
                 <br/>
                 <div style="margin-top: 50px;">
                     <h:dataTable value="">
                         <h:column>
                             卖家名称：<h:outputText value="#{enterpriseOrderController.tblEnterprise.name}" />
                             卖家联系人：<h:outputText value="小明" />
-                            <h:dataTable value="#{zhangyanController.items}" var="item">
-                                <h:column >
-                                    <input name="id" value="#{item.id}"/>
-                                </h:column>
-                                <h:column >
-                                    <input name="sum" value="#{item.amount}"/>
-                                </h:column>
-                            </h:dataTable>
-                            <h:commandButton value="11" action="#{zhangyanController.dosonething}"/>
                             <br/>
                             <h:panelGrid columns="7" style="margin-bottom:10px" cellpadding="5">  
                                 <h:outputText value="" />
                                 <h:outputText value="" />
                                 <h:outputText value="产品名称" />
                                 <h:outputText value="单价" />
-                                <h:outputText value="数量" />   
+                                <h:outputText value="id" />
+                                <h:outputText value="数量" />
                                 <h:outputText value="小计" />
                                 <h:outputText value="操作" />
                                 <h:selectManyCheckbox layout="pageDirection">
@@ -43,8 +31,9 @@
                                 </h:selectManyCheckbox>
                                 <h:graphicImage name="product7.jpg" library="images"/>
                                 <h:outputText value="摄像头" />
-                                <h:outputText value="46" />
-                                <p:spinner value="100"/>
+                                <h:outputText value="200" />
+                                <h:outputText value="#{enterpriseOrderController}" />
+                                <p:spinner value="30"/>
                                 <h:outputText value="4600" />
                                 <h:panelGroup>
                                     <h:commandLink value="收藏"/>
@@ -64,7 +53,5 @@
             </div>
         </h:form>
     </h:body>
-
-
 </html>
 

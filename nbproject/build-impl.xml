@@ -240,6 +240,7 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${reference.365.dist-ear}" todir="${build.dir}//"/>
         <copyfiles files="${reference.Model.dist-ear}" todir="${build.dir}//"/>
         <copyfiles files="${reference.365Admin.dist-ear}" todir="${build.dir}//"/>
+        <copyfiles files="${reference.365Admin.dist-ear}" todir="${build.dir}//"/>
     </target>
     <target name="post-compile">
         <!-- Empty placeholder for easier customization. -->
