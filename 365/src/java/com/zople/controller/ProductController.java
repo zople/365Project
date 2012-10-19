@@ -1,36 +1,27 @@
 package com.zople.controller;
 
-import com.zople.common.SessionUserHelper;
 import com.zople.controller.util.JsfUtil;
 import com.zople.dao.CategoryFacade;
 import com.zople.dao.EnterpriseFacade;
 import com.zople.dao.ProductFacade;
 import com.zople.dao.ProductMainInfoFacade;
-import com.zople.dao.TblEnterpriseFacade;
-import com.zople.dao.product.ProductPriceFacade;
-import com.zople.dao.product.SupplyProductFacade;
 import com.zople.domain.Category;
 import com.zople.domain.Enterprise;
 import com.zople.domain.Product;
-import com.zople.domain.TblEnterprise;
 import com.zople.domain.product.ProductMainInfo;
-import com.zople.domain.product.SadSupplyProductprice;
-import com.zople.domain.product.SupplyProduct;
 import com.zople.dto.ProductDto;
 import com.zople.service.CategoryService;
+import com.zople.service.ProductService;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Named;
-import javax.servlet.http.HttpSession;
 
 @Named("productController")
-@SessionScoped
+@RequestScoped
 public class ProductController implements Serializable {
 
     private Product product;
@@ -141,17 +132,8 @@ public class ProductController implements Serializable {
     @EJB
     private ProductMainInfoFacade productMainInfoFacade;
     @EJB
-    private SupplyProductFacade supplyProductFacade;
-    @EJB
-    private ProductPriceFacade productPriceFacade;
-    @EJB
-    private TblEnterpriseFacade tblEnterpriseFacade;
+    private ProductService productService;
     private List<ProductMainInfo> productMainInfos;
-    private ProductMainInfo productMainInfo;
-    private List<SupplyProduct> supplyProducts;
-    private SupplyProduct supplyProduct;
-    private SadSupplyProductprice sadSupplyProductprice;
-    private TblEnterprise tblEnterprise;
     private ProductDto productDto;
     private int count;
 
@@ -161,32 +143,14 @@ public class ProductController implements Serializable {
     }
 
     public String disMainProductById() {
-        productDto = new ProductDto();
-
         String id = JsfUtil.getRequestParameter("id");
-        productMainInfo = productMainInfoFacade.find(Long.parseLong(id));
-        productDto.setId(Long.parseLong(id));
-        productDto.setName(productMainInfo.getName());
-        productDto.setProductType(productMainInfo.getProductType());
-
-        supplyProduct = supplyProductFacade.sel(id);
-        tblEnterprise = tblEnterpriseFacade.findById(supplyProduct.getEnterpriseId().toString());
-        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        session.setAttribute("sellEnterpriseId", supplyProduct.getEnterpriseId());
-        session.setAttribute("productId", id);
-
-        sadSupplyProductprice = productPriceFacade.sel(id);
-        productDto.setSpecificationsPrice(sadSupplyProductprice.getSpecificationsPrice().toString());
-        productDto.setSpeStockQuantity(sadSupplyProductprice.getSpeStockQuantity());
-        productDto.setCount(getCount());
-        session.setAttribute("count", getCount());
-
-        System.out.println("买家企业ID：" + supplyProduct.getEnterpriseId());
-        System.out.println("卖家企业ID：" + SessionUserHelper.getSessionUser().getId());
+        productDto = productService.findProductDto(id, 0);
         return "productDetails";
     }
 
     public String path(String s) {
+        String id = JsfUtil.getRequestParameter("id");
+        productDto = productService.findProductDto(id, count);
         String path = "";
         if ("立即订购".equals(s)) {
             path = "order2";
