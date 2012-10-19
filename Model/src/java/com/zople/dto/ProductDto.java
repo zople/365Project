@@ -21,6 +21,9 @@ public class ProductDto {
     private String specificationsPrice; 
     private BigInteger speStockQuantity;
     private int count;
+    private String enterpriseName;
+    private String contactName;
+    
 
     public Long getId() {
         return id;
@@ -100,5 +103,21 @@ public class ProductDto {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public String getEnterpriseName() {
+        return enterpriseName;
+    }
+
+    public void setEnterpriseName(String enterpriseName) {
+        this.enterpriseName = enterpriseName;
+    }
+
+    public String getContactName() {
+        return contactName;
+    }
+
+    public void setContactName(String contactName) {
+        this.contactName = contactName;
     }
 }
