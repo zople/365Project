@@ -4,9 +4,9 @@
  */
 package com.zople.dao.product;
 
+import com.zople.dao.utils.CollectionUtil;
 import com.zople.domain.product.AbstractFacade;
 import com.zople.domain.product.SupplyProduct;
-import java.text.MessageFormat;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -61,6 +61,6 @@ public class SupplyProductFacade extends AbstractFacade<SupplyProduct> {
 
     public SupplyProduct sel(String id) {
         Query query = em.createQuery("select s from SupplyProduct s where s.productId=" + id);
-        return (SupplyProduct) query.getSingleResult();
+        return CollectionUtil.getFirstElement((List<SupplyProduct>)query.getResultList());
     }
 }

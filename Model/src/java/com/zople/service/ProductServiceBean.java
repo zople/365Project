@@ -51,7 +51,6 @@ public class ProductServiceBean implements ProductServiceBeanLocal {
     public PagingResultValue searchProduct(String keyWords,int start,int limit){
         PagingResultValue<SupplyProduct> value=new  PagingResultValue<SupplyProduct>();
         keyWords=segmentWordsServiceBean.segment(keyWords," & ");
-        keyWords=keyWords.substring(0,keyWords.length()-2);
         List<SupplyProduct> supplyProducts=supplyProductFacade.search(keyWords, start, limit);
         int total=supplyProductFacade.searchCount(keyWords, start, limit);
         value.setData(supplyProducts);

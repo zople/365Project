@@ -7,12 +7,14 @@ import com.zople.dao.EnterpriseFacade;
 import com.zople.dao.ProductFacade;
 import com.zople.dao.ProductMainInfoFacade;
 import com.zople.dao.TblEnterpriseFacade;
+import com.zople.dao.product.ProductPriceFacade;
 import com.zople.dao.product.SupplyProductFacade;
 import com.zople.domain.Category;
 import com.zople.domain.Enterprise;
 import com.zople.domain.Product;
 import com.zople.domain.TblEnterprise;
 import com.zople.domain.product.ProductMainInfo;
+import com.zople.domain.product.SadSupplyProductprice;
 import com.zople.domain.product.SupplyProduct;
 import com.zople.dto.ProductDto;
 import com.zople.service.CategoryService;
@@ -22,12 +24,13 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 
 @Named("productController")
-@RequestScoped
+@SessionScoped
 public class ProductController implements Serializable {
 
     private Product product;
@@ -140,23 +143,32 @@ public class ProductController implements Serializable {
     @EJB
     private SupplyProductFacade supplyProductFacade;
     @EJB
+    private ProductPriceFacade productPriceFacade;
+    @EJB
     private TblEnterpriseFacade tblEnterpriseFacade;
     private List<ProductMainInfo> productMainInfos;
     private ProductMainInfo productMainInfo;
     private List<SupplyProduct> supplyProducts;
     private SupplyProduct supplyProduct;
+    private SadSupplyProductprice sadSupplyProductprice;
     private TblEnterprise tblEnterprise;
     private ProductDto productDto;
+    private int count;
 
     public List<ProductMainInfo> disMainProduct() {
         productMainInfos = productMainInfoFacade.findAll();
         return productMainInfos;
     }
-
+/**
+ *  通过商品ＩＤ获得商品详情
+ * @return 
+ */
     public String disMainProductById() {
         productDto = new ProductDto();
 
         String id = JsfUtil.getRequestParameter("id");
+        System.out.println("*************************************************"+id);
+        
         productMainInfo = productMainInfoFacade.find(Long.parseLong(id));
         productDto.setId(Long.parseLong(id));
         productDto.setName(productMainInfo.getName());
@@ -165,11 +177,28 @@ public class ProductController implements Serializable {
         supplyProduct = supplyProductFacade.sel(id);
         tblEnterprise = tblEnterpriseFacade.findById(supplyProduct.getEnterpriseId().toString());
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        //session.setAttribute("sellEnterpriseId", supplyProduct.getEnterpriseId());
-        session.setAttribute("sellEnterprise", tblEnterprise);
+        session.setAttribute("sellEnterpriseId", supplyProduct.getEnterpriseId());
+        session.setAttribute("productId", id);
+
+        sadSupplyProductprice = productPriceFacade.sel(id);
+        productDto.setSpecificationsPrice(sadSupplyProductprice.getSpecificationsPrice().toString());
+        productDto.setSpeStockQuantity(sadSupplyProductprice.getSpeStockQuantity());
+        productDto.setCount(getCount());
+        session.setAttribute("count", getCount());
+
         System.out.println("买家企业ID：" + supplyProduct.getEnterpriseId());
         System.out.println("卖家企业ID：" + SessionUserHelper.getSessionUser().getId());
         return "productDetails";
+    }
+
+    public String path(String s) {
+        String path = "";
+        if ("立即订购".equals(s)) {
+            path = "order2";
+        } else if ("去结算".equals(s)) {
+            path = "order2";
+        }
+        return path;
     }
 
     public ProductDto getProductDto() {
@@ -178,5 +207,13 @@ public class ProductController implements Serializable {
 
     public void setProductDto(ProductDto productDto) {
         this.productDto = productDto;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }

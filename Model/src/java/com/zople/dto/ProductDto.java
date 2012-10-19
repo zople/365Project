@@ -4,6 +4,8 @@
  */
 package com.zople.dto;
 
+import java.math.BigInteger;
+
 /**
  *
  * @author Administrator
@@ -16,6 +18,9 @@ public class ProductDto {
     private Long minOrderAmount;
     private Long inventoryAmount;
     private Integer status;
+    private String specificationsPrice; 
+    private BigInteger speStockQuantity;
+    private int count;
 
     public Long getId() {
         return id;
@@ -71,5 +76,29 @@ public class ProductDto {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getSpecificationsPrice() {
+        return specificationsPrice;
+    }
+
+    public void setSpecificationsPrice(String specificationsPrice) {
+        this.specificationsPrice = specificationsPrice;
+    }
+
+    public BigInteger getSpeStockQuantity() {
+        return speStockQuantity;
+    }
+
+    public void setSpeStockQuantity(BigInteger speStockQuantity) {
+        this.speStockQuantity = speStockQuantity;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }
