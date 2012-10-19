@@ -37,9 +37,9 @@ public class EnterpriseOrderController implements Serializable {
 
     public List<OrderOrderinfo> getOrderOrderinfos() {
         if ("all".equals(temp)) {
-            sql = "select o from OrderOrderinfo o";
+            sql = "select o from OrderOrderinfo o order by o.id";
         } else if ("month".equals(temp)) {
-            sql = "select o from OrderOrderinfo o";
+            sql = "select o from OrderOrderinfo o order by o.id";
         } else if ("0".equals(temp)) {
             sql = "select o from OrderOrderinfo o where o.orderState='0'";
         } else if ("1".equals(temp)) {
@@ -53,7 +53,7 @@ public class EnterpriseOrderController implements Serializable {
         } else if ("5".equals(temp)) {
             sql = "select o from OrderOrderinfo o where o.orderState='5'";
         } else {
-            sql = "select o from OrderOrderinfo o";
+            sql = "select o from OrderOrderinfo o order by o.id";
         }
         orderOrderinfos = orderOrderinfoFacade.findAllBysql(sql);
         return orderOrderinfos;
@@ -104,6 +104,13 @@ public class EnterpriseOrderController implements Serializable {
 
     public int count() {
         return orderOrderinfoFacade.count();
+    }
+
+    //发货
+    public String startGoods() {
+        String id = JsfUtil.getRequestParameter("id");
+        orderOrderinfoFacade.updateOrderState(id);
+        return "sellOrder";
     }
 
 //    public void findEnterprise() {

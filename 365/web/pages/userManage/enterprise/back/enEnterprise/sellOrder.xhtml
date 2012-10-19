@@ -107,17 +107,17 @@
                             <f:selectItem itemValue="顺丰" />
                         </h:selectOneMenu>
                         <br/>
-                        <h:commandButton value="搜索" action="#{enterpriseOrderController.test()}"/>
+                        <h:commandButton value="搜索"/>
                     </div>
                     <div class="business_order_content">
                         <div class="business_order_content1">
                             <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('all')}" value="全部订单"/></div>
                             <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('month')}" value="近一个月订单"/></div>
-                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('0')}" value="等待发货"/></div>
-                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('1')}" value="等待付款"/></div>
-                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('2')}" value="已发货"/></div>
-                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('3')}" value="等待评价"/></div>
-                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('4')}" value="成功订单"/></div>
+                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('0')}" value="待付款订单"/></div>
+                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('1')}" value="待发货订单"/></div>
+                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('2')}" value="待付款"/></div>
+                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('3')}" value="退款的订单"/></div>
+                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('4')}" value="成功的订单"/></div>
                             <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('5')}" value="取消的订单"/></div>
                         </div>
                         <div class="business_order_content2">
@@ -168,19 +168,24 @@
                                     <f:facet name="header">
                                         <h:outputText value="订单状态"/>
                                     </f:facet>
-                                    <h:outputText value="#{orderDto.orderState}"/>
+                                    <h:outputText value="待付款订单" rendered="#{orderDto.orderState==0}"/>
+                                    <h:outputText value="待发货订单" rendered="#{orderDto.orderState==1}"/>
+                                    <h:outputText value="待付款" rendered="#{orderDto.orderState==2}"/>
+                                    <h:outputText value="退款的订单" rendered="#{orderDto.orderState==3}"/>
+                                    <h:outputText value="成功的订单" rendered="#{orderDto.orderState==4}"/>
+                                    <h:outputText value="取消的订单" rendered="#{orderDto.orderState==5}"/>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="操作"/>
                                     </f:facet>
                                     <h:commandLink value="查看订单详情"  action="/pages/userManage/enterprise/back/enEnterprise/orderDetails.xhtml">
-                                        <f:param value="#{orderOrderinfo.id}" name="id"/>
+                                        <f:param value="#{orderDto.id}" name="id"/>
                                     </h:commandLink>
                                     <br/>
-                                    <h:commandLink value="发货" >
-                                        <f:param value="#{orderOrderinfo.id}" name="id"/>
-                                    </h:commandLink>
+                                    <h:commandButton value="发货" rendered="#{orderDto.orderState==1}" action="#{enterpriseOrderController.startGoods()}">
+                                        <f:param value="#{orderDto.id}" name="id"/>
+                                    </h:commandButton>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">
@@ -188,7 +193,7 @@
                                     </f:facet>
                                     <h:commandLink value="查看投诉详情"  action="/pages/userManage/enterprise/back/enEnterprise/checkComplaint.xhtml"/>
                                     <h:commandLink value="查看退款详情" action="/pages/userManage/enterprise/back/enEnterprise/orderQuit.xhtml" >
-                                        <f:param value="#{orderOrderinfo.id}" name="id"/>
+                                        <f:param value="#{orderDto.id}" name="id"/>
                                     </h:commandLink>
                                 </h:column>
                             </h:dataTable>
@@ -203,7 +208,7 @@
                         共 页
                     </div>
                     <div class="business_order_bottom">
-                        <div class="business_order_bottom_title"> 交易投诉--我要投诉</div>
+                        <div class="business_order_bottom_title"> 交易投诉--查看投诉</div>
                         <hr/>
                         订单编号：<h:inputText/><br/>
                         投诉原因：
@@ -222,8 +227,8 @@
                             <f:selectItem itemLabel="是否需要易得客服介入" itemValue="false"/>
                         </h:selectManyCheckbox>
                         <br/>
-                        <h:commandButton value="发布投诉"/>
-                        <h:commandButton value="取消投诉"/>
+                        <h:commandButton value="确定"/>
+                        <h:commandButton value="关闭"/>
                     </div>
                 </div>
             </h:form>

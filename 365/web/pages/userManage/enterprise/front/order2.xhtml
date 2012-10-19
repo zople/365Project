@@ -82,7 +82,9 @@
                 <br/>
                 收货地址：<h:outputText value="上海 上海市 宝山区 呼玛路547号 兆民水计算科技有限公司 (******收) 180**************" />
                 <br/>
-                <h:commandButton action="#{orderController.submitOrder}"  value="提交订单" />
+                <h:commandButton action="#{orderController.submitOrder}"  value="提交订单" >
+                    <f:param value="#{productController.productDto.id}" name="id"/>
+                </h:commandButton>
             </div>
         </h:form>
     </h:body>
