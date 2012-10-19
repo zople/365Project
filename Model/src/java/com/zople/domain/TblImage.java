@@ -34,13 +34,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "TblImage.findByName", query = "SELECT t FROM TblImage t WHERE t.name = :name"),
     @NamedQuery(name = "TblImage.findByTitle", query = "SELECT t FROM TblImage t WHERE t.title = :title")})
 public class TblImage implements Serializable {
-    @Lob
     @Column(name = "small")
     private byte[] small;
-    @Lob
     @Column(name = "middle")
     private byte[] middle;
-    @Lob
     @Column(name = "big")
     private byte[] big;
     private static final long serialVersionUID = 1L;
