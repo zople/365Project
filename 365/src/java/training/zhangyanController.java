@@ -4,7 +4,6 @@
  */
 package training;
 
-import com.zople.controller.util.JsfUtil;
 
 import com.zople.dao.OrderOrderinfoFacade;
 import com.zople.dao.OrderOrderproductFacade;
