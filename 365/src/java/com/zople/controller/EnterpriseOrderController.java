@@ -273,40 +273,4 @@ public class EnterpriseOrderController implements Serializable {
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(orderOrderinfoFacade.findAll(), true);
     }
-//    @FacesConverter(forClass = EnOrder.class)
-//    public static class EnOrderControllerConverter implements Converter {
-//
-//        public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
-//            if (value == null || value.length() == 0) {
-//                return null;
-//            }
-//            EnterpriseOrderController controller = (EnterpriseOrderController) facesContext.getApplication().getELResolver().
-//                    getValue(facesContext.getELContext(), null, "enOrderController");
-//            return controller.ejbFacade.find(getKey(value));
-//        }
-//
-//        java.lang.Long getKey(String value) {
-//            java.lang.Long key;
-//            key = Long.valueOf(value);
-//            return key;
-//        }
-//
-//        String getStringKey(java.lang.Long value) {
-//            StringBuffer sb = new StringBuffer();
-//            sb.append(value);
-//            return sb.toString();
-//        }
-//
-//        public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
-//            if (object == null) {
-//                return null;
-//            }
-//            if (object instanceof EnOrder) {
-//                EnOrder o = (EnOrder) object;
-//                return getStringKey(o.getId());
-//            } else {
-//                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + EnOrder.class.getName());
-//            }
-//        }
-//    }
 }
