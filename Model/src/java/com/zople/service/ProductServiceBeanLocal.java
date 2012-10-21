@@ -6,7 +6,7 @@ package com.zople.service;
 
 import com.zople.common.PagingResultValue;
 import com.zople.domain.product.ProductMainInfo;
-import com.zople.domain.product.SupplyProduct;
+import com.zople.domain.product.SadSupplyProduct;
 import javax.ejb.Local;
 
 /**
@@ -25,8 +25,8 @@ public interface ProductServiceBeanLocal {
      * 添加供应
      * @param supplyProduct 
      */
-    public void addSupplyProduct(SupplyProduct supplyProduct);
+    public void addSupplyProduct(SadSupplyProduct supplyProduct);
 
-    public PagingResultValue<SupplyProduct> searchProduct(java.lang.String keyWords, int start, int limit);
+    public PagingResultValue<SadSupplyProduct> searchProduct(java.lang.String keyWords, int start, int limit);
     
 }

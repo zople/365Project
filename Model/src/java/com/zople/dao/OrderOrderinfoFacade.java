@@ -51,8 +51,8 @@ public class OrderOrderinfoFacade extends AbstractFacade<OrderOrderinfo> {
 //        return orderOrderinfo;
 //    }
 
-    public int updateOrderState(String id) {
-        Query query = em.createQuery("update OrderOrderinfo o set o.orderState=2 where o.id=" + id);
+    public int updateOrderState(String state, String orderNo) {
+        Query query = em.createQuery("update OrderOrderinfo o set o.orderState='" + state + "' where o.orderNo='"+orderNo+"'");
         return query.executeUpdate();
     }
 }

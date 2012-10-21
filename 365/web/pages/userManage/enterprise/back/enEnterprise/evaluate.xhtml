@@ -78,12 +78,12 @@ and open the template in the editor.
                         </div>
                         <div>
                         <hr/>
-                        订单编号：<h:outputText value="123456"/><br/>
+                        订单编号：<h:outputText value="${enterpriseOrderController.orderNo}"/><br/>
+                        <h:inputHidden value="#{enterpriseOrderController.orderNo}"/>
                         评价内容：
-                        <h:inputTextarea value="" style="width: 500px;height: 80px;"/><br/>
+                        <h:inputTextarea value="dddd" style="width: 500px;height: 80px;"/><br/>
                        
-                        <h:commandButton value="提交评论"/>
-                       
+                        <h:commandButton value="提交评论" action="#{enterpriseOrderController.evaluation()}"/>
                         </div>
                     </div>
                  </h:form>
