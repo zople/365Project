@@ -60,7 +60,7 @@ public class SupplyProductFacade extends AbstractFacade<SadSupplyProduct> {
     }
 
     public SadSupplyProduct sel(String id) {
-        Query query = em.createQuery("select s from SupplyProduct s where s.productId=" + id);
+        Query query = em.createQuery("select s from SadSupplyProduct s where s.productId=" + id);
         return CollectionUtil.getFirstElement((List<SadSupplyProduct>)query.getResultList());
     }
 }
