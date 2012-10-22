@@ -6,8 +6,8 @@ package com.zople.dao.product;
 
 import com.zople.dao.utils.CollectionUtil;
 import com.zople.domain.product.AbstractFacade;
+import com.zople.domain.product.SadSupplyProduct;
 import com.zople.domain.product.SadSupplyProductprice;
-import com.zople.domain.product.SupplyProduct;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -19,7 +19,7 @@ import javax.persistence.Query;
  * @author 王文彦
  */
 @Stateless
-public class ProductPriceFacade extends AbstractFacade<SupplyProduct> {
+public class ProductPriceFacade extends AbstractFacade<SadSupplyProduct> {
 
     @PersistenceContext(unitName = "365PU")
     private EntityManager em;
@@ -30,7 +30,7 @@ public class ProductPriceFacade extends AbstractFacade<SupplyProduct> {
     }
 
     public ProductPriceFacade() {
-        super(SupplyProduct.class);
+        super(SadSupplyProduct.class);
     }
 
     public SadSupplyProductprice sel(String id) {

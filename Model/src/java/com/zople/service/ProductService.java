@@ -13,7 +13,7 @@ import com.zople.domain.TblEnterprise;
 import com.zople.domain.TblEnterpriseContact;
 import com.zople.domain.product.ProductMainInfo;
 import com.zople.domain.product.SadSupplyProductprice;
-import com.zople.domain.product.SupplyProduct;
+import com.zople.domain.product.SadSupplyProduct;
 import com.zople.dto.ProductDto;
 import java.util.List;
 import javax.ejb.EJB;
@@ -42,8 +42,8 @@ public class ProductService {
     private EnterpriseContactFacade enterpriseContactFacade;
     private List<ProductMainInfo> productMainInfos;
     private ProductMainInfo productMainInfo;
-    private List<SupplyProduct> supplyProducts;
-    private SupplyProduct supplyProduct;
+    private List<SadSupplyProduct> supplyProducts;
+    private SadSupplyProduct supplyProduct;
     private TblEnterpriseContact tblEnterpriseContact;
     private SadSupplyProductprice sadSupplyProductprice;
     private TblEnterprise tblEnterprise;
@@ -61,7 +61,7 @@ public class ProductService {
         supplyProduct = supplyProductFacade.sel(id);
         tblEnterprise = tblEnterpriseFacade.findById(supplyProduct.getEnterpriseId().toString());
         productDto.setEnterpriseName(tblEnterprise.getName());
-
+        productDto.setEnterpriseId(tblEnterprise.getId());
         tblEnterpriseContact = enterpriseContactFacade.findEnterpriseContact(tblEnterprise.getId().toString());
         productDto.setContactName(tblEnterpriseContact.getContactName());
 

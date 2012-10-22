@@ -15,14 +15,16 @@ and open the template in the editor.
         <div style="margin: 0 auto; width: 500px;height: 500px; padding-top:10%;">
             <h:form>
                  <p:panelGrid columns="2">  
+                     <h:inputHidden value="#{enterpriseOrderController.orderNo}"/>
                       <f:facet name="header">  
                         使用支付宝支付XXX元<p:messages id="messages" showDetail="true" autoUpdate="true"/> 
+                        <!--
                       </f:facet>  
                            <h:outputLabel for="password" value="支付宝密码：" />  
-                            <p:password id="password" value="#{Pay_Controller.password}" required="true" label="" requiredMessage="密码不能为空" />  
-                      
+                            <p:password id="password" value="#{payController.password}" required="true" label="" requiredMessage="密码不能为空" />  
                       <f:facet name="footer">  
-                          <h:commandButton action="#{Pay_Controller.confirm}" value="确认付款" style="margin-left: 50px;background-color: red"/>  
+                        -->
+                          <h:commandButton action="#{enterpriseOrderController.buy()}" value="确认付款" style="margin-left: 50px;background-color: red"/>  
                       </f:facet>
                  </p:panelGrid>
             </h:form>
