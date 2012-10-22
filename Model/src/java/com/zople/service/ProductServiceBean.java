@@ -7,7 +7,7 @@ package com.zople.service;
 import com.zople.common.PagingResultValue;
 import com.zople.dao.ProductMainInfoFacade;
 import com.zople.domain.product.ProductMainInfo;
-import com.zople.domain.product.SupplyProduct;
+import com.zople.domain.product.SadSupplyProduct;
 import com.zople.dao.product.SupplyProductFacade;
 import java.util.List;
 import javax.ejb.EJB;
@@ -40,7 +40,7 @@ public class ProductServiceBean implements ProductServiceBeanLocal {
     * @param supplyProduct 
     */
     @Override
-    public void addSupplyProduct(SupplyProduct supplyProduct) {
+    public void addSupplyProduct(SadSupplyProduct supplyProduct) {
         supplyProduct.setDescriptionSegmentation(segmentWordsServiceBean.segment(supplyProduct.getDescription()));
         supplyProduct.setProductNameSegmentation(segmentWordsServiceBean.segment(supplyProduct.getProductName()));
         supplyProductFacade.create(supplyProduct);
@@ -49,9 +49,9 @@ public class ProductServiceBean implements ProductServiceBeanLocal {
     
     @Override
     public PagingResultValue searchProduct(String keyWords,int start,int limit){
-        PagingResultValue<SupplyProduct> value=new  PagingResultValue<SupplyProduct>();
+        PagingResultValue<SadSupplyProduct> value=new  PagingResultValue<SadSupplyProduct>();
         keyWords=segmentWordsServiceBean.segment(keyWords," & ");
-        List<SupplyProduct> supplyProducts=supplyProductFacade.search(keyWords, start, limit);
+        List<SadSupplyProduct> supplyProducts=supplyProductFacade.search(keyWords, start, limit);
         int total=supplyProductFacade.searchCount(keyWords, start, limit);
         value.setData(supplyProducts);
         value.setPageSize(limit);
