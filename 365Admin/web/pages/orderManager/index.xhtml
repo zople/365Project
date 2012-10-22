@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+     <h:head/>
+    <body>
+          <ui:composition template="/template.xhtml">
+            <ui:define name="top"><ui:include src="/pages/common/header.xhtml"/></ui:define>
+            <ui:define name="left"><ui:include src="/pages/orderManager/left.xhtml"/></ui:define>
+            <ui:define name="content">
+               
+            </ui:define>
+            <ui:define name="bottom"><ui:include src="/pages/common/footer.xhtml"/></ui:define>
+        </ui:composition>
+    </body>
+</html>

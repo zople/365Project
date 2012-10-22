@@ -8,9 +8,12 @@ package com.zople.dao.order;
 import com.zople.dao.AbstractFacade;
 import com.zople.domain.OrderAudit;
 import com.zople.domain.OrderOrderinfo;
+import java.util.Iterator;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 
 /**
@@ -22,7 +25,7 @@ import javax.persistence.PersistenceContext;
 public class OrderAuditFacade extends AbstractFacade<OrderAudit> {
     @PersistenceContext(unitName = "365PU")
     private EntityManager em;
-
+    private Query queryquery;
     @Override
     protected EntityManager getEntityManager() {
         return em;
@@ -30,6 +33,29 @@ public class OrderAuditFacade extends AbstractFacade<OrderAudit> {
 
     public OrderAuditFacade() {
         super(OrderAudit.class);
+    }
+    
+    
+    /**
+     * 获取最后一条记录信息
+     * @param flow_no
+     * @return 
+     */
+    public OrderAudit getLastOrderAudit(String flow_no) {
+        
+        OrderAudit orderAudit  = new  OrderAudit();
+        
+        queryquery = em.createQuery("select t from OrderAudit t where t.orderno='"+flow_no+"' order by t.auditId desc");
+        
+          List result =queryquery.getResultList(); 
+            if (result!=null){ 
+            Iterator iterator = result.iterator(); 
+            while( iterator .hasNext() ){ 
+             orderAudit= (OrderAudit)iterator .next();
+            }
+         }
+        
+        return orderAudit;
     }
 
    

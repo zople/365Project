@@ -11,23 +11,22 @@ import com.zople.domain.OrderOrderinfo;
 import java.io.Serializable;
 import java.util.Date;
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author WALLY
  */
-@ManagedBean(name = "payController")
-@RequestScoped
-public class Pay_Controller implements Serializable {
-
-    @EJB
+@ManagedBean(name="Pay_Controller")
+@SessionScoped
+public class Pay_Controller implements Serializable{
+     @EJB
     private OrderAuditFacade orderauditFacade;
-    @EJB
+     @EJB
     private OrderOrderinfoFacade orderinfotFacade;
     private OrderOrderinfo orderinfo = new OrderOrderinfo();
-    OrderAudit orderaudit = new OrderAudit();
+    OrderAudit orderaudit=new OrderAudit();
     private String password;
 
     public OrderOrderinfo getOrderinfo() {
@@ -37,33 +36,33 @@ public class Pay_Controller implements Serializable {
     public void setOrderinfo(OrderOrderinfo orderinfo) {
         this.orderinfo = orderinfo;
     }
-
+    
     public String getPassword() {
         return password;
     }
-
+    
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public Pay_Controller() {
+    public Pay_Controller(){    
     }
-
-    public void confirm() {
+    public void confirm(){
 //         String tempID=JsfUtil.getRequestParameter("id");
 //           Long tid=Long.parseLong(tempID);
-        if ("123".equals(password)) {
+             
+            if("123".equals(password)){
             orderaudit.setAuditId(null);
             orderaudit.setOrderno("1d");
             orderaudit.setAuditState(0);
             orderaudit.setAuditContent("提交订单");
             orderaudit.setAuditTime(new Date());
-            orderauditFacade.create(orderaudit);
-
+            orderauditFacade.create(orderaudit); 
+            
 //             orderinfo.setOrderState("已经付款");
 //              orderinfo.setPayState("已经付款");
 //              orderinfotFacade.edit(orderinfo);
-        }
+              
+       }
     }
-
+    
 }

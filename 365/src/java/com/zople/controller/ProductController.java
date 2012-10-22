@@ -134,7 +134,7 @@ public class ProductController implements Serializable {
     @EJB
     private ProductService productService;
     private List<ProductMainInfo> productMainInfos;
-    private ProductDto productDto;
+    private ProductDto productDto=new ProductDto();
     private int count;
 
     public List<ProductMainInfo> disMainProduct() {
@@ -179,3 +179,4 @@ public class ProductController implements Serializable {
         this.count = count;
     }
 }
+

@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-    <h:head>
-        <title>TODO supply a title</title>
-    </h:head>
+    <h:head/>
     <body>
         <div class="header">
-            <div  style="float: left;">
-                <h2>易得后台管理系统  <h:outputLink rel="" value="/365"  style="color: red;">易得前台</h:outputLink></h2>
+            <div  style="float: left; width: 200px ;height:60px;">
+                <H1>LOGO</H1>
             </div>
-            <div style="float: right;"><ui:include src="/pages/common/top.xhtml"/></div>
+            <div style="float: right;">
+                <ul style="list-style: none;">
+                    <li style="float: left; width: 100px;">
+                        <h:link outcome="/pages/contentManager/index.xhtml" value="平台内容管理" style="color: #045491; font-size: 13px;"/>
+                    </li>
+                    <li style="float: left; width: 100px;">
+                        <h:link outcome="/pages/permission/index.xhtml" value="用户权限管理" style="color: #045491; font-size: 13px;"/>
+                    </li>
+                    <li style="float: left; width: 100px;">
+                         <h:link outcome="/pages/companyTemplate/index.xhtml" value="网站模板管理" style="color: #045491; font-size: 13px;"/>
+                    </li>
+                    <li style="float: left; width: 100px;">
+                         <h:link outcome="/index" value="市场推广管理" style="color: #045491; font-size: 13px;"/>
+                    </li>
+                    <li style="float: left; width: 100px;">
+                         <h:link outcome="/pages/orderManager/index.xhtml" value="订单系统管理" style="color: #045491; font-size: 13px;"/>
+                    </li>
+                    <li style="float: left; width: 100px;">
+                         <h:link outcome="/pages/systemManager/index.xhtml" value="系统维护管理" style="color: #045491; font-size: 13px;"/>
+                    </li>
+                    <li style="float: left; width: 100px;">
+                         <h:link outcome="/pages/dateStatistics/index.xhtml" value="数据统计分析" style="color: #045491; font-size: 13px;"/>
+                    </li>
+                </ul>
+            </div>
         </div>
     </body>
 </html>

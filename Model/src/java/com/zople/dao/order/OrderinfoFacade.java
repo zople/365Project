@@ -5,7 +5,9 @@
 package com.zople.dao.order;
 
 import com.zople.dao.AbstractFacade;
+import com.zople.domain.Buy;
 import com.zople.domain.OrderOrderinfo;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -21,6 +23,7 @@ public class OrderinfoFacade extends AbstractFacade<OrderOrderinfo> {
 
     @PersistenceContext(unitName = "365PU")
     private EntityManager em;
+    private Query queryquery;
 
     @Override
     protected EntityManager getEntityManager() {
@@ -29,5 +32,13 @@ public class OrderinfoFacade extends AbstractFacade<OrderOrderinfo> {
 
     public OrderinfoFacade() {
         super(OrderOrderinfo.class);
+    } 
+    
+     public List<OrderOrderinfo> getOrderDataMaxSize(int start,int size){
+       queryquery = em.createQuery("select t from OrderOrderinfo t");
+        queryquery.setFirstResult(start);
+        queryquery.setMaxResults(size);
+        return queryquery.getResultList();
     }
-}
+
+    }
