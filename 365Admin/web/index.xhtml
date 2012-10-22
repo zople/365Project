@@ -4,11 +4,15 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
-        <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
     <h:body>
         <ui:composition template="template.xhtml">
-           
+            <ui:define name="left">
+                <div style=" border: 1px solid #BEBEBE;height:800px;"></div>
+            </ui:define>
+            <ui:define name="content">
+                 <div style=" border: 1px solid #BEBEBE;height:800px;"></div>
+            </ui:define>
         </ui:composition>
     </h:body>
 </html>
