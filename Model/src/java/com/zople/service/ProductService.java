@@ -61,7 +61,7 @@ public class ProductService {
         supplyProduct = supplyProductFacade.sel(id);
         tblEnterprise = tblEnterpriseFacade.findById(supplyProduct.getEnterpriseId().toString());
         productDto.setEnterpriseName(tblEnterprise.getName());
-
+        productDto.setEnterpriseId(tblEnterprise.getId());
         tblEnterpriseContact = enterpriseContactFacade.findEnterpriseContact(tblEnterprise.getId().toString());
         productDto.setContactName(tblEnterpriseContact.getContactName());
 
