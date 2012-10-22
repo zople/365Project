@@ -154,7 +154,7 @@ public class ProductController implements Serializable {
     @EJB
     DeliveryFeeServiceBeanLocal deliveryFeeServiceBeanLocal;   
     private List<ProductMainInfo> productMainInfos;
-    private ProductDto productDto;
+    private ProductDto productDto=new ProductDto();
     private int count;
     private String productId;
     private BigDecimal   subtotal;//小计
@@ -228,8 +228,9 @@ public class ProductController implements Serializable {
      * 按首重续重计算运费
      * @return 
      */
-    public void sumFreight(){  
-        System.out.println("***************************************************************************id="+JsfUtil.getRequestParameter("id"));
+    public String getSumFreight(){  
+        System.out.println("***************************************************************************id="+productDto.getCount());
+        return "1";
 ////        String id = JsfUtil.getRequestParameter("id");
   ///       int count =Integer.parseInt(JsfUtil.getRequestParameter("count"));
 ////        productDto = productService.findProductDto(id, count);
