@@ -19,9 +19,7 @@
                 </p:menu>
                 <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
                     <p:submenu label="店铺管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
-                        <p:menuitem value="店面模版选择" url="/faces/pages/userManage/enterprise/back/enAuthentication/storeTemplate.xhtml" />
-                        <p:menuitem value="栏目设置" url="/faces/pages/userManage/enterprise/back/enAuthentication/columnSetting.xhtml" />
-                        <p:menuitem value="聊天工具设置" url="/faces/pages/userManage/enterprise/back/enAuthentication/chatSetting.xhtml" />
+                        <p:menuitem value="店铺设置" url="/faces/pages/userManage/enterprise/back/enAuthentication/storeSetting.xhtml" />
                         <p:menuitem value="店铺留言" url="/faces/pages/userManage/enterprise/back/enAuthentication/storeMessage.xhtml" />
                         <p:menuitem value="企业新闻" url="/faces/pages/userManage/enterprise/back/enAuthentication/enterpriseNews.xhtml" />
                     </p:submenu>
@@ -39,93 +37,14 @@
                 </p:menu>
             </ui:define>
             <ui:define name="content">
-                <h:form>
-                    <div class="store">
-                        <div class="template1">
-                            <h:commandButton action="#{storeController.tab('storeMessage')}" value="店面留言" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px">
-                            </h:commandButton>
-                            <h:commandButton action="#{storeController.tab('messageType')}" value="留言类型管理" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 15px">
-                            </h:commandButton>
-                        </div>
-                        <div class="store_top">*友情提醒：及时处理客户的留言信息，提升客户满意度，增强客户粘性</div>
-                        <div class="store_content">
-                            <div class="store_content_top">
-                                搜索
-                                <h:selectOneMenu>
-                                    <f:selectItem itemValue="留言类型" />
-                                    <f:selectItem itemValue="产品咨询" />
-                                    <f:selectItem itemValue="服务投诉" />
-                                </h:selectOneMenu>
-                                <h:inputText value="输入关键字"/>
-                                <h:commandButton value="搜索"></h:commandButton>
-                                <br/>
-                                <h:selectManyCheckbox layout="pageDirection">
-                                    <f:selectItem itemLabel="全选" itemValue="false"/>
-                                </h:selectManyCheckbox>
-                            </div>
-                            <div class="store_content_bottom">
-                                <h:dataTable value="#{persionController}" var="persion" border="1">
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:selectManyCheckbox layout="pageDirection">
-                                                <f:selectItem itemLabel="" itemValue="false"/>
-                                            </h:selectManyCheckbox>
-                                        </f:facet>
-                                        <h:selectManyCheckbox layout="pageDirection">
-                                            <f:selectItem itemLabel="" itemValue="false"/>
-                                        </h:selectManyCheckbox>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="序号"/>
-                                        </f:facet>
-                                        <h:outputText value="1"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="操作"/>
-                                        </f:facet>
-                                        <h:commandLink value="已读" >
-                                            <f:param value="#{user.id}" name="id"/>
-                                        </h:commandLink>&nbsp;&nbsp;
-                                        <h:commandLink value="回复" >
-                                            <f:param value="#{user.id}" name="id"/>
-                                        </h:commandLink>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="留言标题"/>
-                                        </f:facet>
-                                        <h:outputText value="1111"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="内容"/>
-                                        </f:facet>
-                                        <h:outputText value="1111"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="会员名称"/>
-                                        </f:facet>
-                                        <h:outputText value="qqqqqq"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="发布日期"/>
-                                        </f:facet>
-                                        <h:outputText value="2012-2-2"/>
-                                    </h:column>
-                                </h:dataTable>
-                            </div>
-                        </div>
-                        <div class="store_select">
-                            <h:commandButton value="仅保存"></h:commandButton>
-                            <h:commandButton value="保存并发布"></h:commandButton>
-                            <h:commandButton value="取消"></h:commandButton>
-                        </div>
-                    </div>
-                </h:form>
+                <p:tabView orientation="top|bottom|left|right">
+                    <p:tab title="店铺留言管理">
+                        <ui:include src="/pages/userManage/enterprise/back/enAuthentication/storeMessageManage.xhtml"/>
+                    </p:tab>
+                    <p:tab title="店铺留言类型管理">
+                        <ui:include src="/pages/userManage/enterprise/back/enAuthentication/storeMessageCategoryManage.xhtml"/>
+                    </p:tab>
+                </p:tabView>
             </ui:define>
         </ui:composition>
     </h:body>

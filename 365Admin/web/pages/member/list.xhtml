@@ -5,10 +5,9 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
 
+    <h:head/>
+    <h:body>
     <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.ListRoleTitle}"></h:outputText>
-        </ui:define>
         <ui:define name="content">
             <h:form>
                 <div class="user">
@@ -93,5 +92,5 @@
             </h:form>
         </ui:define>
     </ui:composition>
-
+    </h:body>
 </html>

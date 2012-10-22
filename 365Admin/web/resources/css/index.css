@@ -15,7 +15,6 @@ root {
     background-color: rgb(255, 255, 255);
 }
 .header{
-    width: 1150px;
     height: 60px;
     border: 1px solid  buttonshadow;
     margin-bottom: 2px;

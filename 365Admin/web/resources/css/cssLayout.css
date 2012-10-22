@@ -1,5 +1,6 @@
 #left {
     float: left;
+    width: 20%;
 }
 
 #right {
@@ -15,10 +16,8 @@
 }
 
 .left_content {
-    padding: 5px;
-    margin-left: 210px;
-    height:1150px;
-    color:  black;
+    float: right;
+    width:80%;
 }
 
 .right_content {

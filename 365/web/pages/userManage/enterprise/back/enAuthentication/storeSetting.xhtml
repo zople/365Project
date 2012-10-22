@@ -8,13 +8,14 @@
     <h:head/>
     <h:body>
         <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
+
             <ui:define name="left">
                 <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
                     <p:submenu label="企业信息管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
-                        <p:menuitem value="基本信息" url="#" />
-                        <p:menuitem value="主营产品" url="#" />
-                        <p:menuitem value="企业图片" url="#" />
-                        <p:menuitem value="联系人信息" url="#" />
+                        <p:menuitem value="基本信息" url="/faces/pages/userManage/enterprise/back/enAuthentication/List.xhtml" />
+                        <p:menuitem value="主营产品" url="/faces/pages/userManage/enterprise/back/enAuthentication/List.xhtml" />
+                        <p:menuitem value="企业图片" url="/faces/pages/userManage/enterprise/back/enAuthentication/List.xhtml" />
+                        <p:menuitem value="联系人信息" url="/faces/pages/userManage/enterprise/back/enAuthentication/List.xhtml" />
                     </p:submenu>
                 </p:menu>
                 <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
@@ -38,11 +39,14 @@
             </ui:define>
             <ui:define name="content">
                 <p:tabView orientation="top|bottom|left|right">
-                    <p:tab title="发布企业新闻">
-                        <ui:include src="/pages/userManage/enterprise/back/enAuthentication/createEnterpriseNews.xhtml"/>
+                    <p:tab title="店面模版选择">
+                        <ui:include src="/pages/userManage/enterprise/back/enAuthentication/storeTemplate.xhtml"/>
                     </p:tab>
-                    <p:tab title="管理企业新闻">
-                        <ui:include src="/pages/userManage/enterprise/back/enAuthentication/manageEnterpriseNews.xhtml"/>
+                    <p:tab title="栏目设置">
+                        <ui:include src="/pages/userManage/enterprise/back/enAuthentication/columnSetting.xhtml"/>
+                    </p:tab>
+                    <p:tab title="聊天工具设置">
+                        <ui:include src="/pages/userManage/enterprise/back/enAuthentication/chatSetting.xhtml"/>
                     </p:tab>
                 </p:tabView>
             </ui:define>
