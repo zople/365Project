@@ -53,16 +53,17 @@
                                 <h:outputText id="productName" value="#{productController.productDto.name}"/>
                                 <h:outputText id="productPrice" value="#{productController.productDto.specificationsPrice}"/>
                                 <h:outputText id="num" value="#{productController.productDto.count}" readonly="true"/>
+                                <h:inputHidden id="amount" value="#{productController.productDto.count}"/>
                                 <h:outputText value="#{productController.subtotal}" />  
                                 <h:selectOneMenu id="item" >
-                                    <f:ajax execute="item" listener="#{productController.sumFreight}" render="shipcost" event="">                                         
+                                    <f:ajax execute="item amount" render="shipcost" event="change">                                         
                                     </f:ajax>                                     
                                     <f:selectItem itemValue="EMS 50.0元" />
                                     <f:selectItem itemValue="DHL 80.0元" /> 
                                     <f:selectItem itemValue="顺丰 80.0元" />
                                     <f:selectItem itemValue="中铁 56.0元" />
                                 </h:selectOneMenu>
-                                <h:outputText id="shipcost" value="#{productController.shippingCost}" /> 
+                                <h:outputText id="shipcost" value="#{productController.sumFreight}" /> 
                             </h:panelGrid>
 
                             <div>
