@@ -5,7 +5,7 @@
 package com.zople.controller.search;
 
 import com.zople.common.PagingResultValue;
-import com.zople.domain.product.SupplyProduct;
+import com.zople.domain.product.SadSupplyProduct;
 import com.zople.service.ProductServiceBeanLocal;
 import java.util.List;
 import javax.ejb.EJB;
@@ -23,7 +23,7 @@ public class SearchController {
     @EJB
     private ProductServiceBeanLocal productServiceBeanLocal;
     private String keyWords;
-    private PagingResultValue<SupplyProduct> supplyProducts;
+    private PagingResultValue<SadSupplyProduct> supplyProducts;
 
     public SearchController() {
     }

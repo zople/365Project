@@ -65,7 +65,8 @@ and open the template in the editor.
                  <div class="business_order_bottom">
                         <div class="business_order_bottom_title">取消订单</div>
                         <hr/>
-                        订单编号：<h:outputText value="123456"/><br/>
+                        订单编号：<h:outputText value="#{enterpriseOrderController.orderNo}"/><br/>
+                        <h:inputHidden value="#{enterpriseOrderController.orderNo}"/>
                          请选择取消订单的理由：
                         <h:selectOneMenu>
                             <f:selectItem itemValue="请选择原因" />
@@ -78,8 +79,8 @@ and open the template in the editor.
                         </h:selectOneMenu><br/>
                        
                         <br/>
-                        <h:commandButton value="确定"/>
-                        <h:commandButton value="关闭"/>
+                        <h:commandButton value="确定" action="#{enterpriseOrderController.cancelOrder()}"/>
+                        <h:commandButton value="关闭" action="/pages/userManage/enterprise/back/enEnterprise/buyOrder.xhtml"/>
                     </div>
                  </h:form>
         </ui:define>

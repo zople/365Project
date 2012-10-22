@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author yucongjun
+ * @author Administrator
  */
 @Entity
 @Table(name = "sad_supply_productprice")
@@ -31,17 +31,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "SadSupplyProductprice.findAll", query = "SELECT s FROM SadSupplyProductprice s"),
     @NamedQuery(name = "SadSupplyProductprice.findById", query = "SELECT s FROM SadSupplyProductprice s WHERE s.id = :id"),
-    @NamedQuery(name = "SadSupplyProductprice.findBySupplyProductId", query = "SELECT s FROM SadSupplyProductprice s WHERE s.supplyProductId = :supplyProductId"),
-    @NamedQuery(name = "SadSupplyProductprice.findByStartNum", query = "SELECT s FROM SadSupplyProductprice s WHERE s.startNum = :startNum"),
+    @NamedQuery(name = "SadSupplyProductprice.findByCreateTime", query = "SELECT s FROM SadSupplyProductprice s WHERE s.createTime = :createTime"),
+    @NamedQuery(name = "SadSupplyProductprice.findByCreator", query = "SELECT s FROM SadSupplyProductprice s WHERE s.creator = :creator"),
     @NamedQuery(name = "SadSupplyProductprice.findByEntNum", query = "SELECT s FROM SadSupplyProductprice s WHERE s.entNum = :entNum"),
     @NamedQuery(name = "SadSupplyProductprice.findByNumTypePrice", query = "SELECT s FROM SadSupplyProductprice s WHERE s.numTypePrice = :numTypePrice"),
+    @NamedQuery(name = "SadSupplyProductprice.findBySpeStockQuantity", query = "SELECT s FROM SadSupplyProductprice s WHERE s.speStockQuantity = :speStockQuantity"),
     @NamedQuery(name = "SadSupplyProductprice.findBySpecifications", query = "SELECT s FROM SadSupplyProductprice s WHERE s.specifications = :specifications"),
     @NamedQuery(name = "SadSupplyProductprice.findBySpecificationsPrice", query = "SELECT s FROM SadSupplyProductprice s WHERE s.specificationsPrice = :specificationsPrice"),
-    @NamedQuery(name = "SadSupplyProductprice.findBySpeStockQuantity", query = "SELECT s FROM SadSupplyProductprice s WHERE s.speStockQuantity = :speStockQuantity"),
-    @NamedQuery(name = "SadSupplyProductprice.findByCreator", query = "SELECT s FROM SadSupplyProductprice s WHERE s.creator = :creator"),
-    @NamedQuery(name = "SadSupplyProductprice.findByUpdateUser", query = "SELECT s FROM SadSupplyProductprice s WHERE s.updateUser = :updateUser"),
+    @NamedQuery(name = "SadSupplyProductprice.findByStartNum", query = "SELECT s FROM SadSupplyProductprice s WHERE s.startNum = :startNum"),
+    @NamedQuery(name = "SadSupplyProductprice.findBySupplyProductId", query = "SELECT s FROM SadSupplyProductprice s WHERE s.supplyProductId = :supplyProductId"),
     @NamedQuery(name = "SadSupplyProductprice.findByUpdateTime", query = "SELECT s FROM SadSupplyProductprice s WHERE s.updateTime = :updateTime"),
-    @NamedQuery(name = "SadSupplyProductprice.findByCreateTime", query = "SELECT s FROM SadSupplyProductprice s WHERE s.createTime = :createTime")})
+    @NamedQuery(name = "SadSupplyProductprice.findByUpdateUser", query = "SELECT s FROM SadSupplyProductprice s WHERE s.updateUser = :updateUser")})
 public class SadSupplyProductprice implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -49,33 +49,33 @@ public class SadSupplyProductprice implements Serializable {
     @NotNull
     @Column(name = "id")
     private Long id;
-    @Column(name = "supply_product_id")
-    private BigInteger supplyProductId;
-    @Column(name = "start_num")
-    private Integer startNum;
+    @Column(name = "create_time")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createTime;
+    @Size(max = 50)
+    @Column(name = "creator")
+    private String creator;
     @Column(name = "ent_num")
     private Integer entNum;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "num_type_price")
     private BigDecimal numTypePrice;
+    @Column(name = "spe_stock_quantity")
+    private BigInteger speStockQuantity;
     @Column(name = "specifications")
     private Integer specifications;
     @Column(name = "specifications_price")
     private BigDecimal specificationsPrice;
-    @Column(name = "spe_stock_quantity")
-    private BigInteger speStockQuantity;
-    @Size(max = 50)
-    @Column(name = "creator")
-    private String creator;
-    @Size(max = 50)
-    @Column(name = "update_user")
-    private String updateUser;
+    @Column(name = "start_num")
+    private Integer startNum;
+    @Column(name = "supply_product_id")
+    private BigInteger supplyProductId;
     @Column(name = "update_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateTime;
-    @Column(name = "create_time")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createTime;
+    @Size(max = 50)
+    @Column(name = "update_user")
+    private String updateUser;
 
     public SadSupplyProductprice() {
     }
@@ -92,20 +92,20 @@ public class SadSupplyProductprice implements Serializable {
         this.id = id;
     }
 
-    public BigInteger getSupplyProductId() {
-        return supplyProductId;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setSupplyProductId(BigInteger supplyProductId) {
-        this.supplyProductId = supplyProductId;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Integer getStartNum() {
-        return startNum;
+    public String getCreator() {
+        return creator;
     }
 
-    public void setStartNum(Integer startNum) {
-        this.startNum = startNum;
+    public void setCreator(String creator) {
+        this.creator = creator;
     }
 
     public Integer getEntNum() {
@@ -124,6 +124,14 @@ public class SadSupplyProductprice implements Serializable {
         this.numTypePrice = numTypePrice;
     }
 
+    public BigInteger getSpeStockQuantity() {
+        return speStockQuantity;
+    }
+
+    public void setSpeStockQuantity(BigInteger speStockQuantity) {
+        this.speStockQuantity = speStockQuantity;
+    }
+
     public Integer getSpecifications() {
         return specifications;
     }
@@ -140,28 +148,20 @@ public class SadSupplyProductprice implements Serializable {
         this.specificationsPrice = specificationsPrice;
     }
 
-    public BigInteger getSpeStockQuantity() {
-        return speStockQuantity;
+    public Integer getStartNum() {
+        return startNum;
     }
 
-    public void setSpeStockQuantity(BigInteger speStockQuantity) {
-        this.speStockQuantity = speStockQuantity;
+    public void setStartNum(Integer startNum) {
+        this.startNum = startNum;
     }
 
-    public String getCreator() {
-        return creator;
+    public BigInteger getSupplyProductId() {
+        return supplyProductId;
     }
 
-    public void setCreator(String creator) {
-        this.creator = creator;
-    }
-
-    public String getUpdateUser() {
-        return updateUser;
-    }
-
-    public void setUpdateUser(String updateUser) {
-        this.updateUser = updateUser;
+    public void setSupplyProductId(BigInteger supplyProductId) {
+        this.supplyProductId = supplyProductId;
     }
 
     public Date getUpdateTime() {
@@ -172,12 +172,12 @@ public class SadSupplyProductprice implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getUpdateUser() {
+        return updateUser;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setUpdateUser(String updateUser) {
+        this.updateUser = updateUser;
     }
 
     @Override

@@ -6,7 +6,7 @@ package com.zople.dao.product;
 
 import com.zople.dao.utils.CollectionUtil;
 import com.zople.domain.product.AbstractFacade;
-import com.zople.domain.product.SupplyProduct;
+import com.zople.domain.product.SadSupplyProduct;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -18,7 +18,7 @@ import javax.persistence.Query;
  * @author 王文彦
  */
 @Stateless
-public class SupplyProductFacade extends AbstractFacade<SupplyProduct> {
+public class SupplyProductFacade extends AbstractFacade<SadSupplyProduct> {
 
     @PersistenceContext(unitName = "365PU")
     private EntityManager em;
@@ -29,10 +29,10 @@ public class SupplyProductFacade extends AbstractFacade<SupplyProduct> {
     }
 
     public SupplyProductFacade() {
-        super(SupplyProduct.class);
+        super(SadSupplyProduct.class);
     }
 
-    public List<SupplyProduct> search(String keyWords, int start, int limit) {
+    public List<SadSupplyProduct> search(String keyWords, int start, int limit) {
         StringBuffer sb=new StringBuffer();
         sb.append("SELECT id, category_id_path, category_name_path, create_time, creator, ");
         sb.append(" description, description_segmentation, enterprise_id, information_valid_date, ");
@@ -59,8 +59,8 @@ public class SupplyProductFacade extends AbstractFacade<SupplyProduct> {
         return Integer.valueOf(query.getSingleResult().toString());
     }
 
-    public SupplyProduct sel(String id) {
-        Query query = em.createQuery("select s from SupplyProduct s where s.productId=" + id);
-        return CollectionUtil.getFirstElement((List<SupplyProduct>)query.getResultList());
+    public SadSupplyProduct sel(String id) {
+        Query query = em.createQuery("select s from SadSupplyProduct s where s.productId=" + id);
+        return CollectionUtil.getFirstElement((List<SadSupplyProduct>)query.getResultList());
     }
 }

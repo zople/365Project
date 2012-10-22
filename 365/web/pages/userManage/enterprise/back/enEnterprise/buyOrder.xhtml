@@ -104,22 +104,21 @@
                     </div>
                     <div class="business_order_content">
                         <div class="business_order_content1">
-                            <div class="condition">全部订单</div>
-                            <div class="condition">等待发货</div>
-                            <div class="condition">等待付款</div>
-                            <div class="condition">等待确认收货</div>
-                            <div class="condition">等待评价</div>
-                            <div class="condition">近三个月订单</div>
-                            <div class="condition">近一年订单</div>
+                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('all')}" value="全部订单"/></div>
+                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('month')}" value="近一个月订单"/></div>
+                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('0')}" value="等待付款"/></div>
+                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('1')}" value="等待发货"/></div>
+                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('2')}" value="确认收货"/></div>
+                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('3')}" value="等待评价"/></div>
+                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('4')}" value="成功的订单"/></div>
+                            <div class="condition"><h:commandLink action="#{enterpriseOrderController.displayOrderOrderinfo('5')}" value="取消的订单"/></div>
                             <div class="page">
                                 <h:commandLink value="上一页"></h:commandLink>
                                 <h:commandLink value="下一页"></h:commandLink>
                             </div>
                         </div>
                         <div class="business_order_content2">
-                            <h:commandButton value="批量导出订单" />
-                            <h:commandButton value="批量发货"  />
-                            <h:dataTable value="#{persionController.persions}" var="persion" border="1">
+                            <h:dataTable value="#{enterpriseOrderController.disOrderDtos()}" var="orderDto" border="1">
                                 <h:column>
                                     <f:facet name="header">
                                         <h:selectManyCheckbox layout="pageDirection">
@@ -132,67 +131,75 @@
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">
+                                        <h:outputText value="订单编号"/>
+                                    </f:facet>
+                                    <h:outputText value="#{orderDto.orderNo}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
                                         <h:outputText value="货品名称/规格"/>
                                     </f:facet>
-                                    <h:outputText value="#{persion.persionName}"/>
+                                    <h:outputText value="#{orderDto.productName}"/>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="单价"/>
                                     </f:facet>
-                                    <h:outputText value="#{persion.persionAge}"/>
+                                    <h:outputText value="#{orderDto.productPrice}"/>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="数量"/>
                                     </f:facet>
-                                    <h:outputText value="#{persion.jobIntention}"/>
+                                    <h:outputText value="#{orderDto.productAccount}"/>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="总金额"/>
                                     </f:facet>
-                                    <h:outputText value="#{persion.contactTelephone}"/>
+                                    <h:outputText value="#{orderDto.productTotal}"/>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="订单状态"/>
                                     </f:facet>
-                                    <h:outputText value="#{persion.expectAddress}"/>
+                                    <h:outputText value="等待付款" rendered="#{orderDto.orderState==0}"/>
+                                    <h:outputText value="等待发货" rendered="#{orderDto.orderState==1}"/>
+                                    <h:outputText value="已经发货" rendered="#{orderDto.orderState==2}"/>
+                                    <h:outputText value="等待评价" rendered="#{orderDto.orderState==3}"/>
+                                    <h:outputText value="成功的订单" rendered="#{orderDto.orderState==4}"/>
+                                    <h:outputText value="取消的订单" rendered="#{orderDto.orderState==5}"/>
+                                    <br/>
+                                    <h:commandButton value="付款" rendered="#{orderDto.orderState==0}" action="#{enterpriseOrderController.toBuy()}">
+                                        <f:param value="#{orderDto.orderNo}" name="orderNo"/>
+                                    </h:commandButton>
+                                    <h:commandButton value="确认收货" rendered="#{orderDto.orderState==2}" action="#{enterpriseOrderController.confirmGoods()}">
+                                        <f:param value="#{orderDto.orderNo}" name="orderNo"/>
+                                    </h:commandButton>
+                                    <h:commandButton value="评价" rendered="#{orderDto.orderState==3}" action="#{enterpriseOrderController.toEvaluation()}">
+                                        <f:param value="#{orderDto.orderNo}" name="orderNo"/>
+                                    </h:commandButton>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="操作"/>
                                     </f:facet>
                                     <h:commandLink value="查看订单详情" >
-                                        <f:param value="#{user.id}" name="id"/>
-                                    </h:commandLink>
-                                    <br/>
-                                    <h:commandLink value="查看物流" >
-                                        <f:param value="#{user.id}" name="id"/>
+                                        <f:param value="#{orderDto.orderNo}" name="orderNo"/>
                                     </h:commandLink>
                                     <br/>
                                     <h:commandLink value="我要投诉" >
-                                        <f:param value="#{user.id}" name="id"/>
+                                        <f:param value="#{orderDto.orderNo}" name="orderNo"/>
                                     </h:commandLink>
                                     <br/>
-                                    <h:commandLink value="取消订单"  action="/pages/userManage/enterprise/back/enEnterprise/cancelOrder.xhtml">
-                                        <f:param value="#{user.id}" name="id"/>
-                                    </h:commandLink>
-                                    <br/>
-                                    <h:commandLink value="关闭物流" >
-                                        <f:param value="#{user.id}" name="id"/>
+                                    <h:commandLink value="取消订单" rendered="#{orderDto.orderState==0}" action="#{enterpriseOrderController.toCancelOrder()}">
+                                        <f:param value="#{orderDto.orderNo}" name="orderNo"/>
                                     </h:commandLink>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="其他"/>
                                     </f:facet>
-                                    <br/>
-                                    <h:commandLink value="评价"  action="/pages/userManage/enterprise/back/enEnterprise/evaluate.xhtml">
-                                        <f:param value="#{user.id}" name="id"/>
-                                    </h:commandLink>
-                                    <br/>
                                 </h:column>
                             </h:dataTable>
                         </div>
