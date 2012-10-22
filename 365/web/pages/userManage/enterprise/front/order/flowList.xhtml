@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head/>
+   
+    <h:body>
+        <h:form>
+            <div style="margin: 0 auto;width: 900px" >
+                <div>流程一 步骤:
+                    <div> 
+                        <h:commandButton value="买家下单" /> ->
+                        <h:commandButton value="买家付款" />    ->
+                         <h:commandButton value="卖家发货" />   ->
+                         <h:commandButton value="买家确认收货" />    ->
+                         <h:commandButton value="完成" />     
+                         
+                    
+                    </div>
+                
+                
+                </div> 
+                <br>  </br>
+                
+                 <div>流程二 步骤:
+                    <div> 
+                         <h:commandButton value="买家下单" /> ->
+                         <font color="red"><h:commandButton value="卖家发货" />   ->
+                        <h:commandButton value="买家付款" />    -></font>
+                         <h:commandButton value="买家确认收货" />    ->
+                         <h:commandButton value="完成" />    
+                    </div>
+                
+                </div> 
+                <br></br>
+                <br></br>
+                步骤对应的操作：
+                <br></br>
+                <h:commandButton value="买家下单" />：提交订单
+                <br></br>
+                
+                <h:commandButton value="买家付款" />：1.付款  2.取消订单
+                <br></br>
+                 <h:commandButton value="卖家发货" />：1卖家发货  2买家申请退款
+                 
+                 <br></br>
+                <h:commandButton value="买家确认收货"/>:1买家确认付款  2买家申请退款
+                <br></br>
+                <h:commandButton value="双方评价" />:好中差评价
+                
+                <div></div>
+                <br>  </br>
+                
+              
+                <br>  </br>
+                <div>选择流程:</div>    
+                
+                 <h:commandLink action="#{flowController.submitOrder}" value="选择流程一提交订单">
+                             <f:param name="flowno" value="1"></f:param>
+                 </h:commandLink>
+                
+                <br>  </br>
+                <div> 
+                <h:commandLink action="#{flowController.submitOrder}" value="选择流程二提交订单">
+                             <f:param name="flowno" value="2"></f:param>
+                 </h:commandLink></div> 
+           
+            </div>
+            <div style="margin-left: 500px;">
+               
+                <!--<h: commandButton action="# {orderController.submitOrder}"  value="提交订单" />-->
+            </div>
+        </h:form>
+    </h:body>
+
+
+</html>

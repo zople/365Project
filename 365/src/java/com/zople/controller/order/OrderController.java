@@ -44,7 +44,7 @@ public class OrderController implements Serializable {
      try{   
       OrderOrderinfo entity = new OrderOrderinfo();  
       
-      entity.setSaleAmount(subtotal);//销售部价
+      entity.setSaleAmount(subtotal);//销售总价
       orderServiceBeanLocal.SubmitOrder(entity,productId);
      
      }catch(Exception e){
