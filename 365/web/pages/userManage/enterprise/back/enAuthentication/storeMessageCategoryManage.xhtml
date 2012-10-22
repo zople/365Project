@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head/>
+    <h:body>
+        <h:form>
+            <p:panel header="*友情提醒：及时处理客户的留言信息，提升客户满意度，增强客户粘性" toggleable="true" id="panel">
+                <div class="store_content">
+                    <div class="store_content_top">
+                        <h:commandButton value="添加分类"></h:commandButton>
+                    </div>
+                    <div class="store_content_bottom">
+                        <h:dataTable value="#{persionController}" var="persion" border="1">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:selectManyCheckbox layout="pageDirection">
+                                        <f:selectItem itemLabel="" itemValue="false"/>
+                                    </h:selectManyCheckbox>
+                                </f:facet>
+                                <h:selectManyCheckbox layout="pageDirection">
+                                    <f:selectItem itemLabel="" itemValue="false"/>
+                                </h:selectManyCheckbox>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="序号"/>
+                                </f:facet>
+                                <h:outputText value="1"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="操作"/>
+                                </f:facet>
+                                <h:commandLink value="编辑" >
+                                    <f:param value="#{user.id}" name="id"/>
+                                </h:commandLink>&nbsp;&nbsp;
+                                <h:commandLink value="删除" >
+                                    <f:param value="#{user.id}" name="id"/>
+                                </h:commandLink>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="类型名称"/>
+                                </f:facet>
+                                <h:outputText value="1111"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="添加日期"/>
+                                </f:facet>
+                                <h:outputText value="1111"/>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+                </div>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
