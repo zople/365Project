@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head/>
+    <h:body>
+        <h:form>
+            <p:panel header="*友情提醒：免费发布企业新闻，让前台用户多方面了解企业动态。信息发布以后，易得审核通过后将直接在前台显示" toggleable="true" id="panel">
+                <div class="store_content">
+                    <div class="store_news_title">
+                        新闻标题：
+                        <h:inputText />
+                    </div>
+                    <div class="store_news_content">
+                        新闻内容：
+                        <h:inputTextarea></h:inputTextarea>
+                    </div>
+                </div>
+                <div class="store_select">
+                    <h:commandButton value="仅保存"></h:commandButton>
+                    <h:commandButton value="保存并发布"></h:commandButton>
+                    <h:commandButton value="取消"></h:commandButton>
+                </div>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>

@@ -20,9 +20,7 @@
                 </p:menu>
                 <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
                     <p:submenu label="店铺管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
-                        <p:menuitem value="店面模版选择" url="/faces/pages/userManage/enterprise/back/enAuthentication/storeTemplate.xhtml" />
-                        <p:menuitem value="栏目设置" url="/faces/pages/userManage/enterprise/back/enAuthentication/columnSetting.xhtml" />
-                        <p:menuitem value="聊天工具设置" url="/faces/pages/userManage/enterprise/back/enAuthentication/chatSetting.xhtml" />
+                        <p:menuitem value="店铺设置" url="/faces/pages/userManage/enterprise/back/enAuthentication/storeSetting.xhtml" />
                         <p:menuitem value="店铺留言" url="/faces/pages/userManage/enterprise/back/enAuthentication/storeMessage.xhtml" />
                         <p:menuitem value="企业新闻" url="/faces/pages/userManage/enterprise/back/enAuthentication/enterpriseNews.xhtml" />
                     </p:submenu>
@@ -41,22 +39,22 @@
             </ui:define>
             <ui:define name="content">
                 <p:tabView orientation="top|bottom|left|right">
-                <p:tab title="基本信息">
-                      <ui:include src="/pages/userManage/enterprise/commons/companyBase.xhtml"/>
-                </p:tab>
-                <p:tab title="主营产品">
+                    <p:tab title="基本信息">
+                        <ui:include src="/pages/userManage/enterprise/commons/companyBase.xhtml"/>
+                    </p:tab>
+                    <p:tab title="主营产品">
                         <ui:include src="/pages/userManage/enterprise/commons/companyMain.xhtml"/>
-                </p:tab>
-                <p:tab title="企业图片">
-                    <h:panelGrid columns="2" cellpadding="10">
-                        <ui:include src="/pages/userManage/enterprise/commons/companyImages.xhtml"/>
-                    </h:panelGrid>
-                </p:tab>
-                <p:tab title="联系人信息">
+                    </p:tab>
+                    <p:tab title="企业图片">
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <ui:include src="/pages/userManage/enterprise/commons/companyImages.xhtml"/>
+                        </h:panelGrid>
+                    </p:tab>
+                    <p:tab title="联系人信息">
                         <!--<p:graphicImage value="/images/godfather/godfather3.jpg" />-->
                         <ui:include src="/pages/userManage/enterprise/commons/companyLinkMen.xhtml"/>
-                </p:tab>
-            </p:tabView>
+                    </p:tab>
+                </p:tabView>
             </ui:define>
         </ui:composition>
     </h:body>
