@@ -57,6 +57,8 @@ public class OrderAudit implements Serializable {
     private String orderno;
     @Column(name = "audit_state")
     private Integer auditState;
+    @Column(name = "action_code")
+    private String actionCode;
     @Size(max = 100)
     @Column(name = "audit_content")
     private String auditContent;
@@ -110,6 +112,16 @@ public class OrderAudit implements Serializable {
     public void setAuditContent(String auditContent) {
         this.auditContent = auditContent;
     }
+
+    public String getActionCode() {
+        return actionCode;
+    }
+
+    public void setActionCode(String actionCode) {
+        this.actionCode = actionCode;
+    }
+    
+    
 
     public Date getAuditTime() {
         return auditTime;
