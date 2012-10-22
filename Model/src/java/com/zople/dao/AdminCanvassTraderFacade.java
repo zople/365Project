@@ -5,7 +5,6 @@
 package com.zople.dao;
 
 import com.zople.domain.AdminCanvassTrader;
-import com.zople.domain.EnNews;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

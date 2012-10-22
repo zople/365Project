@@ -51,7 +51,7 @@ public class LoginController implements Serializable {
         if (password.equals(userInfo.getPassword())) {
             HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
             SessionUser user = new SessionUser();
-            user.setId(password);
+            user.setId("11111111111111");
             user.setIdentifier(userInfo.getId().toString());
             session.setAttribute(SessionUserHelper.USER_SESSION_KEY, user);
             login = true;

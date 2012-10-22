@@ -34,27 +34,24 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "TblImage.findByName", query = "SELECT t FROM TblImage t WHERE t.name = :name"),
     @NamedQuery(name = "TblImage.findByTitle", query = "SELECT t FROM TblImage t WHERE t.title = :title")})
 public class TblImage implements Serializable {
+    @Column(name = "small")
+    private byte[] small;
+    @Column(name = "middle")
+    private byte[] middle;
+    @Column(name = "big")
+    private byte[] big;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "id")
     private Long id;
-    @Lob
-    @Column(name = "big")
-    private byte[] big;
     @Size(max = 20)
     @Column(name = "image_type")
     private String imageType;
-    @Lob
-    @Column(name = "middle")
-    private byte[] middle;
     @Size(max = 200)
     @Column(name = "name")
     private String name;
-    @Lob
-    @Column(name = "small")
-    private byte[] small;
     @Size(max = 200)
     @Column(name = "title")
     private String title;
@@ -76,14 +73,6 @@ public class TblImage implements Serializable {
         this.id = id;
     }
 
-    public byte[] getBig() {
-        return big;
-    }
-
-    public void setBig(byte[] big) {
-        this.big = big;
-    }
-
     public String getImageType() {
         return imageType;
     }
@@ -92,28 +81,12 @@ public class TblImage implements Serializable {
         this.imageType = imageType;
     }
 
-    public byte[] getMiddle() {
-        return middle;
-    }
-
-    public void setMiddle(byte[] middle) {
-        this.middle = middle;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public byte[] getSmall() {
-        return small;
-    }
-
-    public void setSmall(byte[] small) {
-        this.small = small;
     }
 
     public String getTitle() {
@@ -156,6 +129,30 @@ public class TblImage implements Serializable {
     @Override
     public String toString() {
         return "com.zople.dal.domain.TblImage[ id=" + id + " ]";
+    }
+
+    public byte[] getSmall() {
+        return small;
+    }
+
+    public void setSmall(byte[] small) {
+        this.small = small;
+    }
+
+    public byte[] getMiddle() {
+        return middle;
+    }
+
+    public void setMiddle(byte[] middle) {
+        this.middle = middle;
+    }
+
+    public byte[] getBig() {
+        return big;
+    }
+
+    public void setBig(byte[] big) {
+        this.big = big;
     }
     
 }
