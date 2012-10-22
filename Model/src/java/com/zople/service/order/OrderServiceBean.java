@@ -36,21 +36,23 @@ public class OrderServiceBean implements OrderServiceBeanLocal {
     @Override
     public String SubmitOrder(OrderOrderinfo entity,long productId) {
           
+        productId=1222l;
          try{
         //保存订单信息
         entity.setOrderNo(ServiceUtils.getOrderUuId());//生成订单编号
-        entity.setId(productId); 
+        //entity.setId(productId); 
+        entity.setOrderState("0");
         orderinfoFacade.create(entity);
         
        //供应产品信息取数保存到订单产品
         OrderOrderproduct orderOrderproduct = new OrderOrderproduct();
-        orderOrderproduct.setId(productId);
+        //orderOrderproduct.setId(productId);
         orderOrderproduct.setProductName("摄像头");
         orderproductFacade.create(orderOrderproduct);  
              
         //流程审核信息
         OrderAudit orderAudit = new OrderAudit();
-        orderAudit.setAuditId(productId);
+        //orderAudit.setAuditId(productId);
         orderAudit.setAuditState(new Integer(OrderStateEnum.ORDER_INITIAL_STATE.getCode()));//初始化状态
         orderAudit.setOrderno(entity.getOrderNo());
         orderAuditFacade.create(orderAudit); 
@@ -71,6 +73,20 @@ public class OrderServiceBean implements OrderServiceBeanLocal {
        
         
         return null;
+    }
+
+    @Override
+    public String updateOrderState(int order_id,String order_state) {
+       OrderOrderinfo entity = new OrderOrderinfo();
+    
+     Long orderId= new Long((long)order_id);
+      
+       entity=orderinfoFacade.find(orderId);
+       
+       entity.setOrderState(order_state);
+       
+       orderinfoFacade.edit(entity);
+       return null;
     }
 
   

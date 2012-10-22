@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head/>
+   
+    <h:body>
+        <h:form>
+            <div style="margin: 0 auto;width: 900px" >
+                <div>卖家发货||买家申请退款
+                    
+                    订单信息------------
+                    
+                    
+                    物流信息--------------
+                    
+                    <div> 
+                        <h:commandButton action="#{flowController.nextState(2)}" value="发货" /> 卖家按钮
+                         <h:commandButton action="#{flowController.nextState(3)}" value="申请退款" /> 买家按钮
+                        
+                    
+                    </div>
+                
+                </div> 
+                <br>  </br>
+            </div>
+           
+        </h:form>
+    </h:body>
+
+
+</html>

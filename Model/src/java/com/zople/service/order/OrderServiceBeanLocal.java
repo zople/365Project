@@ -19,6 +19,13 @@ public interface OrderServiceBeanLocal {
     
     /****/
     String SubmitOrder(OrderOrderinfo entity,long productId);
+    
+    /**
+     * 修改订单状态
+     * @param order_id
+     * @return 
+     */
+    public String updateOrderState(int order_id,String order_state);
 
     
 }

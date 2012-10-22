@@ -13,6 +13,7 @@ import com.zople.dao.EnNewsFacade;
 import com.zople.dao.MachiningFacade;
 import com.zople.dao.SupplyFacade;
 import com.zople.dao.TblUserFacade;
+import com.zople.dao.order.OrderinfoFacade;
 import com.zople.domain.AdminCanvassTrader;
 import com.zople.domain.Buy;
 import com.zople.domain.Contact;
@@ -20,6 +21,7 @@ import com.zople.domain.EnEnterprise;
 import com.zople.domain.EnMoney;
 import com.zople.domain.EnNews;
 import com.zople.domain.Machining;
+import com.zople.domain.OrderOrderinfo;
 import com.zople.domain.Supply;
 import com.zople.domain.TblUser;
 import com.zople.service.EnEnterpriseService;
@@ -135,5 +137,12 @@ public class GetDateManagedBean implements Serializable {
         return mFacade.getMoneyList(0, 8);
    }
    
+   
+   //订单信息
+    @EJB
+    OrderinfoFacade orderinfoFacade;
+    public List<OrderOrderinfo> getOrderDataMax(){
+        return orderinfoFacade.getOrderDataMaxSize(0, 10);
+    }
    
 }
