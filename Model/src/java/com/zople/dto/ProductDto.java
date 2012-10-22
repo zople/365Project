@@ -11,19 +11,27 @@ import java.math.BigInteger;
  * @author Administrator
  */
 public class ProductDto {
-    private Long id;
-    private String name;
-    private String productType;
-    private String spec;
-    private Long minOrderAmount;
-    private Long inventoryAmount;
-    private Integer status;
-    private String specificationsPrice; 
-    private BigInteger speStockQuantity;
-    private int count;
-    private String enterpriseName;
-    private String contactName;
-    
+    private Long id;  //产品ＩＤ
+    private String name;  //产品名称
+    private String productType;   //产品类型
+    private String spec;    //产品规格
+    private Long minOrderAmount;  //最小订购量
+    private Long inventoryAmount;   //
+    private Integer status;      //
+    private String specificationsPrice;     //产品单价
+    private BigInteger speStockQuantity;    //产品库存量
+    private int count;   //订购数量
+    private String enterpriseName;  //企业名称
+    private String contactName;   //企业联系人名称
+    private Long enterpriseId;   //企业ID
+
+    public Long getEnterpriseId() {
+        return enterpriseId;
+    }
+
+    public void setEnterpriseId(Long enterpriseId) {
+        this.enterpriseId = enterpriseId;
+    }
 
     public Long getId() {
         return id;
@@ -121,3 +129,4 @@ public class ProductDto {
         this.contactName = contactName;
     }
 }
+
