@@ -9,10 +9,13 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -37,17 +40,26 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "MerchantsInfo.findByCreator", query = "SELECT m FROM MerchantsInfo m WHERE m.creator = :creator"),
     @NamedQuery(name = "MerchantsInfo.findByUpdateUser", query = "SELECT m FROM MerchantsInfo m WHERE m.updateUser = :updateUser"),
     @NamedQuery(name = "MerchantsInfo.findByUpdateTime", query = "SELECT m FROM MerchantsInfo m WHERE m.updateTime = :updateTime"),
+    @NamedQuery(name = "MerchantsInfo.findByEnterpriseId", query = "SELECT m FROM MerchantsInfo m WHERE m.enterpriseId = :enterpriseId"),
+    @NamedQuery(name = "MerchantsInfo.findByentErpriseContactId", query = "SELECT m FROM MerchantsInfo m WHERE m.enterpriseContactId = :enterpriseContactId"),
     @NamedQuery(name = "MerchantsInfo.findByCreateTime", query = "SELECT m FROM MerchantsInfo m WHERE m.createTime = :createTime")})
+   
 public class MerchantsInfo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
+    @TableGenerator(name="MERCHANTSINFO_GEN",table="TBL_PRIMARY_KEY_GENERATOR",pkColumnName="KEY",valueColumnName="VALUE",pkColumnValue="MERCHANTSINFO_ID",allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.TABLE, generator="MERCHANTSINFO_GEN")
     @Column(name = "merchants_info_id")
     private Long merchantsInfoId;
     @Size(max = 100)
-    @Column(name = "merchants_title")
+    @Column(name = "merchants_title")    
     private String merchantsTitle;
+    @Column(name = "enterprise_id")
+    private Long enterpriseId;
+    @Column(name = "enterprise_contact_id")
+    private Long enterpriseContactId;
     @Column(name = "merchants_type")
     private Integer merchantsType;
     @Size(max = 100)
@@ -64,7 +76,7 @@ public class MerchantsInfo implements Serializable {
     private String productPackage;
     @Size(max = 100)
     @Column(name = "product_spe")
-    private String productSpe;
+    private String productSpe;   
     @Size(max = 50)
     @Column(name = "creator")
     private String creator;
@@ -77,7 +89,7 @@ public class MerchantsInfo implements Serializable {
     @Column(name = "create_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
-
+    
     public MerchantsInfo() {
     }
 
@@ -180,6 +192,23 @@ public class MerchantsInfo implements Serializable {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+
+    public Long getEnterpriseId() {
+        return enterpriseId;
+    }
+
+    public void setEnterpriseId(Long enterpriseId) {
+        this.enterpriseId = enterpriseId;
+    }
+
+    public Long getEnterpriseContactId() {
+        return enterpriseContactId;
+    }
+
+    public void setEnterpriseContactId(Long enterpriseContactId) {
+        this.enterpriseContactId = enterpriseContactId;
+    }
+
 
     @Override
     public int hashCode() {
