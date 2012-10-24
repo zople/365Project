@@ -7,78 +7,35 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head/>
     <h:body>
-        <ui:composition template="/pages/userManage/enterprise/template/enterprise.xhtml">
-            <ui:define name="left">
-                <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
-                    <p:submenu label="企业信息管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
-                        <p:menuitem value="基本信息" url="#" />
-                        <p:menuitem value="主营产品" url="#" />
-                        <p:menuitem value="企业图片" url="#" />
-                        <p:menuitem value="联系人信息" url="#" />
-                    </p:submenu>
-                </p:menu>
-                <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
-                    <p:submenu label="店铺管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
-                        <p:menuitem value="店面模版选择" url="/faces/pages/userManage/enterprise/back/enAuthentication/storeTemplate.xhtml" />
-                        <p:menuitem value="栏目设置" url="/faces/pages/userManage/enterprise/back/enAuthentication/columnSetting.xhtml" />
-                        <p:menuitem value="聊天工具设置" url="/faces/pages/userManage/enterprise/back/enAuthentication/chatSetting.xhtml" />
-                        <p:menuitem value="店铺留言" url="/faces/pages/userManage/enterprise/back/enAuthentication/storeMessage.xhtml" />
-                        <p:menuitem value="企业新闻" url="/faces/pages/userManage/enterprise/back/enAuthentication/enterpriseNews.xhtml" />
-                    </p:submenu>
-                </p:menu>
-                <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
-                    <p:submenu label="店铺统计信息" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
-                    </p:submenu>
-                </p:menu>
-                <p:menu style="background-image: url('/resources/images/1.png'); background-color: #ffffff;; margin-bottom: 4px; width: 190px;">
-                    <p:submenu label="账户管理" style="background-image: url('/resources/images/1.png');background-color: #c9edf9; color:  #006a8c">
-                        <p:menuitem value="我的五金宝" url="/faces/pages/userManage/enterprise/back/enAuthentication/myAccount.xhtml" />
-                        <p:menuitem value="我的积分" url="/faces/pages/userManage/enterprise/back/enAuthentication/myIntegral.xhtml" />
-                        <p:menuitem value="账户修改" url="/faces/pages/userManage/enterprise/back/enAuthentication/accountModify.xhtml" />
-                    </p:submenu>
-                </p:menu>
-            </ui:define>
-            <ui:define name="content">
-                <h:form>
-                    <div class="store">
-                        <div class="template1">
-                            <h:commandButton action="#{storeController.tab('storeTemplate')}" value="店面模板选择" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 5px">
-                            </h:commandButton>
-                            <h:commandButton action="#{storeController.tab('columnSetting')}" value="栏目设置" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 15px">
-                            </h:commandButton>
-                            <h:commandButton action="#{storeController.tab('chatSetting')}" value="聊天工具设置" style="width: 130px; height: 30px; background-color: #66ffff; text-align: center; font-size: 16px; margin-top: 5px; margin-left: 15px">
-                            </h:commandButton>
-                        </div>
-                        <div class="store_top">*友情提醒：个性化定制企业模版显示栏目，更符合您的实际需要</div>
-                        <div class="store_content">
-                            <h:dataTable value="#{persionController}" var="persion" border="1">
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="栏目名称"/>
-                                    </f:facet>
-                                    <h:outputText value="1111"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="是否显示"/>
-                                    </f:facet>
-                                    <h:outputText value="1111"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="状态"/>
-                                    </f:facet>
-                                    <h:outputText value="1111"/>
-                                </h:column>
-                            </h:dataTable>
-                        </div>
-                        <div class="store_select">
-                            <h:commandButton value="保存"></h:commandButton>
-                            <h:commandButton value="取消"></h:commandButton>
-                        </div>
-                    </div>
-                </h:form>
-            </ui:define>
-        </ui:composition>
+        <h:form>
+            <p:panel header="*友情提醒：个性化定制企业模版显示栏目，更符合您的实际需要" toggleable="true" id="panel">
+                <div class="store_content">
+                    <h:dataTable value="#{persionController}" var="persion" border="1">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="栏目名称"/>
+                            </f:facet>
+                            <h:outputText value="1111"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="是否显示"/>
+                            </f:facet>
+                            <h:outputText value="1111"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="状态"/>
+                            </f:facet>
+                            <h:outputText value="1111"/>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+                <div class="store_select">
+                    <h:commandButton value="保存"></h:commandButton>
+                    <h:commandButton value="取消"></h:commandButton>
+                </div>
+            </p:panel>
+        </h:form>
     </h:body>
 </html>
