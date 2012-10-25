@@ -62,9 +62,12 @@
         </select></td>
     </tr>
   <tr>
-    <td><label>
-      <input type="submit" name="Submit" value="下一步:填写招商信息" />
-    </label></td>
+    <td>
+        <h:form>
+            
+      <h:commandButton action="#{MerchantController.goToStepThree}" value="下一步:填写产品信息" />        </h:form>
+
+    </td>
     </tr>
 </table>
 </form>

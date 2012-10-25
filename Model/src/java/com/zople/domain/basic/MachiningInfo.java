@@ -9,10 +9,13 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -35,12 +38,16 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "MachiningInfo.findByCreator", query = "SELECT m FROM MachiningInfo m WHERE m.creator = :creator"),
     @NamedQuery(name = "MachiningInfo.findByUpdateUser", query = "SELECT m FROM MachiningInfo m WHERE m.updateUser = :updateUser"),
     @NamedQuery(name = "MachiningInfo.findByUpdateTime", query = "SELECT m FROM MachiningInfo m WHERE m.updateTime = :updateTime"),
-    @NamedQuery(name = "MachiningInfo.findByCreateTime", query = "SELECT m FROM MachiningInfo m WHERE m.createTime = :createTime")})
+    @NamedQuery(name = "MachiningInfo.findByCreateTime", query = "SELECT m FROM MachiningInfo m WHERE m.createTime = :createTime"),
+    @NamedQuery(name = "MachiningInfo.findByEnterpriseContactId", query = "SELECT m FROM MachiningInfo m WHERE m.enterpriseContactId = :enterpriseContactId"),
+    @NamedQuery(name = "MachiningInfo.findByEnterpriseId", query = "SELECT m FROM MachiningInfo m WHERE m.enterpriseId = :enterpriseId")})
 public class MachiningInfo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
+    @TableGenerator(name="MACHININGINFO_GEN",table="TBL_PRIMARY_KEY_GENERATOR",pkColumnName="KEY",valueColumnName="VALUE",pkColumnValue="MACHININGINFO_ID",allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.TABLE, generator="MACHININGINFO_GEN")
     @Column(name = "machining_info_id")
     private Long machiningInfoId;
     @Size(max = 100)
@@ -69,6 +76,26 @@ public class MachiningInfo implements Serializable {
     @Column(name = "create_time")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
+    @Column(name = "enterprise_id")
+    private Long enterpriseId;
+    @Column(name = "enterprise_contact_id")
+    private Long enterpriseContactId;
+    public Long getEnterpriseId() {
+        return enterpriseId;
+    }
+
+    public void setEnterpriseId(Long enterpriseId) {
+        this.enterpriseId = enterpriseId;
+    }
+
+    public Long getEnterpriseContactId() {
+        return enterpriseContactId;
+    }
+
+    public void setEnterpriseContactId(Long enterpriseContactId) {
+        this.enterpriseContactId = enterpriseContactId;
+    }
+   
 
     public MachiningInfo() {
     }
