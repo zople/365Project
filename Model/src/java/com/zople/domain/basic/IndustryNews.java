@@ -9,10 +9,13 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -37,12 +40,14 @@ import javax.validation.constraints.Size;
 public class IndustryNews implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @TableGenerator(name="INDUSTRYNEWS_GEN",table="TBL_PRIMARY_KEY_GENERATOR",pkColumnName="KEY",valueColumnName="VALUE",pkColumnValue="INDUSTRYNEWS_ID",allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.TABLE, generator="INDUSTRYNEWS_GEN")
     @Basic(optional = false)
     @NotNull
     @Column(name = "industry_news_id")
     private Long industryNewsId;
     @Column(name = "news_type")
-    private Integer newsType;
+    private Long newsType;
     @Size(max = 100)
     @Column(name = "news_title")
     private String newsTitle;
@@ -77,11 +82,11 @@ public class IndustryNews implements Serializable {
         this.industryNewsId = industryNewsId;
     }
 
-    public Integer getNewsType() {
+    public Long getNewsType() {
         return newsType;
     }
 
-    public void setNewsType(Integer newsType) {
+    public void setNewsType(Long newsType) {
         this.newsType = newsType;
     }
 

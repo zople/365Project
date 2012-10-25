@@ -40,4 +40,6 @@ public class IndustryNewsFacade extends AbstractFacade<IndustryNews>{
         queryquery = em.createQuery(sql);
         return queryquery.getResultList();
     }
+    
+    
 }
